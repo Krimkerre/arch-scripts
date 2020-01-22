@@ -23,7 +23,6 @@ ahostname='arch'
 drive='/dev/vda'
 # Change to the default terminal font
 deffnt='gr928-8x16-thin'
-
 ######################################################################################
 
 ##### Partition the drive ############################################################
@@ -35,6 +34,15 @@ mkfs.ext4 ${drive}2
 #BIOS Partition
 #parted ${drive} mklabel msdos mkpart primary ext4 2MiB 100% set 1 boot on
 #mkfs.ext4 ${drive}1
+mount ${drive}2 /mnt
+mkdir /mnt/boot
+mount ${drive}1 /mnt/boot
+######################################################################################
+
+##### Install base packages ##########################################################
+pacstrap /mnt base base-devel linux linux-firmware nano networkmanager grub efibootmgr
+######################################################################################
+
 
 echo "################################################################################"
 echo "### Install of Arch Completed                                                ###"
