@@ -29,9 +29,7 @@ deffnt='gr928-8x16-thin'
 ##### Partition the drive ############################################################
 sgdisk -Z ${drive}
 #UEFI Partition
-parted mkpart ${drive} fat32 1MiB 301MiB
-parted set 1 esp on
-parted mkpart ${drive} ext4 301MiB 100%
+parted ${drive} mkpart primary fat32 1MiB 301MiB set 1 esp on mkpart primary ext4 301MiB 100%
 #BIOS Partition
 
 echo "################################################################################"
