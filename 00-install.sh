@@ -30,8 +30,11 @@ deffnt='gr928-8x16-thin'
 sgdisk -Z ${drive}
 #UEFI Partition
 parted ${drive} mklabel gpt mkpart primary fat32 1MiB 301MiB set 1 esp on mkpart primary ext4 301MiB 100%
+mkfs.fat -F32 ${drive}1
+mkfs.ext4 ${drive}2
 #BIOS Partition
 #parted ${drive} mklabel msdos mkpart primary ext4 2MiB 100% set 1 boot on
+#mkfs.ext4 ${drive}1
 
 echo "################################################################################"
 echo "### Install of Arch Completed                                                ###"
