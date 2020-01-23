@@ -75,7 +75,7 @@ echo 'KEYMAP='"${akeymap}" > /mnt/etc/vconsole.conf
 sed -i "$ a FONT=${deffnt}" /mnt/etc/vconsole.conf
 #echo 'FONT='"${deffnt}" > /mnt/etc/vconsole.conf
 arch-chroot /mnt ln -sf /usr/share/zoneinfo/${timezne} /etc/localtime
-sed -i 's/'^#Color''Color'/g'
+sed -i 's/^#Color''Color' /mnt/etc/pacman.conf
 
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 echo "################################################################################"
