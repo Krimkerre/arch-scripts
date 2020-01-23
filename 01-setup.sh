@@ -19,53 +19,7 @@ echo "##########################################################################
 echo "### Setting makepkg to use all cores                                         ###"
 echo "################################################################################"
 sleep 2
-
-nc=$(grep -c ^processor /proc/cpuinfo)
-
-
-case $nc in
-
-    16)
-        echo "You have " $nc" cores."
-        echo "Changing the makeflags for "$nc" cores."
-        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j16"/g' /etc/makepkg.conf
-        echo "Changing the compression settings for "$nc" cores."
-        sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 16 -z -)/g' /etc/makepkg.conf
-        ;;
-    8)
-        echo "You have " $nc" cores."
-        echo "Changing the makeflags for "$nc" cores."
-        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j8"/g' /etc/makepkg.conf
-        echo "Changing the compression settings for "$nc" cores."
-        sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 8 -z -)/g' /etc/makepkg.conf
-        ;;
-    6)
-        echo "You have " $nc" cores."
-        echo "Changing the makeflags for "$nc" cores."
-        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j6"/g' /etc/makepkg.conf
-        echo "Changing the compression settings for "$nc" cores."
-        sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 6 -z -)/g' /etc/makepkg.conf
-        ;;
-    4)
-        echo "You have " $nc" cores."
-        echo "Changing the makeflags for "$nc" cores."
-        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j4"/g' /etc/makepkg.conf
-        echo "Changing the compression settings for "$nc" cores."
-        sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 4 -z -)/g' /etc/makepkg.conf
-        ;;
-    2)
-        echo "You have " $nc" cores."
-        echo "Changing the makeflags for "$nc" cores."
-        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j2"/g' /etc/makepkg.conf
-        echo "Changing the compression settings for "$nc" cores."
-        sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 2 -z -)/g' /etc/makepkg.conf
-        ;;
-    *)
-        echo "We do not know how many cores you have."
-        echo "Do it manually."
-        ;;
-
-esac
+export MAKEFLAGS=-j$(nproc)
 sleep 2
 
 clear
@@ -257,23 +211,12 @@ yay -S --noconfirm --needed --asdeps bauh
 
 clear
 echo "################################################################################"
-echo "Do you have a nVidia graphics card"
-echo "1) Yes"
-echo "2) No"
+echo "### Checking video card                                                      ###"
 echo "################################################################################"
-read case;
-
-case $case in
-    1)
-      echo "You selected Yes"
+if [[ $(lspci -k | grep VGA | grep -i nvidia) ]]; then
       sudo pacman -S --noconfirm --needed --asdeps nvidia nvidia-cg-toolkit nvidia-settings nvidia-utils lib32-nvidia-cg-toolkit lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia cuda ffnvcodec-headers lib32-libvdpau libxnvctrl pycuda-headers python-pycuda
       sudo pacman -R --noconfirm xf86-video-nouveau
-      ;;
-    2)
-      echo "You selected no"
-      ;;
-esac
-
+fi
 clear
 echo "################################################################################"
 echo "### Installation completed, please reboot when ready to enter your GUI       ###"
