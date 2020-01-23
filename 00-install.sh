@@ -72,7 +72,8 @@ echo "LANG=${alocale}" > /mnt/etc/locale.conf
 echo "${ahostname}" > /mnt/etc/hostname
 sed -i 's/^#\ \(%wheel\ ALL=(ALL)\ NOPASSWD:\ ALL\)/\1/' /mnt/etc/sudoers
 echo 'KEYMAP='"${akeymap}" > /mnt/etc/vconsole.conf
-echo 'FONT='"${deffnt}" > /mnt/etc/vconsole.conf
+sudo sed -i "$ a FONT=${deffnt}" /etc/vconsole.conf
+#echo 'FONT='"${deffnt}" > /mnt/etc/vconsole.conf
 arch-chroot /mnt ln -sf /usr/share/zoneinfo/${timezne} /etc/localtime
 
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
