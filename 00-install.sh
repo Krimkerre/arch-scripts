@@ -26,6 +26,9 @@ drive='/dev/vda'
 deffnt='gr928-8x16-thin'
 # Change the timezones
 timezne='America/Los_Angeles'
+rpwd='rootpassword'
+usrname='username'
+usrpwd='userpassword'
 ######################################################################################
 timedatectl set-ntp true
 
@@ -82,6 +85,12 @@ sed -i '/^#\[multilib\]/{
   s/^#\(\[multilib\]\n\)#\(Include\ .\+\)/\1\2/
 }' /mnt/etc/pacman.conf
 sed -i 's/\#\[multilib\]/\[multilib\]'/g /mnt/etc/pacman.conf
+#######################################################################################
+
+##### Setup users and passwords #######################################################
+arch-chroot /mnt passwd ${rpwd}
+arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash ${usrname}
+arch-chroot /mnt passwd ${usrpwd}
 
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 echo "################################################################################"
