@@ -27,7 +27,7 @@ echo "##########################################################################
 echo "### Setting up fastest repos                                                 ###"
 echo "################################################################################"
 sleep 2
-sudo pacman -S reflector --noconfirm --needed --asdeps
+sudo pacman -S reflector --noconfirm --needed
 sudo reflector --country us --latest 25 --sort rate --save /etc/pacman.d/mirrorlist
 
 clear
@@ -36,11 +36,11 @@ echo "### Setting up needed packages                                            
 echo "################################################################################"
 sleep 2
 clear
-sudo pacman -Syyu --noconfirm --needed --asdeps
-sudo pacman -S --noconfirm --needed --asdeps neofetch git wget linux-headers rsync go htop openssh archlinux-wallpaper btrfs-progs
+sudo pacman -Syyu --noconfirm --needed
+sudo pacman -S --noconfirm --needed  neofetch git wget linux-headers rsync go htop openssh archlinux-wallpaper btrfs-progs
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si --noconfirm --needed --asdeps
+makepkg -si --noconfirm --needed
 cd ..
 rm yay -R -f
 
@@ -52,14 +52,14 @@ echo "##########################################################################
 echo "### Setting up sound                                                         ###"
 echo "################################################################################"
 sleep 2
-sudo pacman -S --noconfirm --needed --asdeps pulseaudio pulseaudio-alsa pavucontrol alsa-utils alsa-plugins alsa-lib alsa-firmware lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins gstreamer gst-plugins-good gst-plugins-bad gst-plugins-base gst-plugins-ugly volumeicon playerctl
+sudo pacman -S --noconfirm --needed  pulseaudio pulseaudio-alsa pavucontrol alsa-utils alsa-plugins alsa-lib alsa-firmware lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins gstreamer gst-plugins-good gst-plugins-bad gst-plugins-base gst-plugins-ugly volumeicon playerctl
 
 clear
 echo "################################################################################"
 echo "### Installing and setting up bluetooth                                      ###"
 echo "################################################################################"
 sleep 2
-sudo pacman -S --noconfirm --needed --asdeps pulseaudio-bluetooth bluez bluez-libs bluez-utils bluez-plugins blueberry bluez-tools bluez-cups
+sudo pacman -S --noconfirm --needed  pulseaudio-bluetooth bluez bluez-libs bluez-utils bluez-plugins blueberry bluez-tools bluez-cups
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 sudo sed -i 's/'#AutoEnable=false'/'AutoEnable=true'/g' /etc/bluetooth/main.conf
@@ -69,8 +69,8 @@ echo "##########################################################################
 echo "### Installing and setting up printers                                       ###"
 echo "################################################################################"
 sleep 2
-sudo pacman -S --noconfirm --needed --asdeps cups cups-pdf ghostscript gsfonts gutenprint gtk3-print-backends libcups hplip system-config-printer foomatic-db foomatic-db-ppds foomatic-db-gutenprint-ppds foomatic-db-engine foomatic-db-nonfree foomatic-db-nonfree-ppds
-yay -S --noconfirm --needed --asdeps epson-inkjet-printer-201211w
+sudo pacman -S --noconfirm --needed  cups cups-pdf ghostscript gsfonts gutenprint gtk3-print-backends libcups hplip system-config-printer foomatic-db foomatic-db-ppds foomatic-db-gutenprint-ppds foomatic-db-engine foomatic-db-nonfree foomatic-db-nonfree-ppds
+yay -S --noconfirm --needed  epson-inkjet-printer-201211w
 sudo systemctl enable org.cups.cupsd.service
 
 clear
@@ -78,7 +78,7 @@ echo "##########################################################################
 echo "### Installing Samba and network sharing                                     ###"
 echo "################################################################################"
 sleep 2
-sudo pacman -S --noconfirm --needed --asdeps samba
+sudo pacman -S --noconfirm --needed  samba
 sudo wget "https://git.samba.org/samba.git/?p=samba.git;a=blob_plain;f=examples/smb.conf.default;hb=HEAD" -O /etc/samba/smb.conf
 sudo sed -i -r 's/MYGROUP/WORKGROUP/' /etc/samba/smb.conf
 sudo sed -i -r "s/Samba Server/$HOSTNAME/" /etc/samba/smb.conf
@@ -90,10 +90,10 @@ sudo systemctl start nmb.service
 sudo smbpasswd -a $(whoami)
 sleep 2
 #Access samba share windows
-sudo pacman -S --noconfirm --needed --asdeps gvfs-smb avahi
+sudo pacman -S --noconfirm --needed  gvfs-smb avahi
 sudo systemctl enable avahi-daemon.service
 sudo systemctl start avahi-daemon.service
-sudo pacman -S --noconfirm --needed --asdeps nss-mdns
+sudo pacman -S --noconfirm --needed  nss-mdns
 sudo sed -i 's/dns/mdns dns wins/g' /etc/nsswitch.conf
 #Set-up user sharing (disable this section if you dont want user shares)
 sudo mkdir -p /var/lib/samba/usershares
@@ -108,16 +108,16 @@ echo "##########################################################################
 echo "### Installing fix the unicode problem                                       ###"
 echo "################################################################################"
 sleep 2
-sudo pacman -S --noconfirm --needed --asdeps intel-ucode amd-ucode
+sudo pacman -S --noconfirm --needed  intel-ucode amd-ucode
 
 clear
 echo "################################################################################"
 echo "### Install and setup display manager and desktop                            ###"
 echo "################################################################################"
 sleep 2
-sudo pacman -S --noconfirm --needed --asdeps xorg xorg-drivers xorg-xinit xterm vulkan-intel vulkan-radeon lib32-vulkan-intel lib32-vulkan-radeon vkd3d lib32-vkd3d kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia opencl-mesa opencl-headers terminator
-sudo pacman -S --noconfirm --needed --asdeps lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings lightdm-webkit-theme-litarvan lightdm-webkit2-greeter
-yay -S --noconfirm --needed --asdeps lightdm-webkit2-theme-material2 lightdm-webkit-theme-aether lightdm-webkit-theme-userdock lightdm-webkit-theme-tendou lightdm-webkit-theme-wisp lightdm-webkit-theme-petrichor-git lightdm-webkit-theme-sequoia-git lightdm-webkit-theme-contemporary lightdm-webkit2-theme-sapphire lightdm-webkit2-theme-tty-git lightdm-webkit-theme-luminos lightdm-webkit2-theme-obsidian
+sudo pacman -S --noconfirm --needed  xorg xorg-drivers xorg-xinit xterm vulkan-intel vulkan-radeon lib32-vulkan-intel lib32-vulkan-radeon vkd3d lib32-vkd3d kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia opencl-mesa opencl-headers terminator
+sudo pacman -S --noconfirm --needed  lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings lightdm-webkit-theme-litarvan lightdm-webkit2-greeter
+yay -S --noconfirm --needed  lightdm-webkit2-theme-material2 lightdm-webkit-theme-aether lightdm-webkit-theme-userdock lightdm-webkit-theme-tendou lightdm-webkit-theme-wisp lightdm-webkit-theme-petrichor-git lightdm-webkit-theme-sequoia-git lightdm-webkit-theme-contemporary lightdm-webkit2-theme-sapphire lightdm-webkit2-theme-tty-git lightdm-webkit-theme-luminos lightdm-webkit2-theme-obsidian
 sudo systemctl enable lightdm.service -f
 sudo systemctl set-default graphical.target
 clear
@@ -141,58 +141,58 @@ read case;
 case $case in
     1)
       echo "You selected Deepin"
-      sudo pacman -S --noconfirm --needed --asdeps deepin deepin-extra gnome-disk-utility ark
+      sudo pacman -S --noconfirm --needed  deepin deepin-extra gnome-disk-utility ark
       ;;
     2)
       echo "You selected Gnome"
-      sudo pacman -S --noconfirm --needed --asdeps gdm gnome nautilus-share chrome-gnome-shell variety
+      sudo pacman -S --noconfirm --needed  gdm gnome nautilus-share chrome-gnome-shell variety
       #sudo systemctl enable gdm
       ;;
     3)
       echo "You selected KDE Plasma"
-      sudo pacman -S --noconfirm --needed --asdeps sddm plasma kde-applications gnome-disk-utility redshift kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia
+      sudo pacman -S --noconfirm --needed  sddm plasma kde-applications gnome-disk-utility redshift kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia
 #      sudo systemctl enable sddm
       ;;
     4)
       echo "You selected Mate"
-      sudo pacman -S --noconfirm --needed --asdeps mate mate-extra gnome-disk-utility
-      yay -S --noconfirm --needed --asdeps mugshot
+      sudo pacman -S --noconfirm --needed  mate mate-extra gnome-disk-utility
+      yay -S --noconfirm --needed  mugshot
       ;;
     5)
       echo "You selected XFCE4"
-      sudo pacman -S --noconfirm --needed --asdeps xfce4 xfce4-goodies gnome-disk-utility ark plank alacarte gnome-calculator picom
-      yay -S --noconfirm --needed --asdeps xfce4-screensaver
-      yay -S --noconfirm --needed --asdeps xfce4-panel-profiles
-      yay -S --noconfirm --needed --asdeps mugshot
-      yay -S --noconfirm --needed --asdeps compton-conf
-      #yay -S --noconfirm --needed --asdeps xfce-theme-manager
+      sudo pacman -S --noconfirm --needed  xfce4 xfce4-goodies gnome-disk-utility ark plank alacarte gnome-calculator picom
+      yay -S --noconfirm --needed  xfce4-screensaver
+      yay -S --noconfirm --needed  xfce4-panel-profiles
+      yay -S --noconfirm --needed  mugshot
+      yay -S --noconfirm --needed  compton-conf
+      #yay -S --noconfirm --needed  xfce-theme-manager
       ;;
     6)
       echo "You selected Budgie"
-      sudo pacman -S --noconfirm --needed --asdeps budgie-desktop budgie-extras gnome-system-monitor nautilus gnome-disk-utility gnome-control-center gnome-backgrounds gnome-calculator gedit
+      sudo pacman -S --noconfirm --needed  budgie-desktop budgie-extras gnome-system-monitor nautilus gnome-disk-utility gnome-control-center gnome-backgrounds gnome-calculator gedit
       ;;
     7)
       echo "You selected Cinnamon"
-      sudo pacman -S --noconfirm --needed --asdeps cinnamon gnome-disk-utility gnome-system-monitor gnome-calculator gpicview gedit
+      sudo pacman -S --noconfirm --needed  cinnamon gnome-disk-utility gnome-system-monitor gnome-calculator gpicview gedit
       ;;
     8)
       echo "You selected LXDE"
-      sudo pacman -S --noconfirm --needed --asdeps lxde gnome-disk-utility gnome-calculator gedit picom
-      yay -S --noconfirm --needed --asdeps mugshot
-      yay -S --noconfirm --needed --asdeps compton-conf
+      sudo pacman -S --noconfirm --needed  lxde gnome-disk-utility gnome-calculator gedit picom
+      yay -S --noconfirm --needed  mugshot
+      yay -S --noconfirm --needed  compton-conf
       ;;
     9)
       echo "You selected LXQT"
-      sudo pacman -S --noconfirm --needed --asdeps sddm lxqt gnome-disk-utility compton gnome-calculator gedit kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia
+      sudo pacman -S --noconfirm --needed  sddm lxqt gnome-disk-utility compton gnome-calculator gedit kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia
 #      sudo systemctl enable sddm
       ;;
     10)
       echo "You selected i3"
-      sudo pacman -S --noconfirm --needed --asdeps i3 gnome-disk-utility
+      sudo pacman -S --noconfirm --needed  i3 gnome-disk-utility
       ;;
     11)
       echo "You selected Coming Soon"
-      #sudo pacman -S --noconfirm --needed --asdeps
+      #sudo pacman -S --noconfirm --needed
       ;;
     12)
       echo "You selected none"
@@ -204,17 +204,17 @@ echo "##########################################################################
 echo "### Installing software center                                               ###"
 echo "################################################################################"
 sleep 2
-yay -S --noconfirm --needed --asdeps pamac-aur
-yay -S --noconfirm --needed --asdeps snapd-git
+yay -S --noconfirm --needed  pamac-aur
+yay -S --noconfirm --needed  snapd-git
 sudo systemctl enable snapd.service
-yay -S --noconfirm --needed --asdeps bauh
+yay -S --noconfirm --needed  bauh
 
 clear
 echo "################################################################################"
 echo "### Checking video card                                                      ###"
 echo "################################################################################"
 if [[ $(lspci -k | grep VGA | grep -i nvidia) ]]; then
-      sudo pacman -S --noconfirm --needed --asdeps nvidia nvidia-cg-toolkit nvidia-settings nvidia-utils lib32-nvidia-cg-toolkit lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia cuda ffnvcodec-headers lib32-libvdpau libxnvctrl pycuda-headers python-pycuda
+      sudo pacman -S --noconfirm --needed  nvidia nvidia-cg-toolkit nvidia-settings nvidia-utils lib32-nvidia-cg-toolkit lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia cuda ffnvcodec-headers lib32-libvdpau libxnvctrl pycuda-headers python-pycuda
       sudo pacman -R --noconfirm xf86-video-nouveau
 fi
 clear
