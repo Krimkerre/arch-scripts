@@ -88,9 +88,9 @@ sed -i 's/\#\[multilib\]/\[multilib\]'/g /mnt/etc/pacman.conf
 #######################################################################################
 
 ##### Setup users and passwords #######################################################
-arch-chroot /mnt passwd ${rpwd}
+arch-chroot /mnt passwd root ${rpwd}
 arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${usrname}"
-arch-chroot /mnt passwd ${usrpwd}
+arch-chroot /mnt passwd ${usrname} ${usrpwd}
 
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 echo "################################################################################"
