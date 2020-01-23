@@ -75,7 +75,7 @@ echo 'KEYMAP='"${archkeymap}" > /mnt/etc/vconsole.conf
 echo 'FONT='"${deffont}" > /mnt/etc/vconsole.conf
 arch-chroot /mnt ln -sf /usr/share/zoneinfo/${timezne} /etc/localtime
 
-
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 echo "################################################################################"
 echo "### Install of Arch Completed                                                ###"
 echo "################################################################################"
