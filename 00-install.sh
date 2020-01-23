@@ -54,7 +54,7 @@ pacstrap /mnt base base-devel linux linux-firmware nano networkmanager
 ##### Install a Bootloader ###########################################################
 if [[ -d /sys/firmware/efi/efivars ]]; then
   pacstrap /mnt grub efibootmgr
-  arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootload-id=GRUB
+  arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 else
   pacstrap /mnt grub
   arch-chroot /mnt grub-install --target=i386-pc ${drive}
