@@ -50,6 +50,7 @@ mount ${drive}1 /mnt/boot
 
 ##### Install base packages ##########################################################
 pacstrap /mnt base base-devel linux linux-firmware nano networkmanager
+genfstab -U /mnt >> /mnt/etc/fstab
 ######################################################################################
 
 ##### Install a Bootloader ###########################################################
