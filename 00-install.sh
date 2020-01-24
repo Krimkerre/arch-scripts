@@ -26,9 +26,7 @@ drive='/dev/vda'
 deffnt='gr928-8x16-thin'
 # Change the timezones
 timezne='America/Los_Angeles'
-rpwd='rootpassword'
 usrname='username'
-usrpwd='userpassword'
 ######################################################################################
 timedatectl set-ntp true
 
