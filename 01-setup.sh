@@ -120,7 +120,7 @@ sudo pacman -S --noconfirm --needed  lightdm lightdm-gtk-greeter lightdm-gtk-gre
 yay -S --noconfirm --needed  lightdm-webkit2-theme-material2 lightdm-webkit-theme-aether lightdm-webkit-theme-userdock lightdm-webkit-theme-tendou lightdm-webkit-theme-wisp lightdm-webkit-theme-petrichor-git lightdm-webkit-theme-sequoia-git lightdm-webkit-theme-contemporary lightdm-webkit2-theme-sapphire lightdm-webkit2-theme-tty-git lightdm-webkit-theme-luminos lightdm-webkit2-theme-obsidian
 sudo systemctl enable lightdm.service -f
 sudo systemctl set-default graphical.target
-sudo sed -i 's/'detect_theme_errors = true'/'detect_theme_errors = false'/g' /etc/lightdm/lightdm-webkit2-greeter.conf
+sudo sed -i 's/detect_theme_errors = true/detect_theme_errors = false' /etc/lightdm/lightdm-webkit2-greeter.conf
 clear
 echo "################################################################################"
 echo "What is your preferred desktop environment"
