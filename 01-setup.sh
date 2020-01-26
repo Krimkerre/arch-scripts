@@ -147,6 +147,7 @@ case $case in
       echo "You selected Gnome"
       sudo pacman -S --noconfirm --needed  gdm gnome nautilus-share chrome-gnome-shell variety
       #sudo systemctl enable gdm
+      sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
       ;;
     3)
       echo "You selected KDE Plasma"

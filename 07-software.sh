@@ -66,11 +66,11 @@ yay -S --noconfirm --needed  stacer
 yay -S --noconfirm --needed  mattercontrol
 yay -S --noconfirm --needed  olive
 yay -S --noconfirm --needed  discord
-yay -S --noconfirm --needed  freecad-appimage
 yay -S --noconfirm --needed  gamemode lib32-gamemode
 yay -S --noconfirm --needed  multibootusb-git
 yay -S --noconfirm --needed  ovmf
 yay -S --noconfirm --needed  libguestfs
+#yay -S --noconfirm --needed  freecad-appimage
 #yay -S --noconfirm --needed  protontricks
 #yay -S --noconfirm --needed  edex-ui-git
 #yay -S --noconfirm --needed  virtualbox-ext-oracle
