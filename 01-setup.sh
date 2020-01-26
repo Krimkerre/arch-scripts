@@ -142,22 +142,47 @@ case $case in
     1)
       echo "You selected Deepin"
       sudo pacman -S --noconfirm --needed  deepin deepin-extra gnome-disk-utility ark
+      sudo sed -i 's/'#user-session=default'/'user-session=deepin'/g' /etc/lightdm/lightdm.conf
       ;;
     2)
       echo "You selected Gnome"
       sudo pacman -S --noconfirm --needed  gdm gnome nautilus-share chrome-gnome-shell variety
       #sudo systemctl enable gdm
       sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
+      yay -S --noconfirm --needed  gnome-shell-extension-dash-to-dock
+      yay -S --noconfirm --needed  gnome-shell-extension-dash-to-panel-git
+      yay -S --noconfirm --needed  gnome-shell-extension-workspaces-to-dock
+      yay -S --noconfirm --needed  gnome-shell-extension-arc-menu-git
+      yay -S --noconfirm --needed  gnome-shell-extension-openweather-git
+      yay -S --noconfirm --needed  gnome-shell-extension-topicons-plus-git
+      yay -S --noconfirm --needed  gnome-shell-extension-audio-output-switcher-git
+      yay -S --noconfirm --needed  gnome-shell-extension-clipboard-indicator-git
+      yay -S --noconfirm --needed  gnome-shell-extension-coverflow-alt-tab-git
+      yay -S --noconfirm --needed  gnome-shell-extension-animation-tweaks-git
+      yay -S --noconfirm --needed  gnome-shell-extension-gamemode-git
+      #yay -S --noconfirm --needed  gnome-shell-extension-vitals
+      #yay -S --noconfirm --needed  gnome-shell-extension-drop-down-terminal-x
+      #yay -S --noconfirm --needed  gnome-shell-extension-dynamic-battery
+      #yay -S --noconfirm --needed  gnome-shell-extension-material-shell-git
+      #yay -S --noconfirm --needed  gnome-shell-extension-panel-osd
+      #yay -S --noconfirm --needed  gnome-shell-extension-slinger-git
+      #yay -S --noconfirm --needed  gnome-shell-extension-transparent-window-moving-git
+      #yay -S --noconfirm --needed  gnome-shell-extension-transparent-osd-git
+      #yay -S --noconfirm --needed  gnome-shell-extension-window-animations-git
+      #yay -S --noconfirm --needed  gnome-shell-extension-impatience-git
+      #yay -S --noconfirm --needed  gnome-appfolders-manager
       ;;
     3)
       echo "You selected KDE Plasma"
       sudo pacman -S --noconfirm --needed  sddm plasma kde-applications gnome-disk-utility redshift kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia
-#      sudo systemctl enable sddm
+      sudo sed -i 's/'#user-session=default'/'user-session=plasma'/g' /etc/lightdm/lightdm.conf
+      #sudo systemctl enable sddm
       ;;
     4)
       echo "You selected Mate"
       sudo pacman -S --noconfirm --needed  mate mate-extra gnome-disk-utility
       yay -S --noconfirm --needed  mugshot
+      sudo sed -i 's/'#user-session=default'/'user-session=mate'/g' /etc/lightdm/lightdm.conf
       ;;
     5)
       echo "You selected XFCE4"
@@ -167,29 +192,35 @@ case $case in
       yay -S --noconfirm --needed  mugshot
       yay -S --noconfirm --needed  compton-conf
       #yay -S --noconfirm --needed  xfce-theme-manager
+      sudo sed -i 's/'#user-session=default'/'user-session=xfce4'/g' /etc/lightdm/lightdm.conf
       ;;
     6)
       echo "You selected Budgie"
       sudo pacman -S --noconfirm --needed  budgie-desktop budgie-extras gnome-system-monitor nautilus gnome-disk-utility gnome-control-center gnome-backgrounds gnome-calculator gedit
+      sudo sed -i 's/'#user-session=default'/'user-session=budgie-desktop'/g' /etc/lightdm/lightdm.conf
       ;;
     7)
       echo "You selected Cinnamon"
       sudo pacman -S --noconfirm --needed  cinnamon gnome-disk-utility gnome-system-monitor gnome-calculator gpicview gedit
+      sudo sed -i 's/'#user-session=default'/'user-session=cinnamon'/g' /etc/lightdm/lightdm.conf
       ;;
     8)
       echo "You selected LXDE"
       sudo pacman -S --noconfirm --needed  lxde gnome-disk-utility gnome-calculator gedit picom
       yay -S --noconfirm --needed  mugshot
       yay -S --noconfirm --needed  compton-conf
+      sudo sed -i 's/'#user-session=default'/'user-session=lxde'/g' /etc/lightdm/lightdm.conf
       ;;
     9)
       echo "You selected LXQT"
       sudo pacman -S --noconfirm --needed  sddm lxqt gnome-disk-utility compton gnome-calculator gedit kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia
-#      sudo systemctl enable sddm
+      sudo sed -i 's/'#user-session=default'/'user-session=lxqt'/g' /etc/lightdm/lightdm.conf
+      #sudo systemctl enable sddm
       ;;
     10)
       echo "You selected i3"
       sudo pacman -S --noconfirm --needed  i3 gnome-disk-utility
+      sudo sed -i 's/'#user-session=default'/'user-session=i3'/g' /etc/lightdm/lightdm.conf
       ;;
     11)
       echo "You selected Coming Soon"
