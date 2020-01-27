@@ -46,7 +46,7 @@ else
   #BIOS Partition
   parted ${drive} mklabel msdos mkpart primary ext4 2MiB 100% set 1 boot on
   mkfs.ext4 ${drive}1
-  mount ${drive} /mnt
+  mount ${drive}1 /mnt
 fi
 ######################################################################################
 
