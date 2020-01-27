@@ -37,12 +37,13 @@ echo "##########################################################################
 sleep 2
 clear
 sudo pacman -Syyu --noconfirm --needed
-sudo pacman -S --noconfirm --needed  neofetch git wget linux-headers rsync go htop openssh archlinux-wallpaper btrfs-progs
+sudo pacman -S --noconfirm --needed  neofetch git wget linux-headers rsync go htop openssh archlinux-wallpaper btrfs-progs grub-customizer
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm --needed
 cd ..
 rm yay -R -f
+yay -S --noconfirm --needed grub-theme-creator
 
 sed -i '$ a if [ -f /usr/bin/neofetch ]; then neofetch; fi' /home/$(whoami)/.bashrc
 echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/99-sysctl.conf
@@ -181,8 +182,10 @@ case $case in
       ;;
     4)
       echo "You selected Mate"
-      sudo pacman -S --noconfirm --needed  mate mate-extra gnome-disk-utility
+      sudo pacman -S --noconfirm --needed  mate mate-extra gnome-disk-utility variety
       yay -S --noconfirm --needed  mugshot
+      yay -S --noconfirm --needed  mate-tweak
+      yay -S --noconfirm --needed  brisk-menu
       sudo sed -i 's/'#user-session=default'/'user-session=mate'/g' /etc/lightdm/lightdm.conf
       ;;
     5)
