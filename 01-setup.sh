@@ -200,24 +200,24 @@ case $case in
       ;;
     6)
       echo "You selected Budgie"
-      sudo pacman -S --noconfirm --needed  budgie-desktop budgie-extras gnome-system-monitor nautilus gnome-disk-utility gnome-control-center gnome-backgrounds gnome-calculator gedit
+      sudo pacman -S --noconfirm --needed  budgie-desktop budgie-extras gnome-system-monitor nautilus gnome-disk-utility gnome-control-center gnome-backgrounds gnome-calculator gedit variety
       sudo sed -i 's/'#user-session=default'/'user-session=budgie-desktop'/g' /etc/lightdm/lightdm.conf
       ;;
     7)
       echo "You selected Cinnamon"
-      sudo pacman -S --noconfirm --needed  cinnamon gnome-disk-utility gnome-system-monitor gnome-calculator gpicview gedit
+      sudo pacman -S --noconfirm --needed  cinnamon gnome-disk-utility gnome-system-monitor gnome-calculator gpicview gedit variety
       sudo sed -i 's/'#user-session=default'/'user-session=cinnamon'/g' /etc/lightdm/lightdm.conf
       ;;
     8)
       echo "You selected LXDE"
-      sudo pacman -S --noconfirm --needed  lxde gnome-disk-utility gnome-calculator gedit picom
+      sudo pacman -S --noconfirm --needed  lxde gnome-disk-utility gnome-calculator gedit picom variety
       yay -S --noconfirm --needed  mugshot
       yay -S --noconfirm --needed  compton-conf
       sudo sed -i 's/'#user-session=default'/'user-session=lxde'/g' /etc/lightdm/lightdm.conf
       ;;
     9)
       echo "You selected LXQT"
-      sudo pacman -S --noconfirm --needed  sddm lxqt gnome-disk-utility compton gnome-calculator gedit kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia
+      sudo pacman -S --noconfirm --needed  sddm lxqt gnome-disk-utility compton gnome-calculator gedit kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia variety
       sudo sed -i 's/'#user-session=default'/'user-session=lxqt'/g' /etc/lightdm/lightdm.conf
       #sudo systemctl enable sddm
       ;;
