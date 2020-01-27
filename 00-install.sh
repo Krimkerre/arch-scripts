@@ -69,7 +69,7 @@ fi
 arch-chroot /mnt systemctl enable NetworkManager
 ln -sf /run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf
 arch-chroot /mnt systemctl enable systemd-resolved
-pacstrap /mnt man-db man-pages
+pacstrap /mnt man-db man-pages git
 sed -i "s/^#\(${alocale}\)/\1/" /mnt/etc/locale.gen
 arch-chroot /mnt locale-gen
 echo "LANG=${alocale}" > /mnt/etc/locale.conf
