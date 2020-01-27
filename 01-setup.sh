@@ -43,7 +43,7 @@ cd yay
 makepkg -si --noconfirm --needed
 cd ..
 rm yay -R -f
-yay -S --noconfirm --needed grub-theme-creator
+yay -S --noconfirm --needed grub-theme-creator grub-hook grub-theme-midna grub-theme-slaze-git grub-theme-vimix breeze-grub grub-theme-stylish-git grub-theme-tela-git grub-themes-solarized-dark-materialized arch-silence-grub-theme-git grub2-theme-archlinux grub2-theme-archxion grub2-theme-arch-leap grub2-theme-arch-suse grub2-theme-dharma-mod puzzle-bobble-grub2-theme
 
 sed -i '$ a if [ -f /usr/bin/neofetch ]; then neofetch; fi' /home/$(whoami)/.bashrc
 echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/99-sysctl.conf
