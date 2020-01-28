@@ -44,6 +44,7 @@ sudo pacman -S --noconfirm --needed  libreoffice-fresh
 sudo pacman -S --noconfirm --needed  dconf-editor
 sudo pacman -S --noconfirm --needed  virt-manager
 sudo pacman -S --noconfirm --needed  ebtables iptables
+sudo pacman -S --noconfirm --needed  dnsmasq
 sudo systemctl enable libvirtd.service
 sudo systemctl enable virtlogd.service
 sudo pacman -S --noconfirm --needed  pacmanlogviewer

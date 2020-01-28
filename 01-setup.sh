@@ -44,7 +44,7 @@ case $numberofcores in
         sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j7"/g' /etc/makepkg.conf
         echo "Changing the compression settings for "$numberofcores" cores."
         sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 6 -z -)/g' /etc/makepkg.conf
-        ;;       
+        ;;
     4)
         echo "You have " $numberofcores" cores."
         echo "Changing the makeflags for "$numberofcores" cores."
@@ -228,7 +228,7 @@ case $case in
       ;;
     4)
       echo "You selected Mate"
-      sudo pacman -S --noconfirm --needed  mate mate-extra gnome-disk-utility variety
+      sudo pacman -S --noconfirm --needed  mate mate-extra gnome-disk-utility variety plank
       yay -S --noconfirm --needed  mugshot
       yay -S --noconfirm --needed  mate-tweak
       yay -S --noconfirm --needed  brisk-menu
