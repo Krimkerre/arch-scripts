@@ -59,7 +59,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 if [[ -d /sys/firmware/efi/efivars ]]; then
   arch-chroot /mnt bootctl install
   #arch-chroot /mnt blkid | sed -n '/${drive}2/s/.*UUID=\"\([^\"]*\)\".*/\1/p'
-  arch-chroot /mnt partid=$(blkid -s UUID -o value /dev/${drive})
+  partid=$(blkid -s UUID -o value /dev/${drive})
   echo ${pardid}
   quit
 else
