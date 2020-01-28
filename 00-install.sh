@@ -58,12 +58,11 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ##### Install a Bootloader ###########################################################
 if [[ -d /sys/firmware/efi/efivars ]]; then
   arch-chroot /mnt bootctl install
-  #arch-chroot /mnt blkid | sed -n '/${drive}2/s/.*UUID=\"\([^\"]*\)\".*/\1/p'
   partid=$(blkid -s PARTUUID -o value /dev/${drive}2)
-  arch-chroot tee -a /boot/loader/loader.conf << END
-  default arch
-  timeout 2
-  END
+  {
+    default arch
+    timeout 2
+  } >> /boot/loader/loader.conf
 
 else
   pacstrap /mnt grub
