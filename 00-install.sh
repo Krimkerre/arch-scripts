@@ -62,7 +62,7 @@ if [[ -d /sys/firmware/efi/efivars ]]; then
   {
     default arch
     timeout 2
-  } >> /boot/loader/loader.conf
+  } >> /mnt/boot/loader/loader.conf
 
 else
   pacstrap /mnt grub
