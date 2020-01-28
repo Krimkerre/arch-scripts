@@ -59,10 +59,16 @@ genfstab -U /mnt >> /mnt/etc/fstab
 if [[ -d /sys/firmware/efi/efivars ]]; then
   arch-chroot /mnt bootctl install
   partid=$(blkid -s PARTUUID -o value /dev/${drive}2)
-  arch-chroot /mnt echo default arch >> /boot/loader/loader.conf
-  arch-chroot /mnt echo 'timeout 2' >> /boot/loader/loader.conf
-  arch-chroot /mnt echo 'console-mode max' >> /boot/loader/loader.conf
-  arch-chroot /mnt echo 'editor no' >> /boot/loader/loader.conf
+  #arch-chroot /mnt echo default arch >> /boot/loader/loader.conf
+  #arch-chroot /mnt echo 'timeout 2' >> /boot/loader/loader.conf
+  #arch-chroot /mnt echo 'console-mode max' >> /boot/loader/loader.conf
+  #arch-chroot /mnt echo 'editor no' >> /boot/loader/loader.conf
+  cat >> /mnt/boot/loader/loader.conf <<EOL
+  default arch
+  timeout 2
+  console-mode max
+  editor no
+  EOL
 
 else
   pacstrap /mnt grub
