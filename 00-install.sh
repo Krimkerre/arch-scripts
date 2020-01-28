@@ -63,11 +63,12 @@ if [[ -d /sys/firmware/efi/efivars ]]; then
   #arch-chroot /mnt echo 'timeout 2' >> /boot/loader/loader.conf
   #arch-chroot /mnt echo 'console-mode max' >> /boot/loader/loader.conf
   #arch-chroot /mnt echo 'editor no' >> /boot/loader/loader.conf
-  cat >> /mnt/boot/loader/loader.conf <<EOL
+  cat << 'EOL" >> /mnt/boot/loader/loader.conf
   default arch
   timeout 2
   console-mode max
   editor no
+  
   EOL
 
 else
