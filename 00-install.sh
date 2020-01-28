@@ -57,7 +57,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 ##### Install a Bootloader ###########################################################
 if [[ -d /sys/firmware/efi/efivars ]]; then
-  pacstrap /mnt grub
+  pacstrap /mnt grub efibootmgr
   arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
   arch-chroot /mnt pacman -S --needed --noconfirm grub-customizer
   #arch-chroot /mnt bootctl install
