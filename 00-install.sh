@@ -61,9 +61,9 @@ if [[ -d /sys/firmware/efi/efivars ]]; then
   partid=$(blkid -s PARTUUID -o value /dev/${drive}2)
   {
     echo default arch
-    echo timeout 2
-    echo console-mode max
-    echo editor no
+    echo 'timeout 2'
+    echo 'console-mode max'
+    echo 'editor no'
   } >> /mnt/boot/loader/loader.conf
 
 else
