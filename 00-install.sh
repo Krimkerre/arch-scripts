@@ -57,11 +57,15 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 ##### Install a Bootloader ###########################################################
 if [[ -d /sys/firmware/efi/efivars ]]; then
-  pacstrap /mnt grub efibootmgr
-  arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+  arch-chroot /mnt bootctl install
+  #arch-chroot /mnt blkid | sed -n '/${drive}2/s/.*UUID=\"\([^\"]*\)\".*/\1/p'
+  arch-chroot /mnt partid=$(blkid -s UUID -o value /dev/${drive})
+  echo ${pardid}
+  quit
 else
   pacstrap /mnt grub
   arch-chroot /mnt grub-install --target=i386-pc ${drive}
+  arch-chroot /mnt pacman -S --needed --noconfirm grub-customizer
 fi
 ######################################################################################
 
