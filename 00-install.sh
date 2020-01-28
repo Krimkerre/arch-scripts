@@ -59,8 +59,8 @@ genfstab -U /mnt >> /mnt/etc/fstab
 if [[ -d /sys/firmware/efi/efivars ]]; then
   arch-chroot /mnt bootctl install
   #arch-chroot /mnt blkid | sed -n '/${drive}2/s/.*UUID=\"\([^\"]*\)\".*/\1/p'
-  partid=$(blkid -s UUID -o value /dev/${drive})
-  echo ${pardid}
+  partid=$(blkid -s UUID -o value /dev/${drive}2)
+  echo $partid
   quit
 else
   pacstrap /mnt grub
