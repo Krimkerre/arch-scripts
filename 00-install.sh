@@ -28,7 +28,23 @@ drive='/dev/vda'
 deffnt='gr928-8x16-thin'
 # Change the timezones
 timezne='America/Los_Angeles'
-usrname='username'
+user=$(dialog --stdout --inputbox "Enter admin username" 0 0) || exit 1
+clear
+: ${user:?"user cannot be empty"}
+passwordroot=$(dialog --stdout --passwordbox "Enter admin password" 0 0) || exit 1
+clear
+: ${passwordroot:?"password cannot be empty"}
+passwordroot2=$(dialog --stdout --passwordbox "Enter admin password again" 0 0) || exit 1
+clear
+[[ "$passwordroot" == "$passwordroot2" ]] || ( echo "Passwords did not match"; exit 1; )
+password=$(dialog --stdout --passwordbox "Enter user password" 0 0) || exit 1
+clear
+: ${password:?"password cannot be empty"}
+password2=$(dialog --stdout --passwordbox "Enter user password again" 0 0) || exit 1
+clear
+[[ "$password" == "$password2" ]] || ( echo "Passwords did not match"; exit 1; )
+
+
 ######################################################################################
 timedatectl set-ntp true
 
@@ -101,10 +117,12 @@ sed -i 's/\#\[multilib\]/\[multilib\]'/g /mnt/etc/pacman.conf
 
 ##### Setup users and passwords #######################################################
 arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${usrname}"
-echo "Please enter the Roots password:"
-arch-chroot /mnt passwd root
-echo "Please enter the user:" ${usrname} " password:"
-arch-chroot /mnt passwd ${usrname}
+echo "$password
+$password
+" | arch-chroot /mnt passwd $user
+
+echo "$passwordroot
+$passwordroot" | arch-chroot /mnt passwd
 
 
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
