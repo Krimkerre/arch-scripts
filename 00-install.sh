@@ -78,15 +78,26 @@ genfstab -U /mnt >> /mnt/etc/fstab
 
 ##### Install a Bootloader ###########################################################
 if [[ -d /sys/firmware/efi/efivars ]]; then
-  pacstrap /mnt grub efibootmgr
-  arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
-  arch-chroot /mnt pacman -S --needed --noconfirm grub-customizer
-  #arch-chroot /mnt bootctl install
-  #partid=$(blkid -s PARTUUID -o value /dev/${drive}2)
-  #arch-chroot /mnt echo default arch > /boot/loader/loader.conf
-  #arch-chroot /mnt echo 'timeout 2' > /boot/loader/loader.conf
-  #arch-chroot /mnt echo 'console-mode max' > /boot/loader/loader.conf
-  #arch-chroot /mnt echo 'editor no' > /boot/loader/loader.conf
+  #pacstrap /mnt grub efibootmgr
+  #arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
+  #arch-chroot /mnt pacman -S --needed --noconfirm grub-customizer
+  arch-chroot /mnt mkdir -p /boot/loader/entries
+  arch-chroot /mnt bootctl --path=/boot install
+
+  cat <<EOF > /mnt/boot/loader/loader.conf
+  default arch
+  console-mode max
+  editor no
+  timeout 3
+  EOF
+
+  cat >>/mnt/boot/loader/entries/arch.conf <<EOF
+  title   Arch Linux
+  linux   /vmlinuz-linux
+  #initrd  /intel-ucode.img
+  initrd  /initramfs-linux.img
+  options root=PARTUUID=$(blkid -s PARTUUID -o value "$part_root") nowatchdog rw
+  EOF
 
 else
   pacstrap /mnt grub
