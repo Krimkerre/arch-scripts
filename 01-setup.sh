@@ -27,35 +27,35 @@ case $numberofcores in
     16)
         echo "You have " $numberofcores" cores."
         echo "Changing the makeflags for "$numberofcores" cores."
-        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j17"/g' /etc/makepkg.conf
+        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j16"/g' /etc/makepkg.conf
         echo "Changing the compression settings for "$numberofcores" cores."
         sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 16 -z -)/g' /etc/makepkg.conf
         ;;
     8)
         echo "You have " $numberofcores" cores."
         echo "Changing the makeflags for "$numberofcores" cores."
-        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j9"/g' /etc/makepkg.conf
+        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j8"/g' /etc/makepkg.conf
         echo "Changing the compression settings for "$numberofcores" cores."
         sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 8 -z -)/g' /etc/makepkg.conf
         ;;
     6)
         echo "You have " $numberofcores" cores."
         echo "Changing the makeflags for "$numberofcores" cores."
-        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j7"/g' /etc/makepkg.conf
+        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j8"/g' /etc/makepkg.conf
         echo "Changing the compression settings for "$numberofcores" cores."
         sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 6 -z -)/g' /etc/makepkg.conf
         ;;
     4)
         echo "You have " $numberofcores" cores."
         echo "Changing the makeflags for "$numberofcores" cores."
-        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j5"/g' /etc/makepkg.conf
+        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j4"/g' /etc/makepkg.conf
         echo "Changing the compression settings for "$numberofcores" cores."
         sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 4 -z -)/g' /etc/makepkg.conf
         ;;
     2)
         echo "You have " $numberofcores" cores."
         echo "Changing the makeflags for "$numberofcores" cores."
-        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j3"/g' /etc/makepkg.conf
+        sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j2"/g' /etc/makepkg.conf
         echo "Changing the compression settings for "$numberofcores" cores."
         sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 2 -z -)/g' /etc/makepkg.conf
         ;;
@@ -83,13 +83,13 @@ echo "##########################################################################
 sleep 2
 clear
 sudo pacman -Syyu --noconfirm --needed
-sudo pacman -S --noconfirm --needed  neofetch git wget linux-headers rsync go htop openssh archlinux-wallpaper btrfs-progs grub-customizer
+sudo pacman -S --noconfirm --needed  neofetch git wget linux-headers rsync go htop openssh archlinux-wallpaper btrfs-progs
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm --needed
 cd ..
 rm yay -R -f
-yay -S --noconfirm --needed grub-theme-creator grub-hook grub-theme-midna grub-theme-slaze-git grub-theme-vimix breeze-grub grub-theme-stylish-git grub-theme-tela-git grub-themes-solarized-dark-materialized arch-silence-grub-theme-git grub2-theme-archlinux grub2-theme-archxion grub2-theme-arch-leap grub2-theme-arch-suse grub2-theme-dharma-mod puzzle-bobble-grub2-theme
+#yay -S --noconfirm --needed grub-theme-creator grub-hook grub-theme-midna grub-theme-slaze-git grub-theme-vimix breeze-grub grub-theme-stylish-git grub-theme-tela-git grub-themes-solarized-dark-materialized arch-silence-grub-theme-git grub2-theme-archlinux grub2-theme-archxion grub2-theme-arch-leap grub2-theme-arch-suse grub2-theme-dharma-mod puzzle-bobble-grub2-theme
 
 sed -i '$ a if [ -f /usr/bin/neofetch ]; then neofetch; fi' /home/$(whoami)/.bashrc
 echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/99-sysctl.conf
