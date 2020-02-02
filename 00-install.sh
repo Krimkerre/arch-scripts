@@ -90,7 +90,7 @@ title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
-options root=PARTUUID=$(blkid -s PARTUUID -o value "$part_root") nowatchdog rw
+options root=PARTUUID=$(blkid -s PARTUUID -o value "$drive"1) nowatchdog rw
 EOF
 
 
@@ -143,7 +143,7 @@ echo "$passwordroot
 $passwordroot" | arch-chroot /mnt passwd
 
 
-arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+#arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 echo "################################################################################"
 echo "### Install of Arch Completed                                                ###"
 echo "################################################################################"
