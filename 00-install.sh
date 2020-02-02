@@ -18,8 +18,10 @@ alocale='en_US.UTF-8'
 # Change to the country
 cntry='US'
 akeymap='us'
-# Change to the namme you want the machine
-ahostname='arch'
+# Change to the name you want the machine
+hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
+clear
+: ${hostname:?"hostname cannot be empty"}
 # Change to the device wanting to format
 drive='/dev/vda'
 # Change to the default terminal font
@@ -82,7 +84,7 @@ pacstrap /mnt man-db man-pages git
 sed -i "s/^#\(${alocale}\)/\1/" /mnt/etc/locale.gen
 arch-chroot /mnt locale-gen
 echo "LANG=${alocale}" > /mnt/etc/locale.conf
-echo "${ahostname}" > /mnt/etc/hostname
+echo "${hostname}" > /mnt/etc/hostname
 sed -i 's/^#\ \(%wheel\ ALL=(ALL)\ NOPASSWD:\ ALL\)/\1/' /mnt/etc/sudoers
 echo 'KEYMAP='"${akeymap}" > /mnt/etc/vconsole.conf
 sed -i "$ a FONT=${deffnt}" /mnt/etc/vconsole.conf
