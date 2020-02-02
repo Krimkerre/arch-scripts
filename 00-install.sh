@@ -88,7 +88,8 @@ EOF
 cat >>/mnt/boot/loader/entries/arch.conf <<EOF
 title   Arch Linux
 linux   /vmlinuz-linux
-initrd  /intel-ucode.img
+#initrd  /intel-ucode.img
+#initrd /amd-ucode.img
 initrd  /initramfs-linux.img
 options root=PARTUUID=$(blkid -s PARTUUID -o value "$drive"2) nowatchdog rw
 EOF
