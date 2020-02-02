@@ -91,7 +91,7 @@ if [[ -d /sys/firmware/efi/efivars ]]; then
   timeout 3
   EOF
 
-  cat >>/mnt/boot/loader/entries/arch.conf <<EOF
+  cat <<EOF > /mnt/boot/loader/entries/arch.conf
   title   Arch Linux
   linux   /vmlinuz-linux
   #initrd  /intel-ucode.img
