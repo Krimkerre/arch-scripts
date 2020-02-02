@@ -28,15 +28,18 @@ drive='/dev/vda'
 deffnt='gr928-8x16-thin'
 # Change the timezones
 timezne='America/Los_Angeles'
-user=$(dialog --stdout --inputbox "Enter admin username" 0 0) || exit 1
+# Add username
+user=$(dialog --stdout --inputbox "Enter username" 0 0) || exit 1
 clear
 : ${user:?"user cannot be empty"}
+# Admin password
 passwordroot=$(dialog --stdout --passwordbox "Enter admin password" 0 0) || exit 1
 clear
 : ${passwordroot:?"password cannot be empty"}
 passwordroot2=$(dialog --stdout --passwordbox "Enter admin password again" 0 0) || exit 1
 clear
 [[ "$passwordroot" == "$passwordroot2" ]] || ( echo "Passwords did not match"; exit 1; )
+# User password
 password=$(dialog --stdout --passwordbox "Enter user password" 0 0) || exit 1
 clear
 : ${password:?"password cannot be empty"}
@@ -116,7 +119,7 @@ sed -i 's/\#\[multilib\]/\[multilib\]'/g /mnt/etc/pacman.conf
 #######################################################################################
 
 ##### Setup users and passwords #######################################################
-arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${usrname}"
+arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${user}"
 echo "$password
 $password
 " | arch-chroot /mnt passwd $user
