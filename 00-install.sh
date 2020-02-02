@@ -90,7 +90,7 @@ title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
-options root=PARTUUID=$(blkid -s PARTUUID -o value "$drive"1) nowatchdog rw
+options root=PARTUUID=$(blkid -s PARTUUID -o value "$drive"2) nowatchdog rw
 EOF
 
 
