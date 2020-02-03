@@ -24,8 +24,8 @@ clear
 : ${hostname:?"hostname cannot be empty"}
 # Change to the device wanting to format
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
-device=$(dialog --stdout --menu "Select root disk" 0 0 0 ${devicelist}) || exit 1
-drive='/dev/vda'
+drive=$(dialog --stdout --menu "Select root disk" 0 0 0 ${devicelist}) || exit 1
+#drive='/dev/vda'
 # Change to the default terminal font
 deffnt='gr928-8x16-thin'
 # Change the timezones
