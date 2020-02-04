@@ -135,6 +135,13 @@ sed -i '/^#\[multilib\]/{
 sed -i 's/\#\[multilib\]/\[multilib\]'/g /mnt/etc/pacman.conf
 #######################################################################################
 
+##### Setup swap ######################################################################
+arch-chroot /mnt pacstrap systemd-swap
+sed -i 's'swapfc_enabled=0'/'swapfc_enabled=1'/g' /mnt/etc/systemd/swap.conf
+sed -i 's'swapfc_force_preallocated=0'/'swapfc_force_preallocated=1'/g' /mnt/etc/systemd/swap.conf
+arch-chroot /mnt systemctl enable systemd-swap
+#######################################################################################
+
 ##### Setup users and passwords #######################################################
 arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${user}"
 echo "$password
@@ -143,7 +150,7 @@ $password
 
 echo "$passwordroot
 $passwordroot" | arch-chroot /mnt passwd
-
+######################################################################################
 
 #arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 echo "################################################################################"
