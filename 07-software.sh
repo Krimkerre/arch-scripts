@@ -46,6 +46,9 @@ sudo pacman -S --noconfirm --needed  virt-manager
 sudo pacman -S --noconfirm --needed  ebtables iptables
 sudo pacman -S --noconfirm --needed  dnsmasq
 sudo pacman -S --noconfirm --needed  virglrenderer
+sudo pacman -S --noconfirm --needed  qemu-arch-extra
+sudo pacman -S --noconfirm --needed  qemu-quest-agent
+sudo sed '/[Service]/ a 'Enviroment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
 sudo systemctl enable libvirtd.service
 sudo systemctl enable virtlogd.service
 sudo pacman -S --noconfirm --needed  pacmanlogviewer
@@ -76,10 +79,10 @@ yay -S --noconfirm --needed  olive
 yay -S --noconfirm --needed  discord
 yay -S --noconfirm --needed  gamemode lib32-gamemode
 yay -S --noconfirm --needed  multibootusb-git
-yay -S --noconfirm --needed  ovmf
-yay -S --noconfirm --needed  libguestfs
-yay -S --noconfirm --needed  virtio-win
 yay -S --noconfirm --needed  protontricks
+yay -S --noconfirm --needed  ovmf
+yay -S --noconfirm --needed  virtio-win
+#yay -S --noconfirm --needed  libguestfs
 #yay -S --noconfirm --needed  freecad-appimage
 #yay -S --noconfirm --needed  edex-ui-git
 #yay -S --noconfirm --needed  virtualbox-ext-oracle
