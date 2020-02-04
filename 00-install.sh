@@ -155,6 +155,10 @@ echo "$passwordroot
 $passwordroot" | arch-chroot /mnt passwd
 ######################################################################################
 
+##### Copy the GIT scripts to user directory #########################################
+cp *.sh /home/$user/
+#####################################################################################
+
 #arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 echo "################################################################################"
 echo "### Install of Arch Completed                                                ###"
