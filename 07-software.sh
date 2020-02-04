@@ -47,7 +47,7 @@ sudo pacman -S --noconfirm --needed  ebtables iptables
 sudo pacman -S --noconfirm --needed  dnsmasq
 sudo pacman -S --noconfirm --needed  virglrenderer
 sudo pacman -S --noconfirm --needed  qemu-arch-extra
-sudo pacman -S --noconfirm --needed  qemu-quest-agent
+sudo pacman -S --noconfirm --needed  qemu-guest-agent
 sudo systemctl enable libvirtd.service
 sudo systemctl enable virtlogd.service
 sudo sed '/[Service]/ a\ Environment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
