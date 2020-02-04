@@ -137,8 +137,8 @@ sed -i 's/\#\[multilib\]/\[multilib\]'/g /mnt/etc/pacman.conf
 
 ##### Setup swap ######################################################################
 pacstrap /mnt systemd-swap
-sed -i 's'swapfc_enabled=0'/'swapfc_enabled=1'/g' /mnt/etc/systemd/swap.conf
-sed -i 's'swapfc_force_preallocated=0'/'swapfc_force_preallocated=1'/g' /mnt/etc/systemd/swap.conf
+sed -i 's/'swapfc_enabled=0'/'swapfc_enabled=1'/g' /mnt/etc/systemd/swap.conf
+sed -i 's/'swapfc_force_preallocated=0'/'swapfc_force_preallocated=1'/g' /mnt/etc/systemd/swap.conf
 arch-chroot /mnt systemctl enable systemd-swap
 #######################################################################################
 
