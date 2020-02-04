@@ -100,6 +100,7 @@ echo "### Setting up sound                                                      
 echo "################################################################################"
 sleep 2
 sudo pacman -S --noconfirm --needed  pulseaudio pulseaudio-alsa pavucontrol alsa-utils alsa-plugins alsa-lib alsa-firmware lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins gstreamer gst-plugins-good gst-plugins-bad gst-plugins-base gst-plugins-ugly volumeicon playerctl
+yay -S --noconfirm --needed alsa-tools lib32-apulse apulse pulseaudio-jack pusleeffects pacmixer lib32-libpulse
 
 clear
 echo "################################################################################"
@@ -208,6 +209,7 @@ case $case in
       yay -S --noconfirm --needed  gnome-shell-extension-coverflow-alt-tab-git
       yay -S --noconfirm --needed  gnome-shell-extension-animation-tweaks-git
       yay -S --noconfirm --needed  gnome-shell-extension-gamemode-git
+      yay -S --noconfirm --needed  gnome-alsamixer
       #yay -S --noconfirm --needed  gnome-shell-extension-vitals
       #yay -S --noconfirm --needed  gnome-shell-extension-drop-down-terminal-x
       #yay -S --noconfirm --needed  gnome-shell-extension-dynamic-battery
@@ -301,7 +303,7 @@ if [[ $(lspci -k | grep VGA | grep -i nvidia) ]]; then
 fi
 
 if [[ $(lspci -k | grep VGA | grep -i amd) ]]; then
-  yay -S --noconfirm --needed amdgpu-pro-libgl lib32-amdgpu-pro-libgl amdvlk lib32-amdvlk
+  yay -S --noconfirm --needed amdgpu-pro-libgl lib32-amdgpu-pro-libgl amdvlk lib32-amdvlk opencl-amd
 fi
 
 clear
