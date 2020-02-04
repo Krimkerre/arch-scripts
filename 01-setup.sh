@@ -100,7 +100,7 @@ echo "### Setting up sound                                                      
 echo "################################################################################"
 sleep 2
 sudo pacman -S --noconfirm --needed  pulseaudio pulseaudio-alsa pavucontrol alsa-utils alsa-plugins alsa-lib alsa-firmware lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins gstreamer gst-plugins-good gst-plugins-bad gst-plugins-base gst-plugins-ugly volumeicon playerctl
-yay -S --noconfirm --needed alsa-tools lib32-apulse apulse pulseaudio-jack pulseeffects pacmixer lib32-libpulse
+yay -S --noconfirm --needed alsa-tools lib32-apulse pulseaudio-jack pulseeffects pacmixer lib32-libpulse
 
 clear
 echo "################################################################################"
@@ -163,7 +163,7 @@ echo "##########################################################################
 echo "### Install and setup display manager and desktop                            ###"
 echo "################################################################################"
 sleep 2
-sudo pacman -S --noconfirm --needed  xorg xorg-drivers xorg-xinit xterm vulkan-intel vulkan-radeon lib32-vulkan-intel lib32-vulkan-radeon vkd3d lib32-vkd3d kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia opencl-mesa opencl-headers terminator lib32-mesa-demos lib32-mesa-vdpau lib32-icl-icd
+sudo pacman -S --noconfirm --needed  xorg xorg-drivers xorg-xinit xterm vulkan-intel vulkan-radeon lib32-vulkan-intel lib32-vulkan-radeon vkd3d lib32-vkd3d kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia opencl-mesa opencl-headers terminator lib32-mesa-demos lib32-mesa-vdpau lib32-ocl-icd
 sudo pacman -S --noconfirm --needed  lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings lightdm-webkit-theme-litarvan lightdm-webkit2-greeter
 yay -S --noconfirm --needed  lightdm-webkit2-theme-material2 lightdm-webkit-theme-aether lightdm-webkit-theme-userdock lightdm-webkit-theme-tendou lightdm-webkit-theme-wisp lightdm-webkit-theme-petrichor-git lightdm-webkit-theme-sequoia-git lightdm-webkit-theme-contemporary lightdm-webkit2-theme-sapphire lightdm-webkit2-theme-tty-git lightdm-webkit-theme-luminos lightdm-webkit2-theme-obsidian
 sudo systemctl enable lightdm.service -f
