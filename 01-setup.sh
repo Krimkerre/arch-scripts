@@ -302,6 +302,8 @@ fi
 
 if [[ $(lspci -k | grep VGA | grep -i amd) ]]; then
   yay -S --noconfirm --needed amdgpu-pro-libgl lib32-amdgpu-pro-libgl amdvlk lib32-amdvlk
+fi
+
 clear
 echo "################################################################################"
 echo "### Installation completed, please reboot when ready to enter your GUI       ###"
