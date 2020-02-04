@@ -296,9 +296,12 @@ echo "##########################################################################
 echo "### Checking video card                                                      ###"
 echo "################################################################################"
 if [[ $(lspci -k | grep VGA | grep -i nvidia) ]]; then
-      sudo pacman -S --noconfirm --needed  nvidia nvidia-cg-toolkit nvidia-settings nvidia-utils lib32-nvidia-cg-toolkit lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia cuda ffnvcodec-headers lib32-libvdpau libxnvctrl pycuda-headers python-pycuda
-      sudo pacman -R --noconfirm xf86-video-nouveau
+  sudo pacman -S --noconfirm --needed  nvidia nvidia-cg-toolkit nvidia-settings nvidia-utils lib32-nvidia-cg-toolkit lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia cuda ffnvcodec-headers lib32-libvdpau libxnvctrl pycuda-headers python-pycuda
+  sudo pacman -R --noconfirm xf86-video-nouveau
 fi
+
+if [[ $(lspci -k | grep VGA | grep -i amd) ]]; then
+  yay -S --noconfirm --needed amdgpu-pro-libgl lib32-amdgpu-pro-libgl amdvlk lib32-amdvlk
 clear
 echo "################################################################################"
 echo "### Installation completed, please reboot when ready to enter your GUI       ###"
