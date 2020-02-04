@@ -50,7 +50,7 @@ sudo pacman -S --noconfirm --needed  qemu-arch-extra
 sudo pacman -S --noconfirm --needed  qemu-quest-agent
 sudo systemctl enable libvirtd.service
 sudo systemctl enable virtlogd.service
-sudo sed '/[Service]/ a\ Enviroment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
+sudo sed '/[Service]/ a\ Environment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
 sudo pacman -S --noconfirm --needed  pacmanlogviewer
 sudo pacman -S --noconfirm --needed  exfat-utils
 sudo pacman -S --noconfirm --needed  meld
