@@ -38,7 +38,7 @@ sudo pacman -S --noconfirm --needed  syncthing-gtk
 sudo pacman -S --noconfirm --needed  teamspeak3
 sudo pacman -S --noconfirm --needed  telegram-desktop
 sudo pacman -S --noconfirm --needed  transmission-gtk
-sudo pacman -S --noconfirm --needed  steam
+sudo pacman -S --noconfirm --needed  steam steam-native-runtime
 sudo pacman -S --noconfirm --needed  homebank
 sudo pacman -S --noconfirm --needed  libreoffice-fresh
 sudo pacman -S --noconfirm --needed  dconf-editor
@@ -54,6 +54,12 @@ sudo pacman -S --noconfirm --needed  meld
 sudo pacman -S --noconfirm --needed  cool-retro-term
 sudo pacman -S --noconfirm --needed  blender
 sudo pacman -S --noconfirm --needed  hardinfo
+sudo pacman -S --noconfirm --needed openscad
+sudo pacman -S --noconfirm --needed quodlibet
+sudo pacman -S --noconfirm --needed deluge
+sudo pacman -S --noconfirm --needed extremetuxracer
+sudo pacman -S --noconfirm --needed supertux
+sudo pacman -S --noconfirm --needed supertuxkart
 #sudo pacman -S --noconfirm --needed  virtualbox
 #sudo pacman -S --noconfirm --needed  virtualbox-guest-iso
 yay -S --noconfirm --needed  makemkv
@@ -73,8 +79,8 @@ yay -S --noconfirm --needed  multibootusb-git
 yay -S --noconfirm --needed  ovmf
 yay -S --noconfirm --needed  libguestfs
 yay -S --noconfirm --needed  virtio-win
+yay -S --noconfirm --needed  protontricks
 #yay -S --noconfirm --needed  freecad-appimage
-#yay -S --noconfirm --needed  protontricks
 #yay -S --noconfirm --needed  edex-ui-git
 #yay -S --noconfirm --needed  virtualbox-ext-oracle
 
