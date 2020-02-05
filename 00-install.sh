@@ -25,7 +25,8 @@ hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
 drive=$(dialog --stdout --menu "Select root disk" 0 0 0 ${devicelist}) || exit 1
 ##### Change to the default terminal font ###########################################
-deffnt=$(dialog --title "Browse" --fselect /usr/share/kbd/consolefonts/ 12 50 2)
+#deffnt=$(dialog --title "Browse" --fselect /usr/share/kbd/consolefonts/ 12 50 2)
+deffnt=$(dialog --stdout --title "Choose a file" --fselect /usr/share/kbd/consolefonts/ 14 48)
 #deffnt='gr928-8x16-thin'
 #####################################################################################
 # Change the timezones
