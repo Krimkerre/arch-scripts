@@ -20,14 +20,14 @@ cntry='US'
 akeymap='us'
 # Change to the name you want the machine
 hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
-clear
 : ${hostname:?"hostname cannot be empty"}
 # Change to the device wanting to format
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
 drive=$(dialog --stdout --menu "Select root disk" 0 0 0 ${devicelist}) || exit 1
-#drive='/dev/vda'
-# Change to the default terminal font
-deffnt='gr928-8x16-thin'
+##### Change to the default terminal font ###########################################
+deffnt=$(dialog --title "Browse" --fselect /usr/share/kbd/consolefonts/ 12 50 2)
+#deffnt='gr928-8x16-thin'
+#####################################################################################
 # Change the timezones
 timezne='America/Los_Angeles'
 # Add username
