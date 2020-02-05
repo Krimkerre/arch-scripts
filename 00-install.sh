@@ -158,7 +158,7 @@ $passwordroot" | arch-chroot /mnt passwd
 
 ##### Copy the GIT scripts to user directory #########################################
 cp *.sh /mnt/home/$user/
-chown $user:users /mnt/home/$user/*.sh
+arch-chroot chown $user:users /home/$user/*.sh
 
 #####################################################################################
 
