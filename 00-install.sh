@@ -156,7 +156,9 @@ $passwordroot" | arch-chroot /mnt passwd
 ######################################################################################
 
 ##### Copy the GIT scripts to user directory #########################################
-cp *.sh /home/$user/
+cp *.sh /mnt/home/$user/
+arch-chroot /mnt chown $user:users /mnt/home/*.sh
+arch-chroot /mnt chmod +x /home/$user/*.sh
 #####################################################################################
 
 #arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
