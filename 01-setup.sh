@@ -100,8 +100,8 @@ echo "### Setting up sound                                                      
 echo "################################################################################"
 sleep 2
 sudo pacman -S --noconfirm --needed  pulseaudio pulseaudio-alsa pavucontrol alsa-utils alsa-plugins alsa-lib alsa-firmware lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins gstreamer gst-plugins-good gst-plugins-bad gst-plugins-base gst-plugins-ugly volumeicon playerctl
-yay -S --noconfirm --needed alsa-tools lib32-apulse pulseaudio-jack pulseeffects pacmixer lib32-libpulse
-
+yay -S --noconfirm --needed alsa-tools lib32-apulse pulseeffects pacmixer lib32-libpulse
+#yay -S --noconfirm --needed pulseaudio-jack
 clear
 echo "################################################################################"
 echo "### Installing and setting up bluetooth                                      ###"
