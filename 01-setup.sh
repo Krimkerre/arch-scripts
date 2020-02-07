@@ -83,7 +83,16 @@ echo "##########################################################################
 sleep 2
 clear
 sudo pacman -Syyu --noconfirm --needed
-sudo pacman -S --noconfirm --needed  neofetch git wget linux-headers rsync go htop openssh archlinux-wallpaper btrfs-progs
+sudo pacman -S --noconfirm --needed  neofetch
+sudo pacman -S --noconfirm --needed git
+sudo pacman -S --noconfirm --needed wget
+sudo pacman -S --noconfirm --needed linux-headers
+sudo pacman -S --noconfirm --needed rsync
+sudo pacman -S --noconfirm --needed go
+sudo pacman -S --noconfirm --needed htop
+sudo pacman -S --noconfirm --needed openssh
+sudo pacman -S --noconfirm --needed archlinux-wallpaper
+sudo pacman -S --noconfirm --needed btrfs-progs
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm --needed
@@ -99,15 +108,42 @@ echo "##########################################################################
 echo "### Setting up sound                                                         ###"
 echo "################################################################################"
 sleep 2
-sudo pacman -S --noconfirm --needed  pulseaudio pulseaudio-alsa pavucontrol alsa-utils alsa-plugins alsa-lib alsa-firmware lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins gstreamer gst-plugins-good gst-plugins-bad gst-plugins-base gst-plugins-ugly volumeicon playerctl
-yay -S --noconfirm --needed alsa-tools lib32-apulse pulseeffects pacmixer lib32-libpulse
-#yay -S --noconfirm --needed pulseaudio-jack
+sudo pacman -S --noconfirm --needed pulseaudio
+sudo pacman -S --noconfirm --needed pulseaudio-alsa
+sudo pacman -S --noconfirm --needed pavucontrol
+sudo pacman -S --noconfirm --needed alsa-utils
+sudo pacman -S --noconfirm --needed alsa-plugins
+sudo pacman -S --noconfirm --needed alsa-lib
+sudo pacman -S --noconfirm --needed alsa-firmware
+sudo pacman -S --noconfirm --needed lib32-alsa-lib
+sudo pacman -S --noconfirm --needed lib32-alsa-oss
+sudo pacman -S --noconfirm --needed lib32-alsa-plugins
+sudo pacman -S --noconfirm --needed gstreamer
+sudo pacman -S --noconfirm --needed gst-plugins-good
+sudo pacman -S --noconfirm --needed gst-plugins-bad
+sudo pacman -S --noconfirm --needed gst-plugins-base
+sudo pacman -S --noconfirm --needed gst-plugins-ugly
+sudo pacman -S --noconfirm --needed volumeicon
+sudo pacman -S --noconfirm --needed playerctl
+yay -S --noconfirm --needed alsa-tools
+yay -S --noconfirm --needed lib32-apulse
+yay -S --noconfirm --needed pulseeffects
+yay -S --noconfirm --needed lib32-libpulse
+yay -S --noconfirm --needed pulseaudio-jack
+#yay -S --noconfirm --needed pacmixer
 clear
 echo "################################################################################"
 echo "### Installing and setting up bluetooth                                      ###"
 echo "################################################################################"
 sleep 2
-sudo pacman -S --noconfirm --needed  pulseaudio-bluetooth bluez bluez-libs bluez-utils bluez-plugins blueberry bluez-tools bluez-cups
+sudo pacman -S --noconfirm --needed pulseaudio-bluetooth
+sudo pacman -S --noconfirm --needed bluez
+sudo pacman -S --noconfirm --needed bluez-libs
+sudo pacman -S --noconfirm --needed bluez-utils
+sudo pacman -S --noconfirm --needed bluez-plugins
+sudo pacman -S --noconfirm --needed blueberry
+sudo pacman -S --noconfirm --needed bluez-tools
+sudo pacman -S --noconfirm --needed bluez-cups
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
 sudo sed -i 's/'#AutoEnable=false'/'AutoEnable=true'/g' /etc/bluetooth/main.conf
@@ -117,7 +153,21 @@ echo "##########################################################################
 echo "### Installing and setting up printers                                       ###"
 echo "################################################################################"
 sleep 2
-sudo pacman -S --noconfirm --needed  cups cups-pdf ghostscript gsfonts gutenprint gtk3-print-backends libcups hplip system-config-printer foomatic-db foomatic-db-ppds foomatic-db-gutenprint-ppds foomatic-db-engine foomatic-db-nonfree foomatic-db-nonfree-ppds
+sudo pacman -S --noconfirm --needed cups
+sudo pacman -S --noconfirm --needed cups-pdf
+sudo pacman -S --noconfirm --needed ghostscript
+sudo pacman -S --noconfirm --needed gsfonts
+sudo pacman -S --noconfirm --needed gutenprint
+sudo pacman -S --noconfirm --needed gtk3-print-backends
+sudo pacman -S --noconfirm --needed libcups
+sudo pacman -S --noconfirm --needed hplip
+sudo pacman -S --noconfirm --needed system-config-printer
+sudo pacman -S --noconfirm --needed foomatic-db
+sudo pacman -S --noconfirm --needed foomatic-db-ppds
+sudo pacman -S --noconfirm --needed foomatic-db-gutenprint-ppds
+sudo pacman -S --noconfirm --needed foomatic-db-engine
+sudo pacman -S --noconfirm --needed foomatic-db-nonfree
+sudo pacman -S --noconfirm --needed foomatic-db-nonfree-ppds
 yay -S --noconfirm --needed  epson-inkjet-printer-201211w
 sudo systemctl enable org.cups.cupsd.service
 
@@ -163,9 +213,40 @@ echo "##########################################################################
 echo "### Install and setup display manager and desktop                            ###"
 echo "################################################################################"
 sleep 2
-sudo pacman -S --noconfirm --needed  xorg xorg-drivers xorg-xinit xterm vulkan-intel vulkan-radeon lib32-vulkan-intel lib32-vulkan-radeon vkd3d lib32-vkd3d kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia opencl-mesa opencl-headers terminator lib32-mesa-demos lib32-mesa-vdpau lib32-ocl-icd
-sudo pacman -S --noconfirm --needed  lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings lightdm-webkit-theme-litarvan lightdm-webkit2-greeter
-yay -S --noconfirm --needed  lightdm-webkit2-theme-material2 lightdm-webkit-theme-aether lightdm-webkit-theme-userdock lightdm-webkit-theme-tendou lightdm-webkit-theme-wisp lightdm-webkit-theme-petrichor-git lightdm-webkit-theme-sequoia-git lightdm-webkit-theme-contemporary lightdm-webkit2-theme-sapphire lightdm-webkit2-theme-tty-git lightdm-webkit-theme-luminos lightdm-webkit2-theme-obsidian
+sudo pacman -S --noconfirm --needed xorg
+sudo pacman -S --noconfirm --needed xorg-drivers
+sudo pacman -S --noconfirm --needed xorg-xinit
+sudo pacman -S --noconfirm --needed xterm
+sudo pacman -S --noconfirm --needed vulkan-intel
+sudo pacman -S --noconfirm --needed vulkan-radeon
+sudo pacman -S --noconfirm --needed lib32-vulkan-intel
+sudo pacman -S --noconfirm --needed lib32-vulkan-radeon
+sudo pacman -S --noconfirm --needed vkd3d
+sudo pacman -S --noconfirm --needed lib32-vkd3d
+sudo pacman -S --noconfirm --needed kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia
+sudo pacman -S --noconfirm --needed opencl-mesa
+sudo pacman -S --noconfirm --needed opencl-headers
+sudo pacman -S --noconfirm --needed terminator
+sudo pacman -S --noconfirm --needed lib32-mesa-demos
+sudo pacman -S --noconfirm --needed mesa-vdpau
+sudo pacman -S --noconfirm --needed lib32-mesa-vdpau
+sudo pacman -S --noconfirm --needed ocl-icd
+sudo pacman -S --noconfirm --needed lib32-ocl-icd
+sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
+sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
+yay -S --noconfirm --needed lightdm-webkit2-theme-material2
+yay -S --noconfirm --needed lightdm-webkit-theme-aether
+yay -S --noconfirm --needed lightdm-webkit-theme-userdock
+yay -S --noconfirm --needed lightdm-webkit-theme-tendou
+yay -S --noconfirm --needed lightdm-webkit-theme-wisp
+yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
+yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
+yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
+yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
+yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
+yay -S --noconfirm --needed lightdm-webkit-theme-luminos
+yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
 sudo systemctl enable lightdm.service -f
 sudo systemctl set-default graphical.target
 sudo sed -i 's/'detect_theme_errors\ =\ true'/'detect_theme_errors\ =\ false'/g' /etc/lightdm/lightdm-webkit2-greeter.conf
@@ -190,12 +271,17 @@ read case;
 case $case in
     1)
       echo "You selected Deepin"
-      sudo pacman -S --noconfirm --needed  deepin deepin-extra gnome-disk-utility ark
+      sudo pacman -S --noconfirm --needed deepin deepin-extra
+      sudo pacman -S --noconfirm --needed gnome-disk-utility
+      sudo pacman -S --noconfirm --needed ark
       sudo sed -i 's/'#user-session=default'/'user-session=deepin'/g' /etc/lightdm/lightdm.conf
       ;;
     2)
       echo "You selected Gnome"
-      sudo pacman -S --noconfirm --needed  gdm gnome gnome-extra nautilus-share chrome-gnome-shell variety
+      sudo pacman -S --noconfirm --needed gdm gnome gnome-extra
+      sudo pacman -S --noconfirm --needed nautilus-share
+      sudo pacman -S --noconfirm --needed chrome-gnome-shell
+      sudo pacman -S --noconfirm --needed variety
       #sudo systemctl enable gdm
       sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
       yay -S --noconfirm --needed  gnome-shell-extension-dash-to-dock
@@ -224,13 +310,18 @@ case $case in
       ;;
     3)
       echo "You selected KDE Plasma"
-      sudo pacman -S --noconfirm --needed  sddm plasma kde-applications gnome-disk-utility redshift kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia
+      sudo pacman -S --noconfirm --needed sddm plasma kde-applications
+      sudo pacman -S --noconfirm --needed gnome-disk-utility
+      sudo pacman -S --noconfirm --needed redshift
       sudo sed -i 's/'#user-session=default'/'user-session=plasma'/g' /etc/lightdm/lightdm.conf
       #sudo systemctl enable sddm
       ;;
     4)
       echo "You selected Mate"
-      sudo pacman -S --noconfirm --needed  mate mate-extra gnome-disk-utility variety plank
+      sudo pacman -S --noconfirm --needed mate mate-extra
+      sudo pacman -S --noconfirm --needed gnome-disk-utility
+      sudo pacman -S --noconfirm --needed variety
+      sudo pacman -S --noconfirm --needed plank
       yay -S --noconfirm --needed  mugshot
       yay -S --noconfirm --needed  mate-tweak
       yay -S --noconfirm --needed  brisk-menu
@@ -238,7 +329,13 @@ case $case in
       ;;
     5)
       echo "You selected XFCE4"
-      sudo pacman -S --noconfirm --needed  xfce4 xfce4-goodies gnome-disk-utility ark plank alacarte gnome-calculator picom
+      sudo pacman -S --noconfirm --needed xfce4 xfce4-goodies
+      sudo pacman -S --noconfirm --needed gnome-disk-utility
+      sudo pacman -S --noconfirm --needed ark
+      sudo pacman -S --noconfirm --needed plank
+      sudo pacman -S --noconfirm --needed alacarte
+      sudo pacman -S --noconfirm --needed gnome-calculator
+      sudo pacman -S --noconfirm --needed picom
       yay -S --noconfirm --needed  xfce4-screensaver
       yay -S --noconfirm --needed  xfce4-panel-profiles
       yay -S --noconfirm --needed  mugshot
@@ -248,35 +345,60 @@ case $case in
       ;;
     6)
       echo "You selected Budgie"
-      sudo pacman -S --noconfirm --needed  budgie-desktop budgie-extras gnome-system-monitor nautilus gnome-disk-utility gnome-control-center gnome-backgrounds gnome-calculator gedit variety
+      sudo pacman -S --noconfirm --needed budgie-desktop budgie-extras
+      sudo pacman -S --noconfirm --needed gnome-system-monitor
+      sudo pacman -S --noconfirm --needed nautilus
+      sudo pacman -S --noconfirm --needed gnome-disk-utility
+      sudo pacman -S --noconfirm --needed gnome-control-center
+      sudo pacman -S --noconfirm --needed gnome-backgrounds
+      sudo pacman -S --noconfirm --needed gnome-calculator
+      sudo pacman -S --noconfirm --needed gedit
+      sudo pacman -S --noconfirm --needed variety
       sudo sed -i 's/'#user-session=default'/'user-session=budgie-desktop'/g' /etc/lightdm/lightdm.conf
       ;;
     7)
       echo "You selected Cinnamon"
-      sudo pacman -S --noconfirm --needed  cinnamon gnome-disk-utility gnome-system-monitor gnome-calculator gpicview gedit variety
+      sudo pacman -S --noconfirm --needed cinnamon
+      sudo pacman -S --noconfirm --needed gnome-disk-utility
+      sudo pacman -S --noconfirm --needed gnome-system-monitor
+      sudo pacman -S --noconfirm --needed gnome-calculator
+      sudo pacman -S --noconfirm --needed gpicview
+      sudo pacman -S --noconfirm --needed gedit
+      sudo pacman -S --noconfirm --needed variety
       sudo sed -i 's/'#user-session=default'/'user-session=cinnamon'/g' /etc/lightdm/lightdm.conf
       ;;
     8)
       echo "You selected LXDE"
-      sudo pacman -S --noconfirm --needed  lxde gnome-disk-utility gnome-calculator gedit picom variety
+      sudo pacman -S --noconfirm --needed lxde
+      sudo pacman -S --noconfirm --needed gnome-disk-utility
+      sudo pacman -S --noconfirm --needed gnome-calculator
+      sudo pacman -S --noconfirm --needed gedit
+      sudo pacman -S --noconfirm --needed picom
+      sudo pacman -S --noconfirm --needed variety
       yay -S --noconfirm --needed  mugshot
       yay -S --noconfirm --needed  compton-conf
       sudo sed -i 's/'#user-session=default'/'user-session=lxde'/g' /etc/lightdm/lightdm.conf
       ;;
     9)
       echo "You selected LXQT"
-      sudo pacman -S --noconfirm --needed  sddm lxqt gnome-disk-utility compton gnome-calculator gedit kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia variety
+      sudo pacman -S --noconfirm --needed sddm lxqt
+      sudo pacman -S --noconfirm --needed gnome-disk-utility
+      sudo pacman -S --noconfirm --needed picom
+      sudo pacman -S --noconfirm --needed gnome-calculator
+      sudo pacman -S --noconfirm --needed gedit
+      sudo pacman -S --noconfirm --needed variety
       sudo sed -i 's/'#user-session=default'/'user-session=lxqt'/g' /etc/lightdm/lightdm.conf
       #sudo systemctl enable sddm
       ;;
     10)
       echo "You selected i3"
-      sudo pacman -S --noconfirm --needed  i3 gnome-disk-utility
+      sudo pacman -S --noconfirm --needed i3
+      sudo pacman -S --noconfirm --needed gnome-disk-utility
       sudo sed -i 's/'#user-session=default'/'user-session=i3'/g' /etc/lightdm/lightdm.conf
       ;;
     11)
       echo "You selected Coming Soon"
-      sudo pacman -S --noconfirm --needed lxde-gtk3 gnome-disk-utility gnome-calculator gedit picom variety
+
       ;;
     12)
       echo "You selected none"
@@ -298,12 +420,29 @@ echo "##########################################################################
 echo "### Checking video card                                                      ###"
 echo "################################################################################"
 if [[ $(lspci -k | grep VGA | grep -i nvidia) ]]; then
-  sudo pacman -S --noconfirm --needed  nvidia nvidia-cg-toolkit nvidia-settings nvidia-utils lib32-nvidia-cg-toolkit lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia cuda ffnvcodec-headers lib32-libvdpau libxnvctrl pycuda-headers python-pycuda
+  sudo pacman -S --noconfirm --needed nvidia
+  sudo pacman -S --noconfirm --needed nvidia-cg-toolkit
+  sudo pacman -S --noconfirm --needed nvidia-settings
+  sudo pacman -S --noconfirm --needed nvidia-utils
+  sudo pacman -S --noconfirm --needed lib32-nvidia-cg-toolkit
+  sudo pacman -S --noconfirm --needed lib32-nvidia-utils
+  sudo pacman -S --noconfirm --needed lib32-opencl-nvidia
+  sudo pacman -S --noconfirm --needed opencl-nvidia
+  sudo pacman -S --noconfirm --needed cuda
+  sudo pacman -S --noconfirm --needed ffnvcodec-headers
+  sudo pacman -S --noconfirm --needed lib32-libvdpau
+  sudo pacman -S --noconfirm --needed libxnvctrl
+  sudo pacman -S --noconfirm --needed pycuda-headers
+  sudo pacman -S --noconfirm --needed python-pycuda
   sudo pacman -R --noconfirm xf86-video-nouveau
 fi
 
 if [[ $(lspci -k | grep VGA | grep -i amd) ]]; then
-  yay -S --noconfirm --needed amdgpu-pro-libgl lib32-amdgpu-pro-libgl amdvlk lib32-amdvlk opencl-amd
+  yay -S --noconfirm --needed amdgpu-pro-libgl
+  yay -S --noconfirm --needed lib32-amdgpu-pro-libgl
+  yay -S --noconfirm --needed amdvlk
+  yay -S --noconfirm --needed lib32-amdvlk
+  yay -S --noconfirm --needed opencl-amd
 fi
 
 clear
