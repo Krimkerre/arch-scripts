@@ -443,7 +443,6 @@ if [[ $(lspci -k | grep VGA | grep -i amd) ]]; then
   yay -S --noconfirm --needed amdvlk
   yay -S --noconfirm --needed lib32-amdvlk
   yay -S --noconfirm --needed opencl-amd
-  yay -S --noconfirm --needed ffmpeg-amd-full-git
 fi
 
 clear
