@@ -438,11 +438,14 @@ if [[ $(lspci -k | grep VGA | grep -i nvidia) ]]; then
 fi
 
 if [[ $(lspci -k | grep VGA | grep -i amd) ]]; then
-  yay -S --noconfirm --needed amdgpu-pro-libgl
-  yay -S --noconfirm --needed lib32-amdgpu-pro-libgl
-  yay -S --noconfirm --needed amdvlk
-  yay -S --noconfirm --needed lib32-amdvlk
-  yay -S --noconfirm --needed opencl-amd
+  #yay -S --noconfirm --needed amdgpu-pro-libgl
+  #yay -S --noconfirm --needed lib32-amdgpu-pro-libgl
+  #yay -S --noconfirm --needed amdvlk
+  #yay -S --noconfirm --needed lib32-amdvlk
+  #yay -S --noconfirm --needed opencl-amd
+  echo "##############################################################################"
+  echo "### Congrats on supporting open source GPU vendor                          ###"
+  echo "##############################################################################"
 fi
 
 clear
