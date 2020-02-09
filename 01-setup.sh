@@ -129,8 +129,8 @@ yay -S --noconfirm --needed alsa-tools
 yay -S --noconfirm --needed lib32-apulse
 yay -S --noconfirm --needed pulseeffects
 yay -S --noconfirm --needed lib32-libpulse
-yay -S --noconfirm --needed pulseaudio-jack
-#yay -S --noconfirm --needed pacmixer
+#yay -S --noconfirm --needed pulseaudio-jack
+yay -S --noconfirm --needed pacmixer
 clear
 echo "################################################################################"
 echo "### Installing and setting up bluetooth                                      ###"
@@ -226,7 +226,7 @@ sudo pacman -S --noconfirm --needed lib32-vkd3d
 sudo pacman -S --noconfirm --needed kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia
 sudo pacman -S --noconfirm --needed opencl-mesa
 sudo pacman -S --noconfirm --needed opencl-headers
-sudo pacman -S --noconfirm --needed terminator
+#sudo pacman -S --noconfirm --needed terminator
 sudo pacman -S --noconfirm --needed lib32-mesa-demos
 sudo pacman -S --noconfirm --needed mesa-vdpau
 sudo pacman -S --noconfirm --needed lib32-mesa-vdpau
@@ -235,6 +235,7 @@ sudo pacman -S --noconfirm --needed lib32-ocl-icd
 sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
 sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
+yay -S --noconfirm --needed gnome-terminal-transparency
 yay -S --noconfirm --needed lightdm-webkit2-theme-material2
 yay -S --noconfirm --needed lightdm-webkit-theme-aether
 yay -S --noconfirm --needed lightdm-webkit-theme-userdock
@@ -321,7 +322,6 @@ case $case in
       sudo pacman -S --noconfirm --needed mate mate-extra
       sudo pacman -S --noconfirm --needed gnome-disk-utility
       sudo pacman -S --noconfirm --needed variety
-      sudo pacman -S --noconfirm --needed plank
       yay -S --noconfirm --needed  mugshot
       yay -S --noconfirm --needed  mate-tweak
       yay -S --noconfirm --needed  brisk-menu
@@ -332,7 +332,6 @@ case $case in
       sudo pacman -S --noconfirm --needed xfce4 xfce4-goodies
       sudo pacman -S --noconfirm --needed gnome-disk-utility
       sudo pacman -S --noconfirm --needed ark
-      sudo pacman -S --noconfirm --needed plank
       sudo pacman -S --noconfirm --needed alacarte
       sudo pacman -S --noconfirm --needed gnome-calculator
       sudo pacman -S --noconfirm --needed picom

@@ -64,6 +64,7 @@ sudo pacman -S --noconfirm --needed deluge
 sudo pacman -S --noconfirm --needed extremetuxracer
 sudo pacman -S --noconfirm --needed supertux
 sudo pacman -S --noconfirm --needed supertuxkart
+sudo pacman -S --noconfirm --needed cairo-dock cairo-dock-plug-ins
 #sudo pacman -S --noconfirm --needed  virtualbox
 #sudo pacman -S --noconfirm --needed  virtualbox-guest-iso
 yay -S --noconfirm --needed  makemkv
@@ -80,6 +81,7 @@ yay -S --noconfirm --needed  olive
 yay -S --noconfirm --needed  discord
 yay -S --noconfirm --needed  gamemode lib32-gamemode
 yay -S --noconfirm --needed  multibootusb-git
+yay -S --noconfirm --needed  cairo-dock-themes cairo-dock-plug-ins-extras
 yay -S --noconfirm --needed  protontricks
 yay -S --noconfirm --needed  ovmf
 #yay -S --noconfirm --needed  virtio-win
