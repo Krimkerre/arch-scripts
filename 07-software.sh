@@ -84,6 +84,7 @@ yay -S --noconfirm --needed  multibootusb-git
 yay -S --noconfirm --needed  cairo-dock-themes cairo-dock-plug-ins-extras
 yay -S --noconfirm --needed  protontricks
 yay -S --noconfirm --needed  ovmf
+yay -S --noconfirm --needed  cinelerra-cv
 #yay -S --noconfirm --needed  virtio-win
 #yay -S --noconfirm --needed  libguestfs
 #yay -S --noconfirm --needed  freecad-appimage

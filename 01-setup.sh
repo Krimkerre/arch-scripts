@@ -340,7 +340,7 @@ case $case in
       yay -S --noconfirm --needed  mugshot
       yay -S --noconfirm --needed  compton-conf
       #yay -S --noconfirm --needed  xfce-theme-manager
-      sudo sed -i 's/'#user-session=default'/'user-session=xfce4'/g' /etc/lightdm/lightdm.conf
+      sudo sed -i 's/'#user-session=default'/'user-session=xfce'/g' /etc/lightdm/lightdm.conf
       ;;
     6)
       echo "You selected Budgie"
