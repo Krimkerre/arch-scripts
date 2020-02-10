@@ -283,7 +283,7 @@ case $case in
       sudo pacman -S --noconfirm --needed nautilus-share
       sudo pacman -S --noconfirm --needed chrome-gnome-shell
       sudo pacman -S --noconfirm --needed variety
-      sudo pacman -R gnome-terminal
+      sudo pacman -R --noconfirm gnome-terminal
       #sudo systemctl enable gdm
       sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
       yay -S --noconfirm --needed  gnome-terminal-transparency
