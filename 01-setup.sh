@@ -235,7 +235,7 @@ sudo pacman -S --noconfirm --needed lib32-ocl-icd
 sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
 sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
-yay -S --noconfirm --needed gnome-terminal-transparency
+yay -S --noconfirm --needed terminator
 yay -S --noconfirm --needed lightdm-webkit2-theme-material2
 yay -S --noconfirm --needed lightdm-webkit-theme-aether
 yay -S --noconfirm --needed lightdm-webkit-theme-userdock
@@ -283,8 +283,10 @@ case $case in
       sudo pacman -S --noconfirm --needed nautilus-share
       sudo pacman -S --noconfirm --needed chrome-gnome-shell
       sudo pacman -S --noconfirm --needed variety
+      sudo pacman -R gnome-terminal
       #sudo systemctl enable gdm
       sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
+      yay -S --noconfirm --needed  gnome-terminal-transparency
       yay -S --noconfirm --needed  gnome-shell-extension-dash-to-dock
       yay -S --noconfirm --needed  gnome-shell-extension-dash-to-panel-git
       yay -S --noconfirm --needed  gnome-shell-extension-workspaces-to-dock
