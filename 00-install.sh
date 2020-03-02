@@ -19,7 +19,7 @@ alocale='en_US.UTF-8'
 cntry='US'
 akeymap='us'
 # Change to the name you want the machine
-hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
+hostname=$(dialog --stdout --inputbox "Enter hostname" 6 20) || exit 1
 : ${hostname:?"hostname cannot be empty"}
 # Change to the device wanting to format
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
