@@ -324,9 +324,10 @@ case $case in
       sudo pacman -S --noconfirm --needed mate mate-extra
       sudo pacman -S --noconfirm --needed gnome-disk-utility
       sudo pacman -S --noconfirm --needed variety
-      yay -S --noconfirm --needed  mugshot
+      yay -S --noconfirm --needed  user-admin
       yay -S --noconfirm --needed  mate-tweak
       yay -S --noconfirm --needed  brisk-menu
+      yay -S --noconfirm --needed  mate-screensaver-hacks
       sudo sed -i 's/'#user-session=default'/'user-session=mate'/g' /etc/lightdm/lightdm.conf
       ;;
     5)
