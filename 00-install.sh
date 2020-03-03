@@ -68,7 +68,8 @@ if [[ -d /sys/firmware/efi/efivars ]]; then
 else
   #BIOS Partition
   parted ${drive} mklabel msdos mkpart primary ext4 2MiB 100% set 1 boot on
-  mkfs.ext4 ${drive}1
+  #mkfs.ext4 ${drive}1
+  mkfs.btrfs ${drive}1
   mount ${drive}1 /mnt
 fi
 ######################################################################################
@@ -117,7 +118,7 @@ EOF
 arch-chroot /mnt systemctl enable NetworkManager
 ln -sf /run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf
 arch-chroot /mnt systemctl enable systemd-resolved
-pacstrap /mnt man-db man-pages git
+pacstrap /mnt man-db man-pages git btrfs-progs
 sed -i "s/^#\(${alocale}\)/\1/" /mnt/etc/locale.gen
 arch-chroot /mnt locale-gen
 echo "LANG=${alocale}" > /mnt/etc/locale.conf
