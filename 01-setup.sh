@@ -75,6 +75,8 @@ echo "##########################################################################
 sleep 2
 sudo pacman -S reflector --noconfirm --needed
 sudo reflector --country us --latest 25 --sort rate --save /etc/pacman.d/mirrorlist
+sudo pacman -Sy
+sudo pacman-key --refresh-keys
 
 clear
 echo "################################################################################"
@@ -82,7 +84,6 @@ echo "### Setting up needed packages                                            
 echo "################################################################################"
 sleep 2
 clear
-sudo pacman -Syyu --noconfirm --needed
 sudo pacman -S --noconfirm --needed  neofetch
 sudo pacman -S --noconfirm --needed git
 sudo pacman -S --noconfirm --needed wget
