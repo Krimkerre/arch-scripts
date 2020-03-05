@@ -74,9 +74,9 @@ echo "### Setting up fastest repos                                              
 echo "################################################################################"
 sleep 2
 sudo pacman -S reflector --noconfirm --needed
-sudo reflector --country us --latest 25 --sort rate --save /etc/pacman.d/mirrorlist
+sudo reflector --country US --latest 25 --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -Sy
-sudo pacman-key --refresh-keys
+#sudo pacman-key --refresh-keys
 
 clear
 echo "################################################################################"
@@ -84,7 +84,7 @@ echo "### Setting up needed packages                                            
 echo "################################################################################"
 sleep 2
 clear
-sudo pacman -S --noconfirm --needed  neofetch
+sudo pacman -S --noconfirm --needed neofetch
 sudo pacman -S --noconfirm --needed git
 sudo pacman -S --noconfirm --needed wget
 sudo pacman -S --noconfirm --needed linux-headers
@@ -227,7 +227,7 @@ sudo pacman -S --noconfirm --needed lib32-vkd3d
 sudo pacman -S --noconfirm --needed kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia
 sudo pacman -S --noconfirm --needed opencl-mesa
 sudo pacman -S --noconfirm --needed opencl-headers
-#sudo pacman -S --noconfirm --needed terminator
+sudo pacman -S --noconfirm --needed terminator
 sudo pacman -S --noconfirm --needed lib32-mesa-demos
 sudo pacman -S --noconfirm --needed mesa-vdpau
 sudo pacman -S --noconfirm --needed lib32-mesa-vdpau
@@ -236,7 +236,6 @@ sudo pacman -S --noconfirm --needed lib32-ocl-icd
 sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
 sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
-yay -S --noconfirm --needed terminator
 yay -S --noconfirm --needed lightdm-webkit2-theme-material2
 yay -S --noconfirm --needed lightdm-webkit-theme-aether
 yay -S --noconfirm --needed lightdm-webkit-theme-userdock
