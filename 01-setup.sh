@@ -412,7 +412,7 @@ echo "##########################################################################
 echo "### Installing software center                                               ###"
 echo "################################################################################"
 sleep 2
-yay -S --noconfirm --needed  pamac-aur
+yay -S --noconfirm --needed  pamac-aur-git
 yay -S --noconfirm --needed  snapd-git
 sudo systemctl enable snapd.service
 yay -S --noconfirm --needed  bauh

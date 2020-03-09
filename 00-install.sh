@@ -61,7 +61,7 @@ if [[ -d /sys/firmware/efi/efivars ]]; then
   parted ${drive} mklabel gpt mkpart primary fat32 1MiB 301MiB set 1 esp on mkpart primary ext4 301MiB 100%
   mkfs.fat -F32 ${drive}1
   #mkfs.ext4 ${drive}2
-  mkfs.btrfs ${drive}2
+  mkfs.btrfs -f ${drive}2
   mount ${drive}2 /mnt
   mkdir /mnt/boot
   mount ${drive}1 /mnt/boot
