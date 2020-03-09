@@ -128,9 +128,9 @@ sudo pacman -S --noconfirm --needed volumeicon
 sudo pacman -S --noconfirm --needed playerctl
 yay -S --noconfirm --needed alsa-tools
 yay -S --noconfirm --needed lib32-apulse
-yay -S --noconfirm --needed pulseeffects
+#yay -S --noconfirm --needed pulseeffects
 yay -S --noconfirm --needed lib32-libpulse
-#yay -S --noconfirm --needed pulseaudio-jack
+yay -S --noconfirm --needed pulseaudio-jack
 yay -S --noconfirm --needed pacmixer
 clear
 echo "################################################################################"
@@ -287,7 +287,7 @@ case $case in
       #sudo systemctl enable gdm
       sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
       yay -S --noconfirm --needed  gnome-terminal-transparency
-      yay -S --noconfirm --needed  gnome-shell-extension-dash-to-dock
+      yay -S --noconfirm --needed  gnome-shell-extension-dash-to-dock-git
       yay -S --noconfirm --needed  gnome-shell-extension-dash-to-panel-git
       yay -S --noconfirm --needed  gnome-shell-extension-workspaces-to-dock
       yay -S --noconfirm --needed  gnome-shell-extension-arc-menu-git
