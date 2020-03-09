@@ -74,7 +74,7 @@ echo "### Setting up fastest repos                                              
 echo "################################################################################"
 sleep 2
 sudo pacman -S reflector --noconfirm --needed
-sudo reflector --country US --latest 25 --sort rate --save /etc/pacman.d/mirrorlist
+sudo reflector --country US --latest 25 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -Sy
 #sudo pacman-key --refresh-keys
 
@@ -94,6 +94,11 @@ sudo pacman -S --noconfirm --needed htop
 sudo pacman -S --noconfirm --needed openssh
 sudo pacman -S --noconfirm --needed archlinux-wallpaper
 sudo pacman -S --noconfirm --needed btrfs-progs
+sudo pacman -S --noconfirm --needed glances
+
+wget https://raw.githubusercontent.com/bill-mavromatis/gnome-layout-manager/master/layoutmanager.sh
+sudo chmod +x layoutmanager.sh
+
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm --needed
@@ -339,7 +344,7 @@ case $case in
       sudo pacman -S --noconfirm --needed gnome-calculator
       sudo pacman -S --noconfirm --needed picom
       yay -S --noconfirm --needed  xfce4-screensaver
-      yay -S --noconfirm --needed  xfce4-panel-profiles
+      yay -S --noconfirm --needed  xfce4-panel-profiles-git
       yay -S --noconfirm --needed  mugshot
       yay -S --noconfirm --needed  compton-conf
       #yay -S --noconfirm --needed  xfce-theme-manager
