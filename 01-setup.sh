@@ -174,7 +174,7 @@ sudo pacman -S --noconfirm --needed foomatic-db-gutenprint-ppds
 sudo pacman -S --noconfirm --needed foomatic-db-engine
 sudo pacman -S --noconfirm --needed foomatic-db-nonfree
 sudo pacman -S --noconfirm --needed foomatic-db-nonfree-ppds
-yay -S --noconfirm --needed  epson-inkjet-printer-201211w
+yay -S --noconfirm --needed epson-inkjet-printer-escpr
 sudo systemctl enable org.cups.cupsd.service
 
 clear
@@ -291,30 +291,30 @@ case $case in
       sudo pacman -R --noconfirm gnome-terminal
       #sudo systemctl enable gdm
       sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
-      yay -S --noconfirm --needed  gnome-terminal-transparency
-      yay -S --noconfirm --needed  gnome-shell-extension-dash-to-dock-git
-      yay -S --noconfirm --needed  gnome-shell-extension-dash-to-panel-git
-      yay -S --noconfirm --needed  gnome-shell-extension-workspaces-to-dock
-      yay -S --noconfirm --needed  gnome-shell-extension-arc-menu-git
-      yay -S --noconfirm --needed  gnome-shell-extension-openweather-git
-      yay -S --noconfirm --needed  gnome-shell-extension-topicons-plus-git
-      yay -S --noconfirm --needed  gnome-shell-extension-audio-output-switcher-git
-      yay -S --noconfirm --needed  gnome-shell-extension-clipboard-indicator-git
-      yay -S --noconfirm --needed  gnome-shell-extension-coverflow-alt-tab-git
-      yay -S --noconfirm --needed  gnome-shell-extension-animation-tweaks-git
-      yay -S --noconfirm --needed  gnome-shell-extension-gamemode-git
-      yay -S --noconfirm --needed  gnome-alsamixer
-      #yay -S --noconfirm --needed  gnome-shell-extension-vitals
-      #yay -S --noconfirm --needed  gnome-shell-extension-drop-down-terminal-x
-      #yay -S --noconfirm --needed  gnome-shell-extension-dynamic-battery
-      #yay -S --noconfirm --needed  gnome-shell-extension-material-shell-git
-      #yay -S --noconfirm --needed  gnome-shell-extension-panel-osd
-      #yay -S --noconfirm --needed  gnome-shell-extension-slinger-git
-      #yay -S --noconfirm --needed  gnome-shell-extension-transparent-window-moving-git
-      #yay -S --noconfirm --needed  gnome-shell-extension-transparent-osd-git
-      #yay -S --noconfirm --needed  gnome-shell-extension-window-animations-git
-      #yay -S --noconfirm --needed  gnome-shell-extension-impatience-git
-      #yay -S --noconfirm --needed  gnome-appfolders-manager
+      yay -S --noconfirm --needed gnome-terminal-transparency
+      yay -S --noconfirm --needed gnome-shell-extension-dash-to-dock
+      yay -S --noconfirm --needed gnome-shell-extension-dash-to-panel
+      yay -S --noconfirm --needed gnome-shell-extension-workspaces-to-dock
+      yay -S --noconfirm --needed gnome-shell-extension-arc-menu-git
+      yay -S --noconfirm --needed gnome-shell-extension-openweather-git
+      yay -S --noconfirm --needed gnome-shell-extension-topicons-plus-git
+      yay -S --noconfirm --needed gnome-shell-extension-audio-output-switcher-git
+      yay -S --noconfirm --needed gnome-shell-extension-clipboard-indicator-git
+      yay -S --noconfirm --needed gnome-shell-extension-coverflow-alt-tab-git
+      yay -S --noconfirm --needed gnome-shell-extension-animation-tweaks-git
+      yay -S --noconfirm --needed gnome-shell-extension-gamemode-git
+      yay -S --noconfirm --needed gnome-alsamixer
+      #yay -S --noconfirm --needed gnome-shell-extension-vitals
+      #yay -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
+      #yay -S --noconfirm --needed gnome-shell-extension-dynamic-battery
+      #yay -S --noconfirm --needed gnome-shell-extension-material-shell-git
+      #yay -S --noconfirm --needed gnome-shell-extension-panel-osd
+      #yay -S --noconfirm --needed gnome-shell-extension-slinger-git
+      #yay -S --noconfirm --needed gnome-shell-extension-transparent-window-moving-git
+      #yay -S --noconfirm --needed gnome-shell-extension-transparent-osd-git
+      #yay -S --noconfirm --needed gnome-shell-extension-window-animations-git
+      #yay -S --noconfirm --needed gnome-shell-extension-impatience-git
+      #yay -S --noconfirm --needed gnome-appfolders-manager
       ;;
     3)
       echo "You selected KDE Plasma"
@@ -329,10 +329,10 @@ case $case in
       sudo pacman -S --noconfirm --needed mate mate-extra
       sudo pacman -S --noconfirm --needed gnome-disk-utility
       sudo pacman -S --noconfirm --needed variety
-      yay -S --noconfirm --needed  user-admin
-      yay -S --noconfirm --needed  mate-tweak
-      yay -S --noconfirm --needed  brisk-menu
-      yay -S --noconfirm --needed  mate-screensaver-hacks
+      yay -S --noconfirm --needed user-admin
+      yay -S --noconfirm --needed mate-tweak
+      yay -S --noconfirm --needed brisk-menu
+      yay -S --noconfirm --needed mate-screensaver-hacks
       sudo sed -i 's/'#user-session=default'/'user-session=mate'/g' /etc/lightdm/lightdm.conf
       ;;
     5)
@@ -343,11 +343,11 @@ case $case in
       sudo pacman -S --noconfirm --needed alacarte
       sudo pacman -S --noconfirm --needed gnome-calculator
       sudo pacman -S --noconfirm --needed picom
-      yay -S --noconfirm --needed  xfce4-screensaver
-      yay -S --noconfirm --needed  xfce4-panel-profiles-git
-      yay -S --noconfirm --needed  mugshot
-      yay -S --noconfirm --needed  compton-conf
-      #yay -S --noconfirm --needed  xfce-theme-manager
+      yay -S --noconfirm --needed xfce4-screensaver
+      yay -S --noconfirm --needed xfce4-panel-profiles-git
+      yay -S --noconfirm --needed mugshot
+      yay -S --noconfirm --needed compton-conf
+      #yay -S --noconfirm --needed xfce-theme-manager
       sudo sed -i 's/'#user-session=default'/'user-session=xfce'/g' /etc/lightdm/lightdm.conf
       ;;
     6)
@@ -382,8 +382,8 @@ case $case in
       sudo pacman -S --noconfirm --needed gedit
       sudo pacman -S --noconfirm --needed picom
       sudo pacman -S --noconfirm --needed variety
-      yay -S --noconfirm --needed  mugshot
-      yay -S --noconfirm --needed  compton-conf
+      yay -S --noconfirm --needed mugshot
+      yay -S --noconfirm --needed compton-conf
       sudo sed -i 's/'#user-session=default'/'user-session=lxde'/g' /etc/lightdm/lightdm.conf
       ;;
     9)
@@ -417,10 +417,10 @@ echo "##########################################################################
 echo "### Installing software center                                               ###"
 echo "################################################################################"
 sleep 2
-yay -S --noconfirm --needed  pamac-aur-git
-yay -S --noconfirm --needed  snapd-git
+yay -S --noconfirm --needed pamac-aur-git
+yay -S --noconfirm --needed snapd-git
 sudo systemctl enable snapd.service
-yay -S --noconfirm --needed  bauh
+yay -S --noconfirm --needed bauh
 
 clear
 echo "################################################################################"
@@ -449,7 +449,7 @@ if [[ $(lspci -k | grep VGA | grep -i amd) ]]; then
   #yay -S --noconfirm --needed lib32-amdgpu-pro-libgl
   #yay -S --noconfirm --needed amdvlk
   #yay -S --noconfirm --needed lib32-amdvlk
-  #yay -S --noconfirm --needed opencl-amd
+  yay -S --noconfirm --needed opencl-amd
   echo "##############################################################################"
   echo "### Congrats on supporting open source GPU vendor                          ###"
   echo "##############################################################################"
