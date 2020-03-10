@@ -87,7 +87,7 @@ clear
 sudo pacman -S --noconfirm --needed neofetch
 sudo pacman -S --noconfirm --needed git
 sudo pacman -S --noconfirm --needed wget
-sudo pacman -S --noconfirm --needed linux-headers
+#sudo pacman -S --noconfirm --needed linux-headers
 sudo pacman -S --noconfirm --needed rsync
 sudo pacman -S --noconfirm --needed go
 sudo pacman -S --noconfirm --needed htop
