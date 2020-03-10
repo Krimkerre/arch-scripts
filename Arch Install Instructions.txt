@@ -4,32 +4,32 @@ Installing Arch Linux
 03. lsblk
 04. fdisk /dev/sd(x) (partition the drive)
 05. mkfs.ext4 /dev/sd(x) (format all the partitions)
-06. mkswap /dev/sd(x) (format the swap partition)
-07. swapon /dev/sd(x)
-08. mount /dev/sd(x) (mount the root partition)
-09. mkdir /mnt/boot
-10. mount /dev/sd(x) /mnt/boot (mount the boot partition)
-11. pacstrap /mnt base base-devel
-12. genfstab -U /mnt >> /mnt/etc/fstab
-13. arch-chroot /mnt
-14. pacman -S networmanager grub efibootmgr
-15. systemctl enable NetworkManager
-16. (a) grub-install --target=i386-pc /dev/sd(x) (install grub to boot drive)
-17. (b) grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB  (if using EFI)
-18. grub-mkconfig -o /boot/grub/grub.cfg
-19. nano /etc/hostname (edit file and add a name for your computer)
-20. nano /etc/sudoers (edit and remove comment on the wheel group)
-21. nano /etc/pacman.conf (edit and add your changes, mainly 32bit locations)
-22. nano /etc/vconsole.conf (edit with example: FONT=gr928-8x16-thin)
-23. nano /etc/locale.gen (edit the file and un-comment your language)
-24. nano /etc/locale.conf (edit the file and add your Language: IE: LANG="en_US.UTF-8")
-25. locale-gen
-26. ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime (set your timezone info)
-27 passwd
-28. useradd -m -g users -G storage,power,wheel -s /bin/bash "username"
-29. passwd username
-30. reboot and enjoy installing whatever else.
-
-sudo pacman -S systemd-swap
-sudo nano /etc/systemd/swap.conf (change the swapfc_enables=1)
-sudo systemctl enable systemd-swap
+06. mount /dev/sd(x) (mount the root partition)
+07. mkdir /mnt/boot
+08. mount /dev/sd(x) /mnt/boot (mount the boot partition)
+09. pacstrap /mnt base base-devel linux linux-headers nano btrfs-progs
+10. genfstab -U /mnt >> /mnt/etc/fstab
+11. arch-chroot /mnt
+12. nano /etc/hostname (edit file and add a name for your computer)
+13. nano /etc/sudoers (edit and remove comment on the wheel group)
+14. nano /etc/pacman.conf (edit and add your changes, mainly 32bit locations)
+15. nano /etc/vconsole.conf (edit with example: FONT=gr928-8x16-thin)
+16. nano /etc/locale.gen (edit the file and un-comment your language)
+17. nano /etc/locale.conf (edit the file and add your Language: IE: LANG="en_US.UTF-8")
+18. locale-gen
+19. pacman -Sy
+20. pacman -S reflector
+21. reflector --country US --age 8 --sort rate --save /etc/pacman.d/mirrorlist
+22. pacman -Sy
+23. pacman -S networmanager grub efibootmgr systemd-swap
+24. systemctl enable NetworkManager
+25. nano /etc/systemd/swap.conf (change the swapfc_enables=1)
+26. systemctl enable systemd-swap
+27. ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime (set your timezone info)
+28. passwd
+29. useradd -m -g users -G storage,power,wheel -s /bin/bash "username"
+30. passwd username
+31. (a) grub-install --target=i386-pc /dev/sd(x) (install grub to boot drive)
+32. (b) grub-install --target=x86_64-efi --efi-directory=esp --bootloader-id=GRUB  (if using EFI)
+33. grub-mkconfig -o /boot/grub/grub.cfg
+34. reboot and enjoy installing whatever else.
