@@ -79,8 +79,8 @@ fi
 pacstrap /mnt base base-devel linux linux-firmware nano networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
 ######################################################################################
-arch-chroot /mnt mkdir -p /boot/loader/entries
-arch-chroot /mnt bootctl --path=/boot install
+#arch-chroot /mnt mkdir -p /boot/loader/entries
+#arch-chroot /mnt bootctl --path=/boot install
 
 #cat <<EOF > /mnt/boot/loader/loader.conf
 #default arch
