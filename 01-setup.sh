@@ -347,11 +347,9 @@ case $case in
       yay -S --noconfirm --needed xfce4-panel-profiles-git
       yay -S --noconfirm --needed mugshot
       yay -S --noconfirm --needed compton-conf
-      yay -S --noconfirm --needed xfce4-theme-plastic
       yay -S --noconfirm --needed solarized-dark-themes
       yay -S --noconfirm --needed gtk-theme-glossyblack
       yay -S --noconfirm --needed mcos-mjv-xfce-edition
-      yay -S --noconfirm --needed xfwm4-themes
       #yay -S --noconfirm --needed xfce-theme-manager
       sudo sed -i 's/'#user-session=default'/'user-session=xfce'/g' /etc/lightdm/lightdm.conf
       ;;
