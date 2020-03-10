@@ -56,7 +56,7 @@ timedatectl set-ntp true
 ##### Partition the drive ############################################################
 sgdisk -Z ${drive}
 
-if [[ -d /sys/firmware/efi/efivars ]]; then
+#if [[ -d /sys/firmware/efi/efivars ]]; then
   #UEFI Partition
   parted ${drive} mklabel gpt mkpart primary fat32 1MiB 301MiB set 1 esp on mkpart primary ext4 301MiB 100%
   mkfs.fat -F32 ${drive}1
@@ -66,13 +66,13 @@ if [[ -d /sys/firmware/efi/efivars ]]; then
   mkdir /mnt/boot
   mount ${drive}1 /mnt/boot
 
-else
+#else
   #BIOS Partition
-  parted ${drive} mklabel msdos mkpart primary ext4 2MiB 100% set 1 boot on
+  #parted ${drive} mklabel msdos mkpart primary ext4 2MiB 100% set 1 boot on
   #mkfs.ext4 ${drive}1
-  mkfs.btrfs ${drive}1
-  mount ${drive}1 /mnt
-fi
+  #mkfs.btrfs ${drive}1
+  #mount ${drive}1 /mnt
+#fi
 ######################################################################################
 
 ##### Install base packages ##########################################################
