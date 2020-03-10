@@ -19,15 +19,16 @@ alocale='en_US.UTF-8'
 cntry='US'
 akeymap='us'
 # Change to the name you want the machine
-hostname=$(dialog --stdout --inputbox "Enter hostname" 0 0) || exit 1
-clear
+hostname=$(dialog --stdout --inputbox "Enter hostname" 10 20) || exit 1
 : ${hostname:?"hostname cannot be empty"}
 # Change to the device wanting to format
 devicelist=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
 drive=$(dialog --stdout --menu "Select root disk" 0 0 0 ${devicelist}) || exit 1
-#drive='/dev/vda'
-# Change to the default terminal font
-deffnt='gr928-8x16-thin'
+##### Change to the default terminal font ###########################################
+#deffnt=$(dialog --title "Browse" --fselect /usr/share/kbd/consolefonts/ 12 50 2)
+deffnt=$(dialog --stdout --title "Select your terminal (CLI) font" --fselect /usr/share/kbd/consolefonts/ 24 48)
+#deffnt='gr928-8x16-thin'
+#####################################################################################
 # Change the timezones
 timezne='America/Los_Angeles'
 # Add username
@@ -59,7 +60,8 @@ if [[ -d /sys/firmware/efi/efivars ]]; then
   #UEFI Partition
   parted ${drive} mklabel gpt mkpart primary fat32 1MiB 301MiB set 1 esp on mkpart primary ext4 301MiB 100%
   mkfs.fat -F32 ${drive}1
-  mkfs.ext4 ${drive}2
+  #mkfs.ext4 ${drive}2
+  mkfs.btrfs -f ${drive}2
   mount ${drive}2 /mnt
   mkdir /mnt/boot
   mount ${drive}1 /mnt/boot
@@ -67,7 +69,8 @@ if [[ -d /sys/firmware/efi/efivars ]]; then
 else
   #BIOS Partition
   parted ${drive} mklabel msdos mkpart primary ext4 2MiB 100% set 1 boot on
-  mkfs.ext4 ${drive}1
+  #mkfs.ext4 ${drive}1
+  mkfs.btrfs ${drive}1
   mount ${drive}1 /mnt
 fi
 ######################################################################################
@@ -79,44 +82,44 @@ genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt mkdir -p /boot/loader/entries
 arch-chroot /mnt bootctl --path=/boot install
 
-cat <<EOF > /mnt/boot/loader/loader.conf
-default arch
-timeout 3
-console-mode max
-editor no
-EOF
+#cat <<EOF > /mnt/boot/loader/loader.conf
+#default arch
+#timeout 3
+#console-mode max
+#editor no
+#EOF
 
-cat >>/mnt/boot/loader/entries/arch.conf <<EOF
-title   Arch Linux
-linux   /vmlinuz-linux
+#cat >>/mnt/boot/loader/entries/arch.conf <<EOF
+#title   Arch Linux
+#linux   /vmlinuz-linux
 #initrd  /intel-ucode.img
 #initrd /amd-ucode.img
-initrd  /initramfs-linux.img
-options root=PARTUUID=$(blkid -s PARTUUID -o value "$drive"2) nowatchdog rw
-EOF
+#initrd  /initramfs-linux.img
+#options root=PARTUUID=$(blkid -s PARTUUID -o value "$drive"2) nowatchdog rw
+#EOF
 
 
 ##### Install a Bootloader ###########################################################
-#if [[ -d /sys/firmware/efi/efivars ]]; then
-  #pacstrap /mnt grub efibootmgr
-  #arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
-  #arch-chroot /mnt pacman -S --needed --noconfirm grub-customizer
+if [[ -d /sys/firmware/efi/efivars ]]; then
+  pacstrap /mnt grub efibootmgr
+  arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
+  arch-chroot /mnt pacman -S --needed --noconfirm grub-customizer
 
 
 
 
-#else
-#  pacstrap /mnt grub
-#  arch-chroot /mnt grub-install --target=i386-pc ${drive}
-#  arch-chroot /mnt pacman -S --needed --noconfirm grub-customizer
-#fi
+else
+  pacstrap /mnt grub
+  arch-chroot /mnt grub-install --target=i386-pc ${drive}
+  arch-chroot /mnt pacman -S --needed --noconfirm grub-customizer
+fi
 ######################################################################################
 
 ##### Setup some stuff ###############################################################
 arch-chroot /mnt systemctl enable NetworkManager
 ln -sf /run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf
 arch-chroot /mnt systemctl enable systemd-resolved
-pacstrap /mnt man-db man-pages git
+pacstrap /mnt man-db man-pages git btrfs-progs
 sed -i "s/^#\(${alocale}\)/\1/" /mnt/etc/locale.gen
 arch-chroot /mnt locale-gen
 echo "LANG=${alocale}" > /mnt/etc/locale.conf
@@ -154,6 +157,12 @@ $password
 echo "$passwordroot
 $passwordroot" | arch-chroot /mnt passwd
 ######################################################################################
+
+##### Copy the GIT scripts to user directory #########################################
+cp *.sh /mnt/home/$user/
+#arch-chroot /mnt chown $user:users /home/$user/*.sh
+
+#####################################################################################
 
 #arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 echo "################################################################################"
