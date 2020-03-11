@@ -76,7 +76,7 @@ fi
 ######################################################################################
 
 ##### Install base packages ##########################################################
-pacstrap /mnt base base-devel linux linux-firmware nano networkmanager
+pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
 ######################################################################################
 arch-chroot /mnt mkdir -p /boot/loader/entries
