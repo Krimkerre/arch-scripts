@@ -92,8 +92,8 @@ EOF
 cat >>/mnt/boot/loader/entries/arch.conf <<EOF
 title   Arch Linux
 linux   /vmlinuz-linux
-initrd  /intel-ucode.img
-initrd /amd-ucode.img
+#initrd  /intel-ucode.img
+#initrd /amd-ucode.img
 initrd  /initramfs-linux.img
 options root=PARTUUID=$(blkid -s PARTUUID -o value "$drive"2) nowatchdog rw
 EOF
@@ -102,7 +102,7 @@ EOF
 ##### Install a Bootloader ###########################################################
 #if [[ -d /sys/firmware/efi/efivars ]]; then
 #  pacstrap /mnt grub efibootmgr
-#  arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
+#  arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub --removable
 #  arch-chroot /mnt pacman -S --needed --noconfirm grub-customizer
 
 
