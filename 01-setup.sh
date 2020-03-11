@@ -74,7 +74,7 @@ echo "### Setting up fastest repos                                              
 echo "################################################################################"
 sleep 2
 sudo pacman -S reflector --noconfirm --needed
-sudo reflector --country US --latest 25 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+sudo reflector --country US --age 8 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -Sy
 #sudo pacman-key --refresh-keys
 
