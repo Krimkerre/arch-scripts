@@ -96,9 +96,6 @@ sudo pacman -S --noconfirm --needed archlinux-wallpaper
 sudo pacman -S --noconfirm --needed btrfs-progs
 sudo pacman -S --noconfirm --needed glances
 
-wget https://raw.githubusercontent.com/bill-mavromatis/gnome-layout-manager/master/layoutmanager.sh
-sudo chmod +x layoutmanager.sh
-
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm --needed
@@ -301,6 +298,8 @@ case $case in
       #yay -S --noconfirm --needed gnome-shell-extension-window-animations-git
       #yay -S --noconfirm --needed gnome-shell-extension-impatience-git
       #yay -S --noconfirm --needed gnome-appfolders-manager
+      wget https://raw.githubusercontent.com/bill-mavromatis/gnome-layout-manager/master/layoutmanager.sh
+      sudo chmod +x layoutmanager.sh
       ;;
     3)
       echo "You selected KDE Plasma"
