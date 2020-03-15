@@ -368,6 +368,11 @@ case $case in
       yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
       yay -S --noconfirm --needed lightdm-webkit-theme-luminos
       yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
+      yay -S --noconfirm --needed xfce4-theme-switcher
+      yay -S --noconfirm --needed xts-windows10-theme
+      yay -S --noconfirm --needed xts-macos-theme
+      yay -S --noconfirm --needed xts-dark-theme
+      yay -S --noconfirm --needed xts-arcolinux-theme
       sudo systemctl enable lightdm.service -f
       sudo systemctl set-default graphical.target
       sudo sed -i 's/'#user-session=default'/'user-session=xfce'/g' /etc/lightdm/lightdm.conf
