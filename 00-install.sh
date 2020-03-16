@@ -60,8 +60,8 @@ if [[ -d /sys/firmware/efi/efivars ]]; then
   #UEFI Partition
   parted ${drive} mklabel gpt mkpart primary fat32 1MiB 301MiB set 1 esp on mkpart primary ext4 301MiB 100%
   mkfs.fat -F32 ${drive}1
-  #mkfs.ext4 ${drive}2
-  mkfs.btrfs -f ${drive}2
+  mkfs.ext4 ${drive}2
+  #mkfs.btrfs -f ${drive}2
   mount ${drive}2 /mnt
   mkdir /mnt/boot
   mount ${drive}1 /mnt/boot
@@ -69,8 +69,8 @@ if [[ -d /sys/firmware/efi/efivars ]]; then
 else
   #BIOS Partition
   parted ${drive} mklabel msdos mkpart primary ext4 2MiB 100% set 1 boot on
-  #mkfs.ext4 ${drive}1
-  mkfs.btrfs ${drive}1
+  mkfs.ext4 ${drive}1
+  #mkfs.btrfs ${drive}1
   mount ${drive}1 /mnt
 fi
 ######################################################################################
@@ -104,9 +104,6 @@ EOF
 #  pacstrap /mnt grub efibootmgr
 #  arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub --removable
 #  arch-chroot /mnt pacman -S --needed --noconfirm grub-customizer
-
-
-
 
 #else
 #  pacstrap /mnt grub
