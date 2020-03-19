@@ -30,10 +30,10 @@ yay -S --noconfirm --needed aqua-git
 yay -S --noconfirm --needed evopop-gtk-theme-git
 yay -S --noconfirm --needed chromeos-gtk-theme-git
 yay -S --noconfirm --needed gtk-theme-inspire-ui
-yay -S --noconfirm --needed pop-gtk-theme-git
 yay -S --noconfirm --needed qogir-gtk-theme-git
 yay -S --noconfirm --needed candy-gtk-theme
-yay -S --noconfirm --needed mojave-gtk-theme-git
+#yay -S --noconfirm --needed mojave-gtk-theme-git
+#yay -S --noconfirm --needed pop-gtk-theme-git
 #yay -S --noconfirm --needed canta-gtk-theme
 #yay -S --noconfirm --needed oomox
 #yay -S --noconfirm --needed vimix-gtk-themes-git
