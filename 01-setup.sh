@@ -345,6 +345,7 @@ case $case in
       sudo pacman -S --noconfirm --needed alacarte
       sudo pacman -S --noconfirm --needed gnome-calculator
       sudo pacman -S --noconfirm --needed picom
+      sudo pacman -S --noconfirm --needed variety
       yay -S --noconfirm --needed xfce4-screensaver
       yay -S --noconfirm --needed xfce4-panel-profiles-git
       yay -S --noconfirm --needed mugshot

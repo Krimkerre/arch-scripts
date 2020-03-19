@@ -25,17 +25,17 @@ yay -S --noconfirm --needed abrus-gtk-theme-git
 yay -S --noconfirm --needed paper-gtk-theme-git
 yay -S --noconfirm --needed ant-nebula-gtk-theme
 yay -S --noconfirm --needed chicago95-gtk-theme-git
-yay -S --noconfirm --needed canta-gtk-theme
 yay -S --noconfirm --needed pro-dark-gtk-theme-git
 yay -S --noconfirm --needed aqua-git
 yay -S --noconfirm --needed evopop-gtk-theme-git
 yay -S --noconfirm --needed chromeos-gtk-theme-git
 yay -S --noconfirm --needed gtk-theme-inspire-ui
-yay -S --noconfirm --needed oomox
 yay -S --noconfirm --needed pop-gtk-theme-git
 yay -S --noconfirm --needed qogir-gtk-theme-git
 yay -S --noconfirm --needed candy-gtk-theme
 yay -S --noconfirm --needed mojave-gtk-theme-git
+#yay -S --noconfirm --needed canta-gtk-theme
+#yay -S --noconfirm --needed oomox
 #yay -S --noconfirm --needed vimix-gtk-themes-git
 #yay -S --noconfirm --needed starlabstheme-gtk-git
 echo "################################################################################"
