@@ -39,6 +39,6 @@ yay -S --noconfirm --needed candy-gtk-theme
 #yay -S --noconfirm --needed vimix-gtk-themes-git
 #yay -S --noconfirm --needed starlabstheme-gtk-git
 echo "################################################################################"
-echo "### Installation of GTK+ themes completed                                     ###"
+echo "### Installation of GTK+ themes completed                                    ###"
 echo "################################################################################"
 sleep 2

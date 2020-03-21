@@ -341,7 +341,7 @@ case $case in
       echo "You selected XFCE4"
       sudo pacman -S --noconfirm --needed xfce4 xfce4-goodies
       sudo pacman -S --noconfirm --needed gnome-disk-utility
-      sudo pacman -S --noconfirm --needed ark
+      sudo pacman -S --noconfirm --needed file-roller
       sudo pacman -S --noconfirm --needed alacarte
       sudo pacman -S --noconfirm --needed gnome-calculator
       sudo pacman -S --noconfirm --needed picom

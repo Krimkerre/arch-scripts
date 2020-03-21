@@ -37,8 +37,8 @@ yay -S --noconfirm --needed candy-icons-git
 yay -S --noconfirm --needed boston-icon-theme
 yay -S --noconfirm --needed chicago95-icon-theme-git
 yay -S --noconfirm --needed qogir-icon-theme-git
-yay -S --noconfirm --needed mcmojave-circle-icon-theme-git
 yay -S --noconfirm --needed windows10-icon-theme-git
+#yay -S --noconfirm --needed mcmojave-circle-icon-theme-git
 #yay -S --noconfirm --needed  starlabstheme-icons-git
 echo "################################################################################"
 echo "### Installation of icon themes completed                                    ###"
