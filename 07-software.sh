@@ -73,7 +73,8 @@ yay -S --noconfirm --needed drawio-desktop
 yay -S --noconfirm --needed dxvk-winelib-git
 yay -S --noconfirm --needed skypeforlinux-preview-bin
 yay -S --noconfirm --needed zoom
-yay -S --noconfirm --needed imagewriter-git
+yay -S --noconfirm --needed mintstick-git
+#yay -S --noconfirm --needed imagewriter-git
 yay -S --noconfirm --needed isomaster
 yay -S --noconfirm --needed timeshift
 yay -S --noconfirm --needed stacer
