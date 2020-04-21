@@ -21,7 +21,6 @@ yay -S --noconfirm --needed xcursor-chicago95-git
 yay -S --noconfirm --needed numix-cursor-maia-git
 yay -S --noconfirm --needed xcursor-arch-cursor-complete
 yay -S --noconfirm --needed numix-cursor-theme
-yay -S --noconfirm --needed xcursor-chicago95-git
 #yay -S --noconfirm --needed starlabstheme-icons-git
 
 echo "################################################################################"
