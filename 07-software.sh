@@ -70,7 +70,7 @@ sudo pacman -S --noconfirm --needed plank
 #sudo pacman -S --noconfirm --needed virtualbox-guest-iso
 yay -S --noconfirm --needed makemkv
 yay -S --noconfirm --needed drawio-desktop
-yay -S --noconfirm --needed dxvk-winelib-git
+yay -S --noconfirm --needed dxvk-bin
 yay -S --noconfirm --needed skypeforlinux-preview-bin
 yay -S --noconfirm --needed zoom
 yay -S --noconfirm --needed mintstick-git
