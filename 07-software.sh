@@ -72,7 +72,7 @@ yay -S --noconfirm --needed makemkv
 yay -S --noconfirm --needed drawio-desktop
 yay -S --noconfirm --needed dxvk-bin
 yay -S --noconfirm --needed skypeforlinux-preview-bin
-yay -S --noconfirm --needed zoom
+yay -S --noconfirm --needed zoom2
 yay -S --noconfirm --needed mintstick-git
 #yay -S --noconfirm --needed imagewriter-git
 yay -S --noconfirm --needed isomaster
