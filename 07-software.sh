@@ -74,7 +74,6 @@ yay -S --noconfirm --needed dxvk-bin
 yay -S --noconfirm --needed skypeforlinux-preview-bin
 yay -S --noconfirm --needed zoom2
 yay -S --noconfirm --needed mintstick-git
-#yay -S --noconfirm --needed imagewriter-git
 yay -S --noconfirm --needed isomaster
 yay -S --noconfirm --needed timeshift
 yay -S --noconfirm --needed stacer
@@ -90,7 +89,7 @@ yay -S --noconfirm --needed ovmf
 yay -S --noconfirm --needed cinelerra-cv
 yay -S --noconfirm --needed virtio-win
 yay -S --noconfirm --needed libguestfs
-#yay -S --noconfirm --needed freecad-appimage
+yay -S --noconfirm --needed systemd-manager
 #yay -S --noconfirm --needed edex-ui-git
 #yay -S --noconfirm --needed virtualbox-ext-oracle
 
