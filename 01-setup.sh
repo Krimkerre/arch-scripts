@@ -349,10 +349,10 @@ case $case in
       yay -S --noconfirm --needed xfce4-screensaver
       yay -S --noconfirm --needed xfce4-panel-profiles-git
       yay -S --noconfirm --needed mugshot
-      yay -S --noconfirm --needed compton-conf-git
       yay -S --noconfirm --needed solarized-dark-themes
       yay -S --noconfirm --needed gtk-theme-glossyblack
       yay -S --noconfirm --needed mcos-mjv-xfce-edition
+      #yay -S --noconfirm --needed compton-conf-git
       #yay -S --noconfirm --needed xfce-theme-manager
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
       sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
