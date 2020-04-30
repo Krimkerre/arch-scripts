@@ -91,7 +91,7 @@ yay -S --noconfirm --needed cinelerra-cv
 yay -S --noconfirm --needed virtio-win
 yay -S --noconfirm --needed libguestfs
 yay -S --noconfirm --needed systemd-manager
-yay -S --noconfirm --needed freecad
+#yay -S --noconfirm --needed freecad
 #yay -S --noconfirm --needed edex-ui-git
 #yay -S --noconfirm --needed virtualbox-ext-oracle
 
