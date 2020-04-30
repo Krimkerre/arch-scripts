@@ -346,6 +346,13 @@ case $case in
       sudo pacman -S --noconfirm --needed gnome-calculator
       sudo pacman -S --noconfirm --needed picom
       sudo pacman -S --noconfirm --needed variety
+      sudo pacman -S --noconfirm --needed libnma
+      sudo pacman -S --noconfirm --needed networkmanager
+      sudo pacman -S --noconfirm --needed networkmanager-openconnect
+      sudo pacman -S --noconfirm --needed networkmanager-openvpn
+      sudo pacman -S --noconfirm --needed networkmanager-pptp
+      sudo pacman -S --noconfirm --needed nm-connection-editor
+      sudo pacman -S --noconfirm --needed network-manager-applet
       yay -S --noconfirm --needed xfce4-screensaver
       yay -S --noconfirm --needed xfce4-panel-profiles-git
       yay -S --noconfirm --needed mugshot

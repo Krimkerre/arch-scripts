@@ -48,6 +48,7 @@ sudo pacman -S --noconfirm --needed dnsmasq
 sudo pacman -S --noconfirm --needed virglrenderer
 sudo pacman -S --noconfirm --needed qemu-arch-extra
 sudo pacman -S --noconfirm --needed qemu-guest-agent
+sudo pacman -S --noconfirm --needed fragments
 sudo systemctl enable libvirtd.service
 sudo systemctl enable virtlogd.service
 sudo sed -i '/\[global\]'/a'Environment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
@@ -90,6 +91,7 @@ yay -S --noconfirm --needed cinelerra-cv
 yay -S --noconfirm --needed virtio-win
 yay -S --noconfirm --needed libguestfs
 yay -S --noconfirm --needed systemd-manager
+yay -S --noconfirm --needed freecad
 #yay -S --noconfirm --needed edex-ui-git
 #yay -S --noconfirm --needed virtualbox-ext-oracle
 
