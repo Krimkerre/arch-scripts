@@ -275,17 +275,18 @@ case $case in
       sudo systemctl enable gdm
       #sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
       yay -S --noconfirm --needed gnome-terminal-transparency
-      #yay -S --noconfirm --needed gnome-shell-extension-dash-to-dock
-      #yay -S --noconfirm --needed gnome-shell-extension-dash-to-panel
-      #yay -S --noconfirm --needed gnome-shell-extension-workspaces-to-dock
-      #yay -S --noconfirm --needed gnome-shell-extension-arc-menu-git
-      #yay -S --noconfirm --needed gnome-shell-extension-openweather-git
-      #yay -S --noconfirm --needed gnome-shell-extension-topicons-plus-git
-      #yay -S --noconfirm --needed gnome-shell-extension-audio-output-switcher-git
-      #yay -S --noconfirm --needed gnome-shell-extension-clipboard-indicator-git
-      #yay -S --noconfirm --needed gnome-shell-extension-coverflow-alt-tab-git
-      #yay -S --noconfirm --needed gnome-shell-extension-animation-tweaks-git
-      #yay -S --noconfirm --needed gnome-shell-extension-gamemode-git
+      yay -S --noconfirm --needed gnome-shell-extension-dash-to-dock
+      yay -S --noconfirm --needed gnome-shell-extension-dash-to-panel
+      yay -S --noconfirm --needed gnome-shell-extension-workspaces-to-dock
+      yay -S --noconfirm --needed gnome-shell-extension-arc-menu-git
+      yay -S --noconfirm --needed gnome-shell-extension-openweather-git
+      yay -S --noconfirm --needed gnome-shell-extension-topicons-plus-git
+      yay -S --noconfirm --needed gnome-shell-extension-audio-output-switcher-git
+      yay -S --noconfirm --needed gnome-shell-extension-clipboard-indicator-git
+      yay -S --noconfirm --needed gnome-shell-extension-coverflow-alt-tab-git
+      yay -S --noconfirm --needed gnome-shell-extension-animation-tweaks-git
+      yay -S --noconfirm --needed gnome-shell-extension-gamemode-git
+      yay -S --noconfirm --needed qnome-shell-extension-pop-shell-git
       #yay -S --noconfirm --needed gnome-alsamixer
       #yay -S --noconfirm --needed gnome-shell-extension-vitals
       #yay -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
