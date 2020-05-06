@@ -286,9 +286,9 @@ case $case in
       yay -S --noconfirm --needed gnome-shell-extension-coverflow-alt-tab-git
       yay -S --noconfirm --needed gnome-shell-extension-animation-tweaks-git
       yay -S --noconfirm --needed gnome-shell-extension-gamemode-git
-      yay -S qnome-shell-extension-pop-shell-git
       yay -S --noconfirm --needed gnome-shell-extension-extended-gestures-git
       yay -S --noconfirm --needed gnome-shell-extension-transparent-window-moving-git
+      #yay -S qnome-shell-extension-pop-shell-git
       #yay -S --noconfirm --needed gnome-alsamixer
       #yay -S --noconfirm --needed gnome-shell-extension-vitals
       #yay -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
