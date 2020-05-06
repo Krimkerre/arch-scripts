@@ -286,7 +286,7 @@ case $case in
       yay -S --noconfirm --needed gnome-shell-extension-coverflow-alt-tab-git
       yay -S --noconfirm --needed gnome-shell-extension-animation-tweaks-git
       yay -S --noconfirm --needed gnome-shell-extension-gamemode-git
-      yay -S --noconfirm --needed qnome-shell-extension-pop-shell-git
+      yay -S qnome-shell-extension-pop-shell-git
       yay -S --noconfirm --needed gnome-shell-extension-extended-gestures-git
       yay -S --noconfirm --needed gnome-shell-extension-transparent-window-moving-git
       #yay -S --noconfirm --needed gnome-alsamixer
@@ -297,9 +297,6 @@ case $case in
       #yay -S --noconfirm --needed gnome-shell-extension-panel-osd
       #yay -S --noconfirm --needed gnome-shell-extension-slinger-git
       #yay -S --noconfirm --needed gnome-shell-extension-transparent-osd-git
-      #yay -S --noconfirm --needed gnome-shell-extension-window-animations-git
-      #yay -S --noconfirm --needed gnome-shell-extension-impatience-git
-      #yay -S --noconfirm --needed gnome-appfolders-manager
       #wget https://raw.githubusercontent.com/bill-mavromatis/gnome-layout-manager/master/layoutmanager.sh
       #sudo chmod +x layoutmanager.sh
       ;;
