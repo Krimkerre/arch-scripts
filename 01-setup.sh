@@ -520,7 +520,7 @@ echo "### Installing software center                                            
 echo "################################################################################"
 sleep 2
 yay -S --noconfirm --needed pamac-aur-git
-yay -S --noconfirm --needed snapd-git
+yay -S --noconfirm --needed snapd
 sudo pacman -S --noconfirm --needed flatpak
 sudo systemctl enable snapd.service
 yay -S --noconfirm --needed bauh
