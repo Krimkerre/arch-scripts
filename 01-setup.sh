@@ -95,6 +95,7 @@ sudo pacman -S --noconfirm --needed openssh
 sudo pacman -S --noconfirm --needed archlinux-wallpaper
 sudo pacman -S --noconfirm --needed btrfs-progs
 sudo pacman -S --noconfirm --needed glances
+sudo pacman -S --noconfirm --needed bashtop
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -260,6 +261,7 @@ case $case in
       sudo pacman -S --noconfirm --needed deepin deepin-extra
       sudo pacman -S --noconfirm --needed gnome-disk-utility
       sudo pacman -S --noconfirm --needed ark
+      sudo pacman -S --noconfirm --needed onboard
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
       sudo systemctl enable lightdm.service -f
       sudo systemctl set-default graphical.target
@@ -313,6 +315,7 @@ case $case in
       sudo pacman -S --noconfirm --needed mate mate-extra
       sudo pacman -S --noconfirm --needed gnome-disk-utility
       sudo pacman -S --noconfirm --needed variety
+      sudo pacman -S --noconfirm --needed onboard
       yay -S --noconfirm --needed user-admin
       yay -S --noconfirm --needed mate-tweak
       yay -S --noconfirm --needed brisk-menu
@@ -352,6 +355,7 @@ case $case in
       sudo pacman -S --noconfirm --needed networkmanager-pptp
       sudo pacman -S --noconfirm --needed nm-connection-editor
       sudo pacman -S --noconfirm --needed network-manager-applet
+      sudo pacman -S --noconfirm --needed onboard
       yay -S --noconfirm --needed xfce4-screensaver
       yay -S --noconfirm --needed xfce4-panel-profiles-git
       yay -S --noconfirm --needed mugshot
@@ -398,6 +402,7 @@ case $case in
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
       sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
       sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
+      sudo pacman -S --noconfirm --needed onboard
       yay -S --noconfirm --needed lightdm-webkit2-theme-material2
       yay -S --noconfirm --needed lightdm-webkit-theme-aether
       yay -S --noconfirm --needed lightdm-webkit-theme-userdock
@@ -423,6 +428,7 @@ case $case in
       sudo pacman -S --noconfirm --needed gpicview
       sudo pacman -S --noconfirm --needed gedit
       sudo pacman -S --noconfirm --needed variety
+      sudo pacman -S --noconfirm --needed onboard
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
       sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
       sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
@@ -450,6 +456,7 @@ case $case in
       sudo pacman -S --noconfirm --needed gedit
       sudo pacman -S --noconfirm --needed picom
       sudo pacman -S --noconfirm --needed variety
+      sudo pacman -S --noconfirm --needed onboard
       yay -S --noconfirm --needed mugshot
       yay -S --noconfirm --needed compton-conf
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
@@ -479,6 +486,7 @@ case $case in
       sudo pacman -S --noconfirm --needed gnome-calculator
       sudo pacman -S --noconfirm --needed gedit
       sudo pacman -S --noconfirm --needed variety
+      sudo pacman -S --noconfirm --needed onboard
       #sudo sed -i 's/'#user-session=default'/'user-session=lxqt'/g' /etc/lightdm/lightdm.conf
       sudo systemctl enable sddm
       ;;
@@ -486,6 +494,7 @@ case $case in
       echo "You selected i3"
       sudo pacman -S --noconfirm --needed i3
       sudo pacman -S --noconfirm --needed gnome-disk-utility
+      sudo pacman -S --noconfirm --needed onboard
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
       sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
       sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter

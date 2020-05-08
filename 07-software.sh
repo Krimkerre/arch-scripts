@@ -30,7 +30,7 @@ sudo pacman -S --noconfirm --needed krita
 sudo pacman -S --noconfirm --needed librecad
 sudo pacman -S --noconfirm --needed luminancehdr
 sudo pacman -S --noconfirm --needed cura
-sudo pacman -S --noconfirm --needed rust rust-docs rust-racer eclipse-rust uncrustify
+sudo pacman -S --noconfirm --needed rust rust-docs rust-racer uncrustify
 sudo pacman -S --noconfirm --needed atom
 sudo pacman -S --noconfirm --needed firefox
 sudo pacman -S --noconfirm --needed hexchat
@@ -91,7 +91,7 @@ yay -S --noconfirm --needed cinelerra-cv
 yay -S --noconfirm --needed virtio-win
 yay -S --noconfirm --needed libguestfs
 yay -S --noconfirm --needed systemd-manager
-yay -S --noconfirm --needed natron natron-plugins
+yay -S --noconfirm --needed freeoffice
 #yay -S --noconfirm --needed freecad
 #yay -S --noconfirm --needed edex-ui-git
 #yay -S --noconfirm --needed virtualbox-ext-oracle
@@ -100,8 +100,8 @@ echo "options kvm-intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
 
 clear
 echo "################################################################################"
-echo "Do you want to install Make Human?"
-echo "Desc: Create 3d models of humans."
+echo "Do you want to install Natron?"
+echo "Desc: Like Adobe After Effects."
 echo "AUR Install.  Takes a while to install."
 echo "1) Yes"
 echo "2) No"
@@ -111,7 +111,7 @@ read case;
 case $case in
     1)
       echo "You selected Yes"
-        yay -S --noconfirm --needed makehuman
+      yay -S --noconfirm --needed natron natron-plugins
       ;;
     2)
       echo "You selected no"
