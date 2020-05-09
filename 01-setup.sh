@@ -129,12 +129,12 @@ sudo pacman -S --noconfirm --needed gst-plugins-base
 sudo pacman -S --noconfirm --needed gst-plugins-ugly
 sudo pacman -S --noconfirm --needed volumeicon
 sudo pacman -S --noconfirm --needed playerctl
-yay -S --noconfirm --needed alsa-tools
-yay -S --noconfirm --needed lib32-apulse
+#yay -S --noconfirm --needed alsa-tools
+#yay -S --noconfirm --needed lib32-apulse
 #yay -S --noconfirm --needed pulseeffects
-yay -S --noconfirm --needed lib32-libpulse
-yay -S --noconfirm --needed pulseaudio-jack
-yay -S --noconfirm --needed pacmixer
+#yay -S --noconfirm --needed lib32-libpulse
+#yay -S --noconfirm --needed pulseaudio-jack
+#yay -S --noconfirm --needed pacmixer
 clear
 echo "################################################################################"
 echo "### Installing and setting up bluetooth                                      ###"
@@ -164,7 +164,7 @@ sudo pacman -S --noconfirm --needed gsfonts
 sudo pacman -S --noconfirm --needed gutenprint
 sudo pacman -S --noconfirm --needed gtk3-print-backends
 sudo pacman -S --noconfirm --needed libcups
-sudo pacman -S --noconfirm --needed hplip
+#sudo pacman -S --noconfirm --needed hplip
 sudo pacman -S --noconfirm --needed system-config-printer
 sudo pacman -S --noconfirm --needed foomatic-db
 sudo pacman -S --noconfirm --needed foomatic-db-ppds
