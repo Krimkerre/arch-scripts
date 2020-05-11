@@ -262,6 +262,8 @@ case $case in
       sudo pacman -S --noconfirm --needed gnome-disk-utility
       sudo pacman -S --noconfirm --needed ark
       sudo pacman -S --noconfirm --needed onboard
+      sudo pacman -S --noconfirm --needed deepin-kwin
+      sudo pacman -S --noconfirm deepin-polkit-agent deepin-polkit-agent-ext-gnomekeyring
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
       sudo systemctl enable lightdm.service -f
       sudo systemctl set-default graphical.target
