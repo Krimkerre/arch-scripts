@@ -518,8 +518,27 @@ case $case in
       ;;
     11)
       echo "You selected Enlightenment"
-      yay -S --noconfirm --needed entrance-git enlightenment-git econnman efl-git python2-efl polkit-efl-git
+      yay -S --noconfirm --needed enlightenment-git econnman efl-git python2-efl polkit-efl-git
       yay -S --noconfirm --needed eweather-git enlightenment-arc-theme-git
+      sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+      sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
+      sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
+      sudo pacman -S --noconfirm --needed onboard
+      yay -S --noconfirm --needed lightdm-webkit2-theme-material2
+      yay -S --noconfirm --needed lightdm-webkit-theme-aether
+      yay -S --noconfirm --needed lightdm-webkit-theme-userdock
+      yay -S --noconfirm --needed lightdm-webkit-theme-tendou
+      yay -S --noconfirm --needed lightdm-webkit-theme-wisp
+      yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
+      yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
+      yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
+      yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
+      yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
+      yay -S --noconfirm --needed lightdm-webkit-theme-luminos
+      yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
+      sudo systemctl enable lightdm.service -f
+      sudo systemctl set-default graphical.target
+      sudo sed -i 's/'#user-session=default'/'user-session=enlightenment'/g' /etc/lightdm/lightdm.conf
       ;;
     12)
       echo "You selected none"
