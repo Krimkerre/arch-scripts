@@ -250,7 +250,7 @@ echo "7)  Cinnamon"
 echo "8)  LXDE"
 echo "9)  LXQT"
 echo "10) i3"
-echo "11) Coming Soon"
+echo "11) Enlightenment"
 echo "12) None"
 echo "################################################################################"
 read case;
@@ -517,8 +517,9 @@ case $case in
       sudo sed -i 's/'#user-session=default'/'user-session=i3'/g' /etc/lightdm/lightdm.conf
       ;;
     11)
-      echo "You selected Coming Soon"
-
+      echo "You selected Enlightenment"
+      yay -S --noconfirm --needed entrance-git enlightenment-git econnman-git efl-git python2-efl polkit-efl-git
+      yay -S --noconfirm --needed eweather-git enlightenment-arc-theme-git
       ;;
     12)
       echo "You selected none"
