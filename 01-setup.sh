@@ -518,12 +518,12 @@ case $case in
       ;;
     11)
       echo "You selected Enlightenment"
-      yay -S --noconfirm --needed enlightenment-git econnman efl-git python2-efl polkit-efl-git
-      yay -S --noconfirm --needed eweather-git enlightenment-arc-theme-git
+      sudo pacman -S --noconfirm --needed enlightenment efl efl-docs
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
       sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
       sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
       sudo pacman -S --noconfirm --needed onboard
+      yay -S --noconfirm --needed econnman
       yay -S --noconfirm --needed lightdm-webkit2-theme-material2
       yay -S --noconfirm --needed lightdm-webkit-theme-aether
       yay -S --noconfirm --needed lightdm-webkit-theme-userdock
