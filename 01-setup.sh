@@ -518,7 +518,7 @@ case $case in
       ;;
     11)
       echo "You selected Enlightenment"
-      yay -S --noconfirm --needed entrance-git enlightenment-git econnman-git efl-git python2-efl polkit-efl-git
+      yay -S --noconfirm --needed entrance-git enlightenment-git econnman efl-git python2-efl polkit-efl-git
       yay -S --noconfirm --needed eweather-git enlightenment-arc-theme-git
       ;;
     12)
