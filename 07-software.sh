@@ -74,7 +74,6 @@ yay -S --noconfirm --needed drawio-desktop
 yay -S --noconfirm --needed dxvk-bin
 yay -S --noconfirm --needed skypeforlinux-preview-bin
 yay -S --noconfirm --needed zoom2
-#yay -S --noconfirm --needed mintstick-git
 yay -S --noconfirm --needed isomaster
 yay -S --noconfirm --needed timeshift
 yay -S --noconfirm --needed stacer
@@ -84,17 +83,18 @@ yay -S --noconfirm --needed discord
 yay -S --noconfirm --needed gamemode lib32-gamemode
 yay -S --noconfirm --needed multibootusb-git
 yay -S --noconfirm --needed plank-theme-arc plank-theme-numix plank-theme-namor unity-like-plank-theme
-#yay -S --noconfirm --needed cairo-dock-themes cairo-dock-plug-ins-extras
 yay -S --noconfirm --needed protontricks
 yay -S --noconfirm --needed ovmf
-yay -S --noconfirm --needed cinelerra-cv
 yay -S --noconfirm --needed virtio-win
 yay -S --noconfirm --needed libguestfs
 yay -S --noconfirm --needed systemd-manager
 yay -S --noconfirm --needed freeoffice
 #yay -S --noconfirm --needed freecad
+#yay -S --noconfirm --needed mintstick-git
 #yay -S --noconfirm --needed edex-ui-git
 #yay -S --noconfirm --needed virtualbox-ext-oracle
+#yay -S --noconfirm --needed cinelerra-cv
+#yay -S --noconfirm --needed cairo-dock-themes cairo-dock-plug-ins-extras
 
 echo "options kvm-intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
 
