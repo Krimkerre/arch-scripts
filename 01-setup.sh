@@ -318,10 +318,12 @@ case $case in
       sudo pacman -S --noconfirm --needed gnome-disk-utility
       sudo pacman -S --noconfirm --needed variety
       sudo pacman -S --noconfirm --needed onboard
+      sudo pacman -S --noconfirm --needed p7zip
       #yay -S --noconfirm --needed user-admin
       yay -S --noconfirm --needed mate-tweak
       yay -S --noconfirm --needed brisk-menu
       yay -S --noconfirm --needed mate-screensaver-hacks
+      yay -S --noconfirm --needed mugshot
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
       sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
       sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
