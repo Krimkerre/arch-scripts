@@ -260,7 +260,7 @@ case $case in
       echo "You selected Deepin"
       sudo pacman -S --noconfirm --needed deepin deepin-extra
       sudo pacman -S --noconfirm --needed gnome-disk-utility
-      sudo pacman -S --noconfirm --needed ark
+      sudo pacman -S --noconfirm --needed file-roller unrar p7zip
       sudo pacman -S --noconfirm --needed onboard
       sudo pacman -S --noconfirm --needed deepin-kwin
       sudo pacman -S --noconfirm deepin-polkit-agent deepin-polkit-agent-ext-gnomekeyring
@@ -318,7 +318,7 @@ case $case in
       sudo pacman -S --noconfirm --needed gnome-disk-utility
       sudo pacman -S --noconfirm --needed variety
       sudo pacman -S --noconfirm --needed onboard
-      sudo pacman -S --noconfirm --needed p7zip
+      sudo pacman -S --noconfirm --needed file-roller unrar p7zip
       #yay -S --noconfirm --needed user-admin
       yay -S --noconfirm --needed mate-tweak
       yay -S --noconfirm --needed brisk-menu
@@ -347,7 +347,7 @@ case $case in
       echo "You selected XFCE4"
       sudo pacman -S --noconfirm --needed xfce4 xfce4-goodies
       sudo pacman -S --noconfirm --needed gnome-disk-utility
-      sudo pacman -S --noconfirm --needed file-roller
+      sudo pacman -S --noconfirm --needed file-roller unrar p7zip
       sudo pacman -S --noconfirm --needed alacarte
       sudo pacman -S --noconfirm --needed gnome-calculator
       sudo pacman -S --noconfirm --needed picom
@@ -407,6 +407,7 @@ case $case in
       sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
       sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
       sudo pacman -S --noconfirm --needed onboard
+      sudo pacman -S --noconfirm --needed file-roller unrar p7zip
       yay -S --noconfirm --needed lightdm-webkit2-theme-material2
       yay -S --noconfirm --needed lightdm-webkit-theme-aether
       yay -S --noconfirm --needed lightdm-webkit-theme-userdock
@@ -433,6 +434,7 @@ case $case in
       sudo pacman -S --noconfirm --needed gedit
       sudo pacman -S --noconfirm --needed variety
       sudo pacman -S --noconfirm --needed onboard
+      sudo pacman -S --noconfirm --needed file-roller unrar p7zip
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
       sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
       sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
@@ -461,6 +463,7 @@ case $case in
       sudo pacman -S --noconfirm --needed picom
       sudo pacman -S --noconfirm --needed variety
       sudo pacman -S --noconfirm --needed onboard
+      sudo pacman -S --noconfirm --needed file-roller unrar p7zip
       yay -S --noconfirm --needed mugshot
       yay -S --noconfirm --needed compton-conf
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
@@ -491,6 +494,7 @@ case $case in
       sudo pacman -S --noconfirm --needed gedit
       sudo pacman -S --noconfirm --needed variety
       sudo pacman -S --noconfirm --needed onboard
+      sudo pacman -S --noconfirm --needed file-roller unrar p7zip
       #sudo sed -i 's/'#user-session=default'/'user-session=lxqt'/g' /etc/lightdm/lightdm.conf
       sudo systemctl enable sddm
       ;;
@@ -499,6 +503,7 @@ case $case in
       sudo pacman -S --noconfirm --needed i3
       sudo pacman -S --noconfirm --needed gnome-disk-utility
       sudo pacman -S --noconfirm --needed onboard
+      sudo pacman -S --noconfirm --needed file-roller unrar p7zip
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
       sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
       sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
@@ -525,6 +530,7 @@ case $case in
       sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
       sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
       sudo pacman -S --noconfirm --needed onboard
+      sudo pacman -S --noconfirm --needed file-roller unrar p7zip
       yay -S --noconfirm --needed econnman
       yay -S --noconfirm --needed lightdm-webkit2-theme-material2
       yay -S --noconfirm --needed lightdm-webkit-theme-aether
