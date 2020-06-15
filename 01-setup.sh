@@ -96,6 +96,7 @@ sudo pacman -S --noconfirm --needed archlinux-wallpaper
 sudo pacman -S --noconfirm --needed btrfs-progs
 sudo pacman -S --noconfirm --needed glances
 sudo pacman -S --noconfirm --needed bashtop
+sudo pacman -S --noconfirm --needed packagekit
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -265,6 +266,7 @@ case $case in
       sudo pacman -S --noconfirm --needed deepin-kwin
       sudo pacman -S --noconfirm deepin-polkit-agent deepin-polkit-agent-ext-gnomekeyring
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+      sudo pacman -S --noconfirm --needed packagekit-gt5
       sudo systemctl enable lightdm.service -f
       sudo systemctl set-default graphical.target
       sudo sed -i 's/'#user-session=default'/'user-session=deepin'/g' /etc/lightdm/lightdm.conf
@@ -276,6 +278,7 @@ case $case in
       sudo pacman -S --noconfirm --needed chrome-gnome-shell
       sudo pacman -S --noconfirm --needed variety
       sudo pacman -R --noconfirm gnome-terminal
+      sudo pacman -S --noconfirm --needed gnome-packagekit gnome-software-packagekit-plugin
       sudo systemctl enable gdm
       #sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
       yay -S --noconfirm --needed gnome-terminal-transparency
@@ -309,6 +312,7 @@ case $case in
       sudo pacman -S --noconfirm --needed sddm plasma kde-applications
       sudo pacman -S --noconfirm --needed gnome-disk-utility
       sudo pacman -S --noconfirm --needed redshift
+      sudo pacman -S --noconfirm --needed packagekit-qt5
       #sudo sed -i 's/'#user-session=default'/'user-session=plasma'/g' /etc/lightdm/lightdm.conf
       sudo systemctl enable sddm
       ;;
@@ -495,6 +499,7 @@ case $case in
       sudo pacman -S --noconfirm --needed variety
       sudo pacman -S --noconfirm --needed onboard
       sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+      sudo pacman -S --noconfirm --needed packagekit-qt5
       #sudo sed -i 's/'#user-session=default'/'user-session=lxqt'/g' /etc/lightdm/lightdm.conf
       sudo systemctl enable sddm
       ;;

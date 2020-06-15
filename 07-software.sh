@@ -49,6 +49,8 @@ sudo pacman -S --noconfirm --needed virglrenderer
 sudo pacman -S --noconfirm --needed qemu-arch-extra
 sudo pacman -S --noconfirm --needed qemu-guest-agent
 sudo pacman -S --noconfirm --needed fragments
+sudo pacman -S --noconfirm --needed cockpit cockpit-dashboard cockpit-docker cockpit-machines cockpit-pcp cockpit-podman
+sudo systemctl enable --now cockpit-socket
 sudo systemctl enable libvirtd.service
 sudo systemctl enable virtlogd.service
 sudo sed -i '/\[global\]'/a'Environment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
@@ -66,6 +68,7 @@ sudo pacman -S --noconfirm --needed extremetuxracer
 sudo pacman -S --noconfirm --needed supertux
 sudo pacman -S --noconfirm --needed supertuxkart
 sudo pacman -S --noconfirm --needed plank
+sudo pacman -S --noconfirm --needed remmina
 #sudo pacman -S --noconfirm --needed cairo-dock cairo-dock-plug-ins
 #sudo pacman -S --noconfirm --needed virtualbox
 #sudo pacman -S --noconfirm --needed virtualbox-guest-iso
@@ -87,8 +90,8 @@ yay -S --noconfirm --needed protontricks
 yay -S --noconfirm --needed ovmf
 yay -S --noconfirm --needed virtio-win
 yay -S --noconfirm --needed libguestfs
-yay -S --noconfirm --needed systemd-manager
 yay -S --noconfirm --needed freeoffice
+#yay -S --noconfirm --needed systemd-manager
 #yay -S --noconfirm --needed freecad
 #yay -S --noconfirm --needed mintstick-git
 #yay -S --noconfirm --needed edex-ui-git
