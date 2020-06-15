@@ -74,7 +74,7 @@ echo "### Setting up fastest repos                                              
 echo "################################################################################"
 sleep 2
 sudo pacman -S reflector --noconfirm --needed
-sudo reflector --country US --age 8 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+sudo reflector --country US --age 24 --sort rate --save /etc/pacman.d/mirrorlist
 sudo pacman -Sy
 #sudo pacman-key --refresh-keys
 
@@ -266,7 +266,7 @@ case $case in
       sudo pacman -S --noconfirm --needed deepin-kwin
       sudo pacman -S --noconfirm deepin-polkit-agent deepin-polkit-agent-ext-gnomekeyring
       sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-      sudo pacman -S --noconfirm --needed packagekit-gt5
+      sudo pacman -S --noconfirm --needed packagekit-qt5
       sudo systemctl enable lightdm.service -f
       sudo systemctl set-default graphical.target
       sudo sed -i 's/'#user-session=default'/'user-session=deepin'/g' /etc/lightdm/lightdm.conf
