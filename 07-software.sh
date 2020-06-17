@@ -50,7 +50,7 @@ sudo pacman -S --noconfirm --needed qemu-arch-extra
 sudo pacman -S --noconfirm --needed qemu-guest-agent
 sudo pacman -S --noconfirm --needed fragments
 sudo pacman -S --noconfirm --needed cockpit cockpit-dashboard cockpit-docker cockpit-machines cockpit-pcp cockpit-podman
-sudo systemctl enable --now cockpit-socket
+sudo systemctl enable --now cockpit.socket
 sudo systemctl enable libvirtd.service
 sudo systemctl enable virtlogd.service
 sudo sed -i '/\[global\]'/a'Environment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
@@ -81,7 +81,7 @@ yay -S --noconfirm --needed isomaster
 yay -S --noconfirm --needed timeshift
 yay -S --noconfirm --needed stacer
 yay -S --noconfirm --needed mattercontrol
-yay -S --noconfirm --needed olive
+#yay -S --noconfirm --needed olive
 yay -S --noconfirm --needed discord
 yay -S --noconfirm --needed gamemode lib32-gamemode
 yay -S --noconfirm --needed multibootusb-git
