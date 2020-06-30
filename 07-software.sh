@@ -91,6 +91,7 @@ yay -S --noconfirm --needed ovmf
 yay -S --noconfirm --needed virtio-win
 yay -S --noconfirm --needed libguestfs
 yay -S --noconfirm --needed freeoffice
+yay -S --noconfirm --needed ventoy-bin
 #yay -S --noconfirm --needed systemd-manager
 #yay -S --noconfirm --needed freecad
 #yay -S --noconfirm --needed mintstick-git
