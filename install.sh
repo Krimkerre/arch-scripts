@@ -13,13 +13,6 @@ echo "##########################################################################
 echo "### Getting things ready to install                                          ###"
 echo "################################################################################"
 
-timedatectl set-ntp true
-TIMEZONES
-CNTRY
-HSTNAME
-PACSET
-
-
 function PACSET() {
   pacman -Sy
   pacman -S --noconfirm --needed reflector
@@ -70,3 +63,10 @@ function ADMN() {
   clear
   [[ "$PASSWORDROOT" == "$PASSWORDROOT2" ]] || ( echo "Passwords did not match"; exit 1; )
 }
+
+
+timedatectl set-ntp true
+TIMEZONES
+CNTRY
+HSTNAME
+PACSET
