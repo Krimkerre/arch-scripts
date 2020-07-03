@@ -120,7 +120,7 @@ function BASEPKG() {
 function SYSDBOOT() {
   arch-chroot /mnt mkdir -p /boot/loader/entries
   arch-chroot /mnt bootctl --path=/boot install
-  rm /mnt/boot/loader.conf
+  rm /mnt/boot/loader/loader.conf
   echo "default arch" >> /mnt/boot/loader/loader.conf
   echo "timeout 3" >> /mnt/boot/loader/loader.conf
   echo "console-mode max" >> /mnt/boot/loader/loader.conf
@@ -190,7 +190,9 @@ function REPOFIX() {
 ################################################################################
 ### Main Program - Edit At Own Risk                                          ###
 ################################################################################
+clear
 timedatectl set-ntp true
+REPOFIX
 clear
 LOCALE
 COUNTRY
@@ -216,10 +218,10 @@ arch-chroot /mnt systemctl enable systemd-resolved
 pacstrap /mnt man-db man-pages git btrfs-progs
 sed -i "s/^#\(${ALOCALE}\)/\1/" /mnt/etc/locale.gen
 arch-chroot /mnt locale-gen
-echo "LANG=${ALOCALE}" > /mnt/etc/locale.conf
-echo "${HOSTNM}" > /mnt/etc/hostname
+echo "LANG=${ALOCALE}" >> /mnt/etc/locale.conf
+echo "${HOSTNM}" >> /mnt/etc/hostname
 sed -i 's/^#\ \(%wheel\ ALL=(ALL)\ NOPASSWD:\ ALL\)/\1/' /mnt/etc/sudoers
-echo "KEYMAP="${AKEYMAP} > /mnt/etc/vconsole.conf
+echo "KEYMAP="${AKEYMAP} >> /mnt/etc/vconsole.conf
 #sed -i "$ a FONT=${DEFFNT}" /mnt/etc/vconsole.conf
 echo "FONT="${DEFFNT} >> /mnt/etc/vconsole.conf
 arch-chroot /mnt ln -sf /usr/share/zoneinfo/${TIMEZNE} /etc/localtime
