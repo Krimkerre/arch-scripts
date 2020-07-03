@@ -214,5 +214,14 @@ DRVMNT
 BASEPKG
 SYSD_BOOT
 SYSD_SWAP
-PASSWRDS
+#PASSWRDS
 MISC
+
+
+arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${LUSER}"
+echo "$UPASSWD
+$UPASSWD
+" | arch-chroot /mnt passwd $LUSER
+
+echo "$PASSWDRT
+$PASSWDRT" | arch-chroot /mnt passwd
