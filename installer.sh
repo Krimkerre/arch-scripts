@@ -157,8 +157,8 @@ function SYSDSWAP() {
   echo "zswap_zpool=z3fold" >> /mnt/etc/systemd/swap.conf
   echo "zram_enabled=1"  >> /mnt/etc/systemd/swap.conf
   echo "zram_size=$(( RAM_SIZE / 4 ))"  >> /mnt/etc/systemd/swap.conf
-  echo "zram_count=${NCPU}"  >> /mnt/etc/systemd/swap.conf
-  echo "zram_streams=${NCPU}" >> /mnt/etc/systemd/swap.conf
+  echo "zram_count="${NCPU}  >> /mnt/etc/systemd/swap.conf
+  echo "zram_streams="${NCPU} >> /mnt/etc/systemd/swap.conf
   echo "zram_alg=zstd" >> /mnt/etc/systemd/swap.conf
   echo "zram_prio=32767" >> /mnt/etc/systemd/swap.conf
   echo "swapfc_enabled=1" >> /mnt/etc/systemd/swap.conf
