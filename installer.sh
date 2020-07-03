@@ -127,10 +127,10 @@ function FMTXFS() {
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
     mkfs.fat -F32 ${HD}1
-    mkfs.xfs ${HD}2
+    mkfs.xfs -f ${HD}2
   else
     #BIOS Partition
-    mkfs.xfs ${HD}1
+    mkfs.xfs -f ${HD}1
   fi
 }
 ################################################################################
@@ -228,6 +228,73 @@ function REPOFIX() {
   pacman -Sy
 }
 ################################################################################
+### Set Number Of CPUs In MAKEFLAGS Here                                     ###
+################################################################################
+function MAKEFLAGS_CPU() {
+  clear
+  numberofcores=$(grep -c ^processor /proc/cpuinfo)
+  case $numberofcores in
+
+      16)
+          echo "You have " $numberofcores" cores."
+          echo "Changing the makeflags for "$numberofcores" cores."
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j16"/g' /etc/makepkg.conf
+          echo "Changing the compression settings for "$numberofcores" cores."
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 16 -z -)/g' /etc/makepkg.conf
+          ;;
+      8)
+          echo "You have " $numberofcores" cores."
+          echo "Changing the makeflags for "$numberofcores" cores."
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j8"/g' /etc/makepkg.conf
+          echo "Changing the compression settings for "$numberofcores" cores."
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 8 -z -)/g' /etc/makepkg.conf
+          ;;
+      6)
+          echo "You have " $numberofcores" cores."
+          echo "Changing the makeflags for "$numberofcores" cores."
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j8"/g' /etc/makepkg.conf
+          echo "Changing the compression settings for "$numberofcores" cores."
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 6 -z -)/g' /etc/makepkg.conf
+          ;;
+      4)
+          echo "You have " $numberofcores" cores."
+          echo "Changing the makeflags for "$numberofcores" cores."
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j4"/g' /etc/makepkg.conf
+          echo "Changing the compression settings for "$numberofcores" cores."
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 4 -z -)/g' /etc/makepkg.conf
+          ;;
+      2)
+          echo "You have " $numberofcores" cores."
+          echo "Changing the makeflags for "$numberofcores" cores."
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j2"/g' /etc/makepkg.conf
+          echo "Changing the compression settings for "$numberofcores" cores."
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 2 -z -)/g' /etc/makepkg.conf
+          ;;
+      *)
+          echo "We do not know how many cores you have."
+          echo "Do it manually."
+          ;;
+
+  esac
+}
+################################################################################
+### Needed Packages To Install                                               ###
+################################################################################
+function NEEDEDPKGS() {
+  clear
+  sudo pacman -S --noconfirm --needed neofetch
+  sudo pacman -S --noconfirm --needed git
+  sudo pacman -S --noconfirm --needed wget
+  sudo pacman -S --noconfirm --needed rsync
+  sudo pacman -S --noconfirm --needed go
+  sudo pacman -S --noconfirm --needed htop
+  sudo pacman -S --noconfirm --needed openssh
+  sudo pacman -S --noconfirm --needed archlinux-wallpaper
+  sudo pacman -S --noconfirm --needed glances
+  sudo pacman -S --noconfirm --needed bashtop
+  sudo pacman -S --noconfirm --needed packagekit
+}
+################################################################################
 ### Main Program - Edit At Own Risk                                          ###
 ################################################################################
 clear
@@ -252,6 +319,8 @@ MNTHD
 BASEPKG
 SYSDBOOT
 SYSDSWAP
+MAKEFLAGS_CPU
+NEEDEDPKGS
 ################################################################################
 ### Misc Settings                                                            ###
 ################################################################################
