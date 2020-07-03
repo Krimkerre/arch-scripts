@@ -295,18 +295,6 @@ function NEEDEDPKGS() {
   pacstrap /mnt packagekit
 }
 ################################################################################
-### Install YAY Here                                                         ###
-################################################################################
-function INSTALLYAY() {
-  cd /mnt/root
-  arch-chroot /mnt git clone https://aur.archlinux.org/yay.git
-  cd yay
-  arch-chroot /mnt makepkg -si --noconfirm --needed
-  cd ..
-  rm yay -R -f
-  cd ~
-}
-################################################################################
 ### Main Program - Edit At Own Risk                                          ###
 ################################################################################
 clear
@@ -333,7 +321,6 @@ SYSDBOOT
 SYSDSWAP
 MAKEFLAGS_CPU
 NEEDEDPKGS
-#INSTALLYAY
 ################################################################################
 ### Misc Settings                                                            ###
 ################################################################################
