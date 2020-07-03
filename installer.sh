@@ -121,6 +121,19 @@ function FMTBTRFS() {
   fi
 }
 ################################################################################
+### Format The Hard Drive With XFS Filesystem Here                           ###
+################################################################################
+function FMTXFS() {
+  if [[ -d /sys/firmware/efi/efivars ]]; then
+    #UEFI Partition
+    mkfs.fat -F32 ${HD}1
+    mkfs.xfs ${HD}2
+  else
+    #BIOS Partition
+    mkfs.xfs ${HD}1
+  fi
+}
+################################################################################
 ### Mount The Hard Drive Here                                                ###
 ################################################################################
 function MNTHD() {
@@ -137,7 +150,7 @@ function MNTHD() {
 ### Install the Base Packages Here                                           ###
 ################################################################################
 function BASEPKG() {
-  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap
+  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs
   genfstab -U /mnt >> /mnt/etc/fstab
 }
 ################################################################################
@@ -233,7 +246,8 @@ ROOTPASSWORD
 clear
 PARTHD
 #FMTEXT4
-FMTBTRFS
+#FMTBTRFS
+FMTXFS
 MNTHD
 BASEPKG
 SYSDBOOT
