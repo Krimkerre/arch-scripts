@@ -179,6 +179,15 @@ function SYSDSWAP() {
   arch-chroot /mnt systemctl enable systemd-swap
 }
 ################################################################################
+### Updating Pacman (Repos), Installing Reflector And Getting Fastest Repos  ###
+################################################################################
+function REPOFIX() {
+  pacman -Sy
+  pacman -S reflector
+  reflector --country $CNTRY --age 24 --sort rate --save /etc/pacman.d/mirrorlist
+  pacman -Sy
+}
+################################################################################
 ### Main Program - Edit At Own Risk                                          ###
 ################################################################################
 timedatectl set-ntp true
