@@ -184,7 +184,7 @@ function SYSDSWAP() {
 function REPOFIX() {
   pacman -Sy
   pacman -S --noconfirm --needed reflector
-  reflector --country "${CNTRY}" --age 24 --sort rate --save /etc/pacman.d/mirrorlist
+  reflector --country ${CNTRY} --age 24 --sort rate --save /etc/pacman.d/mirrorlist
   pacman -Sy
 }
 ################################################################################
