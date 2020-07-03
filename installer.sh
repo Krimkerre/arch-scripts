@@ -232,7 +232,7 @@ sed -i '/^#\[multilib\]/{
   s/^#\(\[multilib\]\n\)#\(Include\ .\+\)/\1\2/
 }' /mnt/etc/pacman.conf
 sed -i 's/\#\[multilib\]/\[multilib\]'/g /mnt/etc/pacman.conf
-
+arch-chroot /mnt pacman -Sy
 ################################################################################
 ### Setting Passwords and Creating the User                                  ###
 ################################################################################
