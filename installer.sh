@@ -95,6 +95,32 @@ function PARTHD() {
   fi
 }
 ################################################################################
+### Format The Hard Drive With EXT4 Filesystem Here                          ###
+################################################################################
+function FMTEXT4() {
+  if [[ -d /sys/firmware/efi/efivars ]]; then
+    #UEFI Partition
+    mkfs.fat -F32 ${HD}1
+    mkfs.ext4 ${HD}2
+  else
+    #BIOS Partition
+    mkfs.ext4 ${HD}1
+  fi
+}
+################################################################################
+### Format The Hard Drive With BTRFS Filesystem Here                         ###
+################################################################################
+function FMTBTRFS() {
+  if [[ -d /sys/firmware/efi/efivars ]]; then
+    #UEFI Partition
+    mkfs.fat -F32 ${HD}1
+    mkfs.btrfs -f ${HD}2
+  else
+    #BIOS Partition
+    mkfs.btrfs ${HD}1
+  fi
+}
+################################################################################
 ### Mount The Hard Drive Here                                                ###
 ################################################################################
 function MNTHD() {
@@ -206,6 +232,8 @@ UNAMEPASS
 ROOTPASSWORD
 clear
 PARTHD
+#FMTEXT4
+FMTBTRFS
 MNTHD
 BASEPKG
 SYSDBOOT
