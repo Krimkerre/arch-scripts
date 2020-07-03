@@ -72,6 +72,9 @@ function FMTDRV() {
   mkfs.fat -F32 ${DRIVE}1
   mkfs.ext4 ${DRIVE}2
   #mkfs.btrfs -f ${DRIVE}2
+}
+
+function DRVMNT() {
   mount ${DRIVE}2 /mnt
   mkdir /mnt/boot
   mount ${DRIVE}1 /mnt/boot
@@ -107,8 +110,8 @@ timedatectl set-ntp true
 TIMEZONES
 CNTRY
 HSTNAME
-clear
 PACSET
 DRVSELECT
 FMTDRV
+DRVMNT
 SYSD_BOOT
