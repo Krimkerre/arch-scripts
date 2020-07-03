@@ -192,10 +192,10 @@ function REPOFIX() {
 ################################################################################
 clear
 timedatectl set-ntp true
+COUNTRY
 REPOFIX
 clear
 LOCALE
-COUNTRY
 KEYMAP
 STIMEZONE
 HOSTNAME
