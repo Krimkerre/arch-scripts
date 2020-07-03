@@ -99,7 +99,8 @@ function SYSD_BOOT() {
   echo "#initrd  /intel-ucode.img" >> /mnt/boot/loader/entries/arch.conf
   echo "#initrd /amd-ucode.img" >> /mnt/boot/loader/entries/arch.conf
   echo "initrd  /initramfs-linux.img" >> /mnt/boot/loader/entries/arch.conf
-  echo "options root=PARTUUID="$(blkid -s PARTUUID -o value "$drive"2)" nowatchdog rw" >> /mnt/boot/loader/entries/arch.conf
+  DRVINFO=
+  echo "options root=PARTUUID="$(blkid -s PARTUUID -o value "$DRIVE"2)" nowatchdog rw" >> /mnt/boot/loader/entries/arch.conf
 
 }
 
@@ -113,6 +114,7 @@ HSTNAME
 clear
 PACSET
 DRVSELECT
+clear
 FMTDRV
 DRVMNT
 BASEPKG
