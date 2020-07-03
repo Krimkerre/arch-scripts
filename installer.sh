@@ -183,8 +183,8 @@ function SYSDSWAP() {
 ################################################################################
 function REPOFIX() {
   pacman -Sy
-  pacman -S reflector
-  reflector --country $CNTRY --age 24 --sort rate --save /etc/pacman.d/mirrorlist
+  pacman -S --noconfirm --needed reflector
+  reflector --country "$CNTRY" --age 24 --sort rate --save /etc/pacman.d/mirrorlist
   pacman -Sy
 }
 ################################################################################
@@ -215,7 +215,6 @@ SYSDSWAP
 arch-chroot /mnt systemctl enable NetworkManager
 ln -sf /run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf
 arch-chroot /mnt systemctl enable systemd-resolved
-pacstrap /mnt man-db man-pages git btrfs-progs
 sed -i "s/^#\(${ALOCALE}\)/\1/" /mnt/etc/locale.gen
 arch-chroot /mnt locale-gen
 echo "LANG=${ALOCALE}" >> /mnt/etc/locale.conf
