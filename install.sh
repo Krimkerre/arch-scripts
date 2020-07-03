@@ -180,12 +180,12 @@ function MISC() {
   arch-chroot /mnt systemctl enable systemd-resolved
   sed -i "s/^#\(${ALOCALE}\)/\1/" /mnt/etc/locale.gen
   arch-chroot /mnt locale-gen
-  echo "LANG=${ALOCALE}" > /mnt/etc/locale.conf
-  echo "${HOSTNAME}" > /mnt/etc/hostname
+  echo "LANG=${ALOCALE}" >> /mnt/etc/locale.conf
+  echo "${HOSTNAME}" >> /mnt/etc/hostname
   sed -i 's/^#\ \(%wheel\ ALL=(ALL)\ NOPASSWD:\ ALL\)/\1/' /mnt/etc/sudoers
-  echo "KEYMAP="${AKEYMAP} > /mnt/etc/vconsole.conf
+  echo "KEYMAP="${AKEYMAP} >> /mnt/etc/vconsole.conf
   #sed -i "$ a FONT=${DEFFNT}" /mnt/etc/vconsole.conf
-  echo "FONT="${DEFFNT} > /mnt/etc/vconsole.conf
+  echo "FONT="${DEFFNT} >> /mnt/etc/vconsole.conf
   arch-chroot /mnt ln -sf /usr/share/zoneinfo/${TIMEZNE} /etc/localtime
   sed -i 's/'#Color'/'Color'/g' /mnt/etc/pacman.conf
   #sed -i 's/\#Include/Include'/g /mnt/etc/pacman.conf
@@ -214,14 +214,14 @@ DRVMNT
 BASEPKG
 SYSD_BOOT
 SYSD_SWAP
-PASSWRDS
+#PASSWRDS
 MISC
 
 
-#arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${LUSER}"
-#echo "$UPASSWD
-#$UPASSWD
-#" | arch-chroot /mnt passwd $LUSER
+arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${LUSER}"
+echo "$UPASSWD
+$UPASSWD
+" | arch-chroot /mnt passwd $LUSER
 
-#echo "$PASSWDRT
-#$PASSWDRT" | arch-chroot /mnt passwd
+echo "$PASSWDRT
+$PASSWDRT" | arch-chroot /mnt passwd
