@@ -51,23 +51,23 @@ function USR() {
   LUSER=$(dialog --stdout --inputbox "Enter username" 0 0) || exit 1
   clear
   : ${LUSER:?"user cannot be empty"}
-  PASSWORD=$(dialog --stdout --passwordbox "Enter user password" 0 0) || exit 1
+  UPASSWD=$(dialog --stdout --passwordbox "Enter user password" 0 0) || exit 1
   clear
-  : ${PASSWORD:?"password cannot be empty"}
-  PASSWORD2=$(dialog --stdout --passwordbox "Enter user password again" 0 0) || exit 1
+  : ${UPASSWD:?"password cannot be empty"}
+  UPASSWD2=$(dialog --stdout --passwordbox "Enter user password again" 0 0) || exit 1
   clear
-  [[ "$PASSWORD" == "$PASSWORD2" ]] || ( echo "Passwords did not match"; exit 1; )
+  [[ "$PASSWD" == "$PASSWD2" ]] || ( echo "Passwords did not match"; exit 1; )
 }
 ################################################################################
 ### Set Root password                                                        ###
 ################################################################################
 function ADMN() {
-  PASSWORDROOT=$(dialog --stdout --passwordbox "Enter admin password" 0 0) || exit 1
+  PASSWDRT=$(dialog --stdout --passwordbox "Enter admin password" 0 0) || exit 1
   clear
-  : ${PASSWORDROOT:?"password cannot be empty"}
-  PASSWORDROOT2=$(dialog --stdout --passwordbox "Enter admin password again" 0 0) || exit 1
+  : ${PASSWDRT:?"password cannot be empty"}
+  PASSWDRT2=$(dialog --stdout --passwordbox "Enter admin password again" 0 0) || exit 1
   clear
-  [[ "$PASSWORDROOT" == "$PASSWORDROOT2" ]] || ( echo "Passwords did not match"; exit 1; )
+  [[ "$PASSWDRT" == "$PASSWDRT2" ]] || ( echo "Passwords did not match"; exit 1; )
 }
 ################################################################################
 ### Select Drive to Format/Partition                                         ###
@@ -164,12 +164,12 @@ function SYSD_SWAP() {
 ################################################################################
 function PASSWRDS() {
   arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${LUSER}"
-  echo "$PASSWORD
-  $PASSWORD
+  echo "$UPASSWD
+  $UPASSWD
   " | arch-chroot /mnt passwd $LUSER
 
-  echo "$PASSWORDROOT
-  $PASSWORDROOT" | arch-chroot /mnt passwd
+  echo "$PASSWDRT
+  $PASSWDRT" | arch-chroot /mnt passwd
 }
 ################################################################################
 ### Setting up Misc Stuff                                                    ###
