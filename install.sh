@@ -203,6 +203,8 @@ timedatectl set-ntp true
 TIMEZONES
 CNTRY
 HSTNAME
+USR
+ADMN
 clear
 PACSET
 DRVSELECT
