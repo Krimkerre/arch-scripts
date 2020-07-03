@@ -35,10 +35,6 @@ function HSTNAME() {
   : ${HOSTNAME:?"hostname cannot be empty"}
 }
 
-function DRVTOUSE() {
-  DEVICELIST=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
-  DRIVE=$(dialog --stdout --menu "Select root disk" 0 0 0 ${DEVICELIST}) || exit 1
-}
 function DFONT() {
   DEFFNT=$(dialog --stdout --title "Select your terminal (CLI) font" --fselect /usr/share/kbd/consolefonts/ 24 48)
 }
@@ -65,6 +61,9 @@ function ADMN() {
 }
 
 function FMTDRV() {
+  DEVICELIST=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
+  DRIVE=$(dialog --stdout --menu "Select root disk" 0 0 0 ${DEVICELIST}) || exit 1
+
   sgdisk -Z ${DRIVE}
 
   if [[ -d /sys/firmware/efi/efivars ]]; then
@@ -76,7 +75,6 @@ function FMTDRV() {
     mount ${DRIVE}2 /mnt
     mkdir /mnt/boot
     mount ${DRIVE}1 /mnt/boot
-
   else
     #BIOS Partition
     parted ${DRIVE} mklabel msdos mkpart primary ext4 2MiB 100% set 1 boot on
@@ -118,7 +116,5 @@ CNTRY
 HSTNAME
 clear
 PACSET
-DRVTOUSE
-clear
 FMTDRV
 SYSD_BOOT
