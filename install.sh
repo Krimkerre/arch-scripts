@@ -60,28 +60,21 @@ function ADMN() {
   [[ "$PASSWORDROOT" == "$PASSWORDROOT2" ]] || ( echo "Passwords did not match"; exit 1; )
 }
 
-function FMTDRV() {
+function DRVSELECT() {
   DEVICELIST=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
   DRIVE=$(dialog --stdout --menu "Select root disk" 0 0 0 ${DEVICELIST}) || exit 1
+}
 
+function FMTDRV() {
   sgdisk -Z ${DRIVE}
 
-  if [[ -d /sys/firmware/efi/efivars ]]; then
-    #UEFI Partition
-    parted ${DRIVE} mklabel gpt mkpart primary fat32 1MiB 301MiB set 1 esp on mkpart primary ext4 301MiB 100%
-    mkfs.fat -F32 ${DRIVE}1
-    mkfs.ext4 ${DRIVE}2
-    #mkfs.btrfs -f ${DRIVE}2
-    mount ${DRIVE}2 /mnt
-    mkdir /mnt/boot
-    mount ${DRIVE}1 /mnt/boot
-  else
-    #BIOS Partition
-    parted ${DRIVE} mklabel msdos mkpart primary ext4 2MiB 100% set 1 boot on
-    mkfs.ext4 ${DRIVE}1
-    #mkfs.btrfs ${DRIVE}1
-    mount ${DRIVE}1 /mnt
-  fi
+  parted ${DRIVE} mklabel gpt mkpart primary fat32 1MiB 301MiB set 1 esp on mkpart primary ext4 301MiB 100%
+  mkfs.fat -F32 ${DRIVE}1
+  mkfs.ext4 ${DRIVE}2
+  #mkfs.btrfs -f ${DRIVE}2
+  mount ${DRIVE}2 /mnt
+  mkdir /mnt/boot
+  mount ${DRIVE}1 /mnt/boot
 }
 
 function BASEPKG() {
@@ -116,5 +109,6 @@ CNTRY
 HSTNAME
 clear
 PACSET
+DRVSELECT
 FMTDRV
 SYSD_BOOT
