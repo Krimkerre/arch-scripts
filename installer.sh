@@ -130,7 +130,7 @@ function SYSDBOOT() {
   echo "#initrd  /intel-ucode.img" >> /mnt/boot/loader/entries/arch.conf
   echo "#initrd /amd-ucode.img" >> /mnt/boot/loader/entries/arch.conf
   echo "initrd  /initramfs-linux.img" >> /mnt/boot/loader/entries/arch.conf
-  echo "options root=PARTUUID="$(blkid -s PARTUUID -o value "$HD"2)" nowatchdog rw"
+  echo "options root=PARTUUID="$(blkid -s PARTUUID -o value "$HD"2)" nowatchdog rw" >> /mnt/boot/loader/entries/arch.conf
 }
 ################################################################################
 ### Grub Boot Settings Here                                                  ###
