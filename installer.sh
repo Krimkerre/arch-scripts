@@ -238,37 +238,37 @@ function MAKEFLAGS_CPU() {
       16)
           echo "You have " $numberofcores" cores."
           echo "Changing the makeflags for "$numberofcores" cores."
-          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j16"/g' /etc/makepkg.conf
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j16"/g' /mnt/etc/makepkg.conf
           echo "Changing the compression settings for "$numberofcores" cores."
-          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 16 -z -)/g' /etc/makepkg.conf
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 16 -z -)/g' /mnt/etc/makepkg.conf
           ;;
       8)
           echo "You have " $numberofcores" cores."
           echo "Changing the makeflags for "$numberofcores" cores."
-          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j8"/g' /etc/makepkg.conf
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j8"/g' /mnt/etc/makepkg.conf
           echo "Changing the compression settings for "$numberofcores" cores."
-          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 8 -z -)/g' /etc/makepkg.conf
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 8 -z -)/g' /mnt/etc/makepkg.conf
           ;;
       6)
           echo "You have " $numberofcores" cores."
           echo "Changing the makeflags for "$numberofcores" cores."
-          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j8"/g' /etc/makepkg.conf
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j8"/g' /mnt/etc/makepkg.conf
           echo "Changing the compression settings for "$numberofcores" cores."
-          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 6 -z -)/g' /etc/makepkg.conf
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 6 -z -)/g' /mnt/etc/makepkg.conf
           ;;
       4)
           echo "You have " $numberofcores" cores."
           echo "Changing the makeflags for "$numberofcores" cores."
-          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j4"/g' /etc/makepkg.conf
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j4"/g' /mnt/etc/makepkg.conf
           echo "Changing the compression settings for "$numberofcores" cores."
-          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 4 -z -)/g' /etc/makepkg.conf
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 4 -z -)/g' /mnt/etc/makepkg.conf
           ;;
       2)
           echo "You have " $numberofcores" cores."
           echo "Changing the makeflags for "$numberofcores" cores."
-          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j2"/g' /etc/makepkg.conf
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j2"/g' /mnt/etc/makepkg.conf
           echo "Changing the compression settings for "$numberofcores" cores."
-          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 2 -z -)/g' /etc/makepkg.conf
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 2 -z -)/g' /mnt/etc/makepkg.conf
           ;;
       *)
           echo "We do not know how many cores you have."
@@ -282,17 +282,17 @@ function MAKEFLAGS_CPU() {
 ################################################################################
 function NEEDEDPKGS() {
   clear
-  sudo pacman -S --noconfirm --needed neofetch
-  sudo pacman -S --noconfirm --needed git
-  sudo pacman -S --noconfirm --needed wget
-  sudo pacman -S --noconfirm --needed rsync
-  sudo pacman -S --noconfirm --needed go
-  sudo pacman -S --noconfirm --needed htop
-  sudo pacman -S --noconfirm --needed openssh
-  sudo pacman -S --noconfirm --needed archlinux-wallpaper
-  sudo pacman -S --noconfirm --needed glances
-  sudo pacman -S --noconfirm --needed bashtop
-  sudo pacman -S --noconfirm --needed packagekit
+  pacstrap /mnt neofetch
+  pacstrap /mnt git
+  pacstrap /mnt wget
+  pacstrap /mnt rsync
+  pacstrap /mnt go
+  pacstrap /mnt htop
+  pacstrap /mnt openssh
+  pacstrap /mnt archlinux-wallpaper
+  pacstrap /mnt glances
+  pacstrap /mnt bashtop
+  pacstrap /mnt packagekit
 }
 ################################################################################
 ### Main Program - Edit At Own Risk                                          ###
