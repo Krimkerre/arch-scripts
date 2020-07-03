@@ -48,9 +48,9 @@ function DFONT() {
 ### Set User Name and Password                                               ###
 ################################################################################
 function USR() {
-  USER=$(dialog --stdout --inputbox "Enter username" 0 0) || exit 1
+  LUSER=$(dialog --stdout --inputbox "Enter username" 0 0) || exit 1
   clear
-  : ${USER:?"user cannot be empty"}
+  : ${LUSER:?"user cannot be empty"}
   PASSWORD=$(dialog --stdout --passwordbox "Enter user password" 0 0) || exit 1
   clear
   : ${PASSWORD:?"password cannot be empty"}
@@ -163,10 +163,10 @@ function SYSD_SWAP() {
 ### Set the User and Root Passwords                                          ###
 ################################################################################
 function PASSWRDS() {
-  arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${USER}"
+  arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${LUSER}"
   echo "$PASSWORD
   $PASSWORD
-  " | arch-chroot /mnt passwd $USER
+  " | arch-chroot /mnt passwd $LUSER
 
   echo "$PASSWORDROOT
   $PASSWORDROOT" | arch-chroot /mnt passwd
