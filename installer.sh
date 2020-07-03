@@ -10,19 +10,19 @@ set -e
 ### Set Your System Locale Here                                              ###
 ################################################################################
 function LOCALE() {
-  ALOCALE='en_US.UTF-8'
+  ALOCALE="en_US.UTF-8"
 }
 ################################################################################
 ### Set Your Country                                                         ###
 ################################################################################
 function COUNTRY() {
-  CNTRY='US'
+  CNTRY="US"
 }
 ################################################################################
 ### Set Your Keyboard Map Here                                               ###
 ################################################################################
 function KEYMAP() {
-  AKEYMAP='us'
+  AKEYMAP="us"
 }
 ################################################################################
 ### Set Your Hostname (Name Of Your Computer) Here                           ###
@@ -184,7 +184,7 @@ function SYSDSWAP() {
 function REPOFIX() {
   pacman -Sy
   pacman -S --noconfirm --needed reflector
-  reflector --country "$CNTRY" --age 24 --sort rate --save /etc/pacman.d/mirrorlist
+  reflector --country "${CNTRY}" --age 24 --sort rate --save /etc/pacman.d/mirrorlist
   pacman -Sy
 }
 ################################################################################
