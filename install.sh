@@ -88,7 +88,7 @@ function BASEPKG() {
 function SYSD_BOOT() {
   arch-chroot /mnt mkdir -p /boot/loader/entries
   arch-chroot /mnt bootctl --path=/boot install
-
+  rm /mnt/boot/loader/loader.conf
   echo "default arch" >> /mnt/boot/loader/loader.conf
   echo "timeout 3" >> /mnt/boot/loader/loader.conf
   echo "console-mode max" >> /mnt/boot/loader/loader.conf
@@ -99,7 +99,7 @@ function SYSD_BOOT() {
   echo "#initrd  /intel-ucode.img" >> /mnt/boot/loader/entries/arch.conf
   echo "#initrd /amd-ucode.img" >> /mnt/boot/loader/entries/arch.conf
   echo "initrd  /initramfs-linux.img" >> /mnt/boot/loader/entries/arch.conf
-  echo "options root=PARTUUID=$(blkid -s PARTUUID -o value "$drive"2) nowatchdog rw" >> /mnt/boot/loader/entries/arch.conf
+  echo "options root=PARTUUID="$(blkid -s PARTUUID -o value "$drive"2)" nowatchdog rw" >> /mnt/boot/loader/entries/arch.conf
 
 }
 
