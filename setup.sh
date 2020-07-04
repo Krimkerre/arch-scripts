@@ -806,14 +806,70 @@ INSTALLYAY
 SOUNDSETUP
 BLUETOOTHSETUP
 PRINTERSETUP
-SAMBASETUP
+clear
+echo "##############################################################################"
+echo "Do you want SAMBA network sharing installed?"
+echo "1)  Yes"
+echo "2)  No"
+echo "##############################################################################"
+read case;
+
+case $case in
+  1)
+  SAMBASETUP
+  ;;
+  2)
+  ;;
+esac
 UNICODEFIX
-DISPLAYMGR
-DE_SELECTION
+clear
+echo "##############################################################################"
+echo "Do you want a the Display Manager installed?"
+echo "1)  Yes"
+echo "2)  No"
+echo "##############################################################################"
+read case;
+
+case $case in
+  1)
+  DISPLAYMGR
+  ;;
+  2)
+  ;;
+esac
+clear
+echo "##############################################################################"
+echo "Do you want a Desktop Environment (Gnome, Plasma, etc) installed?"
+echo "1)  Yes"
+echo "2)  No"
+echo "##############################################################################"
+read case;
+
+case $case in
+  1)
+  DE_SELECTION
+  ;;
+  2)
+  ;;
+esac
 SOFTWARECENTER
 SOUNDFILES
 FONTINSTALL
-SOFTWAREINSTALL
+clear
+echo "##############################################################################"
+echo "Do you want a good starting software selection installed?"
+echo "1)  Yes"
+echo "2)  No"
+echo "##############################################################################"
+read case;
+
+case $case in
+  1)
+  SOFTWAREINSTALL
+  ;;
+  2)
+  ;;
+esac
 
 if [[ $(lspci -k | grep VGA | grep -i nvidia) ]]; then
   NVIDIA_DRIVERS
