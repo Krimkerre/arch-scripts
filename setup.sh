@@ -296,7 +296,7 @@ function MATE_DE() {
 ################################################################################
 ### Installing XFCE DE                                                       ###
 ################################################################################
-function XFCE_DE(parameter) {
+function XFCE_DE() {
   clear
   echo "################################################################################"
   echo "### Installing The XFCE Desktop                                              ###"
@@ -687,3 +687,7 @@ fi
 
 sed -i '$ a if [ -f /usr/bin/neofetch ]; then neofetch; fi' /home/$(whoami)/.bashrc
 echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/99-sysctl.conf
+clear
+echo "##############################################################################"
+echo "### Installation Is Complete, Please Reboot And Have Fun                   ###"
+echo "##############################################################################"

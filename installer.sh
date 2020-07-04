@@ -294,6 +294,27 @@ function NEEDEDPKGS() {
   pacstrap /mnt bashtop
   pacstrap /mnt packagekit
 }
+function WHATFMT() {
+  clear
+  echo "##############################################################################"
+  echo "What is your preferred drive format"
+  echo "1)  EXT4 - Standard Linux Format"
+  echo "2)  BTRFS"
+  echo "3)  XFS"
+  echo "##############################################################################"
+  read case;
+  case $case in
+    1)
+    FMTEXT4
+    ;;
+    2)
+    FMTBTRFS
+    ;;
+    3)
+    FMTXFS
+    ;;
+  esac
+}
 ################################################################################
 ### Main Program - Edit At Own Risk                                          ###
 ################################################################################
@@ -312,9 +333,7 @@ UNAMEPASS
 ROOTPASSWORD
 clear
 PARTHD
-#FMTEXT4
-#FMTBTRFS
-FMTXFS
+WHATFMT
 MNTHD
 BASEPKG
 SYSDBOOT
