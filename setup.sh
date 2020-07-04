@@ -776,7 +776,7 @@ function SOFTWAREINSTALL() {
   yay -S --noconfirm --needed drawio-desktop
   yay -S --noconfirm --needed dxvk-bin
   yay -S --noconfirm --needed skypeforlinux-preview-bin
-  yay -S --noconfirm --needed zoom2
+  yay -S --noconfirm --needed zoom
   yay -S --noconfirm --needed isomaster
   yay -S --noconfirm --needed timeshift
   yay -S --noconfirm --needed stacer

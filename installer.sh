@@ -340,6 +340,9 @@ SYSDBOOT
 SYSDSWAP
 MAKEFLAGS_CPU
 NEEDEDPKGS
+wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/setup.sh
+chmod +x setup.sh
+cp setup.sh /mnt/home/$USRNM
 ################################################################################
 ### Misc Settings                                                            ###
 ################################################################################
