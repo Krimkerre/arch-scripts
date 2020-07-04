@@ -665,6 +665,141 @@ function DE_SELECTION() {
   esac
 }
 ################################################################################
+### Installing Additional Sound Themes                                       ###
+################################################################################
+function SOUNDFILES() {
+  clear
+  echo "################################################################################"
+  echo "### Installing sound themes                                                  ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman -S --noconfirm --needed deepin-sound-theme
+  yay -S --noconfirm --needed sound-theme-smooth
+  yay -S --noconfirm --needed sound-theme-elementary-git
+  #yay -S --noconfirm --needed yaru-sound-theme
+  #yay -S --noconfirm --needed starlabstheme-sounds-git
+}
+################################################################################
+### Install More Fonts                                                       ###
+################################################################################
+function FONTINSTALL() {
+  clear
+  echo "################################################################################"
+  echo "### Installing extra fonts                                                   ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman -S --noconfirm --needed adobe-source-sans-pro-fonts
+  sudo pacman -S --noconfirm --needed cantarell-fonts
+  sudo pacman -S --noconfirm --needed noto-fonts
+  sudo pacman -S --noconfirm --needed terminus-font
+  sudo pacman -S --noconfirm --needed ttf-bitstream-vera
+  sudo pacman -S --noconfirm --needed ttf-dejavu
+  sudo pacman -S --noconfirm --needed ttf-droid
+  sudo pacman -S --noconfirm --needed ttf-inconsolata
+  sudo pacman -S --noconfirm --needed ttf-liberation
+  sudo pacman -S --noconfirm --needed ttf-roboto
+  sudo pacman -S --noconfirm --needed ttf-ubuntu-font-family
+  sudo pacman -S --noconfirm --needed tamsyn-font
+  sudo pacman -S --noconfirm --needed awesome-terminal-fonts
+  sudo pacman -S --noconfirm --needed ttf-hack
+  sudo pacman -S --noconfirm --needed ttf-ibm-plex
+  yay -S --noconfirm --needed ttf-ms-fonts
+  yay -S --noconfirm --needed steam-fonts
+  yay -S --noconfirm --needed ttf-mac-fonts
+  #yay -S --noconfirm --needed starlabstheme-font-git
+}
+################################################################################
+### Software To Install (My Favorite Applications)                           ###
+################################################################################
+function SOFTWAREINSTALL() {
+  clear
+  echo "################################################################################"
+  echo "### Installing applications                                                  ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman -S --noconfirm --needed playonlinux
+  sudo pacman -S --noconfirm --needed winetricks
+  sudo pacman -S --noconfirm --needed audacity
+  sudo pacman -S --noconfirm --needed clementine
+  sudo pacman -S --noconfirm --needed handbrake
+  sudo pacman -S --noconfirm --needed kdenlive
+  sudo pacman -S --noconfirm --needed obs-studio
+  sudo pacman -S --noconfirm --needed openshot
+  sudo pacman -S --noconfirm --needed vlc
+  sudo pacman -S --noconfirm --needed shotcut
+  sudo pacman -S --noconfirm --needed darktable
+  sudo pacman -S --noconfirm --needed gimp
+  sudo pacman -S --noconfirm --needed inkscape
+  sudo pacman -S --noconfirm --needed krita
+  sudo pacman -S --noconfirm --needed librecad
+  sudo pacman -S --noconfirm --needed luminancehdr
+  sudo pacman -S --noconfirm --needed cura
+  sudo pacman -S --noconfirm --needed rust rust-docs rust-racer uncrustify
+  sudo pacman -S --noconfirm --needed atom
+  sudo pacman -S --noconfirm --needed firefox
+  sudo pacman -S --noconfirm --needed hexchat
+  sudo pacman -S --noconfirm --needed syncthing-gtk
+  sudo pacman -S --noconfirm --needed teamspeak3
+  sudo pacman -S --noconfirm --needed telegram-desktop
+  sudo pacman -S --noconfirm --needed transmission-gtk
+  sudo pacman -S --noconfirm --needed steam steam-native-runtime
+  sudo pacman -S --noconfirm --needed homebank
+  sudo pacman -S --noconfirm --needed libreoffice-fresh
+  sudo pacman -S --noconfirm --needed dconf-editor
+  sudo pacman -S --noconfirm --needed virt-manager
+  sudo pacman -S --noconfirm --needed ebtables iptables
+  sudo pacman -S --noconfirm --needed dnsmasq
+  sudo pacman -S --noconfirm --needed virglrenderer
+  sudo pacman -S --noconfirm --needed qemu-arch-extra
+  sudo pacman -S --noconfirm --needed qemu-guest-agent
+  sudo pacman -S --noconfirm --needed fragments
+  sudo pacman -S --noconfirm --needed cockpit cockpit-dashboard cockpit-docker cockpit-machines cockpit-pcp cockpit-podman
+  sudo pacman -S --noconfirm --needed pacmanlogviewer
+  sudo pacman -S --noconfirm --needed exfat-utils
+  sudo pacman -S --noconfirm --needed meld
+  sudo pacman -S --noconfirm --needed cool-retro-term
+  sudo pacman -S --noconfirm --needed blender
+  sudo pacman -S --noconfirm --needed hardinfo
+  sudo pacman -S --noconfirm --needed openscad
+  sudo pacman -S --noconfirm --needed quodlibet
+  sudo pacman -S --noconfirm --needed deluge
+  sudo pacman -S --noconfirm --needed extremetuxracer
+  sudo pacman -S --noconfirm --needed supertux
+  sudo pacman -S --noconfirm --needed supertuxkart
+  sudo pacman -S --noconfirm --needed plank
+  sudo pacman -S --noconfirm --needed remmina
+  sudo pacman -S --noconfirm --needed cairo-dock cairo-dock-plug-ins
+  sudo pacman -S --noconfirm --needed prusa-slicer
+  #sudo pacman -S --noconfirm --needed virtualbox
+  #sudo pacman -S --noconfirm --needed virtualbox-guest-iso
+  yay -S --noconfirm --needed makemkv
+  yay -S --noconfirm --needed drawio-desktop
+  yay -S --noconfirm --needed dxvk-bin
+  yay -S --noconfirm --needed skypeforlinux-preview-bin
+  yay -S --noconfirm --needed zoom2
+  yay -S --noconfirm --needed isomaster
+  yay -S --noconfirm --needed timeshift
+  yay -S --noconfirm --needed stacer
+  yay -S --noconfirm --needed mattercontrol
+  yay -S --noconfirm --needed olive
+  yay -S --noconfirm --needed discord
+  yay -S --noconfirm --needed gamemode lib32-gamemode
+  yay -S --noconfirm --needed multibootusb-git
+  yay -S --noconfirm --needed plank-theme-arc plank-theme-numix plank-theme-namor unity-like-plank-theme
+  yay -S --noconfirm --needed protontricks
+  yay -S --noconfirm --needed ovmf
+  yay -S --noconfirm --needed virtio-win
+  yay -S --noconfirm --needed libguestfs
+  yay -S --noconfirm --needed freeoffice
+  yay -S --noconfirm --needed ventoy-bin
+  #yay -S --noconfirm --needed freecad
+  #yay -S --noconfirm --needed mintstick-git
+  #yay -S --noconfirm --needed virtualbox-ext-oracle
+  #yay -S --noconfirm --needed cinelerra-cv
+  yay -S --noconfirm --needed cairo-dock-themes cairo-dock-plug-ins-extras
+
+}
+################################################################################
 ### Main Program                                                             ###
 ################################################################################
 INSTALLYAY
@@ -676,6 +811,9 @@ UNICODEFIX
 DISPLAYMGR
 DE_SELECTION
 SOFTWARECENTER
+SOUNDFILES
+FONTINSTALL
+SOFTWAREINSTALL
 
 if [[ $(lspci -k | grep VGA | grep -i nvidia) ]]; then
   NVIDIA_DRIVERS
@@ -687,6 +825,13 @@ fi
 
 sed -i '$ a if [ -f /usr/bin/neofetch ]; then neofetch; fi' /home/$(whoami)/.bashrc
 echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/99-sysctl.conf
+sudo systemctl enable --now cockpit.socket
+sudo systemctl enable libvirtd.service
+sudo systemctl enable virtlogd.service
+sudo sed -i '/\[global\]'/a'Environment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
+#sed -e '/"Type=simple"'/a'Environment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
+echo "options kvm-intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
+
 clear
 echo "##############################################################################"
 echo "### Installation Is Complete, Please Reboot And Have Fun                   ###"
