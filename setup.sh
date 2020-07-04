@@ -709,42 +709,89 @@ function FONTINSTALL() {
   #yay -S --noconfirm --needed starlabstheme-font-git
 }
 ################################################################################
-### Software To Install (My Favorite Applications)                           ###
+### Software To Install (My Standard Applications)                           ###
 ################################################################################
-function SOFTWAREINSTALL() {
+function SOFTWAREINSTALLSTD() {
   clear
   echo "################################################################################"
-  echo "### Installing applications                                                  ###"
+  echo "### Installing Standard Applications                                         ###"
   echo "################################################################################"
   sleep 2
-  sudo pacman -S --noconfirm --needed playonlinux
-  sudo pacman -S --noconfirm --needed winetricks
-  sudo pacman -S --noconfirm --needed audacity
-  sudo pacman -S --noconfirm --needed clementine
-  sudo pacman -S --noconfirm --needed handbrake
-  sudo pacman -S --noconfirm --needed kdenlive
-  sudo pacman -S --noconfirm --needed obs-studio
-  sudo pacman -S --noconfirm --needed openshot
-  sudo pacman -S --noconfirm --needed vlc
-  sudo pacman -S --noconfirm --needed shotcut
-  sudo pacman -S --noconfirm --needed darktable
-  sudo pacman -S --noconfirm --needed gimp
-  sudo pacman -S --noconfirm --needed inkscape
-  sudo pacman -S --noconfirm --needed krita
-  sudo pacman -S --noconfirm --needed librecad
-  sudo pacman -S --noconfirm --needed luminancehdr
-  sudo pacman -S --noconfirm --needed cura
-  sudo pacman -S --noconfirm --needed rust rust-docs rust-racer uncrustify
-  sudo pacman -S --noconfirm --needed atom
   sudo pacman -S --noconfirm --needed firefox
+  sudo pacman -S --noconfirm --needed winetricks
+  sudo pacman -S --noconfirm --needed playonlinux
+  sudo pacman -S --noconfirm --needed steam steam-native-runtime
+  sudo pacman -S --noconfirm --needed handbrake
+  sudo pacman -S --noconfirm --needed obs-studio
+  sudo pacman -S --noconfirm --needed gimp
+  sudo pacman -S --noconfirm --needed libreoffice-fresh
+  sudo pacman -S --noconfirm --needed clementine
+  sudo pacman -S --noconfirm --needed kdenlive
+}
+################################################################################
+### Software To Install (My Standard Applications)                           ###
+################################################################################
+function SOFTWAREINSTALLEXTRA() {
+  clear
+  echo "################################################################################"
+  echo "### Installing Extra Applications                                            ###"
+  echo "################################################################################"
+  sleep 2
+  #3d Printer
+  sudo pacman -S --noconfirm --needed cura
+  sudo pacman -S --noconfirm --needed prusa-slicer
+  yay -S --noconfirm --needed mattercontrol
+  yay -S --noconfirm --needed discord
+  #Accessories
+  sudo pacman -S --noconfirm --needed cool-retro-term
+  yay -S --noconfirm --needed isomaster
+  yay -S --noconfirm --needed multibootusb-git
+  yay -S --noconfirm --needed ventoy-bin
+  yay -S --noconfirm --needed mintstick-git
+  #Chat
   sudo pacman -S --noconfirm --needed hexchat
-  sudo pacman -S --noconfirm --needed syncthing-gtk
   sudo pacman -S --noconfirm --needed teamspeak3
   sudo pacman -S --noconfirm --needed telegram-desktop
+  yay -S --noconfirm --needed skypeforlinux-preview-bin
+  yay -S --noconfirm --needed zoom
+  #Games
+  sudo pacman -S --noconfirm --needed extremetuxracer
+  sudo pacman -S --noconfirm --needed supertux
+  sudo pacman -S --noconfirm --needed supertuxkart
+  yay -S --noconfirm --needed gamemode lib32-gamemode
+  #Graphics
+  sudo pacman -S --noconfirm --needed librecad
+  sudo pacman -S --noconfirm --needed darktable
+  sudo pacman -S --noconfirm --needed inkscape
+  sudo pacman -S --noconfirm --needed krita
+  sudo pacman -S --noconfirm --needed blender
+  sudo pacman -S --noconfirm --needed openscad
+  sudo pacman -S --noconfirm --needed luminancehdr
+  yay -S --noconfirm --needed drawio-desktop
+  #yay -S --noconfirm --needed freecad
+  #Internet
   sudo pacman -S --noconfirm --needed transmission-gtk
-  sudo pacman -S --noconfirm --needed steam steam-native-runtime
+  sudo pacman -S --noconfirm --needed fragments
+  sudo pacman -S --noconfirm --needed remmina
+  #Office
   sudo pacman -S --noconfirm --needed homebank
-  sudo pacman -S --noconfirm --needed libreoffice-fresh
+  yay -S --noconfirm --needed freeoffice
+  #Programming
+  sudo pacman -S --noconfirm --needed atom
+  sudo pacman -S --noconfirm --needed meld
+  sudo pacman -S --noconfirm --needed rust rust-docs rust-racer uncrustify
+  #Sound/Video
+  sudo pacman -S --noconfirm --needed audacity
+  sudo pacman -S --noconfirm --needed openshot
+  sudo pacman -S --noconfirm --needed shotcut
+  sudo pacman -S --noconfirm --needed quodlibet
+  sudo pacman -S --noconfirm --needed vlc
+  yay -S --noconfirm --needed makemkv
+  yay -S --noconfirm --needed olive
+  #yay -S --noconfirm --needed cinelerra-cv
+  #System Utilities
+  sudo pacman -S --noconfirm --needed cockpit cockpit-dashboard cockpit-docker cockpit-machines cockpit-pcp cockpit-podman
+  sudo pacman -S --noconfirm --needed syncthing-gtk
   sudo pacman -S --noconfirm --needed dconf-editor
   sudo pacman -S --noconfirm --needed virt-manager
   sudo pacman -S --noconfirm --needed ebtables iptables
@@ -752,52 +799,24 @@ function SOFTWAREINSTALL() {
   sudo pacman -S --noconfirm --needed virglrenderer
   sudo pacman -S --noconfirm --needed qemu-arch-extra
   sudo pacman -S --noconfirm --needed qemu-guest-agent
-  sudo pacman -S --noconfirm --needed fragments
-  sudo pacman -S --noconfirm --needed cockpit cockpit-dashboard cockpit-docker cockpit-machines cockpit-pcp cockpit-podman
-  sudo pacman -S --noconfirm --needed pacmanlogviewer
-  sudo pacman -S --noconfirm --needed exfat-utils
-  sudo pacman -S --noconfirm --needed meld
-  sudo pacman -S --noconfirm --needed cool-retro-term
-  sudo pacman -S --noconfirm --needed blender
-  sudo pacman -S --noconfirm --needed hardinfo
-  sudo pacman -S --noconfirm --needed openscad
-  sudo pacman -S --noconfirm --needed quodlibet
-  sudo pacman -S --noconfirm --needed deluge
-  sudo pacman -S --noconfirm --needed extremetuxracer
-  sudo pacman -S --noconfirm --needed supertux
-  sudo pacman -S --noconfirm --needed supertuxkart
-  sudo pacman -S --noconfirm --needed plank
-  sudo pacman -S --noconfirm --needed remmina
-  sudo pacman -S --noconfirm --needed cairo-dock cairo-dock-plug-ins
-  sudo pacman -S --noconfirm --needed prusa-slicer
-  #sudo pacman -S --noconfirm --needed virtualbox
-  #sudo pacman -S --noconfirm --needed virtualbox-guest-iso
-  yay -S --noconfirm --needed makemkv
-  yay -S --noconfirm --needed drawio-desktop
-  yay -S --noconfirm --needed dxvk-bin
-  yay -S --noconfirm --needed skypeforlinux-preview-bin
-  yay -S --noconfirm --needed zoom
-  yay -S --noconfirm --needed isomaster
-  yay -S --noconfirm --needed timeshift
-  yay -S --noconfirm --needed stacer
-  yay -S --noconfirm --needed mattercontrol
-  yay -S --noconfirm --needed olive
-  yay -S --noconfirm --needed discord
-  yay -S --noconfirm --needed gamemode lib32-gamemode
-  yay -S --noconfirm --needed multibootusb-git
-  yay -S --noconfirm --needed plank-theme-arc plank-theme-numix plank-theme-namor unity-like-plank-theme
-  yay -S --noconfirm --needed protontricks
   yay -S --noconfirm --needed ovmf
   yay -S --noconfirm --needed virtio-win
   yay -S --noconfirm --needed libguestfs
-  yay -S --noconfirm --needed freeoffice
-  yay -S --noconfirm --needed ventoy-bin
-  #yay -S --noconfirm --needed freecad
-  #yay -S --noconfirm --needed mintstick-git
-  #yay -S --noconfirm --needed virtualbox-ext-oracle
-  #yay -S --noconfirm --needed cinelerra-cv
+  sudo pacman -S --noconfirm --needed pacmanlogviewer
+  sudo pacman -S --noconfirm --needed exfat-utils
+  sudo pacman -S --noconfirm --needed hardinfo
+  sudo pacman -S --noconfirm --needed deluge
+  sudo pacman -S --noconfirm --needed plank
+  yay -S --noconfirm --needed plank-theme-arc plank-theme-numix plank-theme-namor unity-like-plank-theme
+  sudo pacman -S --noconfirm --needed cairo-dock cairo-dock-plug-ins
   yay -S --noconfirm --needed cairo-dock-themes cairo-dock-plug-ins-extras
-
+  yay -S --noconfirm --needed dxvk-bin
+  yay -S --noconfirm --needed timeshift
+  yay -S --noconfirm --needed stacer
+  yay -S --noconfirm --needed protontricks
+  #sudo pacman -S --noconfirm --needed virtualbox
+  #sudo pacman -S --noconfirm --needed virtualbox-guest-iso
+  #yay -S --noconfirm --needed virtualbox-ext-oracle
 }
 ################################################################################
 ### Main Program                                                             ###
@@ -857,7 +876,7 @@ SOUNDFILES
 FONTINSTALL
 clear
 echo "##############################################################################"
-echo "Do you want a good starting software selection installed?"
+echo "Do you want a good starting standard software selection installed?"
 echo "1)  Yes"
 echo "2)  No"
 echo "##############################################################################"
@@ -865,7 +884,28 @@ read case;
 
 case $case in
   1)
-  SOFTWAREINSTALL
+  SOFTWAREINSTALLSTD
+  ;;
+  2)
+  ;;
+esac
+clear
+echo "##############################################################################"
+echo "Do you want a good extra software selection installed?"
+echo "1)  Yes"
+echo "2)  No"
+echo "##############################################################################"
+read case;
+
+case $case in
+  1)
+  SOFTWAREINSTALLEXTRA
+  sudo systemctl enable --now cockpit.socket
+  sudo systemctl enable libvirtd.service
+  sudo systemctl enable virtlogd.service
+  sudo sed -i '/\[global\]'/a'Environment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
+  #sed -e '/"Type=simple"'/a'Environment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
+  echo "options kvm-intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
   ;;
   2)
   ;;
@@ -881,12 +921,6 @@ fi
 
 sed -i '$ a if [ -f /usr/bin/neofetch ]; then neofetch; fi' /home/$(whoami)/.bashrc
 echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/99-sysctl.conf
-sudo systemctl enable --now cockpit.socket
-sudo systemctl enable libvirtd.service
-sudo systemctl enable virtlogd.service
-sudo sed -i '/\[global\]'/a'Environment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
-#sed -e '/"Type=simple"'/a'Environment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
-echo "options kvm-intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
 
 clear
 echo "##############################################################################"
