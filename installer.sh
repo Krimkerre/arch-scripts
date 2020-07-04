@@ -340,9 +340,6 @@ SYSDBOOT
 SYSDSWAP
 MAKEFLAGS_CPU
 NEEDEDPKGS
-wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/setup.sh
-chmod +x setup.sh
-cp setup.sh /mnt/home/$USRNM/
 ################################################################################
 ### Misc Settings                                                            ###
 ################################################################################
@@ -376,6 +373,9 @@ $UPASSWD
 
 echo "$RPASSWD
 $RPASSWD" | arch-chroot /mnt passwd
+wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/setup.sh
+chmod +x setup.sh
+cp setup.sh /mnt/home/$USRNM/
 clear
 echo "##############################################################################"
 echo "### Installation Is Complete, Please Reboot And Have Fun                   ###"
