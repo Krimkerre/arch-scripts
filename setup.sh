@@ -213,6 +213,33 @@ function GNOME_DE() {
   sudo pacman -S --noconfirm --needed gnome-packagekit gnome-software-packagekit-plugin
   sudo systemctl enable gdm
   #sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
+  wget https://raw.githubusercontent.com/bill-mavromatis/gnome-layout-manager/master/layoutmanager.sh
+  sudo chmod +x layoutmanager.sh
+  clear
+  echo "##############################################################################"
+  echo "Do you want Gnome Extensions installed?"
+  echo "1)  Yes"
+  echo "2)  No"
+  echo "##############################################################################"
+  read case;
+
+  case $case in
+    1)
+    GNOMEEXT
+    ;;
+    2)
+    ;;
+  esac
+}
+################################################################################
+### Install Gnome DE Extensions                                              ###
+################################################################################
+function GNOMEEXT() {
+  clear
+  echo "################################################################################"
+  echo "### Installing The Gnome Extensions                                          ###"
+  echo "################################################################################"
+  sleep 2
   yay -S --noconfirm --needed gnome-terminal-transparency
   yay -S --noconfirm --needed gnome-shell-extension-dash-to-dock
   yay -S --noconfirm --needed gnome-shell-extension-dash-to-panel
@@ -227,17 +254,15 @@ function GNOME_DE() {
   yay -S --noconfirm --needed gnome-shell-extension-gamemode-git
   yay -S --noconfirm --needed gnome-shell-extension-extended-gestures-git
   yay -S --noconfirm --needed gnome-shell-extension-transparent-window-moving-git
-  #yay -S qnome-shell-extension-pop-shell-git
-  #yay -S --noconfirm --needed gnome-alsamixer
-  #yay -S --noconfirm --needed gnome-shell-extension-vitals
-  #yay -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
-  #yay -S --noconfirm --needed gnome-shell-extension-dynamic-battery
-  #yay -S --noconfirm --needed gnome-shell-extension-material-shell-git
-  #yay -S --noconfirm --needed gnome-shell-extension-panel-osd
-  #yay -S --noconfirm --needed gnome-shell-extension-slinger-git
-  #yay -S --noconfirm --needed gnome-shell-extension-transparent-osd-git
-  #wget https://raw.githubusercontent.com/bill-mavromatis/gnome-layout-manager/master/layoutmanager.sh
-  #sudo chmod +x layoutmanager.sh
+  yay -S --noconfirm --needed qnome-shell-extension-pop-shell-git
+  yay -S --noconfirm --needed gnome-alsamixer
+  yay -S --noconfirm --needed gnome-shell-extension-vitals
+  yay -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
+  yay -S --noconfirm --needed gnome-shell-extension-dynamic-battery
+  yay -S --noconfirm --needed gnome-shell-extension-material-shell-git
+  yay -S --noconfirm --needed gnome-shell-extension-panel-osd
+  yay -S --noconfirm --needed gnome-shell-extension-slinger-git
+  yay -S --noconfirm --needed gnome-shell-extension-transparent-osd-git
 }
 ################################################################################
 ### Install KDE Plasma DE                                                    ###
