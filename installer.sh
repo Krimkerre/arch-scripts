@@ -190,7 +190,6 @@ function GRUBBOOT() {
 ################################################################################
 function SYSDSWAP() {
   rm /mnt/etc/systemd/swap.conf
-  NCPU=$(nproc --all)
   echo "zswap_enabled=1" >> /mnt/etc/systemd/swap.conf
   echo "zswap_compressor=zstd" >> /mnt/etc/systemd/swap.conf
   echo "zswap_max_pool_percent=25" >> /mnt/etc/systemd/swap.conf
