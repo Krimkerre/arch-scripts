@@ -340,6 +340,8 @@ function WHATFMT() {
   echo "2)  BTRFS"
   echo "3)  XFS"
   echo "4)  ReiserFS"
+  echo "5)  JFS"
+  echo "6)  NILFS2"
   echo "##############################################################################"
   read case;
   case $case in
