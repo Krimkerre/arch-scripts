@@ -741,7 +741,6 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed cura
   sudo pacman -S --noconfirm --needed prusa-slicer
   yay -S --noconfirm --needed mattercontrol
-  yay -S --noconfirm --needed discord
   #Accessories
   sudo pacman -S --noconfirm --needed cool-retro-term
   yay -S --noconfirm --needed isomaster
@@ -754,6 +753,7 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed telegram-desktop
   yay -S --noconfirm --needed skypeforlinux-preview-bin
   yay -S --noconfirm --needed zoom
+  yay -S --noconfirm --needed discord
   #Games
   sudo pacman -S --noconfirm --needed extremetuxracer
   sudo pacman -S --noconfirm --needed supertux
@@ -788,6 +788,7 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed vlc
   yay -S --noconfirm --needed makemkv
   yay -S --noconfirm --needed olive
+  yay -S --noconfirm --needed lbry-app-bin
   #yay -S --noconfirm --needed cinelerra-cv
   #System Utilities
   sudo pacman -S --noconfirm --needed cockpit cockpit-dashboard cockpit-docker cockpit-machines cockpit-pcp cockpit-podman
