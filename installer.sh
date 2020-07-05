@@ -136,11 +136,11 @@ function FMTXFS() {
 ################################################################################
 ### Format The Hard Drive With Reiser4 Filesystem Here                       ###
 ################################################################################
-function FMTREISER4() {
+function FMTREISER() {
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
     mkfs.fat -F32 ${HD}1
-    mkfs.reiser4 -f ${HD}2
+    mkfs.reiser -f ${HD}2
   else
     #BIOS Partition
     mkfs.reiser4 -f ${HD}1
@@ -163,7 +163,7 @@ function MNTHD() {
 ### Install the Base Packages Here                                           ###
 ################################################################################
 function BASEPKG() {
-  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiser4progs
+  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserprogs
   genfstab -U /mnt >> /mnt/etc/fstab
 }
 ################################################################################
