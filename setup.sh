@@ -587,6 +587,7 @@ function SOFTWARECENTER() {
   sudo pacman -S --noconfirm --needed flatpak
   sudo systemctl enable snapd.service
   yay -S --noconfirm --needed bauh
+  yay -S --noconfirm --needed flatseal
 }
 ################################################################################
 ### Install nVidia Video Drivers                                             ###

@@ -134,7 +134,7 @@ function FMTXFS() {
   fi
 }
 ################################################################################
-### Format The Hard Drive With Reiser4 Filesystem Here                       ###
+### Format The Hard Drive With ReiserFS Filesystem Here                       ###
 ################################################################################
 function FMTREISERFS() {
   if [[ -d /sys/firmware/efi/efivars ]]; then
@@ -144,6 +144,32 @@ function FMTREISERFS() {
   else
     #BIOS Partition
     mkfs.reiserfs -f ${HD}1
+  fi
+}
+################################################################################
+### Format The Hard Drive With JFS Filesystem Here                       ###
+################################################################################
+function FMTJFS() {
+  if [[ -d /sys/firmware/efi/efivars ]]; then
+    #UEFI Partition
+    mkfs.fat -F32 ${HD}1
+    mkfs.jfs -f ${HD}2
+  else
+    #BIOS Partition
+    mkfs.jfs -f ${HD}1
+  fi
+}
+################################################################################
+### Format The Hard Drive With NILFS2 Filesystem Here                       ###
+################################################################################
+function FMTNILFS2() {
+  if [[ -d /sys/firmware/efi/efivars ]]; then
+    #UEFI Partition
+    mkfs.fat -F32 ${HD}1
+    mkfs.nilfs2 -f ${HD}2
+  else
+    #BIOS Partition
+    mkfs.nilfs2 -f ${HD}1
   fi
 }
 ################################################################################
@@ -163,7 +189,7 @@ function MNTHD() {
 ### Install the Base Packages Here                                           ###
 ################################################################################
 function BASEPKG() {
-  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs
+  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils
   genfstab -U /mnt >> /mnt/etc/fstab
 }
 ################################################################################
@@ -328,6 +354,12 @@ function WHATFMT() {
     ;;
     4)
     FMTREISERFS
+    ;;
+    5)
+    FMTJFS
+    ;;
+    6)
+    FMTNILFS2
     ;;
   esac
 }
