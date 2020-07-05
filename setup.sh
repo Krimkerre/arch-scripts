@@ -211,6 +211,7 @@ function GNOME_DE() {
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -R --noconfirm gnome-terminal
   sudo pacman -S --noconfirm --needed gnome-packagekit gnome-software-packagekit-plugin
+  yay -S --noconfirm --needed gnome-terminal-transparency
   sudo systemctl enable gdm
   #sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
   wget https://raw.githubusercontent.com/bill-mavromatis/gnome-layout-manager/master/layoutmanager.sh
@@ -240,7 +241,6 @@ function GNOMEEXT() {
   echo "### Installing The Gnome Extensions                                          ###"
   echo "################################################################################"
   sleep 2
-  yay -S --noconfirm --needed gnome-terminal-transparency
   yay -S --noconfirm --needed gnome-shell-extension-dash-to-dock
   yay -S --noconfirm --needed gnome-shell-extension-dash-to-panel
   yay -S --noconfirm --needed gnome-shell-extension-workspaces-to-dock
