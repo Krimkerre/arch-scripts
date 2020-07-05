@@ -136,14 +136,14 @@ function FMTXFS() {
 ################################################################################
 ### Format The Hard Drive With Reiser4 Filesystem Here                       ###
 ################################################################################
-function FMTREISER() {
+function FMTREISERFS() {
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
     mkfs.fat -F32 ${HD}1
-    mkfs.reiser -f ${HD}2
+    mkfs.reiserfs -f ${HD}2
   else
     #BIOS Partition
-    mkfs.reiser4 -f ${HD}1
+    mkfs.reiserfs -f ${HD}1
   fi
 }
 ################################################################################
@@ -163,7 +163,7 @@ function MNTHD() {
 ### Install the Base Packages Here                                           ###
 ################################################################################
 function BASEPKG() {
-  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserprogs
+  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs
   genfstab -U /mnt >> /mnt/etc/fstab
 }
 ################################################################################
@@ -313,7 +313,7 @@ function WHATFMT() {
   echo "1)  EXT4 - Standard Linux Format"
   echo "2)  BTRFS"
   echo "3)  XFS"
-  echo "4)  Reiser4"
+  echo "4)  ReiserFS"
   echo "##############################################################################"
   read case;
   case $case in
@@ -327,7 +327,7 @@ function WHATFMT() {
     FMTXFS
     ;;
     4)
-    FMTREISER4
+    FMTREISERFS
     ;;
   esac
 }
