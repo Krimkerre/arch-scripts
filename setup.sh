@@ -574,6 +574,41 @@ function ENTITLEMENT_DE() {
   sudo sed -i 's/'#user-session=default'/'user-session=enlightenment'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
+### Install Sway Window Tiling Manager                                       ###
+################################################################################
+function SWAY_DE() {
+  clear
+  echo "################################################################################"
+  echo "### Installing The Sway Tiling Window Manager                                ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman -S --noconfirm --needed sway
+  sudo pacman -S --noconfirm --needed swaybg
+  sudo pacman -S --noconfirm --needed swayidle
+  sudo pacman -S --noconfirm --needed swaylock
+  sudo pacman -S --noconfirm --needed waybar
+  sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+  sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
+  sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
+  sudo pacman -S --noconfirm --needed onboard
+  sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  yay -S --noconfirm --needed lightdm-webkit2-theme-material2
+  yay -S --noconfirm --needed lightdm-webkit-theme-aether
+  yay -S --noconfirm --needed lightdm-webkit-theme-userdock
+  yay -S --noconfirm --needed lightdm-webkit-theme-tendou
+  yay -S --noconfirm --needed lightdm-webkit-theme-wisp
+  yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
+  yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
+  yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
+  yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
+  yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
+  yay -S --noconfirm --needed lightdm-webkit-theme-luminos
+  yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
+  sudo systemctl enable lightdm.service -f
+  sudo systemctl set-default graphical.target
+  sudo sed -i 's/'#user-session=default'/'user-session=enlightenment'/g' /etc/lightdm/lightdm.conf
+}
+################################################################################
 ### Install Software Centers (Pamac/Snaps/Flatpak)                           ###
 ################################################################################
 function SOFTWARECENTER() {
@@ -644,7 +679,8 @@ function DE_SELECTION() {
   echo "9)  LXQT"
   echo "10) i3"
   echo "11) Enlightenment"
-  echo "12) None"
+  echo "12) Sway"
+  echo "13) None"
   echo "##############################################################################"
   read case;
 
@@ -683,6 +719,9 @@ function DE_SELECTION() {
     ENTITLEMENT_DE
     ;;
     12)
+    SWAY_DE
+    ;;
+    13)
     clear
     echo "##############################################################################"
     echo "### You Have Selected None                                                 ###"
