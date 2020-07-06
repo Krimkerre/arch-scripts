@@ -214,8 +214,6 @@ function GNOME_DE() {
   yay -S --noconfirm --needed gnome-terminal-transparency
   sudo systemctl enable gdm
   #sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
-  wget https://raw.githubusercontent.com/bill-mavromatis/gnome-layout-manager/master/layoutmanager.sh
-  sudo chmod +x layoutmanager.sh
   clear
   echo "##############################################################################"
   echo "Do you want Gnome Extensions installed?"
@@ -592,6 +590,8 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed dmenu
+  sudo pacman -S --noconfirm --needed alacritty
   yay -S --noconfirm --needed lightdm-webkit2-theme-material2
   yay -S --noconfirm --needed lightdm-webkit-theme-aether
   yay -S --noconfirm --needed lightdm-webkit-theme-userdock
@@ -606,7 +606,7 @@ function SWAY_DE() {
   yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
-  sudo sed -i 's/'#user-session=default'/'user-session=enlightenment'/g' /etc/lightdm/lightdm.conf
+  sudo sed -i 's/'#user-session=default'/'user-session=sway'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
 ### Install Software Centers (Pamac/Snaps/Flatpak)                           ###
