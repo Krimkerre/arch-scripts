@@ -165,7 +165,7 @@ function DISPLAYMGR() {
   sudo pacman -S --noconfirm --needed lib32-vulkan-radeon
   sudo pacman -S --noconfirm --needed vkd3d
   sudo pacman -S --noconfirm --needed lib32-vkd3d
-  sudo pacman -S --noconfirm --needed kvantum-qt5 kvantum-theme-adapta kvantum-theme-arc kvantum-theme-materia
+  sudo pacman -S --noconfirm --needed kvantum-qt5
   sudo pacman -S --noconfirm --needed opencl-mesa
   sudo pacman -S --noconfirm --needed opencl-headers
   sudo pacman -S --noconfirm --needed terminator
