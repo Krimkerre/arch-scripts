@@ -101,7 +101,7 @@ function FMTEXT4() {
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
     mkfs.fat -F32 ${HD}1
-    mkfs.ext4 ${HD}2
+    mkfs.ext4 -f ${HD}2
   else
     #BIOS Partition
     mkfs.ext4 ${HD}1
