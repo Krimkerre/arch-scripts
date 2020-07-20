@@ -229,31 +229,33 @@ function GRUBBOOT() {
 ################################################################################
 function SYSDSWAP() {
   rm /mnt/etc/systemd/swap.conf
-  echo "zswap_enabled=1" >> /mnt/etc/systemd/swap.conf
-  echo "zswap_compressor=zstd" >> /mnt/etc/systemd/swap.conf
-  echo "zswap_max_pool_percent=25" >> /mnt/etc/systemd/swap.conf
-  echo "zswap_zpool=z3fold" >> /mnt/etc/systemd/swap.conf
-  echo "zram_enabled=1"  >> /mnt/etc/systemd/swap.conf
-  echo "zram_size=\$(( RAM_SIZE / 4 ))"  >> /mnt/etc/systemd/swap.conf
-  echo "zram_count=\${NCPU}"  >> /mnt/etc/systemd/swap.conf
-  echo "zram_streams=\${NCPU}" >> /mnt/etc/systemd/swap.conf
-  echo "zram_alg=zstd" >> /mnt/etc/systemd/swap.conf
-  echo "zram_prio=32767" >> /mnt/etc/systemd/swap.conf
-  echo "swapfc_enabled=1" >> /mnt/etc/systemd/swap.conf
-  echo "swapfc_force_use_loop=0" >> /mnt/etc/systemd/swap.conf
-  echo "swapfc_frequency=1" >> /mnt/etc/systemd/swap.conf
-  echo "swapfc_chunk_size=256M" >> /mnt/etc/systemd/swap.conf
-  echo "swapfc_max_count=32" >> /mnt/etc/systemd/swap.conf
-  echo "swapfc_min_count=0" >> /mnt/etc/systemd/swap.conf
-  echo "swapfc_free_swap_perc=15" >> /mnt/etc/systemd/swap.conf
-  echo "swapfc_remove_free_swap_perc=55" >> /mnt/etc/systemd/swap.conf
-  echo "swapfc_priority=-2" >> /mnt/etc/systemd/swap.conf
-  echo "swapfc_path=/var/lib/systemd-swap/swapfc/" >> /mnt/etc/systemd/swap.conf
-  echo "swapfc_nocow=1" >> /mnt/etc/systemd/swap.conf
-  echo "swapfc_directio=1" >> /mnt/etc/systemd/swap.conf
-  echo "swapfc_force_preallocated=1" >> /mnt/etc/systemd/swap.conf
-  echo "swapd_auto_swapon=1" >> /mnt/etc/systemd/swap.conf
-  echo "swapd_prio=1024" >> /mnt/etc/systemd/swap.conf
+  echo "zswap_enabled=1" >> /etc/systemd/swap.conf
+  echo "zswap_compressor=zstd" >> /etc/systemd/swap.conf     # lzo lz4 zstd lzo-rle lz4hc
+  echo "zswap_max_pool_percent=25" >> /etc/systemd/swap.conf # 1-99
+  echo "zswap_zpool=z3fold" >> /etc/systemd/swap.conf        # zbud z3fold (note z3fold requires kernel 4.8+)
+  echo "zram_enabled=1" >> /etc/systemd/swap.conf
+  echo "zram_size=/$/(/( RAM_SIZE // 4 /)/)" >> /etc/systemd/swap.conf    # This is 1/4 of ram size by default.
+  echo "zram_count=/$/{NCPU/}" >> /etc/systemd/swap.conf               # Device count
+  echo "zram_streams=/$/{NCPU/}" >> /etc/systemd/swap.conf             # Compress streams
+  echo "zram_alg=zstd" >> /etc/systemd/swap.conf                    # See $zswap_compressor
+  echo "zram_prio=32767" >> /etc/systemd/swap.conf                  # 1 - 32767
+  echo "swapfc_enabled=1" >> /etc/systemd/swap.conf
+  echo "swapfc_force_use_loop=0" >> /etc/systemd/swap.conf          # Force usage of swapfile + loop
+  echo "swapfc_frequency=1" >> /etc/systemd/swap.conf               # How often to check free swap space in seconds
+  echo "swapfc_chunk_size=256M" >> /etc/systemd/swap.conf           # Size of swap chunk
+  echo "swapfc_max_count=32" >> /etc/systemd/swap.conf              # Note: 32 is a kernel maximum
+  echo "swapfc_min_count=0" >> /etc/systemd/swap.conf               # Minimum amount of chunks to preallocate
+  echo "swapfc_free_ram_perc=35" >> /etc/systemd/swap.conf          # Add first chunk if free ram < 35%
+  echo "swapfc_free_swap_perc=15" >> /etc/systemd/swap.conf         # Add new chunk if free swap < 15%
+  echo "swapfc_remove_free_swap_perc=55" >> /etc/systemd/swap.conf  # Remove chunk if free swap > 55% && chunk count > 2
+  echo "swapfc_priority=50" >> /etc/systemd/swap.conf               # Priority of swapfiles (decreasing by one for each swapfile).
+  echo "swapfc_path=/var/lib/systemd-swap/swapfc/" >> /etc/systemd/swap.conf
+# Only for swapfile + loop
+  echo "swapfc_nocow=1" >> /etc/systemd/swap.conf              # Disable CoW on swapfile
+  echo "swapfc_directio=1" >> /etc/systemd/swap.conf           # Use directio for loop dev
+  echo "swapfc_force_preallocated=1" >> /etc/systemd/swap.conf # Will preallocate created files
+  echo "swapd_auto_swapon=1" >> /etc/systemd/swap.conf
+  echo "swapd_prio=1024" >> /etc/systemd/swap.conf
   arch-chroot /mnt systemctl enable systemd-swap
 }
 ################################################################################
