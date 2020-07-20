@@ -234,9 +234,9 @@ function SYSDSWAP() {
   echo "zswap_max_pool_percent=25" >> /mnt/etc/systemd/swap.conf # 1-99
   echo "zswap_zpool=z3fold" >> /mnt/etc/systemd/swap.conf        # zbud z3fold (note z3fold requires kernel 4.8+)
   echo "zram_enabled=1" >> /mnt/etc/systemd/swap.conf
-  echo "zram_size=/$/(( RAM_SIZE / 4 ))" >> /mnt/etc/systemd/swap.conf    # This is 1/4 of ram size by default.
-  echo "zram_count=/$/{NCPU}" >> /mnt/etc/systemd/swap.conf               # Device count
-  echo "zram_streams=/$/{NCPU}" >> /mnt/etc/systemd/swap.conf             # Compress streams
+  echo "zram_size=$/(( RAM_SIZE / 4 ))" >> /mnt/etc/systemd/swap.conf    # This is 1/4 of ram size by default.
+  echo "zram_count=$/{NCPU}" >> /mnt/etc/systemd/swap.conf               # Device count
+  echo "zram_streams=$/{NCPU}" >> /mnt/etc/systemd/swap.conf             # Compress streams
   echo "zram_alg=zstd" >> /mnt/etc/systemd/swap.conf                    # See $zswap_compressor
   echo "zram_prio=32767" >> /mnt/etc/systemd/swap.conf                  # 1 - 32767
   echo "swapfc_enabled=1" >> /mnt/etc/systemd/swap.conf
