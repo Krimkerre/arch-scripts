@@ -223,6 +223,7 @@ function GRUBBOOT() {
     arch-chroot /mnt grub-install --target=i386-pc ${HD}
     arch-chroot /mnt pacman -S --needed --noconfirm grub-customizer
   fi
+  arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 }
 ################################################################################
 ### Setting up Systemd Swap Here                                             ###
