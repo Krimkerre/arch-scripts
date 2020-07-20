@@ -367,6 +367,23 @@ function WHATFMT() {
     ;;
   esac
 }
+function BOOTTYPE() {
+  clear
+  echo "##############################################################################"
+  echo "What is your preferred boot loader"
+  echo "1)  systemd"
+  echo "2)  GRUB"
+  echo "##############################################################################"
+  read case;
+  case $case in
+    1)
+    SYSDBOOT
+    ;;
+    2)
+    GRUBBOOT
+    ;;
+  esac
+}
 ################################################################################
 ### Main Program - Edit At Own Risk                                          ###
 ################################################################################
@@ -388,7 +405,7 @@ PARTHD
 WHATFMT
 MNTHD
 BASEPKG
-SYSDBOOT
+BOOTTYPE
 SYSDSWAP
 MAKEFLAGS_CPU
 NEEDEDPKGS
