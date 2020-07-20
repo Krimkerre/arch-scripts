@@ -85,13 +85,9 @@ function PARTHD() {
     #UEFI Partition
     parted ${HD} mklabel gpt mkpart primary fat32 1MiB 301MiB set 1 esp on mkpart primary ext4 301MiB 100%
     mkfs.fat -F32 ${HD}1
-    mkfs.ext4 ${HD}2
-    #mkfs.btrfs -f ${HD}2
   else
     #BIOS Partition
     parted ${HD} mklabel msdos mkpart primary ext4 2MiB 100% set 1 boot on
-    mkfs.ext4 ${HD}1
-    #mkfs.btrfs ${HD}1
   fi
 }
 ################################################################################
@@ -101,7 +97,7 @@ function FMTEXT4() {
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
     mkfs.fat -F32 ${HD}1
-    mkfs.ext4 -f ${HD}2
+    mkfs.ext4 ${HD}2
   else
     #BIOS Partition
     mkfs.ext4 ${HD}1
