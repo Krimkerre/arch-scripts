@@ -46,7 +46,7 @@ function FMTEXT4() {
 ################################################################################
 function FMTBTRFS() {
     mkfs.vfat ${HD}1
-    mkfs.btrfs ${HD}2
+    mkfs.btrfs -f ${HD}2
 }
 ################################################################################
 ### Format The Hard Drive With XFS Filesystem Here                           ###
@@ -131,10 +131,13 @@ clear
 KEYMAP
 HOSTNAME
 DRVSELECT
-PARTHD
+clear
+#PARTHD
 WHATFMT
 MNTHD
-wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz
+#wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz
+clear
+echo "Installing OS, Please Wait....."
 bsdtar -xpf ArchLinuxARM-rpi-4-latest.tar.gz -C /mnt/root
 sync
 CLIFONT
@@ -147,6 +150,17 @@ echo "${HOSTNM}" >> /mnt/root/etc/hostname
 echo "KEYMAP="${AKEYMAP} >> /mnt/root/etc/vconsole.conf
 echo "FONT="${DEFFNT} >> /mnt/root/etc/vconsole.conf
 sed -i 's/'#Color'/'Color'/g' /mnt/root/etc/pacman.conf
+sed -i 's/elevator=noop/elevator=noop audit=0/g' /mnt/boot/cmdline.txt
+sed -i 's/gpu_mem=64/gpu_mem=256/g' /mnt/boot/config.txt
+echo "disable_overscan=1" >> /mnt/boot/config.txt
+echo "#arm_freq=2000" >> /mnt/boot/config.txt     # 700Mhz is the default, Change to overclock 2000 is about max
+echo "#over_voltage=4" >> /mnt/boot/config.txt
+echo "#gpu_freq=600" >> /mnt/boot/config.txt
+echo "dtparam=audio=on" >> /mnt/boot/config.txt     # To enable audio
+echo "dtoverlay=vc4-fkms-v3d" >> /mnt/boot/config.txt
+echo "max_framebuffers=2" >> /mnt/boot/config.txt
+echo "#dtoverlay=vc4-fkms-v3d" >> /mnt/boot/config.txt
+cp setup-rpi4.sh /mnt/root/home/alarm/
 umount /mnt/boot
 umount /mnt/root
 rm /mnt/boot -R

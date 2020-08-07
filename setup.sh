@@ -792,6 +792,8 @@ function SOFTWAREINSTALLSTD() {
   sudo pacman -S --noconfirm --needed libreoffice-fresh
   sudo pacman -S --noconfirm --needed clementine
   sudo pacman -S --noconfirm --needed kdenlive
+  yay -S --noconfirm --needed tuned
+  sudo systemctl enable tuned.service
 }
 ################################################################################
 ### Software To Install (My Standard Applications)                           ###
