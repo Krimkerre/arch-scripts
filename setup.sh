@@ -534,7 +534,7 @@ function I3_DE() {
   sudo sed -i 's/'#user-session=default'/'user-session=i3'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
-### Install Enlightenment DE                                                   ###
+### Install Enlightenment DE                                                 ###
 ################################################################################
 function ENLIGHTENMENT_DE() {
   clear
@@ -548,6 +548,8 @@ function ENLIGHTENMENT_DE() {
   sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed acpid
+  sudo pacman -S --noconfirm --needed connman
   #yay -S --noconfirm --needed econnman
   yay -S --noconfirm --needed lightdm-webkit2-theme-material2
   yay -S --noconfirm --needed lightdm-webkit-theme-aether
@@ -564,6 +566,7 @@ function ENLIGHTENMENT_DE() {
   sudo systemctl set-default graphical.target
   sudo sed -i 's/'#user-session=default'/'user-session=enlightenment'/g' /etc/lightdm/lightdm.conf
   sudo systemctl enable connman
+  sudo systemctl enable acpid
 }
 ################################################################################
 ### Install Sway Window Tiling Manager                                       ###
