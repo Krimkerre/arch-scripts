@@ -563,6 +563,7 @@ function ENLIGHTENMENT_DE() {
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
   sudo sed -i 's/'#user-session=default'/'user-session=enlightenment'/g' /etc/lightdm/lightdm.conf
+  sudo systemctl enable connman
 }
 ################################################################################
 ### Install Sway Window Tiling Manager                                       ###
