@@ -315,7 +315,6 @@ function GNOME_DE() {
   yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
   yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
   yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-luminos
   yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
 }
 ################################################################################
@@ -347,7 +346,6 @@ function PLASMA_DE() {
   yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
   yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
   yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-luminos
   yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
 }
 ################################################################################
@@ -621,12 +619,12 @@ function I3_DE() {
   sudo sed -i 's/'#user-session=default'/'user-session=i3'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
-### Install Entitlement DE                                                   ###
+### Install Enlightenment DE                                                   ###
 ################################################################################
-function ENTITLEMENT_DE() {
+function ENLIGHTENMENT_DE() {
   clear
   echo "################################################################################"
-  echo "### Installing The Entitlement Desktop                                       ###"
+  echo "### Installing The Enlightenment Desktop                                       ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed enlightenment efl efl-docs
@@ -635,7 +633,7 @@ function ENTITLEMENT_DE() {
   sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
-  yay -S --noconfirm --needed econnman
+  #yay -S --noconfirm --needed econnman
   yay -S --noconfirm --needed lightdm-webkit2-theme-material2
   yay -S --noconfirm --needed lightdm-webkit-theme-aether
   yay -S --noconfirm --needed lightdm-webkit-theme-userdock
@@ -743,7 +741,7 @@ function DE_SELECTION() {
     I3_DE
     ;;
     11)
-    ENTITLEMENT_DE
+    ENLIGHTENMENT_DE
     ;;
     12)
     SWAY_DE

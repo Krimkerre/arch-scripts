@@ -310,7 +310,6 @@ function MATE_DE() {
   yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
   yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
   yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-luminos
   yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
@@ -361,7 +360,6 @@ function XFCE_DE() {
   yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
   yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
   yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-luminos
   yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   yay -S --noconfirm --needed xfce4-theme-switcher
   yay -S --noconfirm --needed xts-windows10-theme
@@ -405,7 +403,6 @@ function BUDGIE_DE() {
   yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
   yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
   yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-luminos
   yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
@@ -442,7 +439,6 @@ function CINNAMON_DE() {
   yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
   yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
   yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-luminos
   yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
@@ -480,7 +476,6 @@ function LXDE_DE() {
   yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
   yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
   yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-luminos
   yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
@@ -533,7 +528,6 @@ function I3_DE() {
   yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
   yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
   yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-luminos
   yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
@@ -554,7 +548,7 @@ function ENLIGHTENMENT_DE() {
   sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
-  yay -S --noconfirm --needed econnman
+  #yay -S --noconfirm --needed econnman
   yay -S --noconfirm --needed lightdm-webkit2-theme-material2
   yay -S --noconfirm --needed lightdm-webkit-theme-aether
   yay -S --noconfirm --needed lightdm-webkit-theme-userdock
@@ -565,7 +559,6 @@ function ENLIGHTENMENT_DE() {
   yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
   yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
   yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-luminos
   yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
@@ -602,7 +595,6 @@ function SWAY_DE() {
   yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
   yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
   yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-luminos
   yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
