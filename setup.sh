@@ -540,12 +540,12 @@ function I3_DE() {
   sudo sed -i 's/'#user-session=default'/'user-session=i3'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
-### Install Entitlement DE                                                   ###
+### Install Enlightenment DE                                                   ###
 ################################################################################
-function ENTITLEMENT_DE() {
+function ENLIGHTENMENT_DE() {
   clear
   echo "################################################################################"
-  echo "### Installing The Entitlement Desktop                                       ###"
+  echo "### Installing The Enlightenment Desktop                                     ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed enlightenment efl efl-docs
@@ -716,7 +716,7 @@ function DE_SELECTION() {
     I3_DE
     ;;
     11)
-    ENTITLEMENT_DE
+    ENLIGHTENMENT_DE
     ;;
     12)
     SWAY_DE
