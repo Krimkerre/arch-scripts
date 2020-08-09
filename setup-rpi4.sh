@@ -114,7 +114,6 @@ function NEEDEDPKGS() {
   sudo pacman -S --noconfirm --needed man-pages
   sudo pacman -S --noconfirm --needed btrfs-progs xfsprogs reiserfsprogs jfsutils nilfs-utils
   sudo pacman -S --noconfirm --needed systemd-swap
-  sudo pacman -S --noconfirm --needed sudo
   sudo pacman -S --noconfirm --needed base-devel
   sudo pacman -S --noconfirm --needed linux-raspberrypi4-headers
   sudo pacman -S --noconfirm --needed networkmanager
@@ -201,7 +200,7 @@ function PRINTERSETUP() {
   sudo pacman -S --noconfirm --needed gutenprint
   sudo pacman -S --noconfirm --needed gtk3-print-backends
   sudo pacman -S --noconfirm --needed libcups
-  #sudo sudo pacman -S --noconfirm --needed hplip
+  #sudo pacman -S --noconfirm --needed hplip
   sudo pacman -S --noconfirm --needed system-config-printer
   sudo pacman -S --noconfirm --needed foomatic-db
   sudo pacman -S --noconfirm --needed foomatic-db-ppds

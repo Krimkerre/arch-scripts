@@ -159,7 +159,6 @@ echo "#gpu_freq=600" >> /mnt/boot/config.txt
 echo "dtparam=audio=on" >> /mnt/boot/config.txt     # To enable audio
 echo "dtoverlay=vc4-fkms-v3d" >> /mnt/boot/config.txt
 echo "max_framebuffers=2" >> /mnt/boot/config.txt
-echo "#dtoverlay=vc4-fkms-v3d" >> /mnt/boot/config.txt
 cp setup-rpi4.sh /mnt/root/home/alarm/
 umount /mnt/boot
 umount /mnt/root
