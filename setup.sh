@@ -511,7 +511,7 @@ function I3_DE() {
   echo "### Installing The i3 Window Manager                                         ###"
   echo "################################################################################"
   sleep 2
-  sudo pacman -S --noconfirm --needed i3
+  sudo pacman -S --noconfirm --needed i3 i3lock i3status i3blocks dmenu
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
