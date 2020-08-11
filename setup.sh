@@ -511,13 +511,20 @@ function I3_DE() {
   echo "### Installing The i3 Window Manager                                         ###"
   echo "################################################################################"
   sleep 2
-  sudo pacman -S --noconfirm --needed i3 i3lock i3status i3blocks dmenu
+  sudo pacman -S --noconfirm --needed i3 i3lock i3status i3blocks
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
   sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
   sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
+  sudo pacman -S --noconfirm --needed picom
+  sudo pacman -S --noconfirm --needed dmenu
+  sudo pacman -S --noconfirm --needed nitrogen
+  sudo pacman -S --noconfirm --needed feh
+  sudo pacman -S --noconfirm --needed thunar
+  sudo pacman -S --noconfirm --needed papirus-icon-theme
+  sudo pacman -S --noconfirm --needed ttf-font-awesome
   yay -S --noconfirm --needed lightdm-webkit2-theme-material2
   yay -S --noconfirm --needed lightdm-webkit-theme-aether
   yay -S --noconfirm --needed lightdm-webkit-theme-userdock
