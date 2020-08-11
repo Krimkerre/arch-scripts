@@ -42,6 +42,7 @@ function DRVSELECT() {
 ### Set Your Command Line Font (Shell) Here                                  ###
 ################################################################################
 function CLIFONT() {
+  sudo pacman -S --noconfirm --needed terminus-font
   DEFFNT=$(dialog --stdout --title "Select your terminal (CLI) font" --fselect /usr/share/kbd/consolefonts/ 24 48)
 }
 ################################################################################
@@ -261,7 +262,7 @@ function SYSDSWAP() {
 function REPOFIX() {
   pacman -Sy
   pacman -S --noconfirm --needed reflector
-  reflector --country ${CNTRY} --age 24 --sort rate --save /etc/pacman.d/mirrorlist
+  reflector --country ${CNTRY} --age 6 --sort rate --save /etc/pacman.d/mirrorlist
   pacman -Sy
 }
 ################################################################################

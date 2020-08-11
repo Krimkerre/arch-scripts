@@ -817,6 +817,7 @@ function SOFTWAREINSTALLEXTRA() {
   yay -S --noconfirm --needed multibootusb-git
   yay -S --noconfirm --needed ventoy-bin
   yay -S --noconfirm --needed mintstick-git
+  yay -s --noconfirm --needed rpi-imager
   #Chat
   sudo pacman -S --noconfirm --needed hexchat
   sudo pacman -S --noconfirm --needed teamspeak3
@@ -829,6 +830,7 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed supertux
   sudo pacman -S --noconfirm --needed supertuxkart
   yay -S --noconfirm --needed gamemode lib32-gamemode
+  yay -S --noconfirm --needed minecraft
   #Graphics
   sudo pacman -S --noconfirm --needed librecad
   sudo pacman -S --noconfirm --needed darktable
