@@ -42,7 +42,7 @@ function DRVSELECT() {
 ### Set Your Command Line Font (Shell) Here                                  ###
 ################################################################################
 function CLIFONT() {
-  sudo pacman -S --noconfirm --needed terminus-font
+  pacman -S --noconfirm --needed terminus-font
   DEFFNT=$(dialog --stdout --title "Select your terminal (CLI) font" --fselect /usr/share/kbd/consolefonts/ 24 48)
 }
 ################################################################################
