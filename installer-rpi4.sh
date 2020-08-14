@@ -132,7 +132,7 @@ KEYMAP
 HOSTNAME
 DRVSELECT
 clear
-PARTHD
+#PARTHD
 WHATFMT
 MNTHD
 wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz

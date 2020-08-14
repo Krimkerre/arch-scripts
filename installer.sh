@@ -42,7 +42,7 @@ function DRVSELECT() {
 ### Set Your Command Line Font (Shell) Here                                  ###
 ################################################################################
 function CLIFONT() {
-  pacman -S --noconfirm --needed terminus-font
+  pacstrap /mnt -S --noconfirm --needed terminus-font
   DEFFNT=$(dialog --stdout --title "Select your terminal (CLI) font" --fselect /usr/share/kbd/consolefonts/ 24 48)
 }
 ################################################################################
@@ -394,7 +394,6 @@ LOCALE
 KEYMAP
 STIMEZONE
 HOSTNAME
-CLIFONT
 DRVSELECT
 UNAMEPASS
 ROOTPASSWORD
@@ -403,6 +402,7 @@ PARTHD
 WHATFMT
 MNTHD
 BASEPKG
+CLIFONT
 BOOTTYPE
 SYSDSWAP
 MAKEFLAGS_CPU

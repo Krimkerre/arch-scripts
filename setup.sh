@@ -589,6 +589,7 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed swayidle
   sudo pacman -S --noconfirm --needed swaylock
   sudo pacman -S --noconfirm --needed waybar
+  sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
   sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
   sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
@@ -610,6 +611,8 @@ function SWAY_DE() {
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
   sudo sed -i 's/'#user-session=default'/'user-session=sway'/g' /etc/lightdm/lightdm.conf
+  mkdir .config/sway
+  cp /etc/sway/config .config/sway/config
 }
 ################################################################################
 ### Install Software Centers (Pamac/Snaps/Flatpak)                           ###
