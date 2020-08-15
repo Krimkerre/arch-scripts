@@ -371,7 +371,12 @@ function CINNAMON_DE() {
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   yay -S --noconfirm --needed mint-themes
-  #sudo sed -i 's/'#user-session=default'/'user-session=cinnamon'/g' /etc/lightdm/lightdm.conf
+  if [[DM="LIGHTDM"]] then
+    sudo sed -i 's/'#user-session=default'/'user-session=cinnamon'/g' /etc/lightdm/lightdm.conf
+  fi
+  if [[DM="NONE"]] then
+    sed -i 's/'twm'/'#twm'/g' .xinitrc
+  fi
 }
 ################################################################################
 ### Install The LXDE DE                                                      ###
@@ -843,15 +848,19 @@ read case;
 case $case in
   1)
   LIGHTDM_INSTALL
+  DM="LIGHTDM"
   ;;
   2)
   SDDM_INSTALL
+  DM="SDDM"
   ;;
   3)
   GDM_INSTALL
+  DM="GDM"
   ;;
   4)
   sudo cp /etc/X11/xinit/xinitrc .xinitrc
+  DM="NONE"
   ;;
 esac
 clear
