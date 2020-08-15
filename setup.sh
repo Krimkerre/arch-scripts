@@ -191,7 +191,6 @@ function DEEPIN_DE() {
   sudo pacman -S --noconfirm --needed deepin-kwin
   sudo pacman -S --noconfirm deepin-polkit-agent deepin-polkit-agent-ext-gnomekeyring
   sudo pacman -S --noconfirm --needed packagekit-qt5
-  sudo sed -i 's/'#user-session=default'/'user-session=deepin'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
 ### Install Gnome DE                                                         ###
@@ -209,7 +208,7 @@ function GNOME_DE() {
   sudo pacman -R --noconfirm gnome-terminal
   sudo pacman -S --noconfirm --needed gnome-packagekit gnome-software-packagekit-plugin
   yay -S --noconfirm --needed gnome-terminal-transparency
-  #sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
+
   clear
   echo "##############################################################################"
   echo "Do you want Gnome Extensions installed?"
@@ -271,7 +270,6 @@ function PLASMA_DE() {
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed redshift
   sudo pacman -S --noconfirm --needed packagekit-qt5
-  #sudo sed -i 's/'#user-session=default'/'user-session=plasma'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
 ### Installing MATE DE                                                       ###
@@ -291,7 +289,6 @@ function MATE_DE() {
   yay -S --noconfirm --needed brisk-menu
   yay -S --noconfirm --needed mate-screensaver-hacks
   yay -S --noconfirm --needed mugshot
-  sudo sed -i 's/'#user-session=default'/'user-session=mate'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
 ### Installing XFCE DE                                                       ###
@@ -328,7 +325,6 @@ function XFCE_DE() {
   yay -S --noconfirm --needed xts-macos-theme
   yay -S --noconfirm --needed xts-dark-theme
   yay -S --noconfirm --needed xts-arcolinux-theme
-  sudo sed -i 's/'#user-session=default'/'user-session=xfce'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
 ### Installing Budgie DE                                                     ###
@@ -350,7 +346,6 @@ function BUDGIE_DE() {
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
-  sudo sed -i 's/'#user-session=default'/'user-session=budgie-desktop'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
 ### Install The Cinnamon DE                                                  ###
@@ -391,7 +386,6 @@ function LXDE_DE() {
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   yay -S --noconfirm --needed mugshot
   yay -S --noconfirm --needed compton-conf
-  sudo sed -i 's/'#user-session=default'/'user-session=lxde'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
 ### Install The LXQT DE                                                      ###
@@ -411,7 +405,6 @@ function LXQT_DE() {
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed packagekit-qt5
-  #sudo sed -i 's/'#user-session=default'/'user-session=lxqt'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
 ### Install The i3 Window Manager                                            ###
@@ -432,7 +425,6 @@ function I3_DE() {
   sudo pacman -S --noconfirm --needed feh
   sudo pacman -S --noconfirm --needed thunar
   sudo pacman -S --noconfirm --needed papirus-icon-theme
-  sudo sed -i 's/'#user-session=default'/'user-session=i3'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
 ### Install Enlightenment DE                                                 ###
@@ -450,7 +442,6 @@ function ENLIGHTENMENT_DE() {
   sudo pacman -S --noconfirm --needed connman
   sudo systemctl enable connman
   sudo systemctl enable acpid
-  sudo sed -i 's/'#user-session=default'/'user-session=enlightenment'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
 ### Install Sway Window Tiling Manager                                       ###
@@ -473,7 +464,6 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed alacritty
   mkdir .config/sway
   cp /etc/sway/config .config/sway/config
-  sudo sed -i 's/'#user-session=default'/'user-session=sway'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
@@ -817,7 +807,7 @@ function LOGIN_SETUP() {
     sed -i 's/'exec'/'#exec'/g' .xinitrc
   fi
   if [[ $DE == "DEEPIN" ]]; then
-    echo "exec deepin-session"
+    echo "exec deepin-session" >> .xinitrc
   fi
 }
 ################################################################################
