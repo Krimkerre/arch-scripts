@@ -371,12 +371,6 @@ function CINNAMON_DE() {
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   yay -S --noconfirm --needed mint-themes
-  if [[ $DM == "LIGHTDM" ]]; then
-    sudo sed -i 's/'#user-session=default'/'user-session=cinnamon'/g' /etc/lightdm/lightdm.conf
-  fi
-  if [[ $DM == "NONE" ]]; then
-    sed -i 's/'twm'/'#twm'/g' .xinitrc
-  fi
 }
 ################################################################################
 ### Install The LXDE DE                                                      ###
@@ -798,6 +792,17 @@ function SOFTWAREINSTALLEXTRA() {
   #yay -S --noconfirm --needed virtualbox-ext-oracle
 }
 ################################################################################
+### Set up login                                                             ###
+################################################################################
+function LOGIN_SETUP() {
+  if [[ $DM == "LIGHTDM" ]]; then
+    sudo sed -i 's/'#user-session=default'/'user-session=cinnamon'/g' /etc/lightdm/lightdm.conf
+  fi
+  if [[ $DM == "NONE" ]]; then
+    sed -i 's/'twm'/'#twm'/g' .xinitrc
+  fi
+}
+################################################################################
 ### Main Program                                                             ###
 ################################################################################
 INSTALLYAY
@@ -878,6 +883,7 @@ case $case in
   2)
   ;;
 esac
+LOGIN_SETUP
 SOFTWARECENTER
 SOUNDFILES
 FONTINSTALL
