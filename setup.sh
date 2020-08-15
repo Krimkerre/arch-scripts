@@ -190,10 +190,7 @@ function DEEPIN_DE() {
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed deepin-kwin
   sudo pacman -S --noconfirm deepin-polkit-agent deepin-polkit-agent-ext-gnomekeyring
-  sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
   sudo pacman -S --noconfirm --needed packagekit-qt5
-  sudo systemctl enable lightdm.service -f
-  sudo systemctl set-default graphical.target
   sudo sed -i 's/'#user-session=default'/'user-session=deepin'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
@@ -205,14 +202,13 @@ function GNOME_DE() {
   echo "### Installing The Gnome Desktop                                             ###"
   echo "################################################################################"
   sleep 2
-  sudo pacman -S --noconfirm --needed gdm gnome gnome-extra
+  sudo pacman -S --noconfirm --needed gnome gnome-extra
   sudo pacman -S --noconfirm --needed nautilus-share
   sudo pacman -S --noconfirm --needed chrome-gnome-shell
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -R --noconfirm gnome-terminal
   sudo pacman -S --noconfirm --needed gnome-packagekit gnome-software-packagekit-plugin
   yay -S --noconfirm --needed gnome-terminal-transparency
-  sudo systemctl enable gdm
   #sudo sed -i 's/'#user-session=default'/'user-session=gnome'/g' /etc/lightdm/lightdm.conf
   clear
   echo "##############################################################################"
@@ -271,12 +267,11 @@ function PLASMA_DE() {
   echo "### Installing The KDE Plasma Desktop                                        ###"
   echo "################################################################################"
   sleep 2
-  sudo pacman -S --noconfirm --needed sddm plasma kde-applications
+  sudo pacman -S --noconfirm --needed plasma kde-applications
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed redshift
   sudo pacman -S --noconfirm --needed packagekit-qt5
   #sudo sed -i 's/'#user-session=default'/'user-session=plasma'/g' /etc/lightdm/lightdm.conf
-  sudo systemctl enable sddm
 }
 ################################################################################
 ### Installing MATE DE                                                       ###
@@ -292,27 +287,10 @@ function MATE_DE() {
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
-  #yay -S --noconfirm --needed user-admin
   yay -S --noconfirm --needed mate-tweak
   yay -S --noconfirm --needed brisk-menu
   yay -S --noconfirm --needed mate-screensaver-hacks
   yay -S --noconfirm --needed mugshot
-  sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-  sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
-  sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
-  yay -S --noconfirm --needed lightdm-webkit2-theme-material2
-  yay -S --noconfirm --needed lightdm-webkit-theme-aether
-  yay -S --noconfirm --needed lightdm-webkit-theme-userdock
-  yay -S --noconfirm --needed lightdm-webkit-theme-tendou
-  yay -S --noconfirm --needed lightdm-webkit-theme-wisp
-  yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
-  yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
-  yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
-  sudo systemctl enable lightdm.service -f
-  sudo systemctl set-default graphical.target
   sudo sed -i 's/'#user-session=default'/'user-session=mate'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
@@ -345,29 +323,11 @@ function XFCE_DE() {
   yay -S --noconfirm --needed solarized-dark-themes
   yay -S --noconfirm --needed gtk-theme-glossyblack
   yay -S --noconfirm --needed mcos-mjv-xfce-edition
-  #yay -S --noconfirm --needed compton-conf-git
-  #yay -S --noconfirm --needed xfce-theme-manager
-  sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-  sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
-  sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
-  yay -S --noconfirm --needed lightdm-webkit2-theme-material2
-  yay -S --noconfirm --needed lightdm-webkit-theme-aether
-  yay -S --noconfirm --needed lightdm-webkit-theme-userdock
-  yay -S --noconfirm --needed lightdm-webkit-theme-tendou
-  yay -S --noconfirm --needed lightdm-webkit-theme-wisp
-  yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
-  yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
-  yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   yay -S --noconfirm --needed xfce4-theme-switcher
   yay -S --noconfirm --needed xts-windows10-theme
   yay -S --noconfirm --needed xts-macos-theme
   yay -S --noconfirm --needed xts-dark-theme
   yay -S --noconfirm --needed xts-arcolinux-theme
-  sudo systemctl enable lightdm.service -f
-  sudo systemctl set-default graphical.target
   sudo sed -i 's/'#user-session=default'/'user-session=xfce'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
@@ -388,24 +348,8 @@ function BUDGIE_DE() {
   sudo pacman -S --noconfirm --needed gnome-calculator
   sudo pacman -S --noconfirm --needed gedit
   sudo pacman -S --noconfirm --needed variety
-  sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-  sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
-  sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
-  yay -S --noconfirm --needed lightdm-webkit2-theme-material2
-  yay -S --noconfirm --needed lightdm-webkit-theme-aether
-  yay -S --noconfirm --needed lightdm-webkit-theme-userdock
-  yay -S --noconfirm --needed lightdm-webkit-theme-tendou
-  yay -S --noconfirm --needed lightdm-webkit-theme-wisp
-  yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
-  yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
-  yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
-  sudo systemctl enable lightdm.service -f
-  sudo systemctl set-default graphical.target
   sudo sed -i 's/'#user-session=default'/'user-session=budgie-desktop'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
@@ -426,22 +370,6 @@ function CINNAMON_DE() {
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
-  sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-  sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
-  sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
-  yay -S --noconfirm --needed lightdm-webkit2-theme-material2
-  yay -S --noconfirm --needed lightdm-webkit-theme-aether
-  yay -S --noconfirm --needed lightdm-webkit-theme-userdock
-  yay -S --noconfirm --needed lightdm-webkit-theme-tendou
-  yay -S --noconfirm --needed lightdm-webkit-theme-wisp
-  yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
-  yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
-  yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
-  sudo systemctl enable lightdm.service -f
-  sudo systemctl set-default graphical.target
   sudo sed -i 's/'#user-session=default'/'user-session=cinnamon'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
@@ -463,22 +391,6 @@ function LXDE_DE() {
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   yay -S --noconfirm --needed mugshot
   yay -S --noconfirm --needed compton-conf
-  sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-  sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
-  sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
-  yay -S --noconfirm --needed lightdm-webkit2-theme-material2
-  yay -S --noconfirm --needed lightdm-webkit-theme-aether
-  yay -S --noconfirm --needed lightdm-webkit-theme-userdock
-  yay -S --noconfirm --needed lightdm-webkit-theme-tendou
-  yay -S --noconfirm --needed lightdm-webkit-theme-wisp
-  yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
-  yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
-  yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
-  sudo systemctl enable lightdm.service -f
-  sudo systemctl set-default graphical.target
   sudo sed -i 's/'#user-session=default'/'user-session=lxde'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
@@ -490,7 +402,7 @@ function LXQT_DE() {
   echo "### Installing The LXQT Desktop                                              ###"
   echo "################################################################################"
   sleep 2
-  sudo pacman -S --noconfirm --needed sddm lxqt
+  sudo pacman -S --noconfirm --needed lxqt
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed gnome-calculator
@@ -500,7 +412,6 @@ function LXQT_DE() {
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed packagekit-qt5
   #sudo sed -i 's/'#user-session=default'/'user-session=lxqt'/g' /etc/lightdm/lightdm.conf
-  sudo systemctl enable sddm
 }
 ################################################################################
 ### Install The i3 Window Manager                                            ###
@@ -515,29 +426,12 @@ function I3_DE() {
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
-  sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-  sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
-  sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed nitrogen
   sudo pacman -S --noconfirm --needed feh
   sudo pacman -S --noconfirm --needed thunar
   sudo pacman -S --noconfirm --needed papirus-icon-theme
-  sudo pacman -S --noconfirm --needed ttf-font-awesome
-  yay -S --noconfirm --needed lightdm-webkit2-theme-material2
-  yay -S --noconfirm --needed lightdm-webkit-theme-aether
-  yay -S --noconfirm --needed lightdm-webkit-theme-userdock
-  yay -S --noconfirm --needed lightdm-webkit-theme-tendou
-  yay -S --noconfirm --needed lightdm-webkit-theme-wisp
-  yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
-  yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
-  yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
-  sudo systemctl enable lightdm.service -f
-  sudo systemctl set-default graphical.target
   sudo sed -i 's/'#user-session=default'/'user-session=i3'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
@@ -550,30 +444,13 @@ function ENLIGHTENMENT_DE() {
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed enlightenment efl efl-docs
-  sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-  sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
-  sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed acpid
   sudo pacman -S --noconfirm --needed connman
-  #yay -S --noconfirm --needed econnman
-  yay -S --noconfirm --needed lightdm-webkit2-theme-material2
-  yay -S --noconfirm --needed lightdm-webkit-theme-aether
-  yay -S --noconfirm --needed lightdm-webkit-theme-userdock
-  yay -S --noconfirm --needed lightdm-webkit-theme-tendou
-  yay -S --noconfirm --needed lightdm-webkit-theme-wisp
-  yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
-  yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
-  yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
-  sudo systemctl enable lightdm.service -f
-  sudo systemctl set-default graphical.target
-  sudo sed -i 's/'#user-session=default'/'user-session=enlightenment'/g' /etc/lightdm/lightdm.conf
   sudo systemctl enable connman
   sudo systemctl enable acpid
+  sudo sed -i 's/'#user-session=default'/'user-session=enlightenment'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
 ### Install Sway Window Tiling Manager                                       ###
@@ -590,13 +467,21 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed swaylock
   sudo pacman -S --noconfirm --needed waybar
   sudo pacman -S --noconfirm --needed dmenu
-  sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
-  sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
-  sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed alacritty
+  mkdir .config/sway
+  cp /etc/sway/config .config/sway/config
+  sudo sed -i 's/'#user-session=default'/'user-session=sway'/g' /etc/lightdm/lightdm.conf
+}
+################################################################################
+### Setup LightDM (Display Manager/Login)                                    ###
+################################################################################
+function LIGHTDM_INSTALL() {
+  sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+  sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
+  sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
   yay -S --noconfirm --needed lightdm-webkit2-theme-material2
   yay -S --noconfirm --needed lightdm-webkit-theme-aether
   yay -S --noconfirm --needed lightdm-webkit-theme-userdock
@@ -610,9 +495,20 @@ function SWAY_DE() {
   yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
-  sudo sed -i 's/'#user-session=default'/'user-session=sway'/g' /etc/lightdm/lightdm.conf
-  mkdir .config/sway
-  cp /etc/sway/config .config/sway/config
+}
+################################################################################
+### Setup SDDM (Display Manager/Login)                                       ###
+################################################################################
+function SDDM_INSTALL() {
+  sudo pacman -S --noconfirm --needed sddm
+  sudo systemctl enable sddm
+}
+################################################################################
+### Setup GDM (Display Manager/Login)                                        ###
+################################################################################
+function GDM_INSTALL() {
+  sudo pacman -S --noconfirm --needed gdm
+  sudo systemctl enable gdm
 }
 ################################################################################
 ### Install Software Centers (Pamac/Snaps/Flatpak)                           ###
@@ -772,6 +668,7 @@ function FONTINSTALL() {
   sudo pacman -S --noconfirm --needed ttf-ubuntu-font-family
   sudo pacman -S --noconfirm --needed tamsyn-font
   sudo pacman -S --noconfirm --needed awesome-terminal-fonts
+  sudo pacman -S --noconfirm --needed ttf-font-awesome
   sudo pacman -S --noconfirm --needed ttf-hack
   sudo pacman -S --noconfirm --needed ttf-ibm-plex
   yay -S --noconfirm --needed ttf-ms-fonts
@@ -919,7 +816,7 @@ esac
 UNICODEFIX
 clear
 echo "##############################################################################"
-echo "Do you want a the Display Manager installed?"
+echo "Do you want a the XORG (X11 / Graphical Interface) installed?"
 echo "1)  Yes"
 echo "2)  No"
 echo "##############################################################################"
@@ -930,6 +827,30 @@ case $case in
   DISPLAYMGR
   ;;
   2)
+  ;;
+esac
+clear
+echo "##############################################################################"
+echo "What Display manager/Logon manager installed?"
+echo "1)  LightDM"
+echo "2)  Simple Display Manager (SDDM)"
+echo "3)  Gnome Display Manager (GDM)"
+echo "4)  None"
+echo "##############################################################################"
+read case;
+
+case $case in
+  1)
+  LIGHTDM_INSTALL
+  ;;
+  2)
+  SDDM_INSTALL
+  ;;
+  3)
+  GDM_INSTALL
+  ;;
+  4)
+  sudo cp /etc/X11/xinit/xinitrc .xinitrc
   ;;
 esac
 clear
