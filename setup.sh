@@ -800,6 +800,9 @@ function LOGIN_SETUP() {
   fi
   if [[ $DM == "NONE" ]]; then
     sed -i 's/'twm'/'#twm'/g' .xinitrc
+    sed -i 's/'xclock'/'#xclock'/g' .ixinitrc
+    sed -i 's/'xterm'/'#xterm'/g' .xinitrc
+    sed -i 's/'exec'/'#exec'/g' .xinitrc
   fi
 }
 ################################################################################
