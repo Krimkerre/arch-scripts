@@ -371,10 +371,10 @@ function CINNAMON_DE() {
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   yay -S --noconfirm --needed mint-themes
-  if [[DM="LIGHTDM"]] then
+  if [[ $DM == "LIGHTDM" ]]; then
     sudo sed -i 's/'#user-session=default'/'user-session=cinnamon'/g' /etc/lightdm/lightdm.conf
   fi
-  if [[DM="NONE"]] then
+  if [[ $DM == "NONE" ]]; then
     sed -i 's/'twm'/'#twm'/g' .xinitrc
   fi
 }
