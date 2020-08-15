@@ -589,39 +589,51 @@ function DE_SELECTION() {
   case $case in
     1)
     DEEPIN_DE
+    DE="DEEPIN"
     ;;
     2)
     GNOME_DE
+    DE="GNOME"
     ;;
     3)
     PLASMA_DE
+    DE="PLASMA"
     ;;
     4)
     MATE_DE
+    DE="MATE"
     ;;
     5)
     XFCE_DE
+    DE="XFCE"
     ;;
     6)
     BUDGIE_DE
+    DE="BUDGIE"
     ;;
     7)
     CINNAMON_DE
+    DE="CINNAMON"
     ;;
     8)
     LXDE_DE
+    DE="LXDE"
     ;;
     9)
     LXQT_DE
+    DE="LXQT"
     ;;
     10)
     I3_DE
+    DE="I3"
     ;;
     11)
     ENLIGHTENMENT_DE
+    DE="ENLIGHTENMENT"
     ;;
     12)
     SWAY_DE
+    DE="SWAY"
     ;;
     13)
     clear
@@ -803,6 +815,9 @@ function LOGIN_SETUP() {
     sed -i 's/'xclock'/'#xclock'/g' .ixinitrc
     sed -i 's/'xterm'/'#xterm'/g' .xinitrc
     sed -i 's/'exec'/'#exec'/g' .xinitrc
+  fi
+  if [[ $DE == "DEEPIN" ]]; then
+    echo "exec deepin-session"
   fi
 }
 ################################################################################
