@@ -370,6 +370,7 @@ function CINNAMON_DE() {
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  yay -S --noconfirm --needed mint-themes
   sudo sed -i 's/'#user-session=default'/'user-session=cinnamon'/g' /etc/lightdm/lightdm.conf
 }
 ################################################################################
