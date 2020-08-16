@@ -812,19 +812,19 @@ function LOGIN_SETUP() {
   if [[ $DE == "GNOME" ]]; then
     echo "exec gnome-session" >> .xinitrc
   fi
-  if [[ $DE == "PLASMA"]]; then
+  if [[ $DE == "PLASMA" ]]; then
     echo "plasma-session" >> .xinitrc
   fi
-  if [[ $DE == "MATE"]]; then
+  if [[ $DE == "MATE" ]]; then
     echo "mate-session" >> .xinitrc
   fi
-  if [[ $DE == "XFCE"]]; then
+  if [[ $DE == "XFCE" ]]; then
     echo "xfce-session" >> .xinitrc
   fi
-  if [[ $DE == "BUDGIE"]]; then
+  if [[ $DE == "BUDGIE" ]]; then
     echo "budgie-session" >> .xinitrc
   fi
-  if [[ $DE == "CINNAMON"]]; then
+  if [[ $DE == "CINNAMON" ]]; then
     echo "cinnamon-session"
   fi
 }
