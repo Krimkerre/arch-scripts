@@ -807,10 +807,25 @@ function LOGIN_SETUP() {
     sed -i 's/'exec'/'#exec'/g' .xinitrc
   fi
   if [[ $DE == "DEEPIN" ]]; then
-    echo "exec deepin-session" >> .xinitrc
+    echo "exec startdde" >> .xinitrc
   fi
   if [[ $DE == "GNOME" ]]; then
     echo "exec gnome-session" >> .xinitrc
+  fi
+  if [[ $DE == "PLASMA"]]; then
+    echo "plasma-session" >> .xinitrc
+  fi
+  if [[ $DE == "MATE"]]; then
+    echo "mate-session" >> .xinitrc
+  fi
+  if [[ $DE == "XFCE"]]; then
+    echo "xfce-session" >> .xinitrc
+  fi
+  if [[ $DE == "BUDGIE"]]; then
+    echo "budgie-session" >> .xinitrc
+  fi
+  if [[ $DE == "CINNAMON"]]; then
+    echo "cinnamon-session"
   fi
 }
 ################################################################################
