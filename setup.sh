@@ -809,6 +809,9 @@ function LOGIN_SETUP() {
   if [[ $DE == "DEEPIN" ]]; then
     echo "exec deepin-session" >> .xinitrc
   fi
+  if [[ $DE == "GNOME" ]]; then
+    echo "exec gnome-session" >> .xinitrc
+  fi
 }
 ################################################################################
 ### Main Program                                                             ###
