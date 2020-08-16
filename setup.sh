@@ -813,19 +813,34 @@ function LOGIN_SETUP() {
     echo "exec gnome-session" >> .xinitrc
   fi
   if [[ $DE == "PLASMA" ]]; then
-    echo "plasma-session" >> .xinitrc
+    echo "exec plasma-session" >> .xinitrc
   fi
   if [[ $DE == "MATE" ]]; then
-    echo "mate-session" >> .xinitrc
+    echo "exec mate-session" >> .xinitrc
   fi
   if [[ $DE == "XFCE" ]]; then
-    echo "xfce-session" >> .xinitrc
+    echo "exec xfce-session" >> .xinitrc
   fi
   if [[ $DE == "BUDGIE" ]]; then
-    echo "budgie-session" >> .xinitrc
+    echo "exec budgie-session" >> .xinitrc
   fi
   if [[ $DE == "CINNAMON" ]]; then
-    echo "cinnamon-session"
+    echo "exec cinnamon-session"
+  fi
+  if [[ $DE == "LXDE" ]]; then
+    echo "exec lxde-session" >> .xinitrc
+  fi
+  if [[ $DE == "LXQT" ]]; then
+    echo "exec lxqt-session" >> .xinitrc
+  fi
+  if [[ $DE == "I3" ]]; then
+    echo "exec i3-session" >> .xinitrc
+  fi
+  if [[ $DE == "ENLIGHTENMENT" ]]; then
+    echo "exec enlightenment-session" >> .xinitrc
+  fi
+  if [[ $DE == "SWAY" ]]; then
+    echo "exec sway-session" >> .xinitrc
   fi
 }
 ################################################################################
