@@ -385,7 +385,6 @@ function LXDE_DE() {
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   yay -S --noconfirm --needed mugshot
-  yay -S --noconfirm --needed compton-conf
 }
 ################################################################################
 ### Install The LXQT DE                                                      ###
@@ -837,7 +836,7 @@ function LOGIN_SETUP() {
     echo "exec i3" >> .xinitrc
   fi
   if [[ $DE == "ENLIGHTENMENT" ]]; then
-    echo "exec enlightenment" >> .xinitrc
+    echo "exec enlightenment_start" >> .xinitrc
   fi
   if [[ $DE == "SWAY" ]]; then
     echo "exec sway" >> .xinitrc
