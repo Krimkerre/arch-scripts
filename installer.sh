@@ -331,6 +331,7 @@ function NEEDEDPKGS() {
   pacstrap /mnt glances
   pacstrap /mnt bashtop
   pacstrap /mnt packagekit
+  pacstrap /mnt reflector
 }
 function WHATFMT() {
   clear
