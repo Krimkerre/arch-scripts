@@ -135,7 +135,7 @@ clear
 #PARTHD
 WHATFMT
 MNTHD
-wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz
+#wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz
 clear
 echo "Installing OS, Please Wait....."
 bsdtar -xpf ArchLinuxARM-rpi-4-latest.tar.gz -C /mnt/root

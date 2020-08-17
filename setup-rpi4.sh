@@ -291,7 +291,7 @@ function GNOME_DE() {
   echo "### Installing The Gnome Desktop                                             ###"
   echo "################################################################################"
   sleep 2
-  sudo pacman -S --noconfirm --needed gnome gnome-extra
+  sudo pacman -S --noconfirm --needed gnome
   sudo pacman -S --noconfirm --needed nautilus-share
   sudo pacman -S --noconfirm --needed chrome-gnome-shell
   sudo pacman -S --noconfirm --needed variety
