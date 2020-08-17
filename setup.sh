@@ -825,7 +825,7 @@ function LOGIN_SETUP() {
     echo "exec budgie-desktop" >> .xinitrc
   fi
   if [[ $DE == "CINNAMON" ]]; then
-    echo "exec cinnamon-session"
+    echo "exec cinnamon-session" >> .xinitrc
   fi
   if [[ $DE == "LXDE" ]]; then
     echo "exec startlxde" >> .xinitrc
