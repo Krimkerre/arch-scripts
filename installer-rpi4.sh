@@ -21,12 +21,6 @@ function DRVSELECT() {
   HD=$(dialog --stdout --menu "Select root disk" 0 0 0 ${DEVICELIST}) || exit 1
 }
 ################################################################################
-### Set Your Command Line Font (Shell) Here                                  ###
-################################################################################
-function CLIFONT() {
-  DEFFNT=$(dialog --stdout --title "Select your terminal (CLI) font" --fselect /mnt/root/usr/share/kbd/consolefonts/ 24 48)
-}
-################################################################################
 ### Partition And Format The Hard Drive Here                                 ###
 ################################################################################
 function PARTHD() {
@@ -140,7 +134,6 @@ clear
 echo "Installing OS, Please Wait....."
 bsdtar -xpf ArchLinuxARM-rpi-4-latest.tar.gz -C /mnt/root
 sync
-CLIFONT
 mv /mnt/root/boot/* /mnt/boot
 ################################################################################
 ### Misc Settings                                                            ###
@@ -148,7 +141,6 @@ mv /mnt/root/boot/* /mnt/boot
 rm /mnt/root/etc/hostname
 echo "${HOSTNM}" >> /mnt/root/etc/hostname
 echo "KEYMAP="${AKEYMAP} >> /mnt/root/etc/vconsole.conf
-echo "FONT="${DEFFNT} >> /mnt/root/etc/vconsole.conf
 sed -i 's/'#Color'/'Color'/g' /mnt/root/etc/pacman.conf
 sed -i 's/elevator=noop/elevator=noop audit=0/g' /mnt/boot/cmdline.txt
 sed -i 's/gpu_mem=64/gpu_mem=256/g' /mnt/boot/config.txt

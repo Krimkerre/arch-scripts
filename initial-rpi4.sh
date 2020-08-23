@@ -142,6 +142,7 @@ sed -i "s/^#\(${ALOCALE}\)/\1/" /etc/locale.gen
 locale-gen
 sh -c "echo 'LANG=${ALOCALE}' >> /etc/locale.conf"
 ln -sf /usr/share/zoneinfo/${TIMEZNE} /etc/localtime
+echo "FONT="${DEFFNT} >> /mnt/root/etc/vconsole.conf
 
 ################################################################################
 ### Setting Passwords and Creating the User                                  ###
