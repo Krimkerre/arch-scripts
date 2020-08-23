@@ -138,6 +138,7 @@ UNAMEPASS
 ROOTPASSWORD
 NEEDEDPKGS
 CLIFONT
+clear
 
 sed -i "s/^#\(${ALOCALE}\)/\1/" /etc/locale.gen
 locale-gen
@@ -158,6 +159,8 @@ $UPASSWD
 
 echo "$RPASSWD
 $RPASSWD" | passwd
+wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/setup.sh
+chmod +x setup.sh
 cp setup-rpi4.sh /mnt/home/$USRNM/
 sed -i 's/^#\ \(%wheel\ ALL=(ALL)\ NOPASSWD:\ ALL\)/\1/' /etc/sudoers
 sudo userdel --remove alarm
