@@ -135,7 +135,7 @@ clear
 #PARTHD
 WHATFMT
 MNTHD
-#wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz
+wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz
 clear
 echo "Installing OS, Please Wait....."
 bsdtar -xpf ArchLinuxARM-rpi-4-latest.tar.gz -C /mnt/root
@@ -160,6 +160,7 @@ echo "dtparam=audio=on" >> /mnt/boot/config.txt     # To enable audio
 echo "dtoverlay=vc4-fkms-v3d" >> /mnt/boot/config.txt
 echo "max_framebuffers=2" >> /mnt/boot/config.txt
 cp setup-rpi4.sh /mnt/root/home/alarm/
+cp initial-rpi.sh /mnt/root/home/alarm/
 umount /mnt/boot
 umount /mnt/root
 rm /mnt/boot -R

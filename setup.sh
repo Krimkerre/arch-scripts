@@ -718,7 +718,7 @@ function SOFTWAREINSTALLEXTRA() {
   yay -S --noconfirm --needed multibootusb-git
   yay -S --noconfirm --needed ventoy-bin
   yay -S --noconfirm --needed mintstick-git
-  yay -s --noconfirm --needed rpi-imager
+  yay -S --noconfirm --needed rpi-imager
   #Chat
   sudo pacman -S --noconfirm --needed hexchat
   sudo pacman -S --noconfirm --needed teamspeak3
@@ -781,7 +781,7 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed hardinfo
   sudo pacman -S --noconfirm --needed deluge
   sudo pacman -S --noconfirm --needed plank
-  yay -S --noconfirm --needed plank-theme-arc plank-theme-numix plank-theme-namor unity-like-plank-theme
+  #yay -S --noconfirm --needed plank-theme-arc plank-theme-numix plank-theme-namor unity-like-plank-theme
   sudo pacman -S --noconfirm --needed cairo-dock cairo-dock-plug-ins
   yay -S --noconfirm --needed cairo-dock-themes cairo-dock-plug-ins-extras
   yay -S --noconfirm --needed dxvk-bin

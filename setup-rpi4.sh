@@ -6,118 +6,7 @@
 ### Review and edit before using                                             ###
 ################################################################################
 set -e
-################################################################################
-### Pacman Key setup                                                         ###
-################################################################################
-function PACMAN_KEYS() {
-  sudo pacman-key --init
-  sudo pacman-key --populate archlinuxarm
-  sudo pacman --noconfirm -Syyu
-}
-################################################################################
-### Set Your System Locale Here                                              ###
-################################################################################
-function LOCALE() {
-  ALOCALE="en_US.UTF-8"
-}
-################################################################################
-### Set Your Country                                                         ###
-################################################################################
-function COUNTRY() {
-  CNTRY="US"
-}
-################################################################################
-### Set Your Timezone Here                                                   ###
-################################################################################
-function STIMEZONE() {
-  TIMEZNE='America/Los_Angeles'
-}
-################################################################################
-### Set Username And Password Here                                           ###
-################################################################################
-function UNAMEPASS() {
-  USRNM=$(dialog --stdout --inputbox "Enter username" 0 0) || exit 1
-  clear
-  : ${USRNM:?"user cannot be empty"}
-  # User password
-  UPASSWD=$(dialog --stdout --passwordbox "Enter user password" 0 0) || exit 1
-  clear
-  : ${UPASSWD:?"password cannot be empty"}
-  UPASSWD2=$(dialog --stdout --passwordbox "Enter user password again" 0 0) || exit 1
-  clear
-  [[ "$UPASSWD" == "$UPASSWD2" ]] || ( echo "Passwords did not match"; exit 1; )
-}
-################################################################################
-### Set Admin (Root) Password Here                                           ###
-################################################################################
-function ROOTPASSWORD() {
-  RPASSWD=$(dialog --stdout --passwordbox "Enter admin password" 0 0) || exit 1
-  clear
-  : ${RPASSWD:?"password cannot be empty"}
-  RPASSWD2=$(dialog --stdout --passwordbox "Enter admin password again" 0 0) || exit 1
-  clear
-  [[ "$RPASSWD" == "$RPASSWD2" ]] || ( echo "Passwords did not match"; exit 1; )
-}
-###############################################################################
-### Setting up Systemd Swap Here                                             ###
-################################################################################
-function SYSDSWAP() {
-  rm /etc/systemd/swap.conf
-  sudo sh -c "echo 'zswap_enabled=1' >> /etc/systemd/swap.conf"
-  sudo sh -c "echo 'zswap_compressor=zstd' >> /etc/systemd/swap.conf"     # lzo lz4 zstd lzo-rle lz4hc
-  sudo sh -c "echo 'zswap_max_pool_percent=25' >> /etc/systemd/swap.conf" # 1-99
-  sudo sh -c "echo 'zswap_zpool=z3fold' >> /etc/systemd/swap.conf"        # zbud z3fold (note z3fold requires kernel 4.8+)
-  sudo sh -c "echo 'zram_enabled=1' >> /etc/systemd/swap.conf"
-  sudo sh -c "echo 'zram_size=\$(( RAM_SIZE / 4 ))' >> /etc/systemd/swap.conf"    # This is 1/4 of ram size by default.
-  sudo sh -c "echo 'zram_count=\${NCPU}' >> /etc/systemd/swap.conf"              # Device count
-  sudo sh -c "echo 'zram_streams=\${NCPU}' >> /etc/systemd/swap.conf"             # Compress streams
-  sudo sh -c "echo 'zram_alg=zstd' >> /etc/systemd/swap.conf"                    # See $zswap_compressor
-  sudo sh -c "echo 'zram_prio=32767' >> /etc/systemd/swap.conf"                  # 1 - 32767
-  sudo sh -c "echo 'swapfc_enabled=1' >> /etc/systemd/swap.conf"
-  sudo sh -c "echo 'swapfc_force_use_loop=0' >> /etc/systemd/swap.conf"          # Force usage of swapfile + loop
-  sudo sh -c "echo 'swapfc_frequency=1' >> /etc/systemd/swap.conf"               # How often to check free swap space in seconds
-  sudo sh -c "echo 'swapfc_chunk_size=256M' >> /etc/systemd/swap.conf"           # Size of swap chunk
-  sudo sh -c "echo 'swapfc_max_count=32' >> /etc/systemd/swap.conf"              # Note: 32 is a kernel maximum
-  sudo sh -c "echo 'swapfc_min_count=2' >> /etc/systemd/swap.conf"               # Minimum amount of chunks to preallocate
-  sudo sh -c "echo 'swapfc_free_ram_perc=35' >> /etc/systemd/swap.conf"          # Add first chunk if free ram < 35%
-  sudo sh -c "echo 'swapfc_free_swap_perc=15' >> /etc/systemd/swap.conf"         # Add new chunk if free swap < 15%
-  sudo sh -c "echo 'swapfc_remove_free_swap_perc=55' >> /etc/systemd/swap.conf"  # Remove chunk if free swap > 55% && chunk count > 2
-  sudo sh -c "echo 'swapfc_priority=50' >> /etc/systemd/swap.conf"               # Priority of swapfiles (decreasing by one for each swapfile).
-  sudo sh -c "echo 'swapfc_path=/var/lib/systemd-swap/swapfc/' >> /etc/systemd/swap.conf"
-# Only for swapfile + loop
-  sudo sh -c "echo 'swapfc_nocow=1' >> /etc/systemd/swap.conf"              # Disable CoW on swapfile
-  sudo sh -c "echo 'swapfc_directio=1' >> /etc/systemd/swap.conf"           # Use directio for loop dev
-  sudo sh -c "echo 'swapfc_force_preallocated=1' >> /etc/systemd/swap.conf" # Will preallocate created files
-  sudo sh -c "echo 'swapd_auto_swapon=1' >> /etc/systemd/swap.conf"
-  sudo sh -c "echo 'swapd_prio=1024' >> /etc/systemd/swap.conf"
-  sudo systemctl enable systemd-swap
-}
-################################################################################
-### Needed Packages To Install                                               ###
-################################################################################
-function NEEDEDPKGS() {
-  clear
-  sudo pacman -S --noconfirm --needed neofetch
-  sudo pacman -S --noconfirm --needed git
-  sudo pacman -S --noconfirm --needed wget
-  sudo pacman -S --noconfirm --needed rsync
-  sudo pacman -S --noconfirm --needed go
-  sudo pacman -S --noconfirm --needed htop
-  sudo pacman -S --noconfirm --needed openssh
-  sudo systemctl enable sshd
-  sudo systemctl start sshd
-  sudo pacman -S --noconfirm --needed archlinux-wallpaper
-  sudo pacman -S --noconfirm --needed glances
-  sudo pacman -S --noconfirm --needed bashtop
-  sudo pacman -S --noconfirm --needed packagekit
-  sudo pacman -S --noconfirm --needed man-db
-  sudo pacman -S --noconfirm --needed man-pages
-  sudo pacman -S --noconfirm --needed btrfs-progs xfsprogs reiserfsprogs jfsutils nilfs-utils
-  sudo pacman -S --noconfirm --needed systemd-swap
-  sudo pacman -S --noconfirm --needed base-devel
-  sudo pacman -S --noconfirm --needed linux-raspberrypi4-headers
-  sudo pacman -S --noconfirm --needed networkmanager
-}
+
 ################################################################################
 ### Add Neofetch to CLI                                                      ###
 ################################################################################
@@ -757,19 +646,6 @@ function LOGIN_SETUP() {
 ################################################################################
 ### Main Program                                                             ###
 ################################################################################
-#PACMAN_KEYS     #Removed because of having to install sudo first before running script
-LOCALE
-COUNTRY
-STIMEZONE
-UNAMEPASS
-ROOTPASSWORD
-
-sudo sed -i "s/^#\(${ALOCALE}\)/\1/" /etc/locale.gen
-sudo locale-gen
-sudo sh -c "echo 'LANG=${ALOCALE}' >> /etc/locale.conf"
-sudo ln -sf /usr/share/zoneinfo/${TIMEZNE} /etc/localtime
-
-NEEDEDPKGS
 INSTALLYAY
 SOUNDSETUP
 BLUETOOTHSETUP
@@ -851,18 +727,4 @@ esac
 LOGIN_SETUP
 SOFTWARECENTER
 SOFTWAREINSTALLSTD
-
 ADD_NEOFETCH
-sudo sed -i 's/^#\ \(%wheel\ ALL=(ALL)\ NOPASSWD:\ ALL\)/\1/' /etc/sudoers
-################################################################################
-### Setting Passwords and Creating the User                                  ###
-################################################################################
-sudo useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${USRNM}"
-sudo echo "$UPASSWD
-$UPASSWD
-" | sudo passwd $USRNM
-
-echo "$RPASSWD
-$RPASSWD" | sudo passwd
-#sudo userdel --remove alarm
-sudo systemctl enable NetworkManager
