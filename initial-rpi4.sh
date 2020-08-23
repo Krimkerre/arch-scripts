@@ -161,6 +161,6 @@ echo "$RPASSWD
 $RPASSWD" | passwd
 wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/setup-rpi4.sh
 chmod +x setup-rpi4.sh
-cp setup-rpi4.sh /mnt/home/$USRNM/
+cp setup-rpi4.sh /home/$USRNM/
 sed -i 's/^#\ \(%wheel\ ALL=(ALL)\ NOPASSWD:\ ALL\)/\1/' /etc/sudoers
 sudo userdel --remove alarm
