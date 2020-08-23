@@ -129,6 +129,7 @@ function CLIFONT() {
 ################################################################################
 ### Main Program                                                             ###
 ################################################################################
+clear
 PACMAN_KEYS
 LOCALE
 COUNTRY
@@ -142,7 +143,9 @@ sed -i "s/^#\(${ALOCALE}\)/\1/" /etc/locale.gen
 locale-gen
 sh -c "echo 'LANG=${ALOCALE}' >> /etc/locale.conf"
 ln -sf /usr/share/zoneinfo/${TIMEZNE} /etc/localtime
-echo "FONT="${DEFFNT} >> /mnt/root/etc/vconsole.conf
+echo "FONT="${DEFFNT} >> /etc/vconsole.conf
+systemctl enable NetworkManager
+systemctl start NetworkManager
 
 ################################################################################
 ### Setting Passwords and Creating the User                                  ###
@@ -155,6 +158,6 @@ $UPASSWD
 
 echo "$RPASSWD
 $RPASSWD" | passwd
-#sudo userdel --remove alarm
+cp setup-rpi4.sh /mnt/home/$USRNM/
 sed -i 's/^#\ \(%wheel\ ALL=(ALL)\ NOPASSWD:\ ALL\)/\1/' /etc/sudoers
-systemctl enable NetworkManager
+sudo userdel --remove alarm
