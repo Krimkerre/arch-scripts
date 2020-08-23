@@ -118,6 +118,13 @@ function NEEDEDPKGS() {
   pacman -S --noconfirm --needed linux-raspberrypi4-headers
   pacman -S --noconfirm --needed networkmanager
   pacman -S --noconfirm --needed sudo
+  pacman -S --noconfirm --needed terminus-font
+}
+################################################################################
+### Set Your Command Line Font (Shell) Here                                  ###
+################################################################################
+function CLIFONT() {
+  DEFFNT=$(dialog --stdout --title "Select your terminal (CLI) font" --fselect /usr/share/kbd/consolefonts/ 24 48)
 }
 ################################################################################
 ### Main Program                                                             ###
@@ -129,6 +136,7 @@ STIMEZONE
 UNAMEPASS
 ROOTPASSWORD
 NEEDEDPKGS
+CLIFONT
 
 sed -i "s/^#\(${ALOCALE}\)/\1/" /etc/locale.gen
 locale-gen
