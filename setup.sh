@@ -465,6 +465,25 @@ function SWAY_DE() {
   cp /etc/sway/config .config/sway/config
 }
 ################################################################################
+### Install the BSPWM Tiling Window Manager                                  ###
+################################################################################
+function BSPWM_DE() {
+  clear
+  echo "################################################################################"
+  echo "### Installing The Sway Tiling Window Manager                                ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman -S --noconfirm --needed bspwm
+  sudo pacman -S --noconfirm --needed sxhkd
+  sudo pacman -S --noconfirm --needed dmenu
+  yay -S --noconfirm --needed polybar
+  yay -S --noconfirm --needed wedder
+  mkdir ~/.config/bspwm
+  mkdir ~/.config/sxhkd
+  cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
+  cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
+}
+################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
 ################################################################################
 function LIGHTDM_INSTALL() {
@@ -571,7 +590,8 @@ function DE_SELECTION() {
   echo "10) i3"
   echo "11) Enlightenment"
   echo "12) Sway"
-  echo "13) None"
+  echo "13) Bspwm"
+  echo "14) None"
   echo "##############################################################################"
   read case;
 
@@ -625,6 +645,10 @@ function DE_SELECTION() {
     DE="SWAY"
     ;;
     13)
+    BSPWM_DE
+    DE="BSPWM"
+    ;;
+    14)
     clear
     echo "##############################################################################"
     echo "### You Have Selected None                                                 ###"
@@ -840,6 +864,9 @@ function LOGIN_SETUP() {
   fi
   if [[ $DE == "SWAY" ]]; then
     echo "exec sway" >> .xinitrc
+  fi
+  if [[ $DE == "BSPWM" ]]; then
+    echo "exec bspwm" >> .xinitrc
   fi
 }
 ################################################################################
