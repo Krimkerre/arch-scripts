@@ -424,6 +424,7 @@ function I3_DE() {
   sudo pacman -S --noconfirm --needed feh
   sudo pacman -S --noconfirm --needed thunar
   sudo pacman -S --noconfirm --needed papirus-icon-theme
+  sudo pacman -S --noconfirm --needed network-manager-applet
 }
 ################################################################################
 ### Install Enlightenment DE                                                 ###
@@ -461,6 +462,8 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed alacritty
+  sudo pacman -S --noconfirm --needed thunar
+  sudo pacman -S --noconfirm --needed network-manager-applet
   mkdir .config/sway
   cp /etc/sway/config .config/sway/config
 }
@@ -470,18 +473,27 @@ function SWAY_DE() {
 function BSPWM_DE() {
   clear
   echo "################################################################################"
-  echo "### Installing The Sway Tiling Window Manager                                ###"
+  echo "### Installing The BSPWM Tiling Window Manager                                ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed bspwm
   sudo pacman -S --noconfirm --needed sxhkd
   sudo pacman -S --noconfirm --needed dmenu
+  sudo pacman -S --noconfirm --needed nitrogen
+  sudo pamcan -S --noconfirm --needed picom
+  sudo pacman -S --noconfirm --needed thunar
+  sudo pacman -S --noconfirm --needed onboard
+  sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed arandr
+  sudo pacman -S --noconfirm --needed network-manager-applet
   yay -S --noconfirm --needed polybar
   yay -S --noconfirm --needed wedder
   mkdir ~/.config/bspwm
   mkdir ~/.config/sxhkd
+  mkdir ~/.config/polybar
   cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
   cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
+  cp /usr/share/doc/polybar/config ~/.config/polybar/config
 }
 ################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
