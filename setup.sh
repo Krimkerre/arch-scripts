@@ -480,7 +480,7 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed sxhkd
   sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed nitrogen
-  sudo pamcan -S --noconfirm --needed picom
+  sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed thunar
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
