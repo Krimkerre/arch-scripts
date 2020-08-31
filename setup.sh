@@ -900,7 +900,7 @@ function BSPWM_CONFIG() {
   echo "nm-applet &" >> ~/.config/bspwm/bspwmrc
   echo "picom -f &" >> ~/.config/bspwm/bspwmrc
   echo "sxhkd &" >> ~/.config/bspwm/bspwmrc
-  echo "$HOME/.config/polybar/launch.sh" >> ~/.config/bspwm/bspwmrc
+  echo "\$HOME/.config/polybar/launch.sh" >> ~/.config/bspwm/bspwmrc
   echo "" >> ~/.config/bspwm/bspwmrc
   echo "################################################################################" >> ~/.config/bspwm/bspwmrc
   echo "### Define Monitors                                                          ###" >> ~/.config/bspwm/bspwmrc
