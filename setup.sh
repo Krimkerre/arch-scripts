@@ -487,11 +487,11 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed network-manager-applet
   yay -S --noconfirm --needed polybar
-  yay -S --noconfirm --needed wedder
   mkdir ~/.config/bspwm
   mkdir ~/.config/sxhkd
   mkdir ~/.config/polybar
-  cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
+  #cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
+  BSPWM_CONFIG
   cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
   cp /usr/share/doc/polybar/config ~/.config/polybar/config
 }
@@ -881,6 +881,60 @@ function LOGIN_SETUP() {
     echo "exec bspwm" >> .xinitrc
   fi
 }
+################################################################################
+### BSPWM Config                                                             ###
+################################################################################
+function BSPWM_CONFIG() {
+  echo "################################################################################" >> ~/.config/bspwm
+  echo "### Clean up                                                                 ###" >> ~/.config/bspwm
+  echo "################################################################################" >> ~/.config/bspwm
+  echo "bspc rule -r \"*\"" >> ~/.config/bspwm
+  echo "killall \"picom\"" >> ~/.config/bspwm
+  echo "killall \"nm-applet\"" >> ~/.config/bspwm
+  echo "" >> ~/.config/bspwm
+  echo "################################################################################" >> ~/.config/bspwm
+  echo "### Autostart                                                                ###" >> ~/.config/bspwm
+  echo "################################################################################" >> ~/.config/bspwm
+  echo "nitrogen --random --set-scaled &" >> ~/.config/bspwm
+  echo "xsetroot -cursor_name left_ptr" >> ~/.config/bspwm
+  echo "nm-applet &" >> ~/.config/bspwm
+  echo "picom -f &" >> ~/.config/bspwm
+  echo "sxhkd &" >> ~/.config/bspwm
+  echo "$HOME/.config/polybar/launch.sh" >> ~/.config/bspwm
+  echo "" >> ~/.config/bspwm
+  echo "################################################################################" >> ~/.config/bspwm
+  echo "### Define Monitors                                                          ###" >> ~/.config/bspwm
+  echo "################################################################################" >> ~/.config/bspwm
+  echo "bspc monitor -d I II III IV V" >> ~/.config/bspwm
+  echo "" >> ~/.config/bspwm
+  echo "################################################################################" >> ~/.config/bspwm
+  echo "### Global Settings                                                          ###" >> ~/.config/bspwm
+  echo "################################################################################" >> ~/.config/bspwm
+  echo "bspc config automatic_scheme alternate" >> ~/.config/bspwm
+  echo "bspc config initial_polarity second_child" >> ~/.config/bspwm
+  echo "" >> ~/.config/bspwm
+  echo "################################################################################" >> ~/.config/bspwm
+  echo "### Monitor and Desktop Settings                                             ###" >> ~/.config/bspwm
+  echo "################################################################################" >> ~/.config/bspwm
+  echo "bspc config top_padding          0" >> ~/.config/bspwm
+  echo "bspc config bottom_padding       0" >> ~/.config/bspwm
+  echo "bspc config left_padding         0" >> ~/.config/bspwm
+  echo "bspc config right_padding        0" >> ~/.config/bspwm
+  echo "bspc config border_width         0  # default 2" >> ~/.config/bspwm
+  echo "bspc config window_gap          20" >> ~/.config/bspwm
+  echo "" >> ~/.config/bspwm
+  echo "bspc config split_ratio          0.52" >> ~/.config/bspwm
+  echo "bspc config borderless_monocle   true" >> ~/.config/bspwm
+  echo "bspc config gapless_monocle      true" >> ~/.config/bspwm
+  echo "" >> ~/.config/bspwm
+  echo "################################################################################" >> ~/.config/bspwm
+  echo "### Rule Set-up                                                              ###" >> ~/.config/bspwm
+  echo "################################################################################" >> ~/.config/bspwm
+  echo "bspc rule -a Gimp desktop='^8' state=floating follow=on" >> ~/.config/bspwm
+  echo "bspc rule -a firefox desktop='^2'" >> ~/.config/bspwm
+  echo "bspc rule -a Steam desktop='^3'" >> ~/.config/bspwm
+}
+
 ################################################################################
 ### Main Program                                                             ###
 ################################################################################
