@@ -540,9 +540,9 @@ function SOFTWARECENTER() {
   echo "################################################################################"
   sleep 2
   yay -S --noconfirm --needed pamac-aur-git
-  yay -S --noconfirm --needed snapd
+  #yay -S --noconfirm --needed snapd
   sudo pacman -S --noconfirm --needed flatpak
-  sudo systemctl enable snapd.service
+  #sudo systemctl enable snapd.service
   yay -S --noconfirm --needed bauh
   yay -S --noconfirm --needed flatseal
 }
@@ -784,7 +784,7 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed remmina
   #Office
   sudo pacman -S --noconfirm --needed homebank
-  yay -S --noconfirm --needed freeoffice
+  #yay -S --noconfirm --needed freeoffice
   #Programming
   sudo pacman -S --noconfirm --needed atom
   sudo pacman -S --noconfirm --needed meld
