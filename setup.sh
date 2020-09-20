@@ -733,6 +733,7 @@ function SOFTWAREINSTALLSTD() {
   sudo pacman -S --noconfirm --needed clementine
   sudo pacman -S --noconfirm --needed kdenlive
   yay -S --noconfirm --needed tuned
+  yay -S --noconfirm --needed bpytop
   sudo systemctl enable tuned.service
 }
 ################################################################################
@@ -824,7 +825,6 @@ function SOFTWAREINSTALLEXTRA() {
   yay -S --noconfirm --needed timeshift
   yay -S --noconfirm --needed stacer
   yay -S --noconfirm --needed protontricks
-  yay -S --noconfirm --needed bpytop
   #sudo pacman -S --noconfirm --needed virtualbox
   #sudo pacman -S --noconfirm --needed virtualbox-guest-iso
   #yay -S --noconfirm --needed virtualbox-ext-oracle
