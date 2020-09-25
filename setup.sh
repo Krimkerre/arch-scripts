@@ -801,7 +801,7 @@ function SOFTWAREINSTALLEXTRA() {
   yay -S --noconfirm --needed lbry-app-bin
   #yay -S --noconfirm --needed cinelerra-cv
   #System Utilities
-  sudo pacman -S --noconfirm --needed cockpit cockpit-dashboard cockpit-docker cockpit-machines cockpit-pcp cockpit-podman
+  sudo pacman -S --noconfirm --needed cockpit cockpit-dashboard cockpit-machines cockpit-pcp cockpit-podman
   sudo pacman -S --noconfirm --needed syncthing-gtk
   sudo pacman -S --noconfirm --needed dconf-editor
   sudo pacman -S --noconfirm --needed virt-manager
@@ -934,6 +934,7 @@ function BSPWM_CONFIG() {
   echo "bspc rule -a Gimp desktop='^8' state=floating follow=on" >> ~/.config/bspwm/bspwmrc
   echo "bspc rule -a firefox desktop='^2'" >> ~/.config/bspwm/bspwmrc
   echo "bspc rule -a Steam desktop='^3'" >> ~/.config/bspwm/bspwmrc
+  chmod +x ~/.config/bspwm/*
 }
 
 ################################################################################
@@ -1018,7 +1019,7 @@ case $case in
   ;;
 esac
 LOGIN_SETUP
-SOFTWARECENTER
+#SOFTWARECENTER
 SOUNDFILES
 FONTINSTALL
 clear
