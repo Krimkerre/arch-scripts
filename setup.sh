@@ -414,17 +414,22 @@ function I3_DE() {
   echo "### Installing The i3 Window Manager                                         ###"
   echo "################################################################################"
   sleep 2
-  sudo pacman -S --noconfirm --needed i3 i3lock i3status i3blocks
+  sudo pacman -S --noconfirm --needed i3 i3status i3blocks
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed dmenu
+  sudo pacman -S --noconfirm --needed rofi
   sudo pacman -S --noconfirm --needed nitrogen
   sudo pacman -S --noconfirm --needed feh
   sudo pacman -S --noconfirm --needed thunar
   sudo pacman -S --noconfirm --needed papirus-icon-theme
   sudo pacman -S --noconfirm --needed network-manager-applet
+  sudo pacman -S --noconfirm --needed arandr
+  sudo pacman -S --noconfirm --needed scrot
+  yay -S --noconfirm --needed i3exit
+  yay -S --noconfirm --needed betterlockscreen
 }
 ################################################################################
 ### Install Enlightenment DE                                                 ###
