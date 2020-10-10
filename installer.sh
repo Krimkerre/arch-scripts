@@ -383,10 +383,18 @@ function BOOTTYPE() {
     ;;
   esac
 }
+function NEEDED_INSTALL() {
+  clear
+  echo "##############################################################################"
+  echo "### Installing needed software                                             ###"
+  echo "##############################################################################"
+  pacman -S --noconfirm --needed dialog
+}
 ################################################################################
 ### Main Program - Edit At Own Risk                                          ###
 ################################################################################
 clear
+NEEDED_INSTALL
 timedatectl set-ntp true
 COUNTRY
 REPOFIX
