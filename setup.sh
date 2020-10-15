@@ -737,6 +737,7 @@ function SOFTWAREINSTALLSTD() {
   sudo pacman -S --noconfirm --needed libreoffice-fresh
   sudo pacman -S --noconfirm --needed clementine
   sudo pacman -S --noconfirm --needed kdenlive
+  sudo pacman -S --noconfirm --needed aspell-en
   yay -S --noconfirm --needed tuned
   yay -S --noconfirm --needed bpytop
   sudo systemctl enable tuned.service
