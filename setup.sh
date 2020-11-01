@@ -205,9 +205,9 @@ function GNOME_DE() {
   sudo pacman -S --noconfirm --needed nautilus-share
   sudo pacman -S --noconfirm --needed chrome-gnome-shell
   sudo pacman -S --noconfirm --needed variety
-  sudo pacman -R --noconfirm gnome-terminal
+  #sudo pacman -R --noconfirm gnome-terminal
   sudo pacman -S --noconfirm --needed gnome-packagekit gnome-software-packagekit-plugin
-  yay -S --noconfirm --needed gnome-terminal-transparency
+  #yay -S --noconfirm --needed gnome-terminal-transparency
 
   clear
   echo "##############################################################################"
@@ -738,6 +738,7 @@ function SOFTWAREINSTALLSTD() {
   sudo pacman -S --noconfirm --needed clementine
   sudo pacman -S --noconfirm --needed kdenlive
   sudo pacman -S --noconfirm --needed aspell-en
+  sudo pacman -S --noconfirm --needed youtube-dl
   yay -S --noconfirm --needed tuned
   yay -S --noconfirm --needed bpytop
   sudo systemctl enable tuned.service
