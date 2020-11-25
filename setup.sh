@@ -730,7 +730,7 @@ function SOFTWAREINSTALLSTD() {
   sudo pacman -S --noconfirm --needed firefox
   sudo pacman -S --noconfirm --needed winetricks
   sudo pacman -S --noconfirm --needed playonlinux
-  sudo pacman -S --noconfirm --needed steam steam-native-runtime
+  sudo pacman -S --noconfirm --needed steam # steam-native-runtime
   sudo pacman -S --noconfirm --needed handbrake
   sudo pacman -S --noconfirm --needed obs-studio
   sudo pacman -S --noconfirm --needed gimp
