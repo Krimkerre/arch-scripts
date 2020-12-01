@@ -100,7 +100,7 @@ function PRINTERSETUP() {
   sudo pacman -S --noconfirm --needed foomatic-db-nonfree
   sudo pacman -S --noconfirm --needed foomatic-db-nonfree-ppds
   yay -S --noconfirm --needed epson-inkjet-printer-escpr
-  sudo systemctl enable org.cups.cupsd.service
+  sudo systemctl enable cups.service
 }
 ################################################################################
 ### Samba Share Setup                                                        ###
