@@ -206,6 +206,7 @@ function BASEPKG() {
 ### Systemd Boot Setting Here                                                ###
 ################################################################################
 function SYSDBOOT() {
+  clear
   arch-chroot /mnt mkdir -p /boot/loader/entries
   arch-chroot /mnt bootctl --path=/boot install
   rm /mnt/boot/loader/loader.conf
@@ -224,6 +225,7 @@ function SYSDBOOT() {
 ### Grub Boot Settings Here                                                  ###
 ################################################################################
 function GRUBBOOT() {
+  clear
   if [[ -d /sys/firmware/efi/efivars ]]; then
     pacstrap /mnt grub efibootmgr
     arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub --removable
@@ -428,7 +430,7 @@ function MISC_SETTINGS() {
   }' /mnt/etc/pacman.conf
   sed -i 's/\#\[multilib\]/\[multilib\]'/g /mnt/etc/pacman.conf
   arch-chroot /mnt pacman -Sy
-  echo "if [ -f /usr/bin/neofetch] ; then neofetch; fi" >> /mnt/etc/bash.bashrc
+  echo "if [ -f /usr/bin/neofetch ]; then neofetch; fi" >> /mnt/etc/bash.bashrc
 }
 ################################################################################
 ### Main Program - Edit At Own Risk                                          ###
