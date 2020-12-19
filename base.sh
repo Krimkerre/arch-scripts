@@ -334,6 +334,7 @@ function NEEDEDPKGS() {
   pacstrap /mnt archlinux-wallpaper
   pacstrap /mnt glances
   pacstrap /mnt bashtop
+  pacstrap /mnt bpytop
   pacstrap /mnt packagekit
   pacstrap /mnt reflector
 }
@@ -427,6 +428,7 @@ function MISC_SETTINGS() {
   }' /mnt/etc/pacman.conf
   sed -i 's/\#\[multilib\]/\[multilib\]'/g /mnt/etc/pacman.conf
   arch-chroot /mnt pacman -Sy
+  echo "if [ -f /usr/bin/neofetch] ; then neofetch; fi" >> /mnt/etc/bash.bashrc
 }
 ################################################################################
 ### Main Program - Edit At Own Risk                                          ###
