@@ -430,7 +430,9 @@ function MISC_SETTINGS() {
   }' /mnt/etc/pacman.conf
   sed -i 's/\#\[multilib\]/\[multilib\]'/g /mnt/etc/pacman.conf
   arch-chroot /mnt pacman -Sy
-  echo "if [ -f /usr/bin/neofetch ]; then neofetch; fi" >> /mnt/etc/bash.bashrc
+  echo "if [ -f /usr/bin/neofetch ]; then clear & neofetch; fi" >> /mnt/etc/bash.bashrc
+  echo "set linenumbers" >> /mnt/etc/nanorc
+  echo 'include "/usr/share/nano/*.nanorc"' >> /mnt/etc/nanorc
 }
 ################################################################################
 ### Main Program - Edit At Own Risk                                          ###
