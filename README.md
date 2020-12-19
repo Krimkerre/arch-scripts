@@ -1,11 +1,16 @@
 # arch-scripts
-A collection of my Arch scripts  **** NOW WITH RASPBERRY PI4 ****
+A collection of my Arch scripts  **** REMOVED RASPI4 VERSIONS (for now) ****
 
 They are constantly being updated right now and are mainly for me, but you can use/change them at will.  If you find better or have any suggestions please let me know.
 
 ****** WARNING *****
 If you run the install script it will completely format your drive defined in the installer.sh file.  Please edit that file and be careful to know what you are doing or have that drive you want to install to installed only.
 ***************************************************************************************************************************
+
+********************************* NEWS ****************************
+I have removed the RasPi4 support do to the way they install.
+I am currently re-working both scripts to add and make more sense of them for when you have to edit or want to look at them.
+*******************************************************************
 
 To use this script do the following:
 Boot from Arch ISO
