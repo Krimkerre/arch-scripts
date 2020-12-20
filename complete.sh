@@ -161,8 +161,6 @@ function DISPLAYMGR() {
   sudo pacman -S --noconfirm --needed xterm
   sudo pacman -S --noconfirm --needed kvantum-qt5
   sudo pacman -S --noconfirm --needed terminator
-  yay -S --noconfirm --needed mesa-git
-  yay -S --noconfirm --needed lib32-mesa-git
 }
 ################################################################################
 ### Install Deepin DE                                                        ###
