@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-### Installing Arch Linux By:                                                ###
+### Installing Base Arch Linux By:                                           ###
 ### Erik Sundquist                                                           ###
 ################################################################################
 ### Review and edit before using                                             ###
