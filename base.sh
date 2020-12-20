@@ -469,7 +469,7 @@ $UPASSWD
 echo "$RPASSWD
 $RPASSWD" | arch-chroot /mnt passwd
 wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/complete.sh
-chmod +x setup.sh
+chmod +x complete.sh
 cp setup.sh /mnt/home/$USRNM/
 clear
 echo "##############################################################################"
