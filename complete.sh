@@ -1050,7 +1050,6 @@ if [[ $(lspci -k | grep VGA | grep -i amd) ]]; then
   AMD_DRIVERS
 fi
 
-sed -i '$ a if [ -f /usr/bin/neofetch ]; then neofetch; fi' /home/$(whoami)/.bashrc
 echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/99-sysctl.conf
 
 clear
