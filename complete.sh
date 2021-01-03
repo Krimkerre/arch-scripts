@@ -785,7 +785,7 @@ function SOFTWAREINSTALLEXTRA() {
   yay -S --noconfirm --needed lbry-app-bin
   #yay -S --noconfirm --needed cinelerra-cv
   #System Utilities
-  sudo pacman -S --noconfirm --needed cockpit cockpit-dashboard cockpit-machines cockpit-pcp cockpit-podman
+  sudo pacman -S --noconfirm --needed cockpit cockpit-machines cockpit-pcp cockpit-podman
   sudo pacman -S --noconfirm --needed syncthing-gtk
   sudo pacman -S --noconfirm --needed dconf-editor
   sudo pacman -S --noconfirm --needed virt-manager
