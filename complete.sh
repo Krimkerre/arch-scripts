@@ -431,7 +431,8 @@ function ENLIGHTENMENT_DE() {
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed acpid
-  sudo pacman -S --noconfirm --needed connman
+  yay -S --noconfirm --needed econnman
+  yay -S --noconfirm --needed esound
   sudo systemctl enable connman
   sudo systemctl enable acpid
 }
@@ -491,6 +492,7 @@ function BSPWM_DE() {
 ### Setup LightDM (Display Manager/Login)                                    ###
 ################################################################################
 function LIGHTDM_INSTALL() {
+  clear
   sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
   sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
   sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
@@ -512,6 +514,7 @@ function LIGHTDM_INSTALL() {
 ### Setup SDDM (Display Manager/Login)                                       ###
 ################################################################################
 function SDDM_INSTALL() {
+  clear
   sudo pacman -S --noconfirm --needed sddm
   sudo systemctl enable sddm
 }
@@ -519,8 +522,17 @@ function SDDM_INSTALL() {
 ### Setup GDM (Display Manager/Login)                                        ###
 ################################################################################
 function GDM_INSTALL() {
+  clear
   sudo pacman -S --noconfirm --needed gdm
   sudo systemctl enable gdm
+}
+################################################################################
+### Setup Entrance (Display/Login)                                           ###
+################################################################################
+function ENTRANCE_INSTALL() {
+  clear
+  yay -S --noconfirm --needed entrance-git
+  sudo systemctl enable entrance
 }
 ################################################################################
 ### DE Selection                                                             ###
@@ -964,7 +976,8 @@ echo "What Display manager/Logon manager installed?"
 echo "1)  LightDM"
 echo "2)  Simple Display Manager (SDDM)"
 echo "3)  Gnome Display Manager (GDM)"
-echo "4)  None"
+echo "4)  Entrance Display Manager (ENT)"
+echo "5)  None"
 echo "##############################################################################"
 read case;
 
@@ -982,6 +995,10 @@ case $case in
   DM="GDM"
   ;;
   4)
+  ENTRANCE_INSTALL
+  DM="ENT"
+  ;;
+  5)
   sudo cp /etc/X11/xinit/xinitrc .xinitrc
   DM="NONE"
   ;;
