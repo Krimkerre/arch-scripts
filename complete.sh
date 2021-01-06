@@ -429,8 +429,10 @@ function ENLIGHTENMENT_DE() {
   sleep 2
   sudo pacman -S --noconfirm --needed enlightenment efl efl-docs
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed ark unrar p7zip
   sudo pacman -S --noconfirm --needed acpid
+  sudo pacman -S --noconfirm --needed xfce4-terminal
+  sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
   yay -S --noconfirm --needed econnman
   yay -S --noconfirm --needed esound
   sudo systemctl enable connman
