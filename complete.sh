@@ -847,9 +847,9 @@ function SOFTWAREINSTALLEXTRA() {
 ### Set up login                                                             ###
 ################################################################################
 function LOGIN_SETUP() {
-  if [[ $DM == "LIGHTDM" ]]; then
-    sudo sed -i 's/'#user-session=default'/'user-session=cinnamon'/g' /etc/lightdm/lightdm.conf
-  fi
+#  if [[ $DM == "LIGHTDM" ]]; then
+#    sudo sed -i 's/'#user-session=default'/'user-session=cinnamon'/g' /etc/lightdm/lightdm.conf
+#  fi
   if [[ $DM == "NONE" ]]; then
     sed -i 's/'twm'/'#twm'/g' .xinitrc
     sed -i 's/'xclock'/'#xclock'/g' .xinitrc
