@@ -495,6 +495,10 @@ function BSPWM_DE() {
 ################################################################################
 function LIGHTDM_INSTALL() {
   clear
+  echo "################################################################################"
+  echo "### Installing The LightDM Login Manager                                     ###"
+  echo "################################################################################"
+  sleep 2
   sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
   sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
   sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
@@ -517,6 +521,10 @@ function LIGHTDM_INSTALL() {
 ################################################################################
 function SDDM_INSTALL() {
   clear
+  echo "################################################################################"
+  echo "### Installing The SDDM Login Manager                                        ###"
+  echo "################################################################################"
+  sleep 2
   sudo pacman -S --noconfirm --needed sddm
   sudo systemctl enable sddm
 }
@@ -525,6 +533,10 @@ function SDDM_INSTALL() {
 ################################################################################
 function GDM_INSTALL() {
   clear
+  echo "################################################################################"
+  echo "### Installing The GDM Manager                                               ###"
+  echo "################################################################################"
+  sleep 2
   sudo pacman -S --noconfirm --needed gdm
   sudo systemctl enable gdm
 }
@@ -533,6 +545,10 @@ function GDM_INSTALL() {
 ################################################################################
 function ENTRANCE_INSTALL() {
   clear
+  echo "################################################################################"
+  echo "### Installing The Entrance Login Manager                                    ###"
+  echo "################################################################################"
+  sleep 2
   yay -S --noconfirm --needed entrance-git
   sudo systemctl enable entrance
 }
