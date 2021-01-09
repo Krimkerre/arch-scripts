@@ -221,7 +221,7 @@ function GNOMEEXT() {
   sleep 2
   yay -S --noconfirm --needed gnome-shell-extension-dash-to-dock
   yay -S --noconfirm --needed gnome-shell-extension-dash-to-panel
-  yay -S --noconfirm --needed gnome-shell-extension-workspaces-to-dock
+  yay -S --noconfirm --needed gnome-shell-extension-workspaces-to-dock-git
   yay -S --noconfirm --needed gnome-shell-extension-arc-menu-git
   yay -S --noconfirm --needed gnome-shell-extension-openweather-git
   yay -S --noconfirm --needed gnome-shell-extension-topicons-plus
@@ -229,16 +229,13 @@ function GNOMEEXT() {
   yay -S --noconfirm --needed gnome-shell-extension-clipboard-indicator-git
   yay -S --noconfirm --needed gnome-shell-extension-coverflow-alt-tab-git
   yay -S --noconfirm --needed gnome-shell-extension-animation-tweaks-git
-  yay -S --noconfirm --needed gnome-shell-extension-gamemode-git
   yay -S --noconfirm --needed gnome-shell-extension-extended-gestures-git
   yay -S --noconfirm --needed gnome-shell-extension-transparent-window-moving-git
-  yay -S --noconfirm --needed qnome-shell-extension-pop-shell-git pop-shell-shortcuts-git
+  yay -S --noconfirm --needed gnome-shell-extension-pop-shell-git pop-shell-shortcuts-git
   yay -S --noconfirm --needed gnome-alsamixer
   yay -S --noconfirm --needed gnome-shell-extension-vitals
   yay -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
-  yay -S --noconfirm --needed gnome-shell-extension-dynamic-battery
   yay -S --noconfirm --needed gnome-shell-extension-material-shell-git
-  yay -S --noconfirm --needed gnome-shell-extension-panel-osd
   yay -S --noconfirm --needed gnome-shell-extension-slinger-git
   yay -S --noconfirm --needed gnome-shell-extension-transparent-osd-git
 }
@@ -959,6 +956,7 @@ function PACMAN_KEYS() {
   sleep 2
   sudo pacman-key --init
   sudo pacman-key --populate archlinux
+  sudo reflector --country US --latest 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist
 }
 ################################################################################
 ### Main Program                                                             ###
