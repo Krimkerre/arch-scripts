@@ -221,7 +221,6 @@ function GNOMEEXT() {
   sleep 2
   yay -S --noconfirm --needed gnome-shell-extension-dash-to-dock
   yay -S --noconfirm --needed gnome-shell-extension-dash-to-panel
-  yay -S --noconfirm --needed gnome-shell-extension-workspaces-to-dock-git
   yay -S --noconfirm --needed gnome-shell-extension-arc-menu-git
   yay -S --noconfirm --needed gnome-shell-extension-openweather-git
   yay -S --noconfirm --needed gnome-shell-extension-topicons-plus
