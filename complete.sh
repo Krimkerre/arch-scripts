@@ -27,7 +27,7 @@ function INSTALLYAY() {
 function SOUNDSETUP() {
   clear
   echo "################################################################################"
-  echo "### Setting up sound                                                         ###"
+  echo "### Setting Up Sound                                                         ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed pulseaudio
@@ -60,7 +60,7 @@ function SOUNDSETUP() {
 function BLUETOOTHSETUP() {
   clear
   echo "################################################################################"
-  echo "### Installing and setting up bluetooth                                      ###"
+  echo "### Installing And Setting Up Bluetooth                                      ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed pulseaudio-bluetooth
@@ -81,7 +81,7 @@ function BLUETOOTHSETUP() {
 function PRINTERSETUP() {
   clear
   echo "################################################################################"
-  echo "### Installing and setting up printers                                       ###"
+  echo "### Installing And Setting Up Printers                                       ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed cups
@@ -108,7 +108,7 @@ function PRINTERSETUP() {
 function SAMBASETUP() {
   clear
   echo "################################################################################"
-  echo "### Installing Samba and network sharing                                     ###"
+  echo "### Installing Samba And Network Sharing                                     ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed  samba
@@ -141,7 +141,7 @@ function SAMBASETUP() {
 function UNICODEFIX() {
   clear
   echo "################################################################################"
-  echo "### Installing fix the unicode problem                                       ###"
+  echo "### Installing Fix The Unicode Problem                                       ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed  intel-ucode amd-ucode
@@ -152,7 +152,7 @@ function UNICODEFIX() {
 function DISPLAYMGR() {
   clear
   echo "################################################################################"
-  echo "### Install and setup display manager and desktop                            ###"
+  echo "### Install XORG Display                                                     ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed xorg
@@ -173,7 +173,7 @@ function DEEPIN_DE() {
   sleep 2
   sudo pacman -S --noconfirm --needed deepin deepin-extra
   sudo pacman -S --noconfirm --needed gnome-disk-utility
-  sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed ark unrar p7zip
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed deepin-kwin
   sudo pacman -S --noconfirm deepin-polkit-agent deepin-polkit-agent-ext-gnomekeyring
@@ -192,9 +192,7 @@ function GNOME_DE() {
   sudo pacman -S --noconfirm --needed nautilus-share
   sudo pacman -S --noconfirm --needed chrome-gnome-shell
   sudo pacman -S --noconfirm --needed variety
-  #sudo pacman -R --noconfirm gnome-terminal
   sudo pacman -S --noconfirm --needed gnome-packagekit gnome-software-packagekit-plugin
-  #yay -S --noconfirm --needed gnome-terminal-transparency
 
   clear
   echo "##############################################################################"
@@ -218,7 +216,7 @@ function GNOME_DE() {
 function GNOMEEXT() {
   clear
   echo "################################################################################"
-  echo "### Installing The Gnome Extensions                                          ###"
+  echo "### Installing Gnome Extensions                                              ###"
   echo "################################################################################"
   sleep 2
   yay -S --noconfirm --needed gnome-shell-extension-dash-to-dock
@@ -234,7 +232,7 @@ function GNOMEEXT() {
   yay -S --noconfirm --needed gnome-shell-extension-gamemode-git
   yay -S --noconfirm --needed gnome-shell-extension-extended-gestures-git
   yay -S --noconfirm --needed gnome-shell-extension-transparent-window-moving-git
-  yay -S --noconfirm --needed qnome-shell-extension-pop-shell-git
+  yay -S --noconfirm --needed qnome-shell-extension-pop-shell-git pop-shell-shortcuts-git
   yay -S --noconfirm --needed gnome-alsamixer
   yay -S --noconfirm --needed gnome-shell-extension-vitals
   yay -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
@@ -271,7 +269,7 @@ function MATE_DE() {
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed ark unrar p7zip
   yay -S --noconfirm --needed mate-tweak
   yay -S --noconfirm --needed brisk-menu
   yay -S --noconfirm --needed mate-screensaver-hacks
@@ -288,7 +286,7 @@ function XFCE_DE() {
   sleep 2
   sudo pacman -S --noconfirm --needed xfce4 xfce4-goodies
   sudo pacman -S --noconfirm --needed gnome-disk-utility
-  sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed ark unrar p7zip
   sudo pacman -S --noconfirm --needed alacarte
   sudo pacman -S --noconfirm --needed gnome-calculator
   sudo pacman -S --noconfirm --needed picom
@@ -332,7 +330,7 @@ function BUDGIE_DE() {
   sudo pacman -S --noconfirm --needed gedit
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed ark unrar p7zip
 }
 ################################################################################
 ### Install The Cinnamon DE                                                  ###
@@ -351,7 +349,7 @@ function CINNAMON_DE() {
   sudo pacman -S --noconfirm --needed gedit
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed ark unrar p7zip
   yay -S --noconfirm --needed mint-themes
 }
 ################################################################################
@@ -370,7 +368,7 @@ function LXDE_DE() {
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed ark unrar p7zip
   yay -S --noconfirm --needed mugshot
 }
 ################################################################################
@@ -389,7 +387,7 @@ function LXQT_DE() {
   sudo pacman -S --noconfirm --needed gedit
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed ark unrar p7zip
   sudo pacman -S --noconfirm --needed packagekit-qt5
 }
 ################################################################################
@@ -404,7 +402,7 @@ function I3_DE() {
   sudo pacman -S --noconfirm --needed i3
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed ark unrar p7zip
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed rofi
@@ -454,7 +452,7 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed waybar
   sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed ark unrar p7zip
   sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed alacritty
   sudo pacman -S --noconfirm --needed thunar
@@ -478,7 +476,7 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed thunar
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed ark unrar p7zip
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed network-manager-applet
   yay -S --noconfirm --needed polybar
@@ -686,7 +684,7 @@ function AMD_DRIVERS() {
 function SOUNDFILES() {
   clear
   echo "################################################################################"
-  echo "### Installing sound themes                                                  ###"
+  echo "### Installing Sound Themes                                                  ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed deepin-sound-theme
@@ -701,7 +699,7 @@ function SOUNDFILES() {
 function FONTINSTALL() {
   clear
   echo "################################################################################"
-  echo "### Installing extra fonts                                                   ###"
+  echo "### Installing Extra Fonts                                                   ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed adobe-source-sans-pro-fonts
@@ -732,6 +730,8 @@ function SOFTWAREINSTALLSTD() {
   clear
   echo "################################################################################"
   echo "### Installing Standard Applications                                         ###"
+  echo "### (Firefox, Wine Tricks, PlayOnLinux, Steam, Handbrake, OBS Studio, GIMP)  ###"
+  echo "### (LibreOffice - Fresh, Clementine, KDENLive, ASpell, YouTube-DL)          ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed firefox
@@ -757,6 +757,15 @@ function SOFTWAREINSTALLEXTRA() {
   clear
   echo "################################################################################"
   echo "### Installing Extra Applications                                            ###"
+  echo "### (Cura, Prusa Slicer, Matter Control, Cool Retro Term, ISO Master)        ###"
+  echo "### (MultiBoot USB, Ventoy, MintStick, RPI Imager, Hexchat, TeamSpeak)       ###"
+  echo "### (Telegram, Skype, Zoom, Discord, Extreme Tux Racer, SuperTux)            ###"
+  echo "### (SuperTux Kart, GameMode, Minecraft, LibreCAD, Darktable, Inkscape)      ###"
+  echo "### (Krita, Blender, OpenSCAD, Luminance HDR, DrawIO, FreeCAD, Transmission) ###"
+  echo "### (Fragments, Remmina, Homebank, Atom, Meld, Rust, Auducity, OpenShot)     ###"
+  echo "### (Shotcut, QuodLibet, VLC, MakeMKV, Olive, LBRY, Cockpit, SyncThing)      ###"
+  echo "### (DConf Editor, Virt Manager, Pacman Log Viewer, HardInfo, Deluge, Plank) ###"
+  echo "### (Cairo Dock, DXVK, TimeShift, Stacer, Proton Tricks)                     ###"
   echo "################################################################################"
   sleep 2
   #3d Printer
@@ -782,7 +791,7 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed supertux
   sudo pacman -S --noconfirm --needed supertuxkart
   yay -S --noconfirm --needed gamemode lib32-gamemode
-  #yay -S --noconfirm --needed minecraft
+  yay -S --noconfirm --needed minecraft
   #Graphics
   sudo pacman -S --noconfirm --needed librecad
   sudo pacman -S --noconfirm --needed darktable
@@ -791,8 +800,8 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed blender
   sudo pacman -S --noconfirm --needed openscad
   sudo pacman -S --noconfirm --needed luminancehdr
+  sudo pacman -S --noconfirm --needed freecad
   yay -S --noconfirm --needed drawio-desktop
-  #yay -S --noconfirm --needed freecad
   #Internet
   sudo pacman -S --noconfirm --needed transmission-gtk
   sudo pacman -S --noconfirm --needed fragments
@@ -951,8 +960,21 @@ function BSPWM_CONFIG() {
   chmod +x ~/.config/bspwm/*
 }
 ################################################################################
+### Fix the Pacman Keyring                                                   ###
+################################################################################
+function PACMAN_KEYS() {
+  clear
+  echo "################################################################################"
+  echo "### Fixing The Pacman (Repo) Keys                                            ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman-key --init
+  sudo pacman-key --populate archlinux
+}
+################################################################################
 ### Main Program                                                             ###
 ################################################################################
+PACMAN_KEYS
 INSTALLYAY
 SOUNDSETUP
 BLUETOOTHSETUP
