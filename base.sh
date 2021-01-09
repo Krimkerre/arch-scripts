@@ -46,7 +46,7 @@ function DRVSELECT() {
 function CLIFONT() {
   clear
   pacstrap /mnt terminus-font
-  DEFFNT="ter-114n"
+  DEFFNT="ter-118n"
 }
 ################################################################################
 ### Set Your Timezone Here                                                   ###
