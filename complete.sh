@@ -730,8 +730,6 @@ function SOFTWAREINSTALLSTD() {
   clear
   echo "################################################################################"
   echo "### Installing Standard Applications                                         ###"
-  echo "### (Firefox, Wine Tricks, PlayOnLinux, Steam, Handbrake, OBS Studio, GIMP)  ###"
-  echo "### (LibreOffice - Fresh, Clementine, KDENLive, ASpell, YouTube-DL)          ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed firefox
@@ -757,15 +755,6 @@ function SOFTWAREINSTALLEXTRA() {
   clear
   echo "################################################################################"
   echo "### Installing Extra Applications                                            ###"
-  echo "### (Cura, Prusa Slicer, Matter Control, Cool Retro Term, ISO Master)        ###"
-  echo "### (MultiBoot USB, Ventoy, MintStick, RPI Imager, Hexchat, TeamSpeak)       ###"
-  echo "### (Telegram, Skype, Zoom, Discord, Extreme Tux Racer, SuperTux)            ###"
-  echo "### (SuperTux Kart, GameMode, Minecraft, LibreCAD, Darktable, Inkscape)      ###"
-  echo "### (Krita, Blender, OpenSCAD, Luminance HDR, DrawIO, FreeCAD, Transmission) ###"
-  echo "### (Fragments, Remmina, Homebank, Atom, Meld, Rust, Auducity, OpenShot)     ###"
-  echo "### (Shotcut, QuodLibet, VLC, MakeMKV, Olive, LBRY, Cockpit, SyncThing)      ###"
-  echo "### (DConf Editor, Virt Manager, Pacman Log Viewer, HardInfo, Deluge, Plank) ###"
-  echo "### (Cairo Dock, DXVK, TimeShift, Stacer, Proton Tricks)                     ###"
   echo "################################################################################"
   sleep 2
   #3d Printer
@@ -980,11 +969,11 @@ SOUNDSETUP
 BLUETOOTHSETUP
 PRINTERSETUP
 clear
-echo "##############################################################################"
+echo "################################################################################"
 echo "Do you want SAMBA network sharing installed?"
 echo "1)  Yes"
 echo "2)  No"
-echo "##############################################################################"
+echo "################################################################################"
 read case;
 
 case $case in
@@ -996,11 +985,11 @@ case $case in
 esac
 UNICODEFIX
 clear
-echo "##############################################################################"
+echo "################################################################################"
 echo "Do you want a the XORG (X11 / Graphical Interface) installed?"
 echo "1)  Yes"
 echo "2)  No"
-echo "##############################################################################"
+echo "################################################################################"
 read case;
 
 case $case in
@@ -1011,14 +1000,14 @@ case $case in
   ;;
 esac
 clear
-echo "##############################################################################"
+echo "################################################################################"
 echo "What Display manager/Logon manager installed?"
 echo "1)  LightDM"
 echo "2)  Simple Display Manager (SDDM)"
 echo "3)  Gnome Display Manager (GDM)"
 echo "4)  Entrance Display Manager (ENT)"
 echo "5)  None"
-echo "##############################################################################"
+echo "################################################################################"
 read case;
 
 case $case in
@@ -1044,11 +1033,11 @@ case $case in
   ;;
 esac
 clear
-echo "##############################################################################"
+echo "################################################################################"
 echo "Do you want a Desktop Environment (Gnome, Plasma, etc) installed?"
 echo "1)  Yes"
 echo "2)  No"
-echo "##############################################################################"
+echo "################################################################################"
 read case;
 
 case $case in
@@ -1063,11 +1052,15 @@ LOGIN_SETUP
 SOUNDFILES
 FONTINSTALL
 clear
-echo "##############################################################################"
-echo "Do you want a good starting standard software selection installed?"
-echo "1)  Yes"
-echo "2)  No"
-echo "##############################################################################"
+echo "################################################################################"
+echo "### Do you want a good starting standard software selection installed?       ###"
+echo "### ------------------------------------------------------------------------ ###"
+echo "### (Firefox, Wine Tricks, PlayOnLinux, Steam, Handbrake, OBS Studio, GIMP)  ###"
+echo "### (LibreOffice - Fresh, Clementine, KDENLive, ASpell, YouTube-DL)          ###"
+echo "### ------------------------------------------------------------------------ ###"
+echo "### 1) Yes                                                                   ###"
+echo "### 2) No                                                                    ###"
+echo "################################################################################"
 read case;
 
 case $case in
@@ -1078,11 +1071,22 @@ case $case in
   ;;
 esac
 clear
-echo "##############################################################################"
-echo "Do you want a good extra software selection installed?"
-echo "1)  Yes"
-echo "2)  No"
-echo "##############################################################################"
+echo "################################################################################"
+echo "### Do you want a good extra software selection installed?                   ###"
+echo "### ------------------------------------------------------------------------ ###"
+echo "### (Cura, Prusa Slicer, Matter Control, Cool Retro Term, ISO Master)        ###"
+echo "### (MultiBoot USB, Ventoy, MintStick, RPI Imager, Hexchat, TeamSpeak)       ###"
+echo "### (Telegram, Skype, Zoom, Discord, Extreme Tux Racer, SuperTux)            ###"
+echo "### (SuperTux Kart, GameMode, Minecraft, LibreCAD, Darktable, Inkscape)      ###"
+echo "### (Krita, Blender, OpenSCAD, Luminance HDR, DrawIO, FreeCAD, Transmission) ###"
+echo "### (Fragments, Remmina, Homebank, Atom, Meld, Rust, Auducity, OpenShot)     ###"
+echo "### (Shotcut, QuodLibet, VLC, MakeMKV, Olive, LBRY, Cockpit, SyncThing)      ###"
+echo "### (DConf Editor, Virt Manager, Pacman Log Viewer, HardInfo, Deluge, Plank) ###"
+echo "### (Cairo Dock, DXVK, TimeShift, Stacer, Proton Tricks)                     ###"
+echo "### ------------------------------------------------------------------------ ###"
+echo "### 1) Yes                                                                   ###"
+echo "### 2) No                                                                    ###"
+echo "################################################################################"
 read case;
 
 case $case in
