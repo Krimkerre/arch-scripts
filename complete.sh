@@ -491,8 +491,11 @@ function BSPWM_DE() {
   mkdir ~/.config/sxhkd
   mkdir ~/.config/polybar
   cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
+  chmod +x ~/.config/bspwm/bspwmrc
   cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
+  chmod +x ~/.config/sxhkd/sxhkdrc
   cp /usr/share/doc/polybar/config ~/.config/polybar/config
+  chmod +x ~/.config/polybar/config
 }
 ################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
