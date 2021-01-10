@@ -416,7 +416,7 @@ function I3_DE() {
   yay -S --noconfirm --needed i3exit
   yay -S --noconfirm --needed ttf-font-awesome
   #yay -S --noconfirm --needed betterlockscreen
-  mk ~/.config/i3
+  mkdir ~/.config/i3
   cd ~/.config/i3
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-i3
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/i3status-config
