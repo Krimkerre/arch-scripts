@@ -1051,8 +1051,8 @@ case $case in
 esac
 LOGIN_SETUP
 #SOFTWARECENTER
-SOUNDFILES
-FONTINSTALL
+#SOUNDFILES
+#FONTINSTALL
 clear
 echo "################################################################################"
 echo "### Do you want a good starting standard software selection installed?       ###"
