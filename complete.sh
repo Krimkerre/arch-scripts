@@ -350,6 +350,7 @@ function CINNAMON_DE() {
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark unrar p7zip
   yay -S --noconfirm --needed mint-themes
+  yay -S --noconfirm --needed cinnamon-sound-effects
 }
 ################################################################################
 ### Install The LXDE DE                                                      ###
@@ -958,7 +959,7 @@ function PACMAN_KEYS() {
   sleep 2
   sudo pacman-key --init
   sudo pacman-key --populate archlinux
-  sudo reflector --country US --age 6 --sort rate --verbose --save /etc/pacman.d/mirrorlist
+  sudo reflector --country US --latest 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist
   sudo pacman -Sy
 }
 ################################################################################
