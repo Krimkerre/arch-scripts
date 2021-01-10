@@ -1,0 +1,50 @@
+#! /bin/sh
+
+################################################################################
+### Clean up                                                                 ###
+################################################################################
+bspc rule -r "*"
+killall "picom"
+killall "nm-applet"
+
+################################################################################
+### Autostart                                                                ###
+################################################################################
+nitrogen --random --set-scaled &
+xsetroot -cursor_name left_ptr
+nm-applet &
+picom -f &
+sxhkd &
+$HOME/.config/polybar/launch.sh
+
+################################################################################
+### Define Monitors                                                          ###
+################################################################################
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+################################################################################
+### Global Settings                                                          ###
+################################################################################
+bspc config automatic_scheme alternate
+bspc config initial_polarity second_child
+
+################################################################################
+### Monitor and Desktop Settings                                             ###
+################################################################################
+bspc config top_padding          0
+bspc config bottom_padding       0
+bspc config left_padding         0
+bspc config right_padding        0
+bspc config border_width         0  # default 2
+bspc config window_gap          20
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+################################################################################
+### Rule Set-up                                                              ###
+################################################################################
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a firefox desktop='^2'
+bspc rule -a Steam desktop='^3'
