@@ -306,6 +306,8 @@ function XFCE_DE() {
   yay -S --noconfirm --needed xts-macos-theme
   yay -S --noconfirm --needed xts-dark-theme
   yay -S --noconfirm --needed xts-arcolinux-theme
+  yay -S --noconfirm --needed xts-windowsxp-theme
+  yay -S --noconfirm --needed xts-windows-server-2003-theme
 }
 ################################################################################
 ### Installing Budgie DE                                                     ###
