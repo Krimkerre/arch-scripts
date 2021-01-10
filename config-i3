@@ -20,9 +20,9 @@ font pango:monospace 12
 #font pango:DejaVu Sans Mono 8
 
 # Make sure things are stopped
-killall picom
-killall nm-applet
-xsetroot -cursor_name left_ptr
+#killall picom
+#killall nm-applet
+#xsetroot -cursor_name left_ptr
 
 # Startup Applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
