@@ -329,6 +329,7 @@ function BUDGIE_DE() {
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark unrar p7zip
+  sudo pacman -S --noconfirm --needed gnome-tweaks
 }
 ################################################################################
 ### Install The Cinnamon DE                                                  ###
@@ -498,17 +499,17 @@ function LIGHTDM_INSTALL() {
   sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
   sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
   sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
-  yay -S --noconfirm --needed lightdm-webkit2-theme-material2
-  yay -S --noconfirm --needed lightdm-webkit-theme-aether
-  yay -S --noconfirm --needed lightdm-webkit-theme-userdock
-  yay -S --noconfirm --needed lightdm-webkit-theme-tendou
-  yay -S --noconfirm --needed lightdm-webkit-theme-wisp
-  yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
-  yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
-  yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
+  #yay -S --noconfirm --needed lightdm-webkit2-theme-material2
+  #yay -S --noconfirm --needed lightdm-webkit-theme-aether
+  #yay -S --noconfirm --needed lightdm-webkit-theme-userdock
+  #yay -S --noconfirm --needed lightdm-webkit-theme-tendou
+  #yay -S --noconfirm --needed lightdm-webkit-theme-wisp
+  #yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
+  #yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
+  #yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
+  #yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
+  #yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
+  #yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
 }
@@ -957,7 +958,7 @@ function PACMAN_KEYS() {
   sleep 2
   sudo pacman-key --init
   sudo pacman-key --populate archlinux
-  sudo reflector --country US --latest 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist
+  sudo reflector --country US --age 6 --sort rate --verbose --save /etc/pacman.d/mirrorlist
   sudo pacman -Sy
 }
 ################################################################################
