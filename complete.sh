@@ -173,7 +173,7 @@ function DEEPIN_DE() {
   sleep 2
   sudo pacman -S --noconfirm --needed deepin deepin-extra
   sudo pacman -S --noconfirm --needed gnome-disk-utility
-  sudo pacman -S --noconfirm --needed ark unrar p7zip
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed deepin-kwin
   sudo pacman -S --noconfirm deepin-polkit-agent deepin-polkit-agent-ext-gnomekeyring
@@ -265,7 +265,7 @@ function MATE_DE() {
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed ark unrar p7zip
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   yay -S --noconfirm --needed mate-tweak
   yay -S --noconfirm --needed brisk-menu
   yay -S --noconfirm --needed mate-screensaver-hacks
@@ -282,7 +282,7 @@ function XFCE_DE() {
   sleep 2
   sudo pacman -S --noconfirm --needed xfce4 xfce4-goodies
   sudo pacman -S --noconfirm --needed gnome-disk-utility
-  sudo pacman -S --noconfirm --needed ark unrar p7zip
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed alacarte
   sudo pacman -S --noconfirm --needed gnome-calculator
   sudo pacman -S --noconfirm --needed picom
@@ -328,7 +328,7 @@ function BUDGIE_DE() {
   sudo pacman -S --noconfirm --needed gedit
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed ark unrar p7zip
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed gnome-tweaks
 }
 ################################################################################
@@ -348,7 +348,7 @@ function CINNAMON_DE() {
   sudo pacman -S --noconfirm --needed gedit
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed ark unrar p7zip
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   yay -S --noconfirm --needed mint-themes
   yay -S --noconfirm --needed cinnamon-sound-effects
 }
@@ -368,7 +368,7 @@ function LXDE_DE() {
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed ark unrar p7zip
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   yay -S --noconfirm --needed mugshot
 }
 ################################################################################
@@ -387,7 +387,7 @@ function LXQT_DE() {
   sudo pacman -S --noconfirm --needed gedit
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed ark unrar p7zip
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed packagekit-qt5
 }
 ################################################################################
@@ -402,17 +402,19 @@ function I3_DE() {
   sudo pacman -S --noconfirm --needed i3
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed ark unrar p7zip
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed rofi
   sudo pacman -S --noconfirm --needed nitrogen
   sudo pacman -S --noconfirm --needed feh
-  sudo pacman -S --noconfirm --needed thunar
+  sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman
   sudo pacman -S --noconfirm --needed papirus-icon-theme
   sudo pacman -S --noconfirm --needed network-manager-applet
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed scrot
+  sudo pacman -S --noconfirm --needed lxappearance-gtk3
+  yay -S --noconfirm --needed mugshot
   yay -S --noconfirm --needed i3exit
   yay -S --noconfirm --needed ttf-font-awesome
   #yay -S --noconfirm --needed betterlockscreen
@@ -434,7 +436,7 @@ function ENLIGHTENMENT_DE() {
   sleep 2
   sudo pacman -S --noconfirm --needed enlightenment efl efl-docs
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed ark unrar p7zip
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed acpid
   sudo pacman -S --noconfirm --needed xfce4-terminal
   sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
@@ -459,10 +461,10 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed waybar
   sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed ark unrar p7zip
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed alacritty
-  sudo pacman -S --noconfirm --needed thunar
+  sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
   sudo pacman -S --noconfirm --needed network-manager-applet
   mkdir .config/sway
   cp /etc/sway/config .config/sway/config
@@ -481,9 +483,9 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed nitrogen
   sudo pacman -S --noconfirm --needed picom
-  sudo pacman -S --noconfirm --needed thunar
+  sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
   sudo pacman -S --noconfirm --needed onboard
-  sudo pacman -S --noconfirm --needed ark unrar p7zip
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed network-manager-applet
   yay -S --noconfirm --needed polybar
