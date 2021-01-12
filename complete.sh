@@ -932,21 +932,7 @@ case $case in
   ;;
 esac
 UNICODEFIX
-clear
-echo "################################################################################"
-echo "Do you want a the XORG (X11 / Graphical Interface) installed?"
-echo "1)  Yes"
-echo "2)  No"
-echo "################################################################################"
-read case;
-
-case $case in
-  1)
-  DISPLAYMGR
-  ;;
-  2)
-  ;;
-esac
+DISPLAYMGR
 clear
 echo "################################################################################"
 echo "What Display manager/Logon manager installed?"
