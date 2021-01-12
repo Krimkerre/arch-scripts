@@ -509,17 +509,17 @@ function LIGHTDM_INSTALL() {
   sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
   sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
   sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
-  #yay -S --noconfirm --needed lightdm-webkit2-theme-material2
-  #yay -S --noconfirm --needed lightdm-webkit-theme-aether
-  #yay -S --noconfirm --needed lightdm-webkit-theme-userdock
-  #yay -S --noconfirm --needed lightdm-webkit-theme-tendou
-  #yay -S --noconfirm --needed lightdm-webkit-theme-wisp
-  #yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
-  #yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
-  #yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
-  #yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
-  #yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
-  #yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
+  yay -S --noconfirm --needed lightdm-webkit2-theme-material2
+  yay -S --noconfirm --needed lightdm-webkit-theme-aether
+  yay -S --noconfirm --needed lightdm-webkit-theme-userdock
+  yay -S --noconfirm --needed lightdm-webkit-theme-tendou
+  yay -S --noconfirm --needed lightdm-webkit-theme-wisp
+  yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
+  yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
+  yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
+  yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
+  yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
+  yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
 }
@@ -699,8 +699,7 @@ function SOUNDFILES() {
   sudo pacman -S --noconfirm --needed deepin-sound-theme
   yay -S --noconfirm --needed sound-theme-smooth
   yay -S --noconfirm --needed sound-theme-elementary-git
-  #yay -S --noconfirm --needed yaru-sound-theme
-  #yay -S --noconfirm --needed starlabstheme-sounds-git
+  yay -S --noconfirm --needed yaru-sound-theme
 }
 ################################################################################
 ### Install More Fonts                                                       ###
@@ -730,7 +729,6 @@ function FONTINSTALL() {
   yay -S --noconfirm --needed ttf-ms-fonts
   yay -S --noconfirm --needed steam-fonts
   yay -S --noconfirm --needed ttf-mac-fonts
-  #yay -S --noconfirm --needed starlabstheme-font-git
 }
 ################################################################################
 ### Software To Install (My Standard Applications)                           ###
@@ -744,7 +742,7 @@ function SOFTWAREINSTALLSTD() {
   sudo pacman -S --noconfirm --needed firefox
   sudo pacman -S --noconfirm --needed winetricks
   sudo pacman -S --noconfirm --needed playonlinux
-  sudo pacman -S --noconfirm --needed steam # steam-native-runtime
+  sudo pacman -S --noconfirm --needed steam
   sudo pacman -S --noconfirm --needed handbrake
   sudo pacman -S --noconfirm --needed obs-studio
   sudo pacman -S --noconfirm --needed gimp
@@ -806,7 +804,6 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed remmina
   #Office
   sudo pacman -S --noconfirm --needed homebank
-  #yay -S --noconfirm --needed freeoffice
   #Programming
   sudo pacman -S --noconfirm --needed atom
   sudo pacman -S --noconfirm --needed meld
@@ -820,7 +817,6 @@ function SOFTWAREINSTALLEXTRA() {
   yay -S --noconfirm --needed makemkv
   yay -S --noconfirm --needed olive
   yay -S --noconfirm --needed lbry-app-bin
-  #yay -S --noconfirm --needed cinelerra-cv
   #System Utilities
   sudo pacman -S --noconfirm --needed cockpit cockpit-machines cockpit-pcp cockpit-podman
   sudo pacman -S --noconfirm --needed syncthing-gtk
@@ -846,9 +842,6 @@ function SOFTWAREINSTALLEXTRA() {
   yay -S --noconfirm --needed timeshift
   yay -S --noconfirm --needed stacer
   yay -S --noconfirm --needed protontricks
-  #sudo pacman -S --noconfirm --needed virtualbox
-  #sudo pacman -S --noconfirm --needed virtualbox-guest-iso
-  #yay -S --noconfirm --needed virtualbox-ext-oracle
 }
 ################################################################################
 ### Set up login                                                             ###
@@ -1006,8 +999,8 @@ case $case in
 esac
 LOGIN_SETUP
 #SOFTWARECENTER
-#SOUNDFILES
-#FONTINSTALL
+SOUNDFILES
+FONTINSTALL
 clear
 echo "################################################################################"
 echo "### Do you want a good starting standard software selection installed?       ###"
