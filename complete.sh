@@ -513,14 +513,10 @@ function LIGHTDM_INSTALL() {
   sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
   yay -S --noconfirm --needed lightdm-webkit2-theme-material2
   yay -S --noconfirm --needed lightdm-webkit-theme-aether
-  yay -S --noconfirm --needed lightdm-webkit-theme-userdock
-  yay -S --noconfirm --needed lightdm-webkit-theme-tendou
-  yay -S --noconfirm --needed lightdm-webkit-theme-wisp
   yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
   yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
   yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
   yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
-  yay -S --noconfirm --needed lightdm-webkit2-theme-tty-git
   yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
