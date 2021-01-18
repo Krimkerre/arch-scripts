@@ -409,6 +409,7 @@ function I3_DE() {
   sudo pacman -S --noconfirm --needed nitrogen
   sudo pacman -S --noconfirm --needed feh
   sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman
+  sudo pacman -S --noconfirm --needed xfce4-terminal
   sudo pacman -S --noconfirm --needed papirus-icon-theme
   sudo pacman -S --noconfirm --needed network-manager-applet
   sudo pacman -S --noconfirm --needed arandr
