@@ -752,7 +752,7 @@ function SOFTWAREINSTALLSTD() {
   sudo pacman -S --noconfirm --needed youtube-dl
   yay -S --noconfirm --needed tuned
   yay -S --noconfirm --needed bpytop
-  sudo systemctl enable tuned.service
+  #sudo systemctl enable tuned.service
 }
 ################################################################################
 ### Software To Install (My Standard Applications)                           ###
