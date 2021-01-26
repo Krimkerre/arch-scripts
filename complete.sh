@@ -232,7 +232,7 @@ function GNOMEEXT() {
   echo "### Installing Gnome Extensions                                              ###"
   echo "################################################################################"
   sleep 2
-  if ZB=1 then
+  if [ $ZB = '1' ]; then
     yay -S --noconfirm --needed gnome-shell-extension-dash-to-dock
     yay -S --noconfirm --needed gnome-shell-extension-dash-to-panel
     yay -S --noconfirm --needed gnome-shell-extension-arc-menu-git
@@ -300,7 +300,7 @@ function MATE_DE() {
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
-  if ZB=1 then
+  if [ $ZB = '1' ]; then
     yay -S --noconfirm --needed mate-tweak
     yay -S --noconfirm --needed brisk-menu
     yay -S --noconfirm --needed mate-screensaver-hacks
@@ -336,7 +336,7 @@ function XFCE_DE() {
   sudo pacman -S --noconfirm --needed nm-connection-editor
   sudo pacman -S --noconfirm --needed network-manager-applet
   sudo pacman -S --noconfirm --needed onboard
-  if ZB=1 then
+  if [ $ZB = '1' ]; then
     yay -S --noconfirm --needed xfce4-screensaver
     yay -S --noconfirm --needed xfce4-panel-profiles-git
     yay -S --noconfirm --needed mugshot
