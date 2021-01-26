@@ -338,6 +338,10 @@ function NEEDEDPKGS() {
   pacstrap /mnt bpytop
   pacstrap /mnt packagekit
   pacstrap /mnt reflector
+  pacstrap /mnt bat
+  pacstrap /mnt mc
+  pacstrap /mnt lynx
+  pacstrap /mnt ncdu
 }
 ################################################################################
 ### Ask what format for the HD                                               ###
