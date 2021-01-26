@@ -108,7 +108,7 @@ function PRINTERSETUP() {
   sudo pacman -S --noconfirm --needed foomatic-db-engine
   sudo pacman -S --noconfirm --needed foomatic-db-nonfree
   sudo pacman -S --noconfirm --needed foomatic-db-nonfree-ppds
-  if $ZB=1; then
+  if [ $ZB = '1' ]; then
     yay -S --noconfirm --needed epson-inkjet-printer-escpr
   else
     paru -S --noconfirm --needed epson-inkjet-printer-escpr
