@@ -330,7 +330,6 @@ function NEEDEDPKGS() {
   pacstrap /mnt git
   pacstrap /mnt wget
   pacstrap /mnt rsync
-  pacstrap /mnt go
   pacstrap /mnt htop
   pacstrap /mnt openssh
   pacstrap /mnt archlinux-wallpaper

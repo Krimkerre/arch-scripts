@@ -22,6 +22,21 @@ function INSTALLYAY() {
   rm yay -R -f
 }
 ################################################################################
+### Install PARU, a helper for the AUR                                       ###
+################################################################################
+function INSTALLPARU() {
+  clear
+  echo "################################################################################"
+  echo "### Installing PARU                                                          ###"
+  echo "################################################################################"
+  sleep 2
+  git clone https://aur.archlinux.org/paru.git
+  cd paru
+  makepkg -si --noconfirm --needed
+  cd ..
+  rm paru -R -f
+}
+################################################################################
 ### Setting Up Sound                                                         ###
 ################################################################################
 function SOUNDSETUP() {
@@ -196,9 +211,9 @@ function GNOME_DE() {
 
   clear
   echo "##############################################################################"
-  echo "Do you want Gnome Extensions installed?"
-  echo "1)  Yes"
-  echo "2)  No"
+  echo "### Do you want Gnome Extensions installed?                                ###"
+  echo "### 1)  Yes                                                                ###"
+  echo "### 2)  No                                                                 ###"
   echo "##############################################################################"
   read case;
 
@@ -564,21 +579,21 @@ function ENTRANCE_INSTALL() {
 function DE_SELECTION() {
   clear
   echo "##############################################################################"
-  echo "What is your preferred desktop environment"
-  echo "1)  Deepin"
-  echo "2)  Gnome"
-  echo "3)  KDE Plasma"
-  echo "4)  Mate"
-  echo "5)  XFCE4"
-  echo "6)  Budgie"
-  echo "7)  Cinnamon"
-  echo "8)  LXDE"
-  echo "9)  LXQT"
-  echo "10) i3"
-  echo "11) Enlightenment"
-  echo "12) Sway"
-  echo "13) Bspwm"
-  echo "14) None"
+  echo "### What is your preferred desktop environment?                            ###"
+  echo "### 1)  Deepin                                                             ###"
+  echo "### 2)  Gnome                                                              ###"
+  echo "### 3)  KDE Plasma                                                         ###"
+  echo "### 4)  Mate                                                               ###"
+  echo "### 5)  XFCE4                                                              ###"
+  echo "### 6)  Budgie                                                             ###"
+  echo "### 7)  Cinnamon                                                           ###"
+  echo "### 8)  LXDE                                                               ###"
+  echo "### 9)  LXQT                                                               ###"
+  echo "### 10) i3                                                                 ###"
+  echo "### 11) Enlightenment                                                      ###"
+  echo "### 12) Sway                                                               ###"
+  echo "### 13) Bspwm                                                              ###"
+  echo "### 14) None                                                               ###"
   echo "##############################################################################"
   read case;
 
@@ -913,15 +928,30 @@ function PACMAN_KEYS() {
 ### Main Program                                                             ###
 ################################################################################
 PACMAN_KEYS
-INSTALLYAY
+clear
+echo "################################################################################"
+echo "### Which AUR Helper Do You Want To Install?                                 ###"
+echo "### 1)  YAY                                                                  ###"
+echo "### 2)  PARU                                                                 ###"
+echo "################################################################################"
+read case;
+
+case $case in
+  1)
+  INSTALLYAY
+  ;;
+  2)
+  INSTALLPARU
+  ;;
+esac
 SOUNDSETUP
 BLUETOOTHSETUP
 PRINTERSETUP
 clear
 echo "################################################################################"
-echo "Do you want SAMBA network sharing installed?"
-echo "1)  Yes"
-echo "2)  No"
+echo "### Do you want SAMBA network sharing installed?                             ###"
+echo "### 1)  Yes                                                                  ###"
+echo "### 2)  No                                                                   ###"
 echo "################################################################################"
 read case;
 
@@ -936,12 +966,12 @@ UNICODEFIX
 DISPLAYMGR
 clear
 echo "################################################################################"
-echo "What Display manager/Logon manager installed?"
-echo "1)  LightDM"
-echo "2)  Simple Display Manager (SDDM)"
-echo "3)  Gnome Display Manager (GDM)"
-echo "4)  Entrance Display Manager (ENT)"
-echo "5)  None"
+echo "### What Display manager/Logon manager installed?                            ###"
+echo "### 1)  LightDM                                                              ###"
+echo "### 2)  Simple Display Manager (SDDM)                                        ###"
+echo "### 3)  Gnome Display Manager (GDM)                                          ###"
+echo "### 4)  Entrance Display Manager (ENT)                                       ###"
+echo "### 5)  None                                                                 ###"
 echo "################################################################################"
 read case;
 
@@ -969,9 +999,9 @@ case $case in
 esac
 clear
 echo "################################################################################"
-echo "Do you want a Desktop Environment (Gnome, Plasma, etc) installed?"
-echo "1)  Yes"
-echo "2)  No"
+echo "### Do you want a Desktop Environment (Gnome, Plasma, etc) installed?        ###"
+echo "### 1)  Yes                                                                  ###"
+echo "### 2)  No                                                                   ###"
 echo "################################################################################"
 read case;
 
