@@ -62,12 +62,6 @@ function SOUNDSETUP() {
   sudo pacman -S --noconfirm --needed gst-plugins-ugly
   sudo pacman -S --noconfirm --needed volumeicon
   sudo pacman -S --noconfirm --needed playerctl
-  #yay -S --noconfirm --needed alsa-tools
-  #yay -S --noconfirm --needed lib32-apulse
-  #yay -S --noconfirm --needed pulseeffects
-  #yay -S --noconfirm --needed lib32-libpulse
-  #yay -S --noconfirm --needed pulseaudio-jack
-  #yay -S --noconfirm --needed pacmixer
 }
 ################################################################################
 ### Setting Up Bluetooth                                                     ###
@@ -114,7 +108,11 @@ function PRINTERSETUP() {
   sudo pacman -S --noconfirm --needed foomatic-db-engine
   sudo pacman -S --noconfirm --needed foomatic-db-nonfree
   sudo pacman -S --noconfirm --needed foomatic-db-nonfree-ppds
-  yay -S --noconfirm --needed epson-inkjet-printer-escpr
+  if ZB=1 then
+    yay -S --noconfirm --needed epson-inkjet-printer-escpr
+  else
+    paru -S --noconfirm --needed epson-inkjet-printer-escpr
+  fi
   sudo systemctl enable cups.service
 }
 ################################################################################
@@ -234,24 +232,45 @@ function GNOMEEXT() {
   echo "### Installing Gnome Extensions                                              ###"
   echo "################################################################################"
   sleep 2
-  yay -S --noconfirm --needed gnome-shell-extension-dash-to-dock
-  yay -S --noconfirm --needed gnome-shell-extension-dash-to-panel
-  yay -S --noconfirm --needed gnome-shell-extension-arc-menu-git
-  yay -S --noconfirm --needed gnome-shell-extension-openweather-git
-  yay -S --noconfirm --needed gnome-shell-extension-topicons-plus
-  yay -S --noconfirm --needed gnome-shell-extension-audio-output-switcher-git
-  yay -S --noconfirm --needed gnome-shell-extension-clipboard-indicator-git
-  yay -S --noconfirm --needed gnome-shell-extension-coverflow-alt-tab-git
-  yay -S --noconfirm --needed gnome-shell-extension-animation-tweaks-git
-  yay -S --noconfirm --needed gnome-shell-extension-extended-gestures-git
-  yay -S --noconfirm --needed gnome-shell-extension-transparent-window-moving-git
-  yay -S --noconfirm --needed gnome-shell-extension-pop-shell-git pop-shell-shortcuts-git
-  yay -S --noconfirm --needed gnome-alsamixer
-  yay -S --noconfirm --needed gnome-shell-extension-vitals
-  yay -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
-  yay -S --noconfirm --needed gnome-shell-extension-material-shell-git
-  yay -S --noconfirm --needed gnome-shell-extension-slinger-git
-  yay -S --noconfirm --needed gnome-shell-extension-transparent-osd-git
+  if ZB=1 then
+    yay -S --noconfirm --needed gnome-shell-extension-dash-to-dock
+    yay -S --noconfirm --needed gnome-shell-extension-dash-to-panel
+    yay -S --noconfirm --needed gnome-shell-extension-arc-menu-git
+    yay -S --noconfirm --needed gnome-shell-extension-openweather-git
+    yay -S --noconfirm --needed gnome-shell-extension-topicons-plus
+    yay -S --noconfirm --needed gnome-shell-extension-audio-output-switcher-git
+    yay -S --noconfirm --needed gnome-shell-extension-clipboard-indicator-git
+    yay -S --noconfirm --needed gnome-shell-extension-coverflow-alt-tab-git
+    yay -S --noconfirm --needed gnome-shell-extension-animation-tweaks-git
+    yay -S --noconfirm --needed gnome-shell-extension-extended-gestures-git
+    yay -S --noconfirm --needed gnome-shell-extension-transparent-window-moving-git
+    yay -S --noconfirm --needed gnome-shell-extension-pop-shell-git pop-shell-shortcuts-git
+    yay -S --noconfirm --needed gnome-alsamixer
+    yay -S --noconfirm --needed gnome-shell-extension-vitals
+    yay -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
+    yay -S --noconfirm --needed gnome-shell-extension-material-shell-git
+    yay -S --noconfirm --needed gnome-shell-extension-slinger-git
+    yay -S --noconfirm --needed gnome-shell-extension-transparent-osd-git
+  else
+    paru -S --noconfirm --needed gnome-shell-extension-dash-to-dock
+    paru -S --noconfirm --needed gnome-shell-extension-dash-to-panel
+    paru -S --noconfirm --needed gnome-shell-extension-arc-menu-git
+    paru -S --noconfirm --needed gnome-shell-extension-openweather-git
+    paru -S --noconfirm --needed gnome-shell-extension-topicons-plus
+    paru -S --noconfirm --needed gnome-shell-extension-audio-output-switcher-git
+    paru -S --noconfirm --needed gnome-shell-extension-clipboard-indicator-git
+    paru -S --noconfirm --needed gnome-shell-extension-coverflow-alt-tab-git
+    paru -S --noconfirm --needed gnome-shell-extension-animation-tweaks-git
+    paru -S --noconfirm --needed gnome-shell-extension-extended-gestures-git
+    paru -S --noconfirm --needed gnome-shell-extension-transparent-window-moving-git
+    paru -S --noconfirm --needed gnome-shell-extension-pop-shell-git pop-shell-shortcuts-git
+    paru -S --noconfirm --needed gnome-alsamixer
+    paru -S --noconfirm --needed gnome-shell-extension-vitals
+    paru -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
+    paru -S --noconfirm --needed gnome-shell-extension-material-shell-git
+    paru -S --noconfirm --needed gnome-shell-extension-slinger-git
+    paru -S --noconfirm --needed gnome-shell-extension-transparent-osd-git
+  fi
 }
 ################################################################################
 ### Install KDE Plasma DE                                                    ###
@@ -281,10 +300,17 @@ function MATE_DE() {
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
-  yay -S --noconfirm --needed mate-tweak
-  yay -S --noconfirm --needed brisk-menu
-  yay -S --noconfirm --needed mate-screensaver-hacks
-  yay -S --noconfirm --needed mugshot
+  if ZB=1 then
+    yay -S --noconfirm --needed mate-tweak
+    yay -S --noconfirm --needed brisk-menu
+    yay -S --noconfirm --needed mate-screensaver-hacks
+    yay -S --noconfirm --needed mugshot
+  else
+    paru -S --noconfirm --needed mate-tweak
+    paru -S --noconfirm --needed brisk-menu
+    paru -S --noconfirm --needed mate-screensaver-hacks
+    paru -S --noconfirm --needed mugshot
+  fi
 }
 ################################################################################
 ### Installing XFCE DE                                                       ###
@@ -310,19 +336,35 @@ function XFCE_DE() {
   sudo pacman -S --noconfirm --needed nm-connection-editor
   sudo pacman -S --noconfirm --needed network-manager-applet
   sudo pacman -S --noconfirm --needed onboard
-  yay -S --noconfirm --needed xfce4-screensaver
-  yay -S --noconfirm --needed xfce4-panel-profiles-git
-  yay -S --noconfirm --needed mugshot
-  yay -S --noconfirm --needed solarized-dark-themes
-  yay -S --noconfirm --needed gtk-theme-glossyblack
-  yay -S --noconfirm --needed mcos-mjv-xfce-edition
-  yay -S --noconfirm --needed xfce4-theme-switcher
-  yay -S --noconfirm --needed xts-windows10-theme
-  yay -S --noconfirm --needed xts-macos-theme
-  yay -S --noconfirm --needed xts-dark-theme
-  yay -S --noconfirm --needed xts-arcolinux-theme
-  yay -S --noconfirm --needed xts-windowsxp-theme
-  yay -S --noconfirm --needed xts-windows-server-2003-theme
+  if ZB=1 then
+    yay -S --noconfirm --needed xfce4-screensaver
+    yay -S --noconfirm --needed xfce4-panel-profiles-git
+    yay -S --noconfirm --needed mugshot
+    yay -S --noconfirm --needed solarized-dark-themes
+    yay -S --noconfirm --needed gtk-theme-glossyblack
+    yay -S --noconfirm --needed mcos-mjv-xfce-edition
+    yay -S --noconfirm --needed xfce4-theme-switcher
+    yay -S --noconfirm --needed xts-windows10-theme
+    yay -S --noconfirm --needed xts-macos-theme
+    yay -S --noconfirm --needed xts-dark-theme
+    yay -S --noconfirm --needed xts-arcolinux-theme
+    yay -S --noconfirm --needed xts-windowsxp-theme
+    yay -S --noconfirm --needed xts-windows-server-2003-theme
+  else
+    paru -S --noconfirm --needed xfce4-screensaver
+    paru -S --noconfirm --needed xfce4-panel-profiles-git
+    paru -S --noconfirm --needed mugshot
+    paru -S --noconfirm --needed solarized-dark-themes
+    paru -S --noconfirm --needed gtk-theme-glossyblack
+    paru -S --noconfirm --needed mcos-mjv-xfce-edition
+    paru -S --noconfirm --needed xfce4-theme-switcher
+    paru -S --noconfirm --needed xts-windows10-theme
+    paru -S --noconfirm --needed xts-macos-theme
+    paru -S --noconfirm --needed xts-dark-theme
+    paru -S --noconfirm --needed xts-arcolinux-theme
+    paru -S --noconfirm --needed xts-windowsxp-theme
+    paru -S --noconfirm --needed xts-windows-server-2003-theme
+  fi
 }
 ################################################################################
 ### Installing Budgie DE                                                     ###
@@ -939,9 +981,11 @@ read case;
 case $case in
   1)
   INSTALLYAY
+  ZB=1
   ;;
   2)
   INSTALLPARU
+  ZB=0
   ;;
 esac
 SOUNDSETUP
