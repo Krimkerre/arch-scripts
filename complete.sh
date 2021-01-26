@@ -228,24 +228,24 @@ function GNOMEEXT() {
   echo "### Installing Gnome Extensions                                              ###"
   echo "################################################################################"
   sleep 2
-  yay -S --noconfirm --needed gnome-shell-extension-dash-to-dock
-  yay -S --noconfirm --needed gnome-shell-extension-dash-to-panel
-  yay -S --noconfirm --needed gnome-shell-extension-arc-menu-git
-  yay -S --noconfirm --needed gnome-shell-extension-openweather-git
-  yay -S --noconfirm --needed gnome-shell-extension-topicons-plus
-  yay -S --noconfirm --needed gnome-shell-extension-audio-output-switcher-git
-  yay -S --noconfirm --needed gnome-shell-extension-clipboard-indicator-git
-  yay -S --noconfirm --needed gnome-shell-extension-coverflow-alt-tab-git
-  yay -S --noconfirm --needed gnome-shell-extension-animation-tweaks-git
-  yay -S --noconfirm --needed gnome-shell-extension-extended-gestures-git
-  yay -S --noconfirm --needed gnome-shell-extension-transparent-window-moving-git
-  yay -S --noconfirm --needed gnome-shell-extension-pop-shell-git pop-shell-shortcuts-git
-  yay -S --noconfirm --needed gnome-alsamixer
-  yay -S --noconfirm --needed gnome-shell-extension-vitals
-  yay -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
-  yay -S --noconfirm --needed gnome-shell-extension-material-shell-git
-  yay -S --noconfirm --needed gnome-shell-extension-slinger-git
-  yay -S --noconfirm --needed gnome-shell-extension-transparent-osd-git
+  $ZB -S --noconfirm --needed gnome-shell-extension-dash-to-dock
+  $ZB -S --noconfirm --needed gnome-shell-extension-dash-to-panel
+  $ZB -S --noconfirm --needed gnome-shell-extension-arc-menu-git
+  $ZB -S --noconfirm --needed gnome-shell-extension-openweather-git
+  $ZB -S --noconfirm --needed gnome-shell-extension-topicons-plus
+  $ZB -S --noconfirm --needed gnome-shell-extension-audio-output-switcher-git
+  $ZB -S --noconfirm --needed gnome-shell-extension-clipboard-indicator-git
+  $ZB -S --noconfirm --needed gnome-shell-extension-coverflow-alt-tab-git
+  $ZB -S --noconfirm --needed gnome-shell-extension-animation-tweaks-git
+  $ZB -S --noconfirm --needed gnome-shell-extension-extended-gestures-git
+  $ZB -S --noconfirm --needed gnome-shell-extension-transparent-window-moving-git
+  $ZB -S --noconfirm --needed gnome-shell-extension-pop-shell-git pop-shell-shortcuts-git
+  $ZB -S --noconfirm --needed gnome-alsamixer
+  $ZB -S --noconfirm --needed gnome-shell-extension-vitals
+  $ZB -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
+  $ZB -S --noconfirm --needed gnome-shell-extension-material-shell-git
+  $ZB -S --noconfirm --needed gnome-shell-extension-slinger-git
+  $ZB -S --noconfirm --needed gnome-shell-extension-transparent-osd-git
 }
 ################################################################################
 ### Install KDE Plasma DE                                                    ###
@@ -275,10 +275,10 @@ function MATE_DE() {
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
-  yay -S --noconfirm --needed mate-tweak
-  yay -S --noconfirm --needed brisk-menu
-  yay -S --noconfirm --needed mate-screensaver-hacks
-  yay -S --noconfirm --needed mugshot
+  $ZB -S --noconfirm --needed mate-tweak
+  $ZB -S --noconfirm --needed brisk-menu
+  $ZB -S --noconfirm --needed mate-screensaver-hacks
+  $ZB -S --noconfirm --needed mugshot
 }
 ################################################################################
 ### Installing XFCE DE                                                       ###
@@ -304,19 +304,19 @@ function XFCE_DE() {
   sudo pacman -S --noconfirm --needed nm-connection-editor
   sudo pacman -S --noconfirm --needed network-manager-applet
   sudo pacman -S --noconfirm --needed onboard
-  yay -S --noconfirm --needed xfce4-screensaver
-  yay -S --noconfirm --needed xfce4-panel-profiles-git
-  yay -S --noconfirm --needed mugshot
-  yay -S --noconfirm --needed solarized-dark-themes
-  yay -S --noconfirm --needed gtk-theme-glossyblack
-  yay -S --noconfirm --needed mcos-mjv-xfce-edition
-  yay -S --noconfirm --needed xfce4-theme-switcher
-  yay -S --noconfirm --needed xts-windows10-theme
-  yay -S --noconfirm --needed xts-macos-theme
-  yay -S --noconfirm --needed xts-dark-theme
-  yay -S --noconfirm --needed xts-arcolinux-theme
-  yay -S --noconfirm --needed xts-windowsxp-theme
-  yay -S --noconfirm --needed xts-windows-server-2003-theme
+  $ZB -S --noconfirm --needed xfce4-screensaver
+  $ZB -S --noconfirm --needed xfce4-panel-profiles-git
+  $ZB -S --noconfirm --needed mugshot
+  $ZB -S --noconfirm --needed solarized-dark-themes
+  $ZB -S --noconfirm --needed gtk-theme-glossyblack
+  $ZB -S --noconfirm --needed mcos-mjv-xfce-edition
+  $ZB -S --noconfirm --needed xfce4-theme-switcher
+  $ZB -S --noconfirm --needed xts-windows10-theme
+  $ZB -S --noconfirm --needed xts-macos-theme
+  $ZB -S --noconfirm --needed xts-dark-theme
+  $ZB -S --noconfirm --needed xts-arcolinux-theme
+  $ZB -S --noconfirm --needed xts-windowsxp-theme
+  $ZB -S --noconfirm --needed xts-windows-server-2003-theme
 }
 ################################################################################
 ### Installing Budgie DE                                                     ###
@@ -358,8 +358,8 @@ function CINNAMON_DE() {
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
-  yay -S --noconfirm --needed mint-themes
-  yay -S --noconfirm --needed cinnamon-sound-effects
+  $ZB -S --noconfirm --needed mint-themes
+  $ZB -S --noconfirm --needed cinnamon-sound-effects
 }
 ################################################################################
 ### Install The LXDE DE                                                      ###
@@ -378,7 +378,7 @@ function LXDE_DE() {
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
-  yay -S --noconfirm --needed mugshot
+  $ZB -S --noconfirm --needed mugshot
 }
 ################################################################################
 ### Install The LXQT DE                                                      ###
@@ -424,10 +424,10 @@ function I3_DE() {
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed scrot
   sudo pacman -S --noconfirm --needed lxappearance-gtk3
-  yay -S --noconfirm --needed mugshot
-  yay -S --noconfirm --needed i3exit
-  yay -S --noconfirm --needed ttf-font-awesome
-  #yay -S --noconfirm --needed betterlockscreen
+  $ZB -S --noconfirm --needed mugshot
+  $ZB -S --noconfirm --needed i3exit
+  $ZB -S --noconfirm --needed ttf-font-awesome
+  #$ZB -S --noconfirm --needed betterlockscreen
   mkdir ~/.config/i3
   cd ~/.config/i3
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-i3
@@ -450,8 +450,8 @@ function ENLIGHTENMENT_DE() {
   sudo pacman -S --noconfirm --needed acpid
   sudo pacman -S --noconfirm --needed xfce4-terminal
   sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
-  yay -S --noconfirm --needed econnman
-  yay -S --noconfirm --needed esound
+  $ZB -S --noconfirm --needed econnman
+  $ZB -S --noconfirm --needed esound
   sudo systemctl enable connman
   sudo systemctl enable acpid
 }
@@ -498,7 +498,7 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed network-manager-applet
-  yay -S --noconfirm --needed polybar
+  $ZB -S --noconfirm --needed polybar
   mkdir ~/.config/bspwm
   mkdir ~/.config/sxhkd
   mkdir ~/.config/polybar
@@ -521,13 +521,13 @@ function LIGHTDM_INSTALL() {
   sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
   sudo pacman -S --noconfirm --needed lightdm-webkit-theme-litarvan
   sudo pacman -S --noconfirm --needed lightdm-webkit2-greeter
-  yay -S --noconfirm --needed lightdm-webkit2-theme-material2
-  yay -S --noconfirm --needed lightdm-webkit-theme-aether
-  yay -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
-  yay -S --noconfirm --needed lightdm-webkit-theme-contemporary
-  yay -S --noconfirm --needed lightdm-webkit2-theme-sapphire
-  yay -S --noconfirm --needed lightdm-webkit2-theme-obsidian
+  $ZB -S --noconfirm --needed lightdm-webkit2-theme-material2
+  $ZB -S --noconfirm --needed lightdm-webkit-theme-aether
+  $ZB -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
+  $ZB -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
+  $ZB -S --noconfirm --needed lightdm-webkit-theme-contemporary
+  $ZB -S --noconfirm --needed lightdm-webkit2-theme-sapphire
+  $ZB -S --noconfirm --needed lightdm-webkit2-theme-obsidian
   sudo systemctl enable lightdm.service -f
   sudo systemctl set-default graphical.target
 }
@@ -564,7 +564,7 @@ function ENTRANCE_INSTALL() {
   echo "### Installing The Entrance Login Manager                                    ###"
   echo "################################################################################"
   sleep 2
-  yay -S --noconfirm --needed entrance-git
+  $ZB -S --noconfirm --needed entrance-git
   sudo systemctl enable entrance
 }
 ################################################################################
@@ -686,11 +686,11 @@ function AMD_DRIVERS() {
   echo "### Installing AMD Video Drivers                                             ###"
   echo "################################################################################"
   sleep 2
-  #yay -S --noconfirm --needed amdgpu-pro-libgl
-  #yay -S --noconfirm --needed lib32-amdgpu-pro-libgl
-  #yay -S --noconfirm --needed amdvlk
-  #yay -S --noconfirm --needed lib32-amdvlk
-  yay -S --noconfirm --needed opencl-amd
+  #$ZB -S --noconfirm --needed amdgpu-pro-libgl
+  #$ZB -S --noconfirm --needed lib32-amdgpu-pro-libgl
+  #$ZB -S --noconfirm --needed amdvlk
+  #$ZB -S --noconfirm --needed lib32-amdvlk
+  $ZB -S --noconfirm --needed opencl-amd
   echo "##############################################################################"
   echo "### Congrats On Supporting Open Source GPU Vendor                          ###"
   echo "##############################################################################"
@@ -705,9 +705,9 @@ function SOUNDFILES() {
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed deepin-sound-theme
-  yay -S --noconfirm --needed sound-theme-smooth
-  yay -S --noconfirm --needed sound-theme-elementary-git
-  yay -S --noconfirm --needed yaru-sound-theme
+  $ZB -S --noconfirm --needed sound-theme-smooth
+  $ZB -S --noconfirm --needed sound-theme-elementary-git
+  $ZB -S --noconfirm --needed yaru-sound-theme
 }
 ################################################################################
 ### Install More Fonts                                                       ###
@@ -734,9 +734,9 @@ function FONTINSTALL() {
   sudo pacman -S --noconfirm --needed ttf-font-awesome
   sudo pacman -S --noconfirm --needed ttf-hack
   sudo pacman -S --noconfirm --needed ttf-ibm-plex
-  yay -S --noconfirm --needed ttf-ms-fonts
-  yay -S --noconfirm --needed steam-fonts
-  yay -S --noconfirm --needed ttf-mac-fonts
+  $ZB -S --noconfirm --needed ttf-ms-fonts
+  $ZB -S --noconfirm --needed steam-fonts
+  $ZB -S --noconfirm --needed ttf-mac-fonts
 }
 ################################################################################
 ### Software To Install (My Standard Applications)                           ###
@@ -759,8 +759,8 @@ function SOFTWAREINSTALLSTD() {
   sudo pacman -S --noconfirm --needed kdenlive
   sudo pacman -S --noconfirm --needed aspell-en
   sudo pacman -S --noconfirm --needed youtube-dl
-  yay -S --noconfirm --needed tuned
-  yay -S --noconfirm --needed bpytop
+  $ZB -S --noconfirm --needed tuned
+  $ZB -S --noconfirm --needed bpytop
   #sudo systemctl enable tuned.service
 }
 ################################################################################
@@ -775,27 +775,27 @@ function SOFTWAREINSTALLEXTRA() {
   #3d Printer
   sudo pacman -S --noconfirm --needed cura
   sudo pacman -S --noconfirm --needed prusa-slicer
-  yay -S --noconfirm --needed mattercontrol
+  $ZB -S --noconfirm --needed mattercontrol
   #Accessories
   sudo pacman -S --noconfirm --needed cool-retro-term
-  yay -S --noconfirm --needed isomaster
-  yay -S --noconfirm --needed multibootusb-git
-  yay -S --noconfirm --needed ventoy-bin
-  yay -S --noconfirm --needed mintstick-git
-  yay -S --noconfirm --needed rpi-imager
+  $ZB -S --noconfirm --needed isomaster
+  $ZB -S --noconfirm --needed multibootusb-git
+  $ZB -S --noconfirm --needed ventoy-bin
+  $ZB -S --noconfirm --needed mintstick-git
+  $ZB -S --noconfirm --needed rpi-imager
   #Chat
   sudo pacman -S --noconfirm --needed hexchat
   sudo pacman -S --noconfirm --needed teamspeak3
   sudo pacman -S --noconfirm --needed telegram-desktop
-  yay -S --noconfirm --needed skypeforlinux-preview-bin
-  yay -S --noconfirm --needed zoom
-  yay -S --noconfirm --needed discord
+  $ZB-S --noconfirm --needed skypeforlinux-preview-bin
+  $ZB -S --noconfirm --needed zoom
+  $ZB -S --noconfirm --needed discord
   #Games
   sudo pacman -S --noconfirm --needed extremetuxracer
   sudo pacman -S --noconfirm --needed supertux
   sudo pacman -S --noconfirm --needed supertuxkart
-  yay -S --noconfirm --needed gamemode lib32-gamemode
-  yay -S --noconfirm --needed minecraft
+  $ZB -S --noconfirm --needed gamemode lib32-gamemode
+  $ZB -S --noconfirm --needed minecraft
   #Graphics
   sudo pacman -S --noconfirm --needed librecad
   sudo pacman -S --noconfirm --needed darktable
@@ -805,7 +805,7 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed openscad
   sudo pacman -S --noconfirm --needed luminancehdr
   sudo pacman -S --noconfirm --needed freecad
-  yay -S --noconfirm --needed drawio-desktop
+  $ZB -S --noconfirm --needed drawio-desktop
   #Internet
   sudo pacman -S --noconfirm --needed transmission-gtk
   sudo pacman -S --noconfirm --needed fragments
@@ -822,9 +822,9 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed shotcut
   sudo pacman -S --noconfirm --needed quodlibet
   sudo pacman -S --noconfirm --needed vlc
-  yay -S --noconfirm --needed makemkv
-  yay -S --noconfirm --needed olive
-  yay -S --noconfirm --needed lbry-app-bin
+  $ZB -S --noconfirm --needed makemkv
+  $ZB -S --noconfirm --needed olive
+  $ZB -S --noconfirm --needed lbry-app-bin
   #System Utilities
   sudo pacman -S --noconfirm --needed cockpit cockpit-machines cockpit-pcp cockpit-podman
   sudo pacman -S --noconfirm --needed syncthing-gtk
@@ -835,21 +835,21 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed virglrenderer
   sudo pacman -S --noconfirm --needed qemu-arch-extra
   sudo pacman -S --noconfirm --needed qemu-guest-agent
-  yay -S --noconfirm --needed ovmf
-  yay -S --noconfirm --needed virtio-win
-  yay -S --noconfirm --needed libguestfs
+  $ZB -S --noconfirm --needed ovmf
+  $ZB -S --noconfirm --needed virtio-win
+  $ZB -S --noconfirm --needed libguestfs
   sudo pacman -S --noconfirm --needed pacmanlogviewer
   sudo pacman -S --noconfirm --needed exfat-utils
   sudo pacman -S --noconfirm --needed hardinfo
   sudo pacman -S --noconfirm --needed deluge
   sudo pacman -S --noconfirm --needed plank
-  #yay -S --noconfirm --needed plank-theme-arc plank-theme-numix plank-theme-namor unity-like-plank-theme
+  #$ZB -S --noconfirm --needed plank-theme-arc plank-theme-numix plank-theme-namor unity-like-plank-theme
   sudo pacman -S --noconfirm --needed cairo-dock cairo-dock-plug-ins
-  yay -S --noconfirm --needed cairo-dock-themes cairo-dock-plug-ins-extras
-  yay -S --noconfirm --needed dxvk-bin
-  yay -S --noconfirm --needed timeshift
-  yay -S --noconfirm --needed stacer
-  yay -S --noconfirm --needed protontricks
+  $ZB -S --noconfirm --needed cairo-dock-themes cairo-dock-plug-ins-extras
+  $ZB -S --noconfirm --needed dxvk-bin
+  $ZB -S --noconfirm --needed timeshift
+  $ZB -S --noconfirm --needed stacer
+  $ZB -S --noconfirm --needed protontricks
 }
 ################################################################################
 ### Set up login                                                             ###
