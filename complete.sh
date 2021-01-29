@@ -485,7 +485,7 @@ function SWAY_DE() {
 function BSPWM_DE() {
   clear
   echo "################################################################################"
-  echo "### Installing The BSPWM Tiling Window Manager                                ###"
+  echo "### Installing The BSPWM Tiling Window Manager                               ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed bspwm
@@ -515,7 +515,7 @@ function BSPWM_DE() {
 function FVWM_DE() {
   clear
   echo "################################################################################"
-  echo "### Installing The BSPWM Tiling Window Manager                                ###"
+  echo "### Installing The FVWM Window Manager                                       ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed fvwm
@@ -524,7 +524,7 @@ function FVWM_DE() {
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed picom
-  #sudo pacman -S --noconfirm --needed archlinux-xdg-menu
+  sudo pacman -S --noconfirm --needed archlinux-xdg-menu
 }
 ################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
@@ -925,7 +925,7 @@ function LOGIN_SETUP() {
   if [[ $DE == "BSPWM" ]]; then
     echo "exec bspwm" >> .xinitrc
   fi
-  if [[ $DE == "FVWM " ]]; then
+  if [[ $DE == "FVWM" ]]; then
     echo "exec fvwm" >> .xinitrc
   fi
 }
