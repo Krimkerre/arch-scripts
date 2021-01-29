@@ -814,7 +814,7 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed hexchat
   sudo pacman -S --noconfirm --needed teamspeak3
   sudo pacman -S --noconfirm --needed telegram-desktop
-  $ZB-S --noconfirm --needed skypeforlinux-preview-bin
+  $ZB -S --noconfirm --needed skypeforlinux-preview-bin
   $ZB -S --noconfirm --needed zoom
   $ZB -S --noconfirm --needed discord
   #Games
