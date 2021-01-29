@@ -510,6 +510,23 @@ function BSPWM_DE() {
   chmod +x ~/.config/polybar/config
 }
 ################################################################################
+### Install the FVWM Window Manager                                          ###
+################################################################################
+function FVWM_DE() {
+  clear
+  echo "################################################################################"
+  echo "### Installing The BSPWM Tiling Window Manager                                ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman -S --noconfirm --needed fvwm
+  sudo pacman -S --noconfirm --needed nitrogen
+  sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed arandr
+  sudo pacman -S --noconfirm --needed picom
+  #sudo pacman -S --noconfirm --needed archlinux-xdg-menu
+}
+################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
 ################################################################################
 function LIGHTDM_INSTALL() {
@@ -586,8 +603,9 @@ function DE_SELECTION() {
   echo "### 10) i3                                                                 ###"
   echo "### 11) Enlightenment                                                      ###"
   echo "### 12) Sway                                                               ###"
-  echo "### 13) Bspwm                                                              ###"
-  echo "### 14) None                                                               ###"
+  echo "### 13) Bspwm  (currently broken on Arch)                                  ###"
+  echo "### 14) FVWM                                                               ###"
+  echo "### 15) None                                                               ###"
   echo "##############################################################################"
   read case;
 
@@ -645,6 +663,10 @@ function DE_SELECTION() {
     DE="BSPWM"
     ;;
     14)
+    FVWM_DE
+    DE="FVWM"
+    ;;
+    15)
     clear
     echo "##############################################################################"
     echo "### You Have Selected None                                                 ###"
@@ -902,6 +924,9 @@ function LOGIN_SETUP() {
   fi
   if [[ $DE == "BSPWM" ]]; then
     echo "exec bspwm" >> .xinitrc
+  fi
+  if [[ $DE == "FVWM " ]]; then
+    echo "exec fvwm" >> .xinitrc
   fi
 }
 ################################################################################
