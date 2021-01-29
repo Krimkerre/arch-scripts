@@ -550,6 +550,7 @@ function ICEWM_DE() {
   sudo pacman -S --noconfirm --needed icewm
   sudo pacman -S --noconfirm --needed nitrogen
   sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
+  sudo pacman -S --noconfirm --needed xfce4-terminal
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed picom
