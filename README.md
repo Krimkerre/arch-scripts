@@ -16,7 +16,7 @@ I am currently re-working both scripts to add and make more sense of them for wh
 
 To use this script do the following:
 Boot from Arch ISO
-Type: wget http://raw.githubusrcontent.com/lotw69/arch-scripts/master/base.sh  (if wget fails, pacman -Sy, then pacman -S wget)
+Type: wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/base.sh  (if wget fails, pacman -Sy, then pacman -S wget)
 Type: chmod +x *.sh
 Type: ./base.sh
 Follow instructions, when completed it will copy the setup.sh automatically to the user directory
