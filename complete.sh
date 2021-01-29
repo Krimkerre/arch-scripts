@@ -445,6 +445,7 @@ function ENLIGHTENMENT_DE() {
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed enlightenment efl efl-docs
+  sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed acpid
@@ -476,6 +477,7 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed alacritty
   sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
   sudo pacman -S --noconfirm --needed network-manager-applet
+  sudo pacman -S --noconfirm --needed gnome-disk-utility
   mkdir .config/sway
   cp /etc/sway/config .config/sway/config
 }
@@ -498,6 +500,7 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed network-manager-applet
+  sudo pacman -S --noconfirm --needed gnome-disk-utility
   $ZB -S --noconfirm --needed polybar
   mkdir ~/.config/bspwm
   mkdir ~/.config/sxhkd
@@ -525,11 +528,50 @@ function FVWM_DE() {
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed archlinux-xdg-menu
+  sudo pacman -S --noconfirm --needed gnome-disk-utility
+  sudo pacman -S --noconfirm --needed network-manager-applet
   mkdir .fvwm
   cd .fvwm
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-fvwm
   cp config-fvwm config
   cd ..
+}
+################################################################################
+### Install the IceWM Window Manager                                         ###
+################################################################################
+function ICEWM_DE() {
+  clear
+  echo "################################################################################"
+  echo "### Installing The FVWM Window Manager                                       ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman -S --noconfirm --needed icewm
+  sudo pacman -S --noconfirm --needed nitrogen
+  sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed arandr
+  sudo pacman -S --noconfirm --needed picom
+  sudo pacman -S --noconfirm --needed archlinux-xdg-menu
+  sudo pacman -S --noconfirm --needed gnome-disk-utility
+  sudo pacman -S --noconfirm --needed network-manager-applet
+  mkdir .icewm
+  cp -R /usr/share/icewm/* ~/.icewm/
+  cd ~/.icewm
+  echo "#!/bin/bash" >> startup
+  echo "" >> startup
+  echo "# Start Network Manager" >> startup
+  echo "sleep 1 &&" >> startup
+  echo "nm-applet &" >> startup
+  echo "" >> startup
+  echo "# Start-up programs" >> startup
+  echo "picom &" >> startup
+  echo "nitrogen --random --set-zoom-fill &" >> startup
+  echo "" >> startup
+  echo "# Allow Notifications" >> startup
+  echo "/usr/lib/notification-daemon-1.0/notification-daemon &" >> startup
+  chmod +x startup
+  cd ..
+
 }
 ################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
@@ -610,7 +652,8 @@ function DE_SELECTION() {
   echo "### 12) Sway                                                               ###"
   echo "### 13) Bspwm  (currently broken on Arch)                                  ###"
   echo "### 14) FVWM                                                               ###"
-  echo "### 15) None                                                               ###"
+  echo "### 15) IceWM                                                              ###"
+  echo "### 16) None                                                               ###"
   echo "##############################################################################"
   read case;
 
@@ -672,6 +715,10 @@ function DE_SELECTION() {
     DE="FVWM"
     ;;
     15)
+    ICEWM_DE
+    DE="ICEWM"
+    ;;
+    16)
     clear
     echo "##############################################################################"
     echo "### You Have Selected None                                                 ###"
@@ -932,6 +979,9 @@ function LOGIN_SETUP() {
   fi
   if [[ $DE == "FVWM" ]]; then
     echo "exec fvwm" >> .xinitrc
+  fi
+  if [[ $DE == "ICEWM" ]]; then
+    echo "exec icewm-session" >> .xinitrc
   fi
 }
 ################################################################################
