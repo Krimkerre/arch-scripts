@@ -6,7 +6,7 @@ They are constantly being updated right now and are mainly for me, but you can u
 If you would like to help make this script better or have any suggestions please let me know, I am new at doing this so I am willing to listen and learn.
 
 ****** WARNING *****
-If you run the install script it will completely format your drive defined in the installer.sh file.  Please edit that file and be careful to know what you are doing or have that drive you want to install to installed only.
+If you run the install script it will completely format your drive defined in the base.sh file.  Please edit that file and be careful to know what you are doing or have that drive you want to install to installed only.
 ***************************************************************************************************************************
 
 ********************************* NEWS ****************************
