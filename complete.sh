@@ -869,7 +869,7 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed supertux
   sudo pacman -S --noconfirm --needed supertuxkart
   $ZB -S --noconfirm --needed gamemode lib32-gamemode
-  $ZB -S --noconfirm --needed minecraft
+  $ZB -S --noconfirm --needed minecraft-launcher
   #Graphics
   sudo pacman -S --noconfirm --needed librecad
   sudo pacman -S --noconfirm --needed darktable
