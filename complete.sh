@@ -526,7 +526,7 @@ function FVWM_DE() {
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed archlinux-xdg-menu
   mkdir .fvwm
-  cd fvwm
+  cd .fvwm
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-fvwm
   cp config-fvwm config
   cd ..
