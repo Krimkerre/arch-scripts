@@ -35,7 +35,7 @@ function INSTALLPARU() {
   makepkg -si --noconfirm --needed
   cd ..
   rm paru -R -f
-  sudo sed 's/#BottomUp/BottomUp/' >> /etc/paru.conf
+  sudo sed 's/#BottomUp/BottomUp/' /etc/paru.conf
 }
 ################################################################################
 ### Setting Up Sound                                                         ###
