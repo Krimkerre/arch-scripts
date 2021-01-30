@@ -584,7 +584,7 @@ function PEKWM_DE() {
   echo "### Installing The PekWM Window Manager                                      ###"
   echo "################################################################################"
   sleep 2
-  sudo pacman -S --noconfirm --needed pekwm
+  sudo pacman -S --noconfirm --needed pekwm pekwm-themes
   sudo pacman -S --noconfirm --needed menumaker
   sudo pacman -S --noconfirm --needed nitrogen
   sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
@@ -744,7 +744,7 @@ function DE_SELECTION() {
     ;;
     16)
     PEKWM_DE
-    DE="PEKDM"
+    DE="PEKWM"
     ;;
     17)
     clear
