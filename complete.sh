@@ -581,7 +581,7 @@ function ICEWM_DE() {
 function PEKWM_DE() {
   clear
   echo "################################################################################"
-  echo "### Installing The FVWM Window Manager                                       ###"
+  echo "### Installing The PekWM Window Manager                                      ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed pekwm
