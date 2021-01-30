@@ -574,7 +574,27 @@ function ICEWM_DE() {
   echo "/usr/lib/notification-daemon-1.0/notification-daemon &" >> startup
   chmod +x startup
   cd ..
-
+}
+################################################################################
+### Install the PekWM Window Manager                                         ###
+################################################################################
+function PEKWM_DE() {
+  clear
+  echo "################################################################################"
+  echo "### Installing The FVWM Window Manager                                       ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman -S --noconfirm --needed pekwm
+  sudo pacman -S --noconfirm --needed menumaker
+  sudo pacman -S --noconfirm --needed nitrogen
+  sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
+  sudo pacman -S --noconfirm --needed xfce4-terminal
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed arandr
+  sudo pacman -S --noconfirm --needed picom
+  sudo pacman -S --noconfirm --needed archlinux-xdg-menu
+  sudo pacman -S --noconfirm --needed gnome-disk-utility
+  sudo pacman -S --noconfirm --needed network-manager-applet
 }
 ################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
@@ -656,7 +676,8 @@ function DE_SELECTION() {
   echo "### 13) Bspwm  (currently broken on Arch)                                  ###"
   echo "### 14) FVWM                                                               ###"
   echo "### 15) IceWM                                                              ###"
-  echo "### 16) None                                                               ###"
+  echo "### 16) PekWM                                                              ###"
+  echo "### 17) None                                                               ###"
   echo "##############################################################################"
   read case;
 
@@ -722,6 +743,10 @@ function DE_SELECTION() {
     DE="ICEWM"
     ;;
     16)
+    PEKWM_DE
+    DE="PEKDM"
+    ;;
+    17)
     clear
     echo "##############################################################################"
     echo "### You Have Selected None                                                 ###"
@@ -985,6 +1010,9 @@ function LOGIN_SETUP() {
   fi
   if [[ $DE == "ICEWM" ]]; then
     echo "exec icewm-session" >> .xinitrc
+  fi
+  if [[ $DE == "PEKWM" ]]; then
+    echo "exec pekwm" >> .xinitrc
   fi
 }
 ################################################################################
