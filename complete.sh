@@ -595,6 +595,14 @@ function PEKWM_DE() {
   sudo pacman -S --noconfirm --needed archlinux-xdg-menu
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed network-manager-applet
+  mkdir .pekwm
+  cd .pekwm
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/vars-pekwm
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/start-pekwm
+  cp vars-pekwm vars
+  cp start-pekwm start
+  chmod +x start
+  cd ..
 }
 ################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
