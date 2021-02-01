@@ -605,6 +605,24 @@ function PEKWM_DE() {
   cd ..
 }
 ################################################################################
+### Install the Afterstep Desktop                                            ###
+################################################################################
+function AFTERSTEP_DE() {
+  clear
+  echo "################################################################################"
+  echo "### Installing The PekWM Window Manager                                      ###"
+  echo "################################################################################"
+  sleep 2
+  $ZB afterstep wmbluecpu wmblueclock wmbluemem
+  sudo pacman -S --noconfirm --needed nitrogen
+  sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
+  sudo pacman -S --noconfirm --needed xfce4-terminal
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed arandr
+  sudo pacman -S --noconfirm --needed picom
+  sudo pacman -S --noconfirm --needed gnome-disk-utility
+}
+################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
 ################################################################################
 function LIGHTDM_INSTALL() {
@@ -685,7 +703,8 @@ function DE_SELECTION() {
   echo "### 14) FVWM                                                               ###"
   echo "### 15) IceWM                                                              ###"
   echo "### 16) PekWM                                                              ###"
-  echo "### 17) None                                                               ###"
+  echo "### 17) Afterstep                                                          ###"
+  echo "### 18) None                                                               ###"
   echo "##############################################################################"
   read case;
 
@@ -755,6 +774,10 @@ function DE_SELECTION() {
     DE="PEKWM"
     ;;
     17)
+    AFTERSTEP_DE
+    DE="AFTERSTEP"
+    ;;
+    18)
     clear
     echo "##############################################################################"
     echo "### You Have Selected None                                                 ###"
@@ -1021,6 +1044,10 @@ function LOGIN_SETUP() {
   fi
   if [[ $DE == "PEKWM" ]]; then
     echo "exec pekwm" >> .xinitrc
+  fi
+  if [[ $DE == "AFTERSTEP" ]]; then
+    echo "exec picom &" >> .xinitrc
+    echo "exec afterstep" >> .xinitrc
   fi
 }
 ################################################################################
