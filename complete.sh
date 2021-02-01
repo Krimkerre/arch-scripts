@@ -610,10 +610,10 @@ function PEKWM_DE() {
 function AFTERSTEP_DE() {
   clear
   echo "################################################################################"
-  echo "### Installing The PekWM Window Manager                                      ###"
+  echo "### Installing The Afterstep                                                 ###"
   echo "################################################################################"
   sleep 2
-  $ZB afterstep wmbluecpu wmblueclock wmbluemem
+  $ZB -S --noconfirm --needed afterstep wmbluecpu wmblueclock wmbluemem
   sudo pacman -S --noconfirm --needed nitrogen
   sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
   sudo pacman -S --noconfirm --needed xfce4-terminal
