@@ -623,6 +623,27 @@ function AFTERSTEP_DE() {
   sudo pacman -S --noconfirm --needed gnome-disk-utility
 }
 ################################################################################
+### Install the Blackbox  Desktop                                            ###
+################################################################################
+function BLACKBOX_DE() {
+  clear
+  echo "################################################################################"
+  echo "### Installing The Blackbox                                                  ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman -S --noconfirm --needed blackbox bbpager
+  sudo pacman -S --noconfirm --needed nitrogen
+  sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
+  sudo pacman -S --noconfirm --needed xfce4-terminal
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed arandr
+  sudo pacman -S --noconfirm --needed picom
+  sudo pacman -S --noconfirm --needed gnome-disk-utility
+  sudo pacman -S --noconfirm --needed menumaker
+  $ZB -S --noconfirm --needed idesk blackbox-explorer
+  mkdir .blackbox
+}
+################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
 ################################################################################
 function LIGHTDM_INSTALL() {
@@ -704,7 +725,8 @@ function DE_SELECTION() {
   echo "### 15) IceWM                                                              ###"
   echo "### 16) PekWM                                                              ###"
   echo "### 17) Afterstep                                                          ###"
-  echo "### 18) None                                                               ###"
+  echo "### 18) Blackbox                                                           ###"
+  echo "### 19) None                                                               ###"
   echo "##############################################################################"
   read case;
 
@@ -778,6 +800,10 @@ function DE_SELECTION() {
     DE="AFTERSTEP"
     ;;
     18)
+    BLACKBOX_DE
+    DE="BLACKBOX"
+    ;;
+    19)
     clear
     echo "##############################################################################"
     echo "### You Have Selected None                                                 ###"
@@ -1048,6 +1074,10 @@ function LOGIN_SETUP() {
   if [[ $DE == "AFTERSTEP" ]]; then
     echo "exec picom &" >> .xinitrc
     echo "exec afterstep" >> .xinitrc
+  fi
+  if [[ $DE == "BLACKBOX" ]]; then
+    echo "exec picom &" >> .xinitrc
+    echo "exec blackbox" >> .xinitrc
   fi
 }
 ################################################################################
