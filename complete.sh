@@ -642,6 +642,8 @@ function BLACKBOX_DE() {
   sudo pacman -S --noconfirm --needed menumaker
   $ZB -S --noconfirm --needed idesk blackbox-explorer
   mkdir .blackbox
+  echo "session.styleFile:/usr/share/blackbox/styles/Gray" >> ~/.blackboxrc
+  echo "session.menuFile:~/.blackbox/menu" >> ~/.blackboxrc
 }
 ################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
