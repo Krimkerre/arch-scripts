@@ -532,6 +532,7 @@ function FVWM_DE() {
   sudo pacman -S --noconfirm --needed archlinux-xdg-menu
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed network-manager-applet
+  sudo pacman -S --noconfirm --needed lxappearance
   mkdir .fvwm
   cd .fvwm
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-fvwm
@@ -544,7 +545,7 @@ function FVWM_DE() {
 function ICEWM_DE() {
   clear
   echo "################################################################################"
-  echo "### Installing The FVWM Window Manager                                       ###"
+  echo "### Installing The IceWM Window Manager                                      ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed icewm
@@ -557,6 +558,7 @@ function ICEWM_DE() {
   sudo pacman -S --noconfirm --needed archlinux-xdg-menu
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed network-manager-applet
+  sudo pacman -S --noconfirm --needed lxappearance
   mkdir .icewm
   cp -R /usr/share/icewm/* ~/.icewm/
   cd ~/.icewm
@@ -595,6 +597,7 @@ function PEKWM_DE() {
   sudo pacman -S --noconfirm --needed archlinux-xdg-menu
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed network-manager-applet
+  sudo pacman -S --noconfirm --needed lxappearance
   mkdir .pekwm
   cd .pekwm
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/vars-pekwm
@@ -623,7 +626,7 @@ function AFTERSTEP_DE() {
   sudo pacman -S --noconfirm --needed gnome-disk-utility
 }
 ################################################################################
-### Install the Blackbox  Desktop                                            ###
+### Install the Blackbox Desktop                                             ###
 ################################################################################
 function BLACKBOX_DE() {
   clear
@@ -640,10 +643,35 @@ function BLACKBOX_DE() {
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed menumaker
+  sudo pacman -S --noconfirm --needed lxappearance
   $ZB -S --noconfirm --needed idesk blackbox-explorer
   mkdir .blackbox
   echo "session.styleFile:/usr/share/blackbox/styles/Gray" >> ~/.blackboxrc
   echo "session.menuFile:~/.blackbox/menu" >> ~/.blackboxrc
+}
+################################################################################
+### Install the Fluxbox Desktop                                              ###
+################################################################################
+function FLUXBOX_DE() {
+  clear
+  echo "################################################################################"
+  echo "### Installing The Fluxbox                                                   ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman -S --noconfirm --needed fluxbox
+  sudo pacman -S --noconfirm --needed nitrogen
+  sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
+  sudo pacman -S --noconfirm --needed xfce4-terminal
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed arandr
+  sudo pacman -S --noconfirm --needed picom
+  sudo pacman -S --noconfirm --needed gnome-disk-utility
+  sudo pacman -S --noconfirm --needed menumaker
+  sudo pacman -S --noconfirm --needed lxappearance
+  $ZB -S --noconfirm --needed ipager
+  $ZB -S --noconfirm --needed fbdesk
+  $ZB -S --noconfirm --needed fbmenugen
+  $ZB -S --noconfirm --needed fluxmod-styles
 }
 ################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
@@ -728,7 +756,8 @@ function DE_SELECTION() {
   echo "### 16) PekWM                                                              ###"
   echo "### 17) Afterstep                                                          ###"
   echo "### 18) Blackbox                                                           ###"
-  echo "### 19) None                                                               ###"
+  echo "### 19) Fluxbox                                                            ###"
+  echo "### 20) None                                                               ###"
   echo "##############################################################################"
   read case;
 
@@ -806,6 +835,10 @@ function DE_SELECTION() {
     DE="BLACKBOX"
     ;;
     19)
+    FLUXBOX_DE
+    DE="FLUXBOX"
+    ;;
+    20)
     clear
     echo "##############################################################################"
     echo "### You Have Selected None                                                 ###"
@@ -1080,6 +1113,10 @@ function LOGIN_SETUP() {
   if [[ $DE == "BLACKBOX" ]]; then
     echo "exec picom &" >> .xinitrc
     echo "exec blackbox" >> .xinitrc
+  fi
+  if [[ $DE == "FLUXBOX" ]]; then
+    echo "exec picom &" >> .xinitrc
+    echo "exec fluxbox" >> .xinitrc
   fi
 }
 ################################################################################
