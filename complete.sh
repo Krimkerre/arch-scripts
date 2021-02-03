@@ -674,6 +674,31 @@ function FLUXBOX_DE() {
   $ZB -S --noconfirm --needed fluxmod-styles
 }
 ################################################################################
+### Install the Openbox Window Manager                                       ###
+################################################################################
+function OPENBOX_DE() {
+  clear
+  echo "################################################################################"
+  echo "### Installing The Openbox Window Manager                                    ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman -S --noconfirm --needed openbox
+  sudo pacman -S --noconfirm --needed nitrogen
+  sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
+  sudo pacman -S --noconfirm --needed xfce4-terminal
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed arandr
+  sudo pacman -S --noconfirm --needed picom
+  sudo pacman -S --noconfirm --needed archlinux-xdg-menu
+  sudo pacman -S --noconfirm --needed gnome-disk-utility
+  sudo pacman -S --noconfirm --needed network-manager-applet
+  sudo pacman -S --noconfirm --needed lxappearance
+  sudo pacman -S --noconfirm --needed lxappearance-obconf
+  sudo pacman -S --noconfirm --needed obconf
+  sudo pacman -S --noconfirm --needed menumaker
+  $ZB -S --noconfirm --needed obmenu3
+}
+################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
 ################################################################################
 function LIGHTDM_INSTALL() {
@@ -757,7 +782,8 @@ function DE_SELECTION() {
   echo "### 17) Afterstep                                                          ###"
   echo "### 18) Blackbox                                                           ###"
   echo "### 19) Fluxbox                                                            ###"
-  echo "### 20) None                                                               ###"
+  echo "### 20) Openbox                                                            ###"
+  echo "### 21) None                                                               ###"
   echo "##############################################################################"
   read case;
 
@@ -839,6 +865,10 @@ function DE_SELECTION() {
     DE="FLUXBOX"
     ;;
     20)
+    OPENBOX_DE
+    DE="OPENBOX"
+    ;;
+    21)
     clear
     echo "##############################################################################"
     echo "### You Have Selected None                                                 ###"
@@ -1117,6 +1147,10 @@ function LOGIN_SETUP() {
   if [[ $DE == "FLUXBOX" ]]; then
     echo "exec picom &" >> .xinitrc
     echo "exec fluxbox" >> .xinitrc
+  fi
+  if [[ $DE == "OPENBOX" ]]; then
+    echo "exec picom &" >> .xinitrc
+    echo "exec openbox-session" >> .xinitrc
   fi
 }
 ################################################################################
