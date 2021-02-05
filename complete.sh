@@ -732,6 +732,28 @@ function WINDOWMAKER_DE() {
   $ZB -S --noconfirm --needed wmsystemtray
 }
 ################################################################################
+### Install the WindowMaker Window Manager                                   ###
+################################################################################
+function AWESOME_DE() {
+  clear
+  echo "################################################################################"
+  echo "### Installing The Awesome Window Manager                                    ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman -S --noconfirm --needed awesome
+  sudo pacman -S --noconfirm --needed vicious
+  sudo pacman -S --noconfirm --needed nitrogen
+  sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
+  sudo pacman -S --noconfirm --needed xfce4-terminal
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed arandr
+  sudo pacman -S --noconfirm --needed picom
+  sudo pacman -S --noconfirm --needed gnome-disk-utility
+  sudo pacman -S --noconfirm --needed network-manager-applet
+  mkdir -p ~/.config/awesome/
+  cp /etc/xdg/awesome/rc.lua ~/.config/awesome/
+}
+################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
 ################################################################################
 function LIGHTDM_INSTALL() {
@@ -796,9 +818,9 @@ function DE_SELECTION() {
   clear
   echo "##############################################################################"
   echo "### What is your preferred desktop environment?                            ###"
-  echo "### 1)  Deepin                                                             ###"
-  echo "### 2)  Gnome                                                              ###"
-  echo "### 3)  KDE Plasma                                                         ###"
+  echo "### 1)  Deepin                            21) WindowMaker                  ###"
+  echo "### 2)  Gnome                             22) Awesome                      ###"
+  echo "### 3)  KDE Plasma                        23) None                         ###"
   echo "### 4)  Mate                                                               ###"
   echo "### 5)  XFCE4                                                              ###"
   echo "### 6)  Budgie                                                             ###"
@@ -808,7 +830,7 @@ function DE_SELECTION() {
   echo "### 10) i3                                                                 ###"
   echo "### 11) Enlightenment                                                      ###"
   echo "### 12) Sway                                                               ###"
-  echo "### 13) Bspwm  (currently broken on Arch)                                  ###"
+  echo "### 13) Bspwm (currently broken on Arch)                                   ###"
   echo "### 14) FVWM                                                               ###"
   echo "### 15) IceWM                                                              ###"
   echo "### 16) PekWM                                                              ###"
@@ -816,8 +838,6 @@ function DE_SELECTION() {
   echo "### 18) Blackbox                                                           ###"
   echo "### 19) Fluxbox                                                            ###"
   echo "### 20) Openbox                                                            ###"
-  echo "### 21) WindowMaker                                                        ###"
-  echo "### 22) None                                                               ###"
   echo "##############################################################################"
   read case;
 
@@ -907,6 +927,10 @@ function DE_SELECTION() {
     DE="WINDOWMAKER"
     ;;
     22)
+    AWESOME_DE
+    DE="AWESOME"
+    ;;
+    23)
     clear
     echo "##############################################################################"
     echo "### You Have Selected None                                                 ###"
@@ -1193,6 +1217,10 @@ function LOGIN_SETUP() {
   if [[ $DE == "WINDOWMAKER" ]]; then
     echo "exec picom &" >> .xinitrc
     echo "exec wmaker" >> .xinitrc
+  fi
+  if [[ $DE == "AWESOME" ]]; then
+    echo "exec picom &" >> .xinitrc
+    echo "exec awesome" >> .xinitrc
   fi
 }
 ################################################################################

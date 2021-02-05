@@ -343,6 +343,7 @@ function NEEDEDPKGS() {
   pacstrap /mnt lynx
   pacstrap /mnt ncdu
   pacstrap /mnt bwm-ng
+  pacstrap /mnt/lsd
 }
 ################################################################################
 ### Ask what format for the HD                                               ###
