@@ -699,6 +699,39 @@ function OPENBOX_DE() {
   $ZB -S --noconfirm --needed obmenu3
 }
 ################################################################################
+### Install the WindowMaker Window Manager                                   ###
+################################################################################
+function WINDOWMAKER_DE() {
+  clear
+  echo "################################################################################"
+  echo "### Installing The WindowMaker Window Manager                                    ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman -S --noconfirm --needed nitrogen
+  sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
+  sudo pacman -S --noconfirm --needed xfce4-terminal
+  sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
+  sudo pacman -S --noconfirm --needed arandr
+  sudo pacman -S --noconfirm --needed picom
+  sudo pacman -S --noconfirm --needed archlinux-xdg-menu
+  sudo pacman -S --noconfirm --needed gnome-disk-utility
+  sudo pacman -S --noconfirm --needed network-manager-applet
+  sudo pacamn -S --noconfirm --needed menumaker
+  $ZB -S --noconfirm --needed windowmaker
+  $ZB -S --noconfirm --needed windowmaker-extra
+  $ZB -S --noconfirm --needed wmcalclock
+  $ZB -S --noconfirm --needed wmcpuload
+  $ZB -S --noconfirm --needed wmappl
+  $ZB -S --noconfirm --needed wmcpumon
+  $ZB -S --noconfirm --needed wmnet
+  $ZB -S --noconfirm --needed wmmixer
+  $ZB -S --noconfirm --needed idesk
+  $ZB -S --noconfirm --needed docker-tray
+  $ZB -S --noconfirm --needed wmblueclock
+  $ZB -S --noconfirm --needed wmbluecpu
+  $ZB -S --noconfirm --needed wmsystemtray
+}
+################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
 ################################################################################
 function LIGHTDM_INSTALL() {
@@ -783,6 +816,7 @@ function DE_SELECTION() {
   echo "### 18) Blackbox                                                           ###"
   echo "### 19) Fluxbox                                                            ###"
   echo "### 20) Openbox                                                            ###"
+  echo "### 21) WindowMaker                                                        ###"
   echo "### 21) None                                                               ###"
   echo "##############################################################################"
   read case;
@@ -869,6 +903,10 @@ function DE_SELECTION() {
     DE="OPENBOX"
     ;;
     21)
+    WINDOWMAKER_DE
+    DE="WINDOWMAKER"
+    ;;
+    22)
     clear
     echo "##############################################################################"
     echo "### You Have Selected None                                                 ###"
@@ -1151,6 +1189,10 @@ function LOGIN_SETUP() {
   if [[ $DE == "OPENBOX" ]]; then
     echo "exec picom &" >> .xinitrc
     echo "exec openbox-session" >> .xinitrc
+  fi
+  if [[ $DE == "WINDOWMAKER" ]]; then
+    echo "exec picom &" >> .xinitrc
+    echo "exec wmaker" >> .xinitrc
   fi
 }
 ################################################################################
