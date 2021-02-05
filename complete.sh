@@ -716,7 +716,7 @@ function WINDOWMAKER_DE() {
   sudo pacman -S --noconfirm --needed archlinux-xdg-menu
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed network-manager-applet
-  sudo pacamn -S --noconfirm --needed menumaker
+  sudo pacman -S --noconfirm --needed menumaker
   $ZB -S --noconfirm --needed windowmaker
   $ZB -S --noconfirm --needed windowmaker-extra
   $ZB -S --noconfirm --needed wmcalclock
