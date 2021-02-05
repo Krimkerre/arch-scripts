@@ -343,7 +343,7 @@ function NEEDEDPKGS() {
   pacstrap /mnt lynx
   pacstrap /mnt ncdu
   pacstrap /mnt bwm-ng
-  pacstrap /mnt/lsd
+  pacstrap /mnt lsd
 }
 ################################################################################
 ### Ask what format for the HD                                               ###
@@ -458,11 +458,11 @@ WHATFMT
 MNTHD
 BASEPKG
 CLIFONT
-BOOTTYPE
 SYSDSWAP
 MAKEFLAGS_CPU
 NEEDEDPKGS
 MISC_SETTINGS
+BOOTTYPE
 ################################################################################
 ### Setting Passwords and Creating the User                                  ###
 ################################################################################
