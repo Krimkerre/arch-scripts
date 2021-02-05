@@ -704,7 +704,7 @@ function OPENBOX_DE() {
 function WINDOWMAKER_DE() {
   clear
   echo "################################################################################"
-  echo "### Installing The WindowMaker Window Manager                                    ###"
+  echo "### Installing The WindowMaker Window Manager                                ###"
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed nitrogen
@@ -817,7 +817,7 @@ function DE_SELECTION() {
   echo "### 19) Fluxbox                                                            ###"
   echo "### 20) Openbox                                                            ###"
   echo "### 21) WindowMaker                                                        ###"
-  echo "### 21) None                                                               ###"
+  echo "### 22) None                                                               ###"
   echo "##############################################################################"
   read case;
 
