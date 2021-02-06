@@ -1148,7 +1148,7 @@ function LOGIN_SETUP() {
     sed -i 's/'twm'/'#twm'/g' .xinitrc
     sed -i 's/'xclock'/'#xclock'/g' .xinitrc
     sed -i 's/'xterm'/'#xterm'/g' .xinitrc
-    sed -i 's/'exec'/'#exec'/g' .xinitrc
+  #  sed -i 's/'exec'/'#exec'/g' .xinitrc
   fi
   if [[ $DE == "DEEPIN" ]]; then
     echo "exec startdde" >> .xinitrc
@@ -1238,6 +1238,18 @@ function PACMAN_KEYS() {
   sudo pacman -Sy
 }
 ################################################################################
+### Installing the LY Terminal Login Manager                                 ###
+################################################################################
+function LY_LM() {
+  clear
+  echo "################################################################################"
+  echo "### Installing the LY Terminal Login Manager                                 ###"
+  echo "################################################################################"
+  sleep 2
+  $ZB -S --noconfirm --needed ly
+  sudo systemctl enable ly
+}
+################################################################################
 ### Main Program                                                             ###
 ################################################################################
 PACMAN_KEYS
@@ -1286,7 +1298,8 @@ echo "### 1)  LightDM                                                           
 echo "### 2)  Simple Display Manager (SDDM)                                        ###"
 echo "### 3)  Gnome Display Manager (GDM)                                          ###"
 echo "### 4)  Entrance Display Manager (ENT)                                       ###"
-echo "### 5)  None                                                                 ###"
+echo "### 5)  LY Terminal Display Manager (LY)                                     ###"
+echo "### 6)  None                                                                 ###"
 echo "################################################################################"
 read case;
 
@@ -1308,6 +1321,10 @@ case $case in
   DM="ENT"
   ;;
   5)
+  LY_LM
+  DM="LY"
+  ;;
+  6)
   sudo cp /etc/X11/xinit/xinitrc .xinitrc
   DM="NONE"
   ;;
