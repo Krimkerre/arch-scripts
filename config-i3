@@ -20,9 +20,9 @@ font pango:monospace 12
 #font pango:DejaVu Sans Mono 8
 
 # Make sure things are stopped
-#killall picom
-#killall nm-applet
-#xsetroot -cursor_name left_ptr
+exec killall picom
+exec killall nm-applet
+exec xsetroot -cursor_name left_ptr
 
 # Startup Applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
@@ -47,7 +47,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 #auto run programs
-exec ~/.screenlayout/screen.sh
+exec ~/.screenlayout/normal.sh
 exec --no-startup-id picom
 exec --no-startup-id nitrogen --random --set-zoom-fill
 #exec --no-startup-id betterlockscreen
