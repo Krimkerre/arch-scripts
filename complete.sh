@@ -425,6 +425,7 @@ function I3_DE() {
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed scrot
   sudo pacman -S --noconfirm --needed lxappearance-gtk3
+  sudo pacman -S --noconfirm --needed polkit-gnome
   $ZB -S --noconfirm --needed mugshot
   $ZB -S --noconfirm --needed i3exit
   $ZB -S --noconfirm --needed ttf-font-awesome
