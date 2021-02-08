@@ -55,8 +55,8 @@ exec --no-startup-id nitrogen --random --set-zoom-fill
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # change volume or toggle mute
@@ -187,13 +187,10 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Assign workspaces
-assign [class="(?i)chromium|(?i)firefox"] $ws2
+assign [class="(?i)chromium|(?i)firefox|(?i)lbry"] $ws2
 assign [class="(?i)thunderbird" window_type="splash"] $ws3
 assign [class="(?i)thunderbird" window_type="normal"] $ws3
-assign [class="(?i)hexchat"] $ws8
-assign [class="(?i)tmux|(?i)irssi"] $ws8
-assign [class="(?i)gimp|(?i)darktable|(?i)rawtherapee|(?i)resolve|(?i)davinci"] $ws9
-assign [class="(?i)simplescreenrecorder|(?i)obs-studio|(?i)obs|(?i)vokoscreen"] $ws10
+assign [class="(?i)steam"] $ws4
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
