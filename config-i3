@@ -34,8 +34,8 @@ exec --no-startup-id start-pulseaudio-x11
 # Gaps & borders
 for_window [class="^.*"] border pixel 0
 gaps inner 10
-gaps outer 4
-gaps top 4
+gaps outer 8
+gaps top 8
 smart_borders on
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
@@ -187,10 +187,10 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Assign workspaces
-assign [class="(?i)chromium|(?i)firefox|(?i)lbry"] $ws2
+assign [class="(?i)chromium|(?i)firefox"|"(?i)lbry] $ws2
 assign [class="(?i)thunderbird" window_type="splash"] $ws3
 assign [class="(?i)thunderbird" window_type="normal"] $ws3
-assign [class="(?i)steam"] $ws4
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
