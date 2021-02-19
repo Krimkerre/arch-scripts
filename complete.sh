@@ -430,6 +430,7 @@ function I3_DE() {
   $ZB -S --noconfirm --needed mugshot
   $ZB -S --noconfirm --needed i3exit
   $ZB -S --noconfirm --needed ttf-font-awesome
+  $ZB -S --noconfirm --needed pnmixer
   #$ZB -S --noconfirm --needed betterlockscreen
   mkdir ~/.config/i3
   cd ~/.config/i3

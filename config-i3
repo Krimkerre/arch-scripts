@@ -27,6 +27,7 @@ exec xsetroot -cursor_name left_ptr
 # Startup Applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 exec --no-startup-id start-pulseaudio-x11
+exec --no-startup-id pnmixer &
 # exec xet s off -dpms
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -195,7 +196,7 @@ assign [class="(?i)thunderbird" window_type="normal"] $ws3
 assign [class="(?i)steam"] $ws4
 assign [class="(?i)telegram"] $ws5
 assign [class="(?i)vlc"] $ws6
-assign [class="(?i)clementine"] $ws7
+assign [class="(?i)clementine|(?i)Audacity"] $ws7
 assign [class="(?i)virt-man"] $ws8
 
 # reload the configuration file

@@ -28,11 +28,11 @@ cpu_temperature 0 {
 }
 
 disk "/" {
-        format = "<span background='#fec7cd'>  %free Free </span>"
+        format = "<span background='#fec7cd'>  %free (%percentage_free) Free</span>"
 }
 
 disk "/mnt/Data" {
-        format = "<span background='#a1d569'>  %free Free </span>"
+        format = "<span background='#a1d569'>  %free (%percentage_free) Free</span>"
 }
 
 ethernet eno1 {
