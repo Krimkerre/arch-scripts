@@ -509,12 +509,12 @@ function BASHRC_CONF() {
   echo " " >> /mnt/etc/bash.bashrc
   echo "# Check to see if neofetch is installed and if so display it" >> /mnt/etc/bash.bashrc
   echo "if [ -f /usr/bin/neofetch ]; then clear & neofetch; fi" >> /mnt/etc/bash.bashrc
-  echo " " >> /mnt/etc/bash.bashrc
-  echo "# Setting up some aliases" >> /mnt/etc/bash.bashrc
-  echo "alias cat='bat'" >> /mnt/etc/bash.bashrc
-  echo "alias fd='ncdu'" >> /mnt/etc/bash.bashrc
-  echo "alias netsp='bwm-ng'" >> /mnt/etc/bash.bashrc
   sed -i 's/alias/#alias'/g /mnt/etc/skel/.bashrc
+  echo "# Setting up some aliases" >> /mnt/etc/skel/.bashrc
+  echo "alias ls='lsd'" >> /mnt/etc/skel/.bashrc
+  echo "alias cat='bat'" >> /mnt/etc/skel/.bashrc
+  echo "alias fd='ncdu'" >> /mnt/etc/skel/.bashrc
+  echo "alias netsp='bwm-ng'" >> /mnt/etc/skel/.bashrc
 }
 ################################################################################
 ### Main Program - Edit At Own Risk                                          ###
