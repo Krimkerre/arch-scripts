@@ -438,6 +438,7 @@ function I3_DE() {
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/i3status-config
   cp config-i3 config
   cd ~/
+  echo "alias conf='nano ~/.config/i3/config'" >> ~/.bashrc
 }
 ################################################################################
 ### Install Enlightenment DE                                                 ###
