@@ -506,9 +506,13 @@ function BASHRC_CONF() {
   echo "### Configuring the BashRC file                                            ###"
   echo "##############################################################################"
   sleep 3
-  echo "" >> /mnt/bash.bashrc
+  echo " " >> /mnt/bash.bashrc
+  echo "# Check to see if neofetch is installed and if so display it" >> /mnt/etc/bash.bashrc
   echo "if [ -f /usr/bin/neofetch ]; then clear & neofetch; fi" >> /mnt/etc/bash.bashrc
-  echo "" >> /mnt/etc/bash.bashrc
+  echo " " >> /mnt/etc/bash.bashrc
+  echo "# Setting up some aliases" >> /mnt/etc/bash.bashrc
+  echo "alias cat='bat'" >> /mnt/etc/bash.bashrc
+  echo "alias fd='ncdu'" >> /mnt/etc/bash.bashrc
 }
 ################################################################################
 ### Main Program - Edit At Own Risk                                          ###
