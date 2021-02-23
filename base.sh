@@ -87,6 +87,10 @@ function ROOTPASSWORD() {
 ################################################################################
 function PARTHD() {
   clear
+  echo "##############################################################################"
+  echo "### Partitioning the Hard Drive                                            ###"
+  echo "##############################################################################"
+  sleep 3
   sgdisk -Z ${HD}
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
@@ -102,6 +106,10 @@ function PARTHD() {
 ################################################################################
 function FMTEXT4() {
   clear
+  echo "##############################################################################"
+  echo "### Formatting the Hard Drive as EXT4                                      ###"
+  echo "##############################################################################"
+  sleep 3
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
     mkfs.fat -F32 ${HD}1
@@ -116,6 +124,10 @@ function FMTEXT4() {
 ################################################################################
 function FMTBTRFS() {
   clear
+  echo "##############################################################################"
+  echo "### Formatting the Hard Drive as BTRFS                                     ###"
+  echo "##############################################################################"
+  sleep 3
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
     mkfs.fat -F32 ${HD}1
@@ -130,6 +142,10 @@ function FMTBTRFS() {
 ################################################################################
 function FMTXFS() {
   clear
+  echo "##############################################################################"
+  echo "### Formatting the Hard Drive as XFS                                       ###"
+  echo "##############################################################################"
+  sleep 3
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
     mkfs.fat -F32 ${HD}1
@@ -144,6 +160,10 @@ function FMTXFS() {
 ################################################################################
 function FMTREISERFS() {
   clear
+  echo "##############################################################################"
+  echo "### Formatting the Hard Drive as ReiserFS                                  ###"
+  echo "##############################################################################"
+  sleep 3
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
     mkfs.fat -F32 ${HD}1
@@ -158,6 +178,10 @@ function FMTREISERFS() {
 ################################################################################
 function FMTJFS() {
   clear
+  echo "##############################################################################"
+  echo "### Formatting the Hard Drive as JFS                                       ###"
+  echo "##############################################################################"
+  sleep 3
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
     mkfs.fat -F32 ${HD}1
@@ -172,6 +196,10 @@ function FMTJFS() {
 ################################################################################
 function FMTNILFS2() {
   clear
+  echo "##############################################################################"
+  echo "### Formatting the Hard Drive as NILFS2                                    ###"
+  echo "##############################################################################"
+  sleep 3
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
     mkfs.fat -F32 ${HD}1
@@ -199,6 +227,10 @@ function MNTHD() {
 ################################################################################
 function BASEPKG() {
   clear
+  echo "##############################################################################"
+  echo "### Installing the Base Packages                                           ###"
+  echo "##############################################################################"
+  sleep 3
   pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils
   genfstab -U /mnt >> /mnt/etc/fstab
 }
@@ -207,6 +239,10 @@ function BASEPKG() {
 ################################################################################
 function SYSDBOOT() {
   clear
+  echo "##############################################################################"
+  echo "### Creating Boot Information                                              ###"
+  echo "##############################################################################"
+  sleep 3
   arch-chroot /mnt mkdir -p /boot/loader/entries
   arch-chroot /mnt bootctl --path=/boot install
   rm /mnt/boot/loader/loader.conf
@@ -226,6 +262,10 @@ function SYSDBOOT() {
 ################################################################################
 function GRUBBOOT() {
   clear
+  echo "##############################################################################"
+  echo "### Installing and Configuring GRUB Boot Loader                            ###"
+  echo "##############################################################################"
+  sleep 3
   if [[ -d /sys/firmware/efi/efivars ]]; then
     pacstrap /mnt grub efibootmgr
     arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub --removable
@@ -241,6 +281,11 @@ function GRUBBOOT() {
 ### Setting up Systemd Swap Here                                             ###
 ################################################################################
 function SYSDSWAP() {
+  clear
+  echo "##############################################################################"
+  echo "### Setting up SystemD Swap                                                ###"
+  echo "##############################################################################"
+  sleep 3
   rm /mnt/etc/systemd/swap.conf
   echo "#zswap_enabled=1" >> /mnt/etc/systemd/swap.conf
   echo "#zswap_compressor=zstd" >> /mnt/etc/systemd/swap.conf     # lzo lz4 zstd lzo-rle lz4hc
@@ -276,6 +321,10 @@ function SYSDSWAP() {
 ################################################################################
 function MAKEFLAGS_CPU() {
   clear
+  echo "##############################################################################"
+  echo "### Fixing the Makeflags for the Compiler                                  ###"
+  echo "##############################################################################"
+  sleep 3
   numberofcores=$(grep -c ^processor /proc/cpuinfo)
   case $numberofcores in
 
@@ -326,6 +375,10 @@ function MAKEFLAGS_CPU() {
 ################################################################################
 function NEEDEDPKGS() {
   clear
+  echo "##############################################################################"
+  echo "### Installing Needed Packages                                             ###"
+  echo "##############################################################################"
+  sleep 3
   pacstrap /mnt neofetch
   pacstrap /mnt git
   pacstrap /mnt wget
@@ -351,13 +404,13 @@ function NEEDEDPKGS() {
 function WHATFMT() {
   clear
   echo "##############################################################################"
-  echo "What is your preferred drive format"
-  echo "1)  EXT4 - Standard Linux Format"
-  echo "2)  BTRFS"
-  echo "3)  XFS"
-  echo "4)  ReiserFS"
-  echo "5)  JFS"
-  echo "6)  NILFS2"
+  echo "### What is your preferred drive format                                    ###"
+  echo "### 1)  EXT4 - Standard Linux Format                                       ###"
+  echo "### 2)  BTRFS                                                              ###"
+  echo "### 3)  XFS                                                                ###"
+  echo "### 4)  ReiserFS                                                           ###"
+  echo "### 5)  JFS                                                                ###"
+  echo "### 6)  NILFS2                                                             ###"
   echo "##############################################################################"
   read case;
   case $case in
@@ -387,9 +440,9 @@ function WHATFMT() {
 function BOOTTYPE() {
   clear
   echo "##############################################################################"
-  echo "What is your preferred boot loader"
-  echo "1)  systemd"
-  echo "2)  GRUB"
+  echo "### What is your preferred boot loader                                     ###"
+  echo "### 1)  systemd                                                            ###"
+  echo "### 2)  GRUB (Must select this if using non-EFI system)                    ###"
   echo "##############################################################################"
   read case;
   case $case in
@@ -409,12 +462,18 @@ function NEEDED_INSTALL() {
   echo "##############################################################################"
   echo "### Installing needed software                                             ###"
   echo "##############################################################################"
+  sleep 3
   pacman -S --noconfirm --needed dialog
 }
 ################################################################################
 ### Misc Settings                                                            ###
 ################################################################################
 function MISC_SETTINGS() {
+  clear
+  echo "##############################################################################"
+  echo "### Misc Settings Being Installed                                          ###"
+  echo "##############################################################################"
+  sleep 3
   arch-chroot /mnt systemctl enable NetworkManager
   ln -sf /run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf
   arch-chroot /mnt systemctl enable systemd-resolved
@@ -446,10 +505,10 @@ function BASHRC_CONF() {
   echo "##############################################################################"
   echo "### Configuring the BashRC file                                            ###"
   echo "##############################################################################"
+  sleep 3
   echo "" >> /mnt/bash.bashrc
   echo "if [ -f /usr/bin/neofetch ]; then clear & neofetch; fi" >> /mnt/etc/bash.bashrc
   echo "" >> /mnt/etc/bash.bashrc
-  echo "alias ls='lsd'" >> /mnt/etc/bash.bashrc
 }
 ################################################################################
 ### Main Program - Edit At Own Risk                                          ###
@@ -479,6 +538,11 @@ BOOTTYPE
 ################################################################################
 ### Setting Passwords and Creating the User                                  ###
 ################################################################################
+clear
+echo "##############################################################################"
+echo "### Setting Up Users and Final Settings                                    ###"
+echo "##############################################################################"
+sleep 3
 arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${USRNM}"
 echo "$UPASSWD
 $UPASSWD
@@ -492,6 +556,6 @@ cp complete.sh /mnt/home/$USRNM/
 clear
 echo "##############################################################################"
 echo "### Installation Is Complete, Please Reboot And Have Fun                   ###"
-echo "### To Setup The DE and Other Needed Packages Please Type ./setup.sh       ###"
+echo "### To Setup The DE and Other Needed Packages Please Type ./complete.sh    ###"
 echo "### After The Reboot                                                       ###"
 echo "##############################################################################"
