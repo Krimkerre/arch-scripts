@@ -448,6 +448,8 @@ function BASHRC_CONF() {
   echo "##############################################################################"
   echo "" >> /mnt/bash.bashrc
   echo "if [ -f /usr/bin/neofetch ]; then clear & neofetch; fi" >> /mnt/etc/bash.bashrc
+  echo "" >> /mnt/etc/bash.bashrc
+  echo "alias ls='lsd'" >> /mnt/etc/bash.bashrc
 }
 ################################################################################
 ### Main Program - Edit At Own Risk                                          ###
