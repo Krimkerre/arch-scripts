@@ -997,7 +997,7 @@ function SOUNDFILES() {
   sudo pacman -S --noconfirm --needed deepin-sound-theme
   $ZB -S --noconfirm --needed sound-theme-smooth
   $ZB -S --noconfirm --needed sound-theme-elementary-git
-  $ZB -S --noconfirm --needed yaru-sound-theme
+  #$ZB -S --noconfirm --needed yaru-sound-theme
 }
 ################################################################################
 ### Install More Fonts                                                       ###
@@ -1038,6 +1038,7 @@ function SOFTWAREINSTALLSTD() {
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed firefox
+  sudo pacman -S --noconfirm elfutils
   sudo pacman -S --noconfirm --needed winetricks
   sudo pacman -S --noconfirm --needed playonlinux
   sudo pacman -S --noconfirm --needed steam
