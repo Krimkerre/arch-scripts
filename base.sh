@@ -260,7 +260,7 @@ function SYSDBOOT() {
   echo "options root=PARTUUID="$(blkid -s PARTUUID -o value "$HD"2)" nowatchdog rw" >> /mnt/boot/loader/entries/arch.conf
   # Arch Linux - Fallback Kernel
   echo "title Arch Linux-Fallback" >> /mnt/boot/loader/entries/arch-fallback.conf
-  echo "linux /vmlinuz-linux-fallback" >> /mnt/boot/loader/entries/arch-fallback.conf
+  echo "linux /vmlinuz-linux" >> /mnt/boot/loader/entries/arch-fallback.conf
   echo "#initrd  /intel-ucode.img" >> /mnt/boot/loader/entries/arch-fallback.conf
   echo "#initrd /amd-ucode.img" >> /mnt/boot/loader/entries/arch-fallback.conf
   echo "initrd  /initramfs-linux-fallback.img" >> /mnt/boot/loader/entries/arch-fallback.conf
