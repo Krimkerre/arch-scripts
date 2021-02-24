@@ -1038,7 +1038,7 @@ function SOFTWAREINSTALLSTD() {
   echo "################################################################################"
   sleep 2
   sudo pacman -S --noconfirm --needed firefox
-  sudo pacman -S --noconfirm elfutils
+  #sudo pacman -S --noconfirm elfutils
   sudo pacman -S --noconfirm --needed winetricks
   sudo pacman -S --noconfirm --needed playonlinux
   sudo pacman -S --noconfirm --needed steam
