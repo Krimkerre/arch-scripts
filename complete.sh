@@ -479,12 +479,16 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed dmenu
-  sudo pacman -S --noconfirm --needed alacritty
+  sudo pacman -S --noconfirm --needed xfce4-terminal
   sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
   sudo pacman -S --noconfirm --needed network-manager-applet
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   mkdir .config/sway
-  cp /etc/sway/config .config/sway/config
+  cd ~/.config/sway
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-sway
+  cp config-sway config
+  cd ~
+  echo "alias conf='nano ~/.config/sway/config'" >> ~/.bashrc
 }
 ################################################################################
 ### Install the BSPWM Tiling Window Manager                                  ###
