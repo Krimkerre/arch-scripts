@@ -571,6 +571,7 @@ cp complete.sh /mnt/home/$USRNM/
 clear
 echo "##############################################################################"
 echo "### Installation Is Complete, Please Reboot And Have Fun                   ###"
-echo "### To Setup The DE and Other Needed Packages Please Type ./complete.sh    ###"
-echo "### After The Reboot                                                       ###"
+echo "### To Setup The DE and Other Needed Packages Please Type                  ###"
+echo "### 'sudo pacman -Syyu' after the 1st boot and log on as user, then reboot ###"
+echo "### Then type './complete.sh' to complete rest of the system install.      ###"
 echo "##############################################################################"
