@@ -284,7 +284,7 @@ exec --no-startup-id nm-applet
 # screen shots
 bindsym Print exec grim
 bindsym --release $mod+Print exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')"
-
+bindsym $mod+Shift+Print grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" screenshot.png
 
 
 #
