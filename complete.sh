@@ -489,6 +489,8 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed polkit-gnome
+  sudo pacman -S --noconfirm --needed scrot
+  sudo pacman -S --noconfirm --needed feh
   $ZB -S --noconfirm --needed mugshot
   $ZB -S --noconfirm --needed j4-dmenu-desktop
   mkdir .config/sway
@@ -499,6 +501,7 @@ function SWAY_DE() {
   echo "alias conf='nano ~/.config/sway/config'" >> ~/.bashrc
   mkdir .config/waybar
   cp /etc/xdg/waybar/* ~/.config/waybar/
+  mkdir ~/Pictures/shots
 }
 ################################################################################
 ### Install the BSPWM Tiling Window Manager                                  ###
