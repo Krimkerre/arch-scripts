@@ -476,13 +476,21 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed swaylock
   sudo pacman -S --noconfirm --needed waybar
   sudo pacman -S --noconfirm --needed dmenu
+  sudo pacman -S --noconfirm --needed rofi
+  sudo pacman -S --noconfirm --needed nitrogen
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed xfce4-terminal
   sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
   sudo pacman -S --noconfirm --needed network-manager-applet
+  sudo pacman -S --noconfirm --needed xfce4-screenshooter
+  sudo pacman -S --noconfirm --needed papirus-icon-theme
+  sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed gnome-disk-utility
+  sudo pacman -S --noconfirm --needed polkit-gnome
+  $ZB -S --noconfirm --needed mugshot
+  $ZB -S --noconfirm --needed j4-dmenu-desktop
   mkdir .config/sway
   cd ~/.config/sway
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-sway

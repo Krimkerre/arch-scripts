@@ -18,7 +18,8 @@ set $term xfce4-terminal
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_run
+set $menu j4-dmenu-desktop
+set $menu2 rofi -show run
 
 set $cl_high #009ddc
 set $cl_indi #d9d8d8
@@ -77,6 +78,7 @@ output Virtual-1 resolution 2560x1080 position 2560,0
 
     # Start your launcher
     bindsym $mod+d exec $menu
+    bindsym $mod+shift+d exec $menu2
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
