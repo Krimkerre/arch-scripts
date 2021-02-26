@@ -489,6 +489,8 @@ function SWAY_DE() {
   cp config-sway config
   cd ~
   echo "alias conf='nano ~/.config/sway/config'" >> ~/.bashrc
+  mkdir .config/waybar
+  cp /etc/xdg/waybar/* ~/.config/waybar/
 }
 ################################################################################
 ### Install the BSPWM Tiling Window Manager                                  ###
