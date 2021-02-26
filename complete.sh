@@ -491,6 +491,7 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed polkit-gnome
   sudo pacman -S --noconfirm --needed scrot
   sudo pacman -S --noconfirm --needed feh
+  sudo pacman -S --noconfirm --needed eog
   $ZB -S --noconfirm --needed mugshot
   $ZB -S --noconfirm --needed j4-dmenu-desktop
   mkdir .config/sway
