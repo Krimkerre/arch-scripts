@@ -489,7 +489,7 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed polkit-gnome
-  sudo pacman -S --noconfirm --needed scrot
+  sudo pacman -S --noconfirm --needed grim
   sudo pacman -S --noconfirm --needed feh
   sudo pacman -S --noconfirm --needed eog
   $ZB -S --noconfirm --needed mugshot
