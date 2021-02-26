@@ -272,6 +272,15 @@ mode "$mode_system" {
 }
 bindsym $mod+Delete mode "$mode_system"
 
+# Make sure things are stopped
+exec killall nm-applet
+exec xsetroot -cursor_name left_ptr
+
+# Startup Applications
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+exec --no-startup-id start-pulseaudio-x11
+exec --no-startup-id nm-applet
+
 #
 # Status Bar:
 #
