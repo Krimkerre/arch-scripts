@@ -432,7 +432,7 @@ function I3_DE() {
   $ZB -S --noconfirm --needed ttf-font-awesome
   $ZB -S --noconfirm --needed pnmixer
   #$ZB -S --noconfirm --needed betterlockscreen
-  mkdir ~/.config/i3
+  mkdir -p ~/.config/i3
   cd ~/.config/i3
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-i3
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/i3status-config
@@ -494,15 +494,15 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed eog
   $ZB -S --noconfirm --needed mugshot
   $ZB -S --noconfirm --needed j4-dmenu-desktop
-  mkdir .config/sway
+  mkdir -p ~/.config/sway
   cd ~/.config/sway
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-sway
   cp config-sway config
   cd ~
   echo "alias conf='nano ~/.config/sway/config'" >> ~/.bashrc
-  mkdir .config/waybar
+  mkdir -p ~/.config/waybar
   cp /etc/xdg/waybar/* ~/.config/waybar/
-  mkdir ~/Pictures/shots
+  mkdir -p ~/Pictures/shots
 }
 ################################################################################
 ### Install the BSPWM Tiling Window Manager                                  ###
