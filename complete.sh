@@ -541,7 +541,7 @@ function BSPWM_DE() {
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/sxhkdrc
   chmod +x ~/.config/sxhkd/sxhkdrc
   cd ~/.config/polybar
-  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config.polybar
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-polybar
   cp config-polybar config
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/launch.sh
   chmod +x ~/.config/polybar/config
