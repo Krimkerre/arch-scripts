@@ -10,12 +10,13 @@ killall "nm-applet"
 ################################################################################
 ### Autostart                                                                ###
 ################################################################################
+~/.screenlayout/normal.sh &
 nitrogen --random --set-scaled &
 xsetroot -cursor_name left_ptr
 nm-applet &
 picom -f &
 sxhkd &
-$HOME/.config/polybar/launch.sh
+~/.config/polybar/launch.sh
 
 ################################################################################
 ### Define Monitors                                                          ###
