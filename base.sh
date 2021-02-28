@@ -526,6 +526,20 @@ function BASHRC_CONF() {
   echo "alias netsp='bwm-ng'" >> /mnt/etc/skel/.bashrc
 }
 ################################################################################
+### Fix the Pacman Keyring                                                   ###
+################################################################################
+function PACMAN_KEYS() {
+  clear
+  echo "################################################################################"
+  echo "### Fixing The Pacman (Repo) Keys                                            ###"
+  echo "################################################################################"
+  sleep 2
+  sudo pacman-key --init
+  sudo pacman-key --populate archlinux
+  sudo reflector --country US --latest 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist
+  sudo pacman -Sy
+}
+################################################################################
 ### Main Program - Edit At Own Risk                                          ###
 ################################################################################
 clear
@@ -542,6 +556,7 @@ ROOTPASSWORD
 PARTHD
 WHATFMT
 MNTHD
+PACMAN_KEYS
 BASEPKG
 CLIFONT
 SYSDSWAP
