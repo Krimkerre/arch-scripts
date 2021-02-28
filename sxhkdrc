@@ -10,6 +10,9 @@ super + Return
 super + d
 	dmenu_run
 
+super + shift + d
+	rofi -show run
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
@@ -17,7 +20,7 @@ super + Escape
 #
 # bspwm hotkeys
 #
-print
+Print
 	xfce4-screenshooter
 
 # quit/restart bspwm
