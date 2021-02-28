@@ -541,13 +541,13 @@ function BSPWM_DE() {
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/sxhkdrc
   chmod +x ~/.config/sxhkd/sxhkdrc
   cd ~/.config/polybar
-  wget http://raw.githubusercontent/com/lotw69/arch-scripts/config.polybar
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config.polybar
   cp config-polybar config
-  wget http://raw.githubusercontent/com/lotw69/arch-scripts/launch.sh
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/launch.sh
   chmod +x ~/.config/polybar/config
   chmod +x ~/.config/polybar/launch.sh
   cd ~/
-  wget http://raw.githubusercontent/com/lotw69/arch-scripts/picom.conf
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
   sudo rm /etc/xdg/picom.conf
   sudo mv picom.conf /etc/xdg/picom.conf
 }
