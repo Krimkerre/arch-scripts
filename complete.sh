@@ -520,11 +520,16 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed xfce4-terminal
   sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
+  sudo pacman -S --noconfirm --needed xfce4-screenshooter
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed network-manager-applet
   sudo pacman -S --noconfirm --needed gnome-disk-utility
+  sudo pacman -S --noconfirm --needed feh
+  sudo pacman -S --noconfirm --needed eog
+  $ZB -S --noconfirm --needed mugshot
+  $ZB -S --noconfirm --needed j4-dmenu-desktop
   $ZB -S --noconfirm --needed polybar
   mkdir -p ~/.config/bspwm
   mkdir -p ~/.config/sxhkd
