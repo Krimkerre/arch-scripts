@@ -516,6 +516,7 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed bspwm
   sudo pacman -S --noconfirm --needed sxhkd
   sudo pacman -S --noconfirm --needed dmenu
+  sudo pacman -S --noconfirm --needed rofi
   sudo pacman -S --noconfirm --needed nitrogen
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed xfce4-terminal
