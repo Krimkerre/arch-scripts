@@ -518,6 +518,7 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed dmenu
   sudo pacman -S --noconfirm --needed nitrogen
   sudo pacman -S --noconfirm --needed picom
+  sudo pacman -S --noconfirm --needed xfce4-terminal
   sudo pacman -S --noconfirm --needed thunar thunar-archive-plugin thunar-media-tags-plugin
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
@@ -528,12 +529,22 @@ function BSPWM_DE() {
   mkdir -p ~/.config/bspwm
   mkdir -p ~/.config/sxhkd
   mkdir -p ~/.config/polybar
-  cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
+  cd ~/.config/bspwm
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/bspwmrc
   chmod +x ~/.config/bspwm/bspwmrc
-  cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
+  cd ~/.config/sxhkd
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/sxhkdrc
   chmod +x ~/.config/sxhkd/sxhkdrc
-  cp /usr/share/doc/polybar/config ~/.config/polybar/config
+  cd ~/.config/polybar
+  wget http://raw.githubusercontent/com/lotw69/arch-scripts/config.polybar
+  cp config-polybar config
+  wget http://raw.githubusercontent/com/lotw69/arch-scripts/launch.sh
   chmod +x ~/.config/polybar/config
+  chmod +x ~/.config/polybar/launch.sh
+  cd ~/
+  wget http://raw.githubusercontent/com/lotw69/arch-scripts/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
 }
 ################################################################################
 ### Install the FVWM Window Manager                                          ###

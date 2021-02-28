@@ -4,10 +4,10 @@
 
 # terminal emulator
 super + Return
-	terminator
+	xfce4-terminal
 
 # program launcher
-super + @space
+super + d
 	dmenu_run
 
 # make sxhkd reload its configuration files:
@@ -133,4 +133,3 @@ XF86MonBrightnessDown
 	xbacklight -dec 5
 XF86MonBrightnessUp
 	xbacklight -inc 5
-
