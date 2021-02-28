@@ -14,6 +14,7 @@ killall "nm-applet"
 nitrogen --random --set-scaled &
 xsetroot -cursor_name left_ptr
 nm-applet &
+pnmixer &
 picom -f &
 sxhkd &
 ~/.config/polybar/launch.sh

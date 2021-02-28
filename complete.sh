@@ -425,7 +425,7 @@ function I3_DE() {
   sudo pacman -S --noconfirm --needed network-manager-applet
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed scrot
-  sudo pacman -S --noconfirm --needed lxappearance-gtk3
+  sudo pacman -S --noconfirm --needed lxappearance
   sudo pacman -S --noconfirm --needed polkit-gnome
   $ZB -S --noconfirm --needed mugshot
   $ZB -S --noconfirm --needed i3exit
@@ -528,6 +528,8 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed feh
   sudo pacman -S --noconfirm --needed eog
+  $ZB -S --noconfirm --needed ttf-font-awesome
+  $ZB -S --noconfirm --needed pnmixer
   $ZB -S --noconfirm --needed mugshot
   #$ZB -S --noconfirm --needed j4-dmenu-desktop
   $ZB -S --noconfirm --needed polybar
@@ -856,8 +858,8 @@ function DE_SELECTION() {
   clear
   echo "##############################################################################"
   echo "### What is your preferred desktop environment?                            ###"
-  echo "### 1)  Deepin                            21) WindowMaker                  ###"
-  echo "### 2)  Gnome                             22) Awesome                      ###"
+  echo "### 1)  Deepin                            21) WindowMaker (WIP)            ###"
+  echo "### 2)  Gnome                             22) Awesome (WIP)                ###"
   echo "### 3)  KDE Plasma                        23) None                         ###"
   echo "### 4)  Mate                                                               ###"
   echo "### 5)  XFCE4                                                              ###"
@@ -868,14 +870,14 @@ function DE_SELECTION() {
   echo "### 10) i3                                                                 ###"
   echo "### 11) Enlightenment                                                      ###"
   echo "### 12) Sway                                                               ###"
-  echo "### 13) Bspwm (currently broken on Arch)                                   ###"
-  echo "### 14) FVWM                                                               ###"
-  echo "### 15) IceWM                                                              ###"
-  echo "### 16) PekWM                                                              ###"
-  echo "### 17) Afterstep                                                          ###"
-  echo "### 18) Blackbox                                                           ###"
-  echo "### 19) Fluxbox                                                            ###"
-  echo "### 20) Openbox                                                            ###"
+  echo "### 13) Bspwm (WIP)                                                        ###"
+  echo "### 14) FVWM (WIP)                                                         ###"
+  echo "### 15) IceWM (WIP)                                                        ###"
+  echo "### 16) PekWM  (WIP)                                                       ###"
+  echo "### 17) Afterstep (WIP)                                                    ###"
+  echo "### 18) Blackbox (WIP)                                                     ###"
+  echo "### 19) Fluxbox (WIP)                                                      ###"
+  echo "### 20) Openbox (WIP)                                                      ###"
   echo "##############################################################################"
   read case;
 
