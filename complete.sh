@@ -529,7 +529,7 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed feh
   sudo pacman -S --noconfirm --needed eog
   $ZB -S --noconfirm --needed mugshot
-  $ZB -S --noconfirm --needed j4-dmenu-desktop
+  #$ZB -S --noconfirm --needed j4-dmenu-desktop
   $ZB -S --noconfirm --needed polybar
   mkdir -p ~/.config/bspwm
   mkdir -p ~/.config/sxhkd
