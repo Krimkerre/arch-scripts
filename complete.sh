@@ -525,9 +525,9 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed network-manager-applet
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   $ZB -S --noconfirm --needed polybar
-  mkdir ~/.config/bspwm
-  mkdir ~/.config/sxhkd
-  mkdir ~/.config/polybar
+  mkdir -p ~/.config/bspwm
+  mkdir -p ~/.config/sxhkd
+  mkdir -p ~/.config/polybar
   cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm/bspwmrc
   chmod +x ~/.config/bspwm/bspwmrc
   cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
