@@ -17,6 +17,8 @@ super + Escape
 #
 # bspwm hotkeys
 #
+print
+	xfce4-screenshooter
 
 # quit/restart bspwm
 super + alt + {q,r}
