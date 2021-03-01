@@ -859,7 +859,7 @@ function DE_SELECTION() {
   clear
   echo "##############################################################################"
   echo "### What is your preferred desktop environment?                            ###"
-  echo "### 1)  Deepin                            21) WindowMaker (WIP)            ###"
+  echo "### 1)  Deepin                            21) WindowMaker                  ###"
   echo "### 2)  Gnome                             22) Awesome (WIP)                ###"
   echo "### 3)  KDE Plasma                        23) None                         ###"
   echo "### 4)  Mate                                                               ###"
@@ -877,8 +877,8 @@ function DE_SELECTION() {
   echo "### 16) PekWM                                                              ###"
   echo "### 17) Afterstep (WIP)                                                    ###"
   echo "### 18) Blackbox (WIP)                                                     ###"
-  echo "### 19) Fluxbox (WIP)                                                      ###"
-  echo "### 20) Openbox (WIP)                                                      ###"
+  echo "### 19) Fluxbox                                                            ###"
+  echo "### 20) Openbox                                                            ###"
   echo "##############################################################################"
   read case;
 
