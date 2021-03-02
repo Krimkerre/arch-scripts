@@ -439,6 +439,7 @@ function I3_DE() {
   cp config-i3 config
   cd ~/
   echo "alias conf='nano ~/.config/i3/config'" >> ~/.bashrc
+  echo "alias conf='nano ~/.config/i3/i3status-config'" >> ~/.bashrc
 }
 ################################################################################
 ### Install Enlightenment DE                                                 ###
