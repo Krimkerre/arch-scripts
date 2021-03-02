@@ -553,6 +553,9 @@ function BSPWM_DE() {
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
   sudo rm /etc/xdg/picom.conf
   sudo mv picom.conf /etc/xdg/picom.conf
+  echo "alias conf='nano ~/.config/bspwm/bspwmrc'" >> ~/.bashrc
+  echo "alias conf-key='nano ~/.config/sxhkd/sxhkdrc'" >> ~/.bashrc
+  echo "alias conf-bar='nano ~/.config/polybar/config'" >> ~/.bashrc
 }
 ################################################################################
 ### Install the FVWM Window Manager                                          ###
