@@ -318,6 +318,9 @@ function XFCE_DE() {
   $ZB -S --noconfirm --needed xts-arcolinux-theme
   $ZB -S --noconfirm --needed xts-windowsxp-theme
   $ZB -S --noconfirm --needed xts-windows-server-2003-theme
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
 }
 ################################################################################
 ### Installing Budgie DE                                                     ###
@@ -380,6 +383,9 @@ function LXDE_DE() {
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   $ZB -S --noconfirm --needed mugshot
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
 }
 ################################################################################
 ### Install The LXQT DE                                                      ###
@@ -399,6 +405,9 @@ function LXQT_DE() {
   sudo pacman -S --noconfirm --needed onboard
   sudo pacman -S --noconfirm --needed ark file-roller unrar p7zip
   sudo pacman -S --noconfirm --needed packagekit-qt5
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
 }
 ################################################################################
 ### Install The i3 Window Manager                                            ###
@@ -438,8 +447,11 @@ function I3_DE() {
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/i3status-config
   cp config-i3 config
   cd ~/
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
   echo "alias conf='nano ~/.config/i3/config'" >> ~/.bashrc
-  echo "alias conf='nano ~/.config/i3/i3status-config'" >> ~/.bashrc
+  echo "alias conf-bar='nano ~/.config/i3/i3status-config'" >> ~/.bashrc
 }
 ################################################################################
 ### Install Enlightenment DE                                                 ###
@@ -582,7 +594,10 @@ function FVWM_DE() {
   cd .fvwm
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-fvwm
   cp config-fvwm config
-  cd ..
+  cd ~/
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
 }
 ################################################################################
 ### Install the IceWM Window Manager                                         ###
@@ -620,7 +635,10 @@ function ICEWM_DE() {
   echo "# Allow Notifications" >> startup
   echo "/usr/lib/notification-daemon-1.0/notification-daemon &" >> startup
   chmod +x startup
-  cd ..
+  cd ~/
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
 }
 ################################################################################
 ### Install the PekWM Window Manager                                         ###
@@ -650,7 +668,10 @@ function PEKWM_DE() {
   cp vars-pekwm vars
   cp start-pekwm start
   chmod +x start
-  cd ..
+  cd ~/
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
 }
 ################################################################################
 ### Install the Afterstep Desktop                                            ###
@@ -669,6 +690,9 @@ function AFTERSTEP_DE() {
   sudo pacman -S --noconfirm --needed arandr
   sudo pacman -S --noconfirm --needed picom
   sudo pacman -S --noconfirm --needed gnome-disk-utility
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
 }
 ################################################################################
 ### Install the Blackbox Desktop                                             ###
@@ -693,6 +717,9 @@ function BLACKBOX_DE() {
   mkdir .blackbox
   echo "session.styleFile:/usr/share/blackbox/styles/Gray" >> ~/.blackboxrc
   echo "session.menuFile:~/.blackbox/menu" >> ~/.blackboxrc
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
 }
 ################################################################################
 ### Install the Fluxbox Desktop                                              ###
@@ -717,6 +744,9 @@ function FLUXBOX_DE() {
   $ZB -S --noconfirm --needed fbdesk
   $ZB -S --noconfirm --needed fbmenugen
   $ZB -S --noconfirm --needed fluxmod-styles
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
 }
 ################################################################################
 ### Install the Openbox Window Manager                                       ###
@@ -742,6 +772,9 @@ function OPENBOX_DE() {
   sudo pacman -S --noconfirm --needed obconf
   sudo pacman -S --noconfirm --needed menumaker
   $ZB -S --noconfirm --needed obmenu3
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
 }
 ################################################################################
 ### Install the WindowMaker Window Manager                                   ###
@@ -775,6 +808,9 @@ function WINDOWMAKER_DE() {
   $ZB -S --noconfirm --needed wmblueclock
   $ZB -S --noconfirm --needed wmbluecpu
   $ZB -S --noconfirm --needed wmsystemtray
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
 }
 ################################################################################
 ### Install the WindowMaker Window Manager                                   ###
@@ -797,6 +833,9 @@ function AWESOME_DE() {
   sudo pacman -S --noconfirm --needed network-manager-applet
   mkdir -p ~/.config/awesome/
   cp /etc/xdg/awesome/rc.lua ~/.config/awesome/
+  wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+  sudo rm /etc/xdg/picom.conf
+  sudo mv picom.conf /etc/xdg/picom.conf
 }
 ################################################################################
 ### Setup LightDM (Display Manager/Login)                                    ###
