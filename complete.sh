@@ -1131,6 +1131,8 @@ function SOFTWAREINSTALLSTD() {
   sudo pacman -S --noconfirm --needed youtube-dl
   $ZB -S --noconfirm --needed tuned
   $ZB -S --noconfirm --needed bpytop
+  $ZB -S --noconfirm --needed duf
+  $ZB -S --noconfirm --needed fontpreview-ueberzug
   #sudo systemctl enable tuned.service
 }
 ################################################################################
