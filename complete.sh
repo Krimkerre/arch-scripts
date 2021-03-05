@@ -542,6 +542,7 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed gnome-disk-utility
   sudo pacman -S --noconfirm --needed feh
   sudo pacman -S --noconfirm --needed eog
+  sudo pacman -S --noconfirm --needed lxappearance
   $ZB -S --noconfirm --needed ttf-font-awesome
   $ZB -S --noconfirm --needed pnmixer
   $ZB -S --noconfirm --needed mugshot
