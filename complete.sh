@@ -1133,7 +1133,7 @@ function SOFTWAREINSTALLSTD() {
   $ZB -S --noconfirm --needed tuned
   $ZB -S --noconfirm --needed bpytop
   $ZB -S --noconfirm --needed duf
-  $ZB -S --noconfirm --needed fontpreview-ueberzug
+  $ZB -S --noconfirm --needed fontpreview-ueberzug-git
   #sudo systemctl enable tuned.service
 }
 ################################################################################
