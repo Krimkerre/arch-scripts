@@ -1108,6 +1108,8 @@ function FONTINSTALL() {
   $ZB -S --noconfirm --needed ttf-ms-fonts
   $ZB -S --noconfirm --needed steam-fonts
   $ZB -S --noconfirm --needed ttf-mac-fonts
+  $ZB -S --noconfirm --needed siji-git
+  $ZB -S --noconfirm --needed ttf-unifont
 }
 ################################################################################
 ### Software To Install (My Standard Applications)                           ###
