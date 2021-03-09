@@ -438,7 +438,6 @@ function I3_DE() {
   sudo pacman -S --noconfirm --needed polkit-gnome
   $ZB -S --noconfirm --needed mugshot
   $ZB -S --noconfirm --needed i3exit
-  $ZB -S --noconfirm --needed ttf-font-awesome
   $ZB -S --noconfirm --needed pnmixer
   #$ZB -S --noconfirm --needed betterlockscreen
   mkdir -p ~/.config/i3
@@ -543,7 +542,6 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed feh
   sudo pacman -S --noconfirm --needed eog
   sudo pacman -S --noconfirm --needed lxappearance
-  $ZB -S --noconfirm --needed ttf-font-awesome
   $ZB -S --noconfirm --needed pnmixer
   $ZB -S --noconfirm --needed mugshot
   #$ZB -S --noconfirm --needed j4-dmenu-desktop
@@ -1110,6 +1108,7 @@ function FONTINSTALL() {
   $ZB -S --noconfirm --needed ttf-mac-fonts
   $ZB -S --noconfirm --needed siji-git
   $ZB -S --noconfirm --needed ttf-unifont
+  $ZB -S --noconfirm --needed ttf-font-awesome
 }
 ################################################################################
 ### Software To Install (My Standard Applications)                           ###
