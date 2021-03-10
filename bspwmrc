@@ -6,6 +6,8 @@
 bspc rule -r "*"
 killall "picom"
 killall "nm-applet"
+killall "pnmixer"
+killall "sxhkd"
 
 ################################################################################
 ### Autostart                                                                ###
@@ -47,6 +49,6 @@ bspc config gapless_monocle      true
 ################################################################################
 ### Rule Set-up                                                              ###
 ################################################################################
-bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Gimp desktop='^7'
 bspc rule -a firefox desktop='^2'
-bspc rule -a Steam desktop='^3'
+bspc rule -a Steam desktop='^4'
