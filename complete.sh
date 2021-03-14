@@ -436,6 +436,7 @@ function I3_DE() {
   sudo pacman -S --noconfirm --needed scrot
   sudo pacman -S --noconfirm --needed lxappearance
   sudo pacman -S --noconfirm --needed polkit-gnome
+  sudo pacman -S --noconfirm --needed galculator
   $ZB -S --noconfirm --needed mugshot
   $ZB -S --noconfirm --needed i3exit
   $ZB -S --noconfirm --needed pnmixer
@@ -504,6 +505,7 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed grim
   sudo pacman -S --noconfirm --needed feh
   sudo pacman -S --noconfirm --needed eog
+  sudo pacman -S --noconfirm --needed galculator
   $ZB -S --noconfirm --needed mugshot
   $ZB -S --noconfirm --needed j4-dmenu-desktop
   mkdir -p ~/.config/sway
@@ -542,6 +544,7 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed feh
   sudo pacman -S --noconfirm --needed eog
   sudo pacman -S --noconfirm --needed lxappearance
+  sudo pacman -S --noconfirm --needed galculator
   $ZB -S --noconfirm --needed pnmixer
   $ZB -S --noconfirm --needed mugshot
   #$ZB -S --noconfirm --needed j4-dmenu-desktop

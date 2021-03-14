@@ -29,7 +29,11 @@ exec xsetroot -cursor_name left_ptr
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pnmixer &
-# exec xset s off -dpms
+exec ~/.screenlayout/normal.sh
+exec --no-startup-id picom --experimental-backends
+exec --no-startup-id nitrogen --random --set-scaled
+#exec xset s off -dpms
+#exec --no-startup-id betterlockscreen
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -49,11 +53,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-#auto run programs
-exec ~/.screenlayout/normal.sh
-exec --no-startup-id picom --experimental-backends
-exec --no-startup-id nitrogen --random --set-scaled
-#exec --no-startup-id betterlockscreen
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -76,7 +75,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -99,12 +98,12 @@ bindsym $mod+semicolon focus right
 bindsym $mod+Ctrl+Escape exec $HOME/bin/block
 bindsym XF86Sleep exec $HOME/bin/block && echo mem > /sys/power/state
 bindsym $mod+ctrl+o exec --no-startup-id $HOME/bin/block
-# >> ~/.config/i3/config
 
 # Screen shot controls
 #bindsym --release Print exec scrot -e 'mv $f ~/Pictures/shots/ && feh ~/Pictures/shots/$f'
 bindsym --release $mod+Print exec scrot -u -e 'mv $f ~/Pictures/shots/ && feh ~/Pictures/shots/$f'
 bindsym --release $mod+Shift+Print exec scrot -s -e 'mv $f ~/Pictures/shots/ && eog ~/Pictures/shots/$f'
+bindsym Print exec /usr/bin/xfce4-screenshooter
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -150,21 +149,19 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# screen shots
-bindsym Print exec /usr/bin/xfce4-screenshooter
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5: "
-set $ws6 "6: "
-set $ws7 "7: "
-set $ws8 "8: "
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -200,7 +197,9 @@ assign [class="(?i)clementine|(?i)Audacity"] $ws7
 assign [class="(?i)virt-man"] $ws8
 
 # enable floating mode for all XTerm windows
-for_window [class="(?i)Terminator"] floating enable
+for_window [class="(?i)XFCE4-Terminal"] floating enable
+for_window [class="(?i)Virt-man"] floating enable
+for_window [class="(?i)Galculator"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -261,14 +260,14 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
-	
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 	i3bar_command i3bar --transparency
 	position bottom
-	font pango:3270Medium Nerd Font Mono 18
+	font pango:Cousine Nerd Font Mono 16
 #	separator_symbol ":|:"
         status_command i3status -c ~/.config/i3/i3status-config
 	colors {
