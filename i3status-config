@@ -9,11 +9,12 @@ general {
 }
 
 order += "load"
+order += "cpu_usage"
 order += "cpu_temperature 0"
 order += "disk /"
 order += "disk /mnt/Data"
-order += "ethernet eno1"
-#order += "wireless wlp2s0"
+order += "ethernet _first_"
+#order += "wireless _first_"
 order += "volume master"
 #order += "battery 1"
 order += "tztime local"
@@ -35,12 +36,12 @@ disk "/mnt/Data" {
         format = "<span background='#a1d569'>  %free (%percentage_free) Free</span>"
 }
 
-ethernet eno1 {
+ethernet _first_ {
         format_up = "<span background='#88c0d0'>  %ip </span>"
         format_down = "<span background='#88c0d0'>  Disconnected </span>"
 }
 
-wireless wlp2s0 {
+wireless _first_ {
         format_up = "<span background='#b48ead'>  %essid </span>"
         format_down = "<span background='#b48ead'>  Disconnected </span>"
 }
@@ -68,4 +69,9 @@ battery 1 {
 tztime local {
 		format = "<span background='#81a1c1'> %time </span>"
 		format_time = " %a %-d %b %H:%M"
+}
+
+cpu_usage  {
+		format = "<span background='#81a1c1'>  %usage </span>"
+		path = "/proc/stat"
 }
