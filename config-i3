@@ -31,7 +31,7 @@ exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id pnmixer &
 exec ~/.screenlayout/normal.sh
 exec --no-startup-id picom --experimental-backends
-exec --no-startup-id nitrogen --random --set-scaled
+exec --no-startup-id nitrogen --random --set-zoom-fill
 #exec xset s off -dpms
 #exec --no-startup-id betterlockscreen
 
@@ -249,6 +249,12 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Delete mode "$mode_system"
+
+# Custom Keybindings
+    bindsym $mod+Insert exec killall picom
+    bindsym $mod+shift+Insert exec --no-startup-id picom --experimental-backends
+    bindsym $mod+b exec firefox
+    bindsym $mod+t exec thunar
 
 # Window Colors
 
