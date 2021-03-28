@@ -1134,11 +1134,22 @@ function SOFTWAREINSTALLSTD() {
   sudo pacman -S --noconfirm --needed kdenlive
   sudo pacman -S --noconfirm --needed aspell-en
   sudo pacman -S --noconfirm --needed youtube-dl
+  sudo pacman -S --noconfirm --needed paperwork
+  #sudo systemctl enable tuned.service
+}
+################################################################################
+### Needed Software                                                          ###
+################################################################################
+function NEEDED_SOFTWARE() {
+  clear
+  echo "################################################################################"
+  echo "### Installing Needed Applications                                           ###"
+  echo "################################################################################"
+  sleep 2
   $ZB -S --noconfirm --needed tuned
   $ZB -S --noconfirm --needed bpytop
   $ZB -S --noconfirm --needed duf
   $ZB -S --noconfirm --needed fontpreview-ueberzug-git
-  #sudo systemctl enable tuned.service
 }
 ################################################################################
 ### Software To Install (My Standard Applications)                           ###
@@ -1362,6 +1373,7 @@ case $case in
   ZB="paru"
   ;;
 esac
+NEEDED_SOFTWARE
 SOUNDSETUP
 BLUETOOTHSETUP
 PRINTERSETUP
