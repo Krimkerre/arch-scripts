@@ -28,9 +28,9 @@ exec xsetroot -cursor_name left_ptr
 # Startup Applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 exec --no-startup-id start-pulseaudio-x11
-exec --no-startup-id pnmixer &
+# exec --no-startup-id pnmixer &
 exec ~/.screenlayout/normal.sh
-exec --no-startup-id picom --experimental-backends
+# exec --no-startup-id picom --experimental-backends
 exec --no-startup-id nitrogen --random --set-zoom-fill
 #exec xset s off -dpms
 #exec --no-startup-id betterlockscreen
@@ -51,7 +51,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -256,6 +256,10 @@ bindsym $mod+Delete mode "$mode_system"
     bindsym $mod+shift+Insert exec --no-startup-id picom --experimental-backends
     bindsym $mod+b exec firefox
     bindsym $mod+t exec thunar
+    bindsym $mod+Home exec killall nm-applet
+    bindsym $mod+shift+Home exec nm-applet
+    bindsym $mod+End exec killall pnmixer
+    bindsym $mod+shift+End exec pnmixer
 
 # Window Colors
 
