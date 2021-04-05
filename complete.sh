@@ -507,7 +507,7 @@ function SWAY_DE() {
   sudo pacman -S --noconfirm --needed eog
   sudo pacman -S --noconfirm --needed galculator
   $ZB -S --noconfirm --needed mugshot
-  #$ZB -S --noconfirm --needed j4-dmenu-desktop
+  $ZB -S --noconfirm --needed j4-dmenu-desktop
   mkdir -p ~/.config/sway
   cd ~/.config/sway
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-sway
@@ -1110,7 +1110,7 @@ function FONTINSTALL() {
   $ZB -S --noconfirm --needed steam-fonts
   $ZB -S --noconfirm --needed ttf-mac-fonts
   $ZB -S --noconfirm --needed siji-git
-  $ZB -S --noconfirm --needed ttf-unifont
+  #$ZB -S --noconfirm --needed ttf-unifont
   $ZB -S --noconfirm --needed ttf-font-awesome
 }
 ################################################################################
