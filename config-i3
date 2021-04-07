@@ -28,9 +28,9 @@ exec xsetroot -cursor_name left_ptr
 # Startup Applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 exec --no-startup-id start-pulseaudio-x11
-# exec --no-startup-id pnmixer &
+#exec --no-startup-id pnmixer &
 exec ~/.screenlayout/normal.sh
-# exec --no-startup-id picom --experimental-backends
+#exec --no-startup-id picom --experimental-backends
 exec --no-startup-id nitrogen --random --set-zoom-fill
 #exec xset s off -dpms
 #exec --no-startup-id betterlockscreen
@@ -40,6 +40,7 @@ exec --no-startup-id nitrogen --random --set-zoom-fill
 
 # Gaps & borders
 for_window [class="^.*"] border pixel 0
+for_window [class="(?i)mpv|(?i)vlc|(?i)lbry|(?i)firefox"] focus
 gaps inner 10
 gaps outer 10
 gaps top 10
@@ -51,7 +52,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-# exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -77,6 +78,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec terminator
 bindsym $mod+Shift+Return exec cool-retro-term
+bindsym $mod+Ctrl+Shift+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -193,14 +195,12 @@ assign [class="(?i)chromium|(?i)firefox|(?i)lbry"] $ws2
 assign [class="(?i)gimp|(?i)blender"] $ws3
 assign [class="(?i)steam|(?i)minecraft"] $ws4
 assign [class="(?i)telegram"] $ws5
-assign [class="(?i)vlc"] $ws6
+assign [class="(?i)vlc|(?i)mpv"] $ws6
 assign [class="(?i)clementine|(?i)Audacity"] $ws7
 assign [class="(?i)virt-man"] $ws8
 
 # enable floating mode for all XTerm windows
-for_window [class="(?i)XFCE4-Terminal"] floating enable
-for_window [class="(?i)Virt-man"] floating enable
-for_window [class="(?i)Galculator"] floating enable
+for_window [class="(?i)XFCE4-Terminal|(?i)Virt-man|(?i)Galculator"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
