@@ -530,7 +530,7 @@ function BASHRC_CONF() {
   echo "alias sysmon='gtop'" >> /mnt/etc/skel/.bashrc
   echo "alias conf-theme='~/.config/gtk-3.0/settings.ini'" >> /mnt/etc/skel/.bashrc
   echo "alias video='ytfzf -t --upload-time=today '" >> /mnt/etc/skel/.bashrc
-  echo "alias video=s='ytfzf -tS '" >> /mnt/skel/.bashrc
+  echo "alias video=s='ytfzf -tS '" >> /mnt/etc/skel/.bashrc
   echo "alias cpu='cpufetch'" >> /mnt/etc/skel/.bashrc
 }
 ################################################################################
