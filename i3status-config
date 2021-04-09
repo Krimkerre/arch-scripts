@@ -20,24 +20,24 @@ order += "volume master"
 order += "tztime local"
 
 load {
-        format = "<span background='#f59335'>  %5min Load </span>"
+        format = "<span background='#115e28'>  %5min Load </span>"
 }
 
 cpu_temperature 0 {
-        format = "<span background='#bf616a'>  %degrees °C </span>"
+        format = "<span background='#1c5653'>  %degrees °C </span>"
         path = "/sys/class/thermal/thermal_zone0/temp"
 }
 
 disk "/" {
-        format = "<span background='#fec7cd'>  %free (%percentage_free) Free</span>"
+        format = "<span background='#563d1c'>  %free (%percentage_free) Free</span>"
 }
 
 disk "/mnt/Data" {
-        format = "<span background='#a1d569'>  %free (%percentage_free) Free</span>"
+        format = "<span background='#86510c'>  %free (%percentage_free) Free</span>"
 }
 
 ethernet _first_ {
-        format_up = "<span background='#88c0d0'>  %ip </span>"
+        format_up = "<span background='#868955'>  %ip </span>"
         format_down = "<span background='#88c0d0'>  Disconnected </span>"
 }
 
@@ -47,7 +47,7 @@ wireless _first_ {
 }
 
 volume master {
-        format = "<span background='#ebcb8b'>  %volume </span>"
+        format = "<span background='#558962'>  %volume </span>"
         format_muted = "<span background='#ebcb8b'>  Muted </span>"
         device = "default"
         mixer = "Master"
@@ -67,11 +67,11 @@ battery 1 {
 }
 
 tztime local {
-		format = "<span background='#81a1c1'> %time </span>"
+		format = "<span background='#074479'> %time </span>"
 		format_time = " %a %-d %b %H:%M"
 }
 
 cpu_usage  {
-		format = "<span background='#81a1c1'>  %usage </span>"
+		format = "<span background='#4c2121'>  %usage </span>"
 		path = "/proc/stat"
 }

@@ -1217,7 +1217,7 @@ function SOFTWAREINSTALLEXTRA() {
   $ZB -S --noconfirm --needed lbry-app-bin
   #System Utilities
   sudo pacman -S --noconfirm --needed cockpit cockpit-machines cockpit-pcp cockpit-podman
-  sudo pacman -S --noconfirm --needed syncthing-gtk
+  sudo pacman -S --noconfirm --needed syncthing
   sudo pacman -S --noconfirm --needed dconf-editor
   sudo pacman -S --noconfirm --needed virt-manager
   sudo pacman -S --noconfirm --needed ebtables iptables
