@@ -192,7 +192,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Assign workspaces
 assign [class="(?i)chromium|(?i)firefox|(?i)lbry"] $ws2
-assign [class="(?i)gimp|(?i)blender"] $ws3
+assign [class="(?i)gimp|(?i)blender|(?i)freecad"] $ws3
 assign [class="(?i)steam|(?i)minecraft"] $ws4
 assign [class="(?i)telegram"] $ws5
 assign [class="(?i)vlc|(?i)mpv"] $ws6

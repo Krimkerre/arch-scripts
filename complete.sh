@@ -437,6 +437,7 @@ function I3_DE() {
   sudo pacman -S --noconfirm --needed lxappearance
   sudo pacman -S --noconfirm --needed polkit-gnome
   sudo pacman -S --noconfirm --needed galculator
+  sudo pacman -S --noconfirm --needed dunst
   $ZB -S --noconfirm --needed mugshot
   $ZB -S --noconfirm --needed i3exit
   $ZB -S --noconfirm --needed pnmixer
@@ -450,6 +451,8 @@ function I3_DE() {
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
   sudo rm /etc/xdg/picom.conf
   sudo mv picom.conf /etc/xdg/picom.conf
+  mkdir -p ~/.config/dunst
+  cp /usr/share/dunst/dunstrc ~/.config/dunst/
   echo "alias conf='nano ~/.config/i3/config'" >> ~/.bashrc
   echo "alias conf-bar='nano ~/.config/i3/i3status-config'" >> ~/.bashrc
 }
@@ -545,6 +548,7 @@ function BSPWM_DE() {
   sudo pacman -S --noconfirm --needed eog
   sudo pacman -S --noconfirm --needed lxappearance
   sudo pacman -S --noconfirm --needed galculator
+  sudo pacman -S --noconfirm --needed dunst
   $ZB -S --noconfirm --needed pnmixer
   $ZB -S --noconfirm --needed mugshot
   #$ZB -S --noconfirm --needed j4-dmenu-desktop
@@ -568,6 +572,8 @@ function BSPWM_DE() {
   wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
   sudo rm /etc/xdg/picom.conf
   sudo mv picom.conf /etc/xdg/picom.conf
+  mkdir -p ~/.config/dunst
+  cp /usr/share/dunst/dunstrc ~/.config/dunst/
   echo "alias conf='nano ~/.config/bspwm/bspwmrc'" >> ~/.bashrc
   echo "alias conf-key='nano ~/.config/sxhkd/sxhkdrc'" >> ~/.bashrc
   echo "alias conf-bar='nano ~/.config/polybar/config'" >> ~/.bashrc
@@ -1220,7 +1226,7 @@ function SOFTWAREINSTALLEXTRA() {
   sudo pacman -S --noconfirm --needed syncthing
   sudo pacman -S --noconfirm --needed dconf-editor
   sudo pacman -S --noconfirm --needed virt-manager
-  sudo pacman -S --noconfirm --needed ebtables iptables
+  #sudo pacman -S --noconfirm --needed ebtables iptables
   sudo pacman -S --noconfirm --needed dnsmasq
   sudo pacman -S --noconfirm --needed virglrenderer
   sudo pacman -S --noconfirm --needed qemu-arch-extra

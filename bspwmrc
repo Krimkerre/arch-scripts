@@ -8,6 +8,7 @@ killall "picom"
 killall "nm-applet"
 killall "pnmixer"
 killall "sxhkd"
+killall "dunst"
 
 ################################################################################
 ### Autostart                                                                ###
@@ -19,6 +20,7 @@ nm-applet &
 pnmixer &
 picom --experimental-backends &
 sxhkd &
+dunst &
 ~/.config/polybar/launch.sh
 
 ################################################################################
