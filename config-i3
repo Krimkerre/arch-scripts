@@ -23,6 +23,7 @@ font pango:ShureTechMono Nerd Font Regular 18
 exec killall picom
 exec killall nm-applet
 exec killall pnmixer
+exec killall dunst
 exec xsetroot -cursor_name left_ptr
 
 # Startup Applications
@@ -34,6 +35,7 @@ exec ~/.screenlayout/normal.sh
 exec --no-startup-id nitrogen --random --set-zoom-fill
 #exec xset s off -dpms
 #exec --no-startup-id betterlockscreen
+exec --no-startup-id dunst
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -78,7 +80,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec terminator
 bindsym $mod+Shift+Return exec cool-retro-term
-bindsym $mod+Ctrl+Shift+Return exec xfce4-terminal
+bindsym $mod+Ctrl+Shift+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -106,7 +108,7 @@ bindsym $mod+ctrl+o exec --no-startup-id $HOME/bin/block
 #bindsym --release Print exec scrot -e 'mv $f ~/Pictures/shots/ && feh ~/Pictures/shots/$f'
 bindsym --release $mod+Print exec scrot -u -e 'mv $f ~/Pictures/shots/ && feh ~/Pictures/shots/$f'
 bindsym --release $mod+Shift+Print exec scrot -s -e 'mv $f ~/Pictures/shots/ && eog ~/Pictures/shots/$f'
-bindsym Print exec /usr/bin/xfce4-screenshooter
+bindsym Print exec /usr/bin/screenshot
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -192,7 +194,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Assign workspaces
 assign [class="(?i)chromium|(?i)firefox|(?i)lbry"] $ws2
-assign [class="(?i)gimp|(?i)blender|(?i)freecad"] $ws3
+assign [class="(?i)gimp|(?i)blender"] $ws3
 assign [class="(?i)steam|(?i)minecraft"] $ws4
 assign [class="(?i)telegram"] $ws5
 assign [class="(?i)vlc|(?i)mpv"] $ws6
@@ -200,7 +202,7 @@ assign [class="(?i)clementine|(?i)Audacity"] $ws7
 assign [class="(?i)virt-man"] $ws8
 
 # enable floating mode for all XTerm windows
-for_window [class="(?i)XFCE4-Terminal|(?i)Virt-man|(?i)Galculator"] floating enable
+for_window [class="(?i)Terminal|(?i)Virt-man|(?i)Galculator"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -255,7 +257,7 @@ bindsym $mod+Delete mode "$mode_system"
     bindsym $mod+Insert exec killall picom
     bindsym $mod+shift+Insert exec --no-startup-id picom --experimental-backends
     bindsym $mod+b exec firefox
-    bindsym $mod+t exec thunar
+    bindsym $mod+t exec nautilus
     bindsym $mod+Home exec killall nm-applet
     bindsym $mod+shift+Home exec nm-applet
     bindsym $mod+End exec killall pnmixer
