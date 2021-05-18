@@ -452,7 +452,7 @@ function I3_DE() {
   sudo rm /etc/xdg/picom.conf
   sudo mv picom.conf /etc/xdg/picom.conf
   mkdir -p ~/.config/dunst
-  cp /usr/share/dunst/dunstrc ~/.config/dunst/
+  cp /etc/dunst/dunstrc ~/.config/dunst/
   echo "alias conf='nano ~/.config/i3/config'" >> ~/.bashrc
   echo "alias conf-bar='nano ~/.config/i3/i3status-config'" >> ~/.bashrc
 }
