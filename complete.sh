@@ -200,7 +200,7 @@ function GNOME_DE() {
   sleep 2
   sudo pacman -S --noconfirm --needed gnome gnome-extra
   sudo pacman -S --noconfirm --needed nautilus-share
-  sudo pacman -S --noconfirm --needed chrome-gnome-shell
+  $ZB -S --noconfirm --needed chrome-gnome-shell
   sudo pacman -S --noconfirm --needed variety
   sudo pacman -S --noconfirm --needed gnome-packagekit gnome-software-packagekit-plugin
 
