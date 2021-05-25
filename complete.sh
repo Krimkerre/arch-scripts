@@ -1158,6 +1158,7 @@ function NEEDED_SOFTWARE() {
   $ZB -S --noconfirm --needed fontpreview-ueberzug-git
   $ZB -S --noconfirm --needed ytfzf
   $ZB -S --noconfirm --needed cpufetch
+  $ZB -S --noconfirm --needed buttermanager
 }
 ################################################################################
 ### Software To Install (My Standard Applications)                           ###
