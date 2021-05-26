@@ -227,26 +227,30 @@ function GNOMEEXT() {
   clear
   echo "################################################################################"
   echo "### Installing Gnome Extensions                                              ###"
+  echo "### (Popshell - System76's tiling extension)                                 ###"
+  echo "### ------------------------------------------------------------------------ ###"
+  echo "### Recommend doing the rest from Gnome Extensions Website as will auto      ###"
+  echo "### update.                                                                  ###"
   echo "################################################################################"
   sleep 2
-  $ZB -S --noconfirm --needed gnome-shell-extension-dash-to-dock
-  $ZB -S --noconfirm --needed gnome-shell-extension-dash-to-panel
-  $ZB -S --noconfirm --needed gnome-shell-extension-arc-menu-git
-  $ZB -S --noconfirm --needed gnome-shell-extension-openweather-git
-  $ZB -S --noconfirm --needed gnome-shell-extension-topicons-plus
-  $ZB -S --noconfirm --needed gnome-shell-extension-audio-output-switcher-git
-  $ZB -S --noconfirm --needed gnome-shell-extension-clipboard-indicator-git
-  $ZB -S --noconfirm --needed gnome-shell-extension-coverflow-alt-tab-git
-  $ZB -S --noconfirm --needed gnome-shell-extension-animation-tweaks-git
-  $ZB -S --noconfirm --needed gnome-shell-extension-extended-gestures-git
-  $ZB -S --noconfirm --needed gnome-shell-extension-transparent-window-moving-git
+#  $ZB -S --noconfirm --needed gnome-shell-extension-dash-to-dock
+#  $ZB -S --noconfirm --needed gnome-shell-extension-dash-to-panel
+#  $ZB -S --noconfirm --needed gnome-shell-extension-arc-menu-git
+#  $ZB -S --noconfirm --needed gnome-shell-extension-openweather-git
+#  $ZB -S --noconfirm --needed gnome-shell-extension-topicons-plus
+#  $ZB -S --noconfirm --needed gnome-shell-extension-audio-output-switcher-git
+#  $ZB -S --noconfirm --needed gnome-shell-extension-clipboard-indicator-git
+#  $ZB -S --noconfirm --needed gnome-shell-extension-coverflow-alt-tab-git
+#  $ZB -S --noconfirm --needed gnome-shell-extension-animation-tweaks-git
+#  $ZB -S --noconfirm --needed gnome-shell-extension-extended-gestures-git
+#  $ZB -S --noconfirm --needed gnome-shell-extension-transparent-window-moving-git
   $ZB -S --noconfirm --needed gnome-shell-extension-pop-shell-git pop-shell-shortcuts-git
-  $ZB -S --noconfirm --needed gnome-alsamixer
-  $ZB -S --noconfirm --needed gnome-shell-extension-vitals
-  $ZB -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
-  $ZB -S --noconfirm --needed gnome-shell-extension-material-shell-git
-  $ZB -S --noconfirm --needed gnome-shell-extension-slinger-git
-  $ZB -S --noconfirm --needed gnome-shell-extension-transparent-osd-git
+#  $ZB -S --noconfirm --needed gnome-alsamixer
+#  $ZB -S --noconfirm --needed gnome-shell-extension-vitals
+#  $ZB -S --noconfirm --needed gnome-shell-extension-drop-down-terminal-x
+#  $ZB -S --noconfirm --needed gnome-shell-extension-material-shell-git
+#  $ZB -S --noconfirm --needed gnome-shell-extension-slinger-git
+#  $ZB -S --noconfirm --needed gnome-shell-extension-transparent-osd-git
 }
 ################################################################################
 ### Install KDE Plasma DE                                                    ###
