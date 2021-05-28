@@ -186,7 +186,19 @@ function PARTHD() {
 ################################################################################
 function CHK_FMT() {
   if [[ DRV_FMT = "ext4" ]]; then
-    FMTEXT4
+    clear
+    echo "##############################################################################"
+    echo "### Formatting the Hard Drive as EXT4                                      ###"
+    echo "##############################################################################"
+    sleep 3
+    if [[ -d /sys/firmware/efi/efivars ]]; then
+      #UEFI Partition
+      mkfs.fat -F32 ${HD}1
+      mkfs.ext4 ${HD}2
+    else
+      #BIOS Partition
+      mkfs.ext4 ${HD}1
+    fi
   fi
   if [[ DRV_FMT = "btrfs" ]]; then
     FMTBTRFS
