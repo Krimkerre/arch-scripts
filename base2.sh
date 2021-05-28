@@ -182,7 +182,7 @@ function PARTHD() {
     parted ${HD} mklabel msdos mkpart primary ext4 2MiB 100% set 1 boot on
   fi
 }
-### Check What Format For Drive
+### Check What Format For Drive And Format
 ################################################################################
 function CHK_FMT() {
   if [[ DRV_FMT="ext4" ]]; then
@@ -201,110 +201,80 @@ function CHK_FMT() {
     fi
   fi
   if [[ DRV_FMT = "btrfs" ]]; then
-    FMTBTRFS
-  fi
-}
-### Format The Hard Drive With EXT4 Filesystem Here
-################################################################################
-function FMTEXT4() {
-  clear
-  echo "##############################################################################"
-  echo "### Formatting the Hard Drive as EXT4                                      ###"
-  echo "##############################################################################"
-  sleep 3
-  if [[ -d /sys/firmware/efi/efivars ]]; then
-    #UEFI Partition
-    mkfs.fat -F32 ${HD}1
-    mkfs.ext4 ${HD}2
-  else
-    #BIOS Partition
-    mkfs.ext4 ${HD}1
-  fi
-}
-### Format The Hard Drive With BTRFS Filesystem Here
-################################################################################
-function FMTBTRFS() {
-  clear
-  echo "##############################################################################"
-  echo "### Formatting the Hard Drive as BTRFS                                     ###"
-  echo "##############################################################################"
-  sleep 3
-  if [[ -d /sys/firmware/efi/efivars ]]; then
-    #UEFI Partition
-    mkfs.fat -F32 ${HD}1
-    mkfs.btrfs -f ${HD}2
-  else
-    #BIOS Partition
-    mkfs.btrfs ${HD}1
-  fi
-}
-### Format The Hard Drive With XFS Filesystem Here
-################################################################################
-function FMTXFS() {
-  clear
-  echo "##############################################################################"
-  echo "### Formatting the Hard Drive as XFS                                       ###"
-  echo "##############################################################################"
-  sleep 3
-  if [[ -d /sys/firmware/efi/efivars ]]; then
-    #UEFI Partition
-    mkfs.fat -F32 ${HD}1
-    mkfs.xfs -f ${HD}2
-  else
-    #BIOS Partition
-    mkfs.xfs -f ${HD}1
-  fi
-}
-### Format The Hard Drive With ReiserFS Filesystem Here
-################################################################################
-function FMTREISERFS() {
-  clear
-  echo "##############################################################################"
-  echo "### Formatting the Hard Drive as ReiserFS                                  ###"
-  echo "##############################################################################"
-  sleep 3
-  if [[ -d /sys/firmware/efi/efivars ]]; then
-    #UEFI Partition
-    mkfs.fat -F32 ${HD}1
-    mkfs.reiserfs -f ${HD}2
-  else
-    #BIOS Partition
-    mkfs.reiserfs -f ${HD}1
-  fi
-}
-### Format The Hard Drive With JFS Filesystem Here
-################################################################################
-function FMTJFS() {
-  clear
-  echo "##############################################################################"
-  echo "### Formatting the Hard Drive as JFS                                       ###"
-  echo "##############################################################################"
-  sleep 3
-  if [[ -d /sys/firmware/efi/efivars ]]; then
-    #UEFI Partition
-    mkfs.fat -F32 ${HD}1
-    mkfs.jfs -f ${HD}2
-  else
-    #BIOS Partition
-    mkfs.jfs -f ${HD}1
-  fi
-}
-### Format The Hard Drive With NILFS2 Filesystem Here
-################################################################################
-function FMTNILFS2() {
-  clear
-  echo "##############################################################################"
-  echo "### Formatting the Hard Drive as NILFS2                                    ###"
-  echo "##############################################################################"
-  sleep 3
-  if [[ -d /sys/firmware/efi/efivars ]]; then
-    #UEFI Partition
-    mkfs.fat -F32 ${HD}1
-    mkfs.nilfs2 -f ${HD}2
-  else
-    #BIOS Partition
-    mkfs.nilfs2 -f ${HD}1
-  fi
+      clear
+      echo "##############################################################################"
+      echo "### Formatting the Hard Drive as BTRFS                                     ###"
+      echo "##############################################################################"
+      sleep 3
+      if [[ -d /sys/firmware/efi/efivars ]]; then
+        #UEFI Partition
+        mkfs.fat -F32 ${HD}1
+        mkfs.btrfs -f ${HD}2
+      else
+        #BIOS Partition
+        mkfs.btrfs ${HD}1
+      fi
+    fi
+    if [[ DRV_FMT="xfs" ]]; then
+      clear
+      echo "##############################################################################"
+      echo "### Formatting the Hard Drive as XFS                                       ###"
+      echo "##############################################################################"
+      sleep 3
+      if [[ -d /sys/firmware/efi/efivars ]]; then
+        #UEFI Partition
+        mkfs.fat -F32 ${HD}1
+        mkfs.xfs -f ${HD}2
+      else
+        #BIOS Partition
+        mkfs.xfs -f ${HD}1
+      fi
+    fi
+    if [[ DRV_FMT="reiserfs" ]]; then
+      clear
+      echo "##############################################################################"
+      echo "### Formatting the Hard Drive as ReiserFS                                  ###"
+      echo "##############################################################################"
+      sleep 3
+      if [[ -d /sys/firmware/efi/efivars ]]; then
+        #UEFI Partition
+        mkfs.fat -F32 ${HD}1
+        mkfs.reiserfs -f ${HD}2
+      else
+        #BIOS Partition
+        mkfs.reiserfs -f ${HD}1
+      fi
+    fi
+    if [[ DRV_FMT="jfs" ]]; then
+      clear
+      echo "##############################################################################"
+      echo "### Formatting the Hard Drive as JFS                                       ###"
+      echo "##############################################################################"
+      sleep 3
+      if [[ -d /sys/firmware/efi/efivars ]]; then
+        #UEFI Partition
+        mkfs.fat -F32 ${HD}1
+        mkfs.jfs -f ${HD}2
+      else
+        #BIOS Partition
+        mkfs.jfs -f ${HD}1
+      fi
+    fi
+    if [[ DRV_FMT="nilfs2" ]]; then
+      clear
+      echo "##############################################################################"
+      echo "### Formatting the Hard Drive as NILFS2                                    ###"
+      echo "##############################################################################"
+      sleep 3
+      if [[ -d /sys/firmware/efi/efivars ]]; then
+        #UEFI Partition
+        mkfs.fat -F32 ${HD}1
+        mkfs.nilfs2 -f ${HD}2
+      else
+        #BIOS Partition
+        mkfs.nilfs2 -f ${HD}1
+      fi
+    fi
 }
 ### Mount The Hard Drive Here
 ################################################################################
@@ -344,3 +314,4 @@ BOOTTYPE
 ################################################################################
 PARTHD
 CHK_FMT
+MNTHD
