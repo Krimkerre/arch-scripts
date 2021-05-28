@@ -185,6 +185,7 @@ function PARTHD() {
 ### Check What Format For Drive And Format
 ################################################################################
 function CHK_FMT() {
+  echo ${DRV_FMT}
   if [[ ${DRV_FMT}="ext4" ]]; then
     clear
     echo "##############################################################################"
