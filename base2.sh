@@ -185,7 +185,7 @@ function PARTHD() {
 ### Check What Format For Drive
 ################################################################################
 function CHK_FMT() {
-  if [[ DRV_FMT = "ext4" ]]; then
+  if [[ DRV_FMT="ext4" ]]; then
     clear
     echo "##############################################################################"
     echo "### Formatting the Hard Drive as EXT4                                      ###"
