@@ -186,7 +186,7 @@ function PARTHD() {
 ################################################################################
 function CHK_FMT() {
   echo ${DRV_FMT}
-  if [[ ${DRV_FMT}="ext4" ]]; then
+  if [ "${DRV_FMT}" = "ext4" ]; then
     clear
     echo "##############################################################################"
     echo "### Formatting the Hard Drive as EXT4                                      ###"
@@ -201,7 +201,7 @@ function CHK_FMT() {
       mkfs.ext4 ${HD}1
     fi
   fi
-  if [[ ${DRV_FMT}="btrfs" ]]; then
+  if [ "${DRV_FMT}" = "btrfs" ]; then
       clear
       echo "##############################################################################"
       echo "### Formatting the Hard Drive as BTRFS                                     ###"
@@ -216,7 +216,7 @@ function CHK_FMT() {
         mkfs.btrfs ${HD}1
       fi
     fi
-    if [[ ${DRV_FMT}="xfs" ]]; then
+    if [ "${DRV_FMT}" = "xfs" ]; then
       clear
       echo "##############################################################################"
       echo "### Formatting the Hard Drive as XFS                                       ###"
@@ -231,7 +231,7 @@ function CHK_FMT() {
         mkfs.xfs -f ${HD}1
       fi
     fi
-    if [[ ${DRV_FMT}="reiserfs" ]]; then
+    if [ "${DRV_FMT}" = "reiserfs" ]; then
       clear
       echo "##############################################################################"
       echo "### Formatting the Hard Drive as ReiserFS                                  ###"
@@ -246,7 +246,7 @@ function CHK_FMT() {
         mkfs.reiserfs -f ${HD}1
       fi
     fi
-    if [[ ${DRV_FMT}="jfs" ]]; then
+    if [ "${DRV_FMT}" = "jfs" ]; then
       clear
       echo "##############################################################################"
       echo "### Formatting the Hard Drive as JFS                                       ###"
@@ -261,7 +261,7 @@ function CHK_FMT() {
         mkfs.jfs -f ${HD}1
       fi
     fi
-    if [[ ${DRV_FMT}="nilfs2" ]]; then
+    if [ "${DRV_FMT}" = "nilfs2" ]; then
       clear
       echo "##############################################################################"
       echo "### Formatting the Hard Drive as NILFS2                                    ###"
