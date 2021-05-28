@@ -185,14 +185,13 @@ function PARTHD() {
 ### Check What Format For Drive
 ################################################################################
 function CHK_FMT() {
-  if [ DRV_FMT="ext4"] then
+  if [[ DRV_FMT = "ext4" ]]; then
     FMTEXT4
   fi
-  if [ DRV_FMT="btrfs"] then
+  if [[ DRV_FMT = "btrfs" ]]; then
     FMTBTRFS
   fi
 }
-
 ### Format The Hard Drive With EXT4 Filesystem Here
 ################################################################################
 function FMTEXT4() {
