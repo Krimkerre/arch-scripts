@@ -127,7 +127,6 @@ function KEYMAP() {
 ################################################################################
 function CLIFONT() {
   clear
-  pacstrap /mnt terminus-font
   DEFFNT="ter-120n"
 }
 ### Set Your Timezone Here
@@ -299,7 +298,7 @@ function BASEPKG() {
   echo "### Installing the Base Packages                                           ###"
   echo "##############################################################################"
   sleep 3
-  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils
+  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils terminus-font
   genfstab -U /mnt >> /mnt/etc/fstab
 }
 
