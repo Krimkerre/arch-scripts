@@ -556,3 +556,27 @@ NEEDEDPKGS
 MISC_SETTINGS
 BASHRC_CONF
 BOOT_CFG
+### Setting Passwords and Creating the User                                  ###
+################################################################################
+clear
+echo "##############################################################################"
+echo "### Setting Up Users and Final Settings                                    ###"
+echo "##############################################################################"
+sleep 3
+arch-chroot /mnt useradd -m -g users -G storage,wheel,power,kvm -s /bin/bash "${USRNM}"
+echo "$UPASSWD
+$UPASSWD
+" | arch-chroot /mnt passwd $USRNM
+
+echo "$RPASSWD
+$RPASSWD" | arch-chroot /mnt passwd
+wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/complete.sh
+chmod +x complete.sh
+cp complete.sh /mnt/home/$USRNM/
+clear
+echo "##############################################################################"
+echo "### Installation Is Complete, Please Reboot And Have Fun                   ###"
+echo "### To Setup The DE and Other Needed Packages Please Type                  ###"
+echo "### 'sudo pacman -Syyu' after the 1st boot and log on as user, then reboot ###"
+echo "### Then type './complete.sh' to complete rest of the system install.      ###"
+echo "##############################################################################"
