@@ -291,6 +291,238 @@ function MNTHD() {
 }
 
 ################################################################################
+### Install The Base Packages                                                ###
+################################################################################
+function BASEPKG() {
+  clear
+  echo "##############################################################################"
+  echo "### Installing the Base Packages                                           ###"
+  echo "##############################################################################"
+  sleep 3
+  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils
+  genfstab -U /mnt >> /mnt/etc/fstab
+}
+
+################################################################################
+### Setting Up Systemd Swap                                                  ###
+################################################################################
+function SYSDSWAP() {
+  clear
+  echo "##############################################################################"
+  echo "### Setting up SystemD Swap                                                ###"
+  echo "##############################################################################"
+  sleep 3
+  rm /mnt/etc/systemd/swap.conf
+  echo "#zswap_enabled=1" >> /mnt/etc/systemd/swap.conf
+  echo "#zswap_compressor=zstd" >> /mnt/etc/systemd/swap.conf     # lzo lz4 zstd lzo-rle lz4hc
+  echo "#zswap_max_pool_percent=25" >> /mnt/etc/systemd/swap.conf # 1-99
+  echo "#zswap_zpool=z3fold" >> /mnt/etc/systemd/swap.conf        # zbud z3fold (note z3fold requires kernel 4.8+)
+  echo "#zram_enabled=1" >> /mnt/etc/systemd/swap.conf
+  echo "#zram_size=\$(( RAM_SIZE / 4 ))" >> /mnt/etc/systemd/swap.conf    # This is 1/4 of ram size by default.
+  echo "#zram_count=\${NCPU}" >> /mnt/etc/systemd/swap.conf               # Device count
+  echo "#zram_streams=\${NCPU}" >> /mnt/etc/systemd/swap.conf             # Compress streams
+  echo "#zram_alg=zstd" >> /mnt/etc/systemd/swap.conf                    # See $zswap_compressor
+  echo "#zram_prio=32767" >> /mnt/etc/systemd/swap.conf                  # 1 - 32767
+  echo "swapfc_enabled=1" >> /mnt/etc/systemd/swap.conf
+  echo "swapfc_force_use_loop=0" >> /mnt/etc/systemd/swap.conf          # Force usage of swapfile + loop
+  echo "swapfc_frequency=1" >> /mnt/etc/systemd/swap.conf               # How often to check free swap space in seconds
+  echo "swapfc_chunk_size=256M" >> /mnt/etc/systemd/swap.conf           # Size of swap chunk
+  echo "swapfc_max_count=32" >> /mnt/etc/systemd/swap.conf              # Note: 32 is a kernel maximum
+  echo "swapfc_min_count=1" >> /mnt/etc/systemd/swap.conf               # Minimum amount of chunks to preallocate
+  echo "swapfc_free_ram_perc=35" >> /mnt/etc/systemd/swap.conf          # Add first chunk if free ram < 35%
+  echo "swapfc_free_swap_perc=15" >> /mnt/etc/systemd/swap.conf         # Add new chunk if free swap < 15%
+  echo "swapfc_remove_free_swap_perc=55" >> /mnt/etc/systemd/swap.conf  # Remove chunk if free swap > 55% && chunk count > 2
+  echo "swapfc_priority=50" >> /mnt/etc/systemd/swap.conf               # Priority of swapfiles (decreasing by one for each swapfile).
+  echo "swapfc_path=/var/lib/systemd-swap/swapfc/" >> /mnt/etc/systemd/swap.conf
+# Only for swapfile + loop
+  echo "swapfc_nocow=1" >> /mnt/etc/systemd/swap.conf              # Disable CoW on swapfile
+  echo "swapfc_directio=1" >> /mnt/etc/systemd/swap.conf           # Use directio for loop dev
+  echo "swapfc_force_preallocated=1" >> /mnt/etc/systemd/swap.conf # Will preallocate created files
+  echo "swapd_auto_swapon=1" >> /mnt/etc/systemd/swap.conf
+  echo "swapd_prio=1024" >> /mnt/etc/systemd/swap.conf
+  arch-chroot /mnt systemctl enable systemd-swap
+}
+
+################################################################################
+### Set Number Of CPUs In MAKEFLAGS                                          ###
+################################################################################
+function MAKEFLAGS_CPU() {
+  clear
+  echo "##############################################################################"
+  echo "### Fixing the Makeflags for the Compiler                                  ###"
+  echo "##############################################################################"
+  sleep 3
+  numberofcores=$(grep -c ^processor /proc/cpuinfo)
+  case $numberofcores in
+
+      16)
+          echo "You have " $numberofcores" cores."
+          echo "Changing the makeflags for "$numberofcores" cores."
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j16"/g' /mnt/etc/makepkg.conf
+          echo "Changing the compression settings for "$numberofcores" cores."
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 16 -z -)/g' /mnt/etc/makepkg.conf
+          ;;
+      8)
+          echo "You have " $numberofcores" cores."
+          echo "Changing the makeflags for "$numberofcores" cores."
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j8"/g' /mnt/etc/makepkg.conf
+          echo "Changing the compression settings for "$numberofcores" cores."
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 8 -z -)/g' /mnt/etc/makepkg.conf
+          ;;
+      6)
+          echo "You have " $numberofcores" cores."
+          echo "Changing the makeflags for "$numberofcores" cores."
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j8"/g' /mnt/etc/makepkg.conf
+          echo "Changing the compression settings for "$numberofcores" cores."
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 6 -z -)/g' /mnt/etc/makepkg.conf
+          ;;
+      4)
+          echo "You have " $numberofcores" cores."
+          echo "Changing the makeflags for "$numberofcores" cores."
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j4"/g' /mnt/etc/makepkg.conf
+          echo "Changing the compression settings for "$numberofcores" cores."
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 4 -z -)/g' /mnt/etc/makepkg.conf
+          ;;
+      2)
+          echo "You have " $numberofcores" cores."
+          echo "Changing the makeflags for "$numberofcores" cores."
+          sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j2"/g' /mnt/etc/makepkg.conf
+          echo "Changing the compression settings for "$numberofcores" cores."
+          sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T 2 -z -)/g' /mnt/etc/makepkg.conf
+          ;;
+      *)
+          echo "We do not know how many cores you have."
+          echo "Do it manually."
+          ;;
+
+  esac
+}
+
+################################################################################
+### Needed Packages To Install                                               ###
+################################################################################
+function NEEDEDPKGS() {
+  clear
+  echo "##############################################################################"
+  echo "### Installing Needed Packages                                             ###"
+  echo "##############################################################################"
+  sleep 3
+  pacstrap /mnt neofetch git wget rsync htop openssh archlinux-wallpaper glances bashtop bpytop packagekit reflector bat mc lynx ncdu bwm-ng lsd gtop
+}
+
+################################################################################
+### Misc Settings                                                            ###
+################################################################################
+function MISC_SETTINGS() {
+  clear
+  echo "##############################################################################"
+  echo "### Misc Settings Being Installed                                          ###"
+  echo "##############################################################################"
+  sleep 3
+  arch-chroot /mnt systemctl enable NetworkManager
+  ln -sf /run/systemd/resolve/stub-resolv.conf /mnt/etc/resolv.conf
+  arch-chroot /mnt systemctl enable systemd-resolved
+  sed -i "s/^#\(${ALOCALE}\)/\1/" /mnt/etc/locale.gen
+  arch-chroot /mnt locale-gen
+  echo "LANG=${ALOCALE}" >> /mnt/etc/locale.conf
+  echo "${HOSTNM}" >> /mnt/etc/hostname
+  sed -i 's/^#\ \(%wheel\ ALL=(ALL)\ NOPASSWD:\ ALL\)/\1/' /mnt/etc/sudoers
+  echo "KEYMAP="${AKEYMAP} >> /mnt/etc/vconsole.conf
+  #sed -i "$ a FONT=${DEFFNT}" /mnt/etc/vconsole.conf
+  echo "FONT="${DEFFNT} >> /mnt/etc/vconsole.conf
+  arch-chroot /mnt ln -sf /usr/share/zoneinfo/${TIMEZNE} /etc/localtime
+  sed -i 's/'#Color'/'Color'/g' /mnt/etc/pacman.conf
+  #sed -i 's/\#Include/Include'/g /mnt/etc/pacman.conf
+  sed -i '/^#\[multilib\]/{
+    N
+    s/^#\(\[multilib\]\n\)#\(Include\ .\+\)/\1\2/
+  }' /mnt/etc/pacman.conf
+  sed -i 's/\#\[multilib\]/\[multilib\]'/g /mnt/etc/pacman.conf
+  arch-chroot /mnt pacman -Sy
+  echo "set linenumbers" >> /mnt/etc/nanorc
+  echo 'include "/usr/share/nano/*.nanorc"' >> /mnt/etc/nanorc
+}
+
+################################################################################
+### BashRC Configuration                                                     ###
+################################################################################
+function BASHRC_CONF() {
+  clear
+  echo "##############################################################################"
+  echo "### Configuring the BashRC file                                            ###"
+  echo "##############################################################################"
+  sleep 3
+  echo " " >> /mnt/etc/bash.bashrc
+  echo "# Check to see if neofetch is installed and if so display it" >> /mnt/etc/bash.bashrc
+  echo "if [ -f /usr/bin/neofetch ]; then clear & neofetch; fi" >> /mnt/etc/bash.bashrc
+  sed -i 's/alias/#alias'/g /mnt/etc/skel/.bashrc
+  echo "# Setting up some aliases" >> /mnt/etc/skel/.bashrc
+  echo "alias ls='lsd'" >> /mnt/etc/skel/.bashrc
+  echo "alias cat='bat'" >> /mnt/etc/skel/.bashrc
+  echo "alias fd='ncdu'" >> /mnt/etc/skel/.bashrc
+  echo "alias netsp='bwm-ng'" >> /mnt/etc/skel/.bashrc
+  echo "alias df='duf'" >> /mnt/etc/skel/.bashrc
+  echo "alias font='fontpreview-ueberzug'" >> /mnt/etc/skel/.bashrc
+  echo "alias sysmon='gtop'" >> /mnt/etc/skel/.bashrc
+  echo "alias conf-theme='~/.config/gtk-3.0/settings.ini'" >> /mnt/etc/skel/.bashrc
+  echo "alias video='ytfzf -t --upload-time=today '" >> /mnt/etc/skel/.bashrc
+  echo "alias videos='ytfzf -tS '" >> /mnt/etc/skel/.bashrc
+  echo "alias cpu='cpufetch'" >> /mnt/etc/skel/.bashrc
+}
+
+################################################################################
+### Installing The Boot Manager                                              ###
+################################################################################
+function BOOT_CFG() {
+  if [ "${BOOT_TYPE}" = "systemd" ]; then
+    clear
+    echo "##############################################################################"
+    echo "### Creating Boot Information                                              ###"
+    echo "##############################################################################"
+    sleep 3
+    arch-chroot /mnt mkdir -p /boot/loader/entries
+    arch-chroot /mnt bootctl --path=/boot install
+    # Loader Configuring
+    rm /mnt/boot/loader/loader.conf
+    echo "default arch" >> /mnt/boot/loader/loader.conf
+    echo "timeout 3" >> /mnt/boot/loader/loader.conf
+    echo "console-mode max" >> /mnt/boot/loader/loader.conf
+    echo "editor no" >> /mnt/boot/loader/loader.conf
+    # Arch Linux - Standard Kernel
+    echo "title Arch Linux" >> /mnt/boot/loader/entries/arch.conf
+    echo "linux /vmlinuz-linux" >> /mnt/boot/loader/entries/arch.conf
+    echo "#initrd  /intel-ucode.img" >> /mnt/boot/loader/entries/arch.conf
+    echo "#initrd /amd-ucode.img" >> /mnt/boot/loader/entries/arch.conf
+    echo "initrd  /initramfs-linux.img" >> /mnt/boot/loader/entries/arch.conf
+    echo "options root=PARTUUID="$(blkid -s PARTUUID -o value "$HD"2)" nowatchdog rw" >> /mnt/boot/loader/entries/arch.conf
+    # Arch Linux - Fallback Kernel
+    echo "title Arch Linux-Fallback" >> /mnt/boot/loader/entries/arch-fallback.conf
+    echo "linux /vmlinuz-linux" >> /mnt/boot/loader/entries/arch-fallback.conf
+    echo "#initrd  /intel-ucode.img" >> /mnt/boot/loader/entries/arch-fallback.conf
+    echo "#initrd /amd-ucode.img" >> /mnt/boot/loader/entries/arch-fallback.conf
+    echo "initrd  /initramfs-linux-fallback.img" >> /mnt/boot/loader/entries/arch-fallback.conf
+    echo "options root=PARTUUID="$(blkid -s PARTUUID -o value "$HD"2)" nowatchdog rw" >> /mnt/boot/loader/entries/arch-fallback.conf
+  fi
+  if [ "${BOOT_TYPE}" = "grub" ]; then
+    clear
+    echo "##############################################################################"
+    echo "### Installing and Configuring GRUB Boot Loader                            ###"
+    echo "##############################################################################"
+    sleep 3
+    if [[ -d /sys/firmware/efi/efivars ]]; then
+      pacstrap /mnt grub efibootmgr
+      arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub --removable
+      arch-chroot /mnt pacman -S --needed --noconfirm grub-customizer
+    else
+      pacstrap /mnt grub
+      arch-chroot /mnt grub-install --target=i386-pc ${HD}
+      arch-chroot /mnt pacman -S --needed --noconfirm grub-customizer
+    fi
+    arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+  fi
+}
+
+################################################################################
 ### Main Program - Edit At Own Risk                                          ###
 ################################################################################
 clear
@@ -305,6 +537,7 @@ COUNTRY
 LOCALE
 KEYMAP
 STIMEZONE
+CLIFONT
 HOSTNAME
 UNAMEPASS
 ROOTPASSWORD
@@ -316,3 +549,10 @@ BOOTTYPE
 PARTHD
 CHK_FMT
 MNTHD
+BASEPKG
+SYSDSWAP
+MAKEFLAGS_CPU
+NEEDEDPKGS
+MISC_SETTINGS
+BASHRC_CONF
+BOOT_CFG
