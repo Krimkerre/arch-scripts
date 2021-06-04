@@ -37,7 +37,7 @@ function AUR_HELPER() {
 ### AUR Helper Installation                                                  ###
 ################################################################################
 function AUR_SELECTION() {
-  if ${ZB} == "yay"; then
+  if [ ${ZB} = "yay" ]; then
     dialog --infobox "Installing The AUR Helper YAY." 10 50
     sleep 2
     git clone https://aur.archlinux.org/yay.git
@@ -46,7 +46,7 @@ function AUR_SELECTION() {
     cd ..
     rm yay -R -f
   fi
-  if ${ZB} == "paru"; then
+  if [ ${ZB} = "paru" ]; then
     dialog --infobox "Installing The AUR Helper Paru." 10 50
     sleep 2
     git clone https://aur.archlinux.org/paru.git

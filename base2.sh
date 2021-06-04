@@ -186,8 +186,7 @@ function PARTHD() {
 ### Check What Format For Drive And Format
 ################################################################################
 function CHK_FMT() {
-  echo ${DRV_FMT}
-  if [ "${DRV_FMT}" = "ext4" ]; then
+    if [ "${DRV_FMT}" = "ext4" ]; then
     clear
     #echo "##############################################################################"
     #echo "### Formatting the Hard Drive as EXT4                                      ###"
@@ -307,7 +306,7 @@ function BASEPKG() {
   #echo "##############################################################################"
   dialog --infobox "Installing The Base Packages" 10 50
   sleep 3
-  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils terminus-font openntpd
+  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils terminus-font openntpd dialog
   genfstab -U /mnt >> /mnt/etc/fstab
 }
 
