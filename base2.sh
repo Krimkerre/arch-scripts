@@ -156,7 +156,7 @@ function PACMAN_KEYS() {
   #echo "################################################################################"
   #echo "### Fixing The Pacman (Repo) Keys                                            ###"
   #echo "################################################################################"
-  dialog --infobox "Fixing The Pacman (Repos) Keys" 0 0
+  dialog --infobox "Fixing The Pacman (Repos) Keys." 31 1
   sleep 2
   sudo pacman-key --init
   sudo pacman-key --populate archlinux
