@@ -544,7 +544,6 @@ clear
 ################################################################################
 timedatectl set-ntp true
 NEEDED_INSTALL
-PACMAN_KEYS
 ### User Setting Enviroment Variables
 ################################################################################
 COUNTRY
@@ -563,6 +562,7 @@ BOOTTYPE
 PARTHD
 CHK_FMT
 MNTHD
+PACMAN_KEYS
 BASEPKG
 SYSDSWAP
 MAKEFLAGS_CPU
