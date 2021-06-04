@@ -30,6 +30,26 @@ function AUR_HELPER() {
     ;;
   esac
 }
+### Do You Want Samba Shares?                                                ###
+################################################################################
+function SAMBA_SHARES() {
+  clear
+  echo "################################################################################"
+  echo "### Do you want SAMBA network sharing installed?                             ###"
+  echo "### 1)  Yes                                                                  ###"
+  echo "### 2)  No                                                                   ###"
+  echo "################################################################################"
+  read case;
+
+  case $case in
+    1)
+    SAMBA_SH="yes"
+    ;;
+    2)
+    SAMBA_SH="no"
+    ;;
+  esac
+}
 
 ################################################################################
 ### Installing Things                                                        ###
@@ -57,6 +77,36 @@ function AUR_SELECTION() {
     sudo sed -i 's/#BottomUp/BottomUp/' /etc/paru.conf
   fi
 }
+### Samba Shares Installation                                                ###
+################################################################################
+function SAMBA_INSTALL() {
+  clear
+  dialog --infobox "Setting Up The Samba Shares." 10 50
+  sleep 2
+  sudo pacman -S --noconfirm --needed  samba
+  sudo wget "https://git.samba.org/samba.git/?p=samba.git;a=blob_plain;f=examples/smb.conf.default;hb=HEAD" -O /etc/samba/smb.conf
+  sudo sed -i -r 's/MYGROUP/WORKGROUP/' /etc/samba/smb.conf
+  sudo sed -i -r "s/Samba Server/$HOSTNAME/" /etc/samba/smb.conf
+  sudo systemctl enable smb.service
+  sudo systemctl start smb.service
+  sudo systemctl enable nmb.service
+  sudo systemctl start nmb.service
+  #Change your username here
+  #sudo smbpasswd -a $(whoami)
+  #Access samba share windows
+  sudo pacman -S --noconfirm --needed  gvfs-smb avahi
+  sudo systemctl enable avahi-daemon.service
+  sudo systemctl start avahi-daemon.service
+  sudo pacman -S --noconfirm --needed  nss-mdns
+  sudo sed -i 's/dns/mdns dns wins/g' /etc/nsswitch.conf
+  #Set-up user sharing (disable this section if you dont want user shares)
+  sudo mkdir -p /var/lib/samba/usershares
+  sudo groupadd -r sambashare
+  sudo chown root:sambashare /var/lib/samba/usershares
+  sudo chmod 1770 /var/lib/samba/usershares
+  sudo sed -i -r '/\[global\]/a\username path = /var/lib/samba/usershares\nusershare max shares = 100\nusershare allow guests = yes\nusershare owner only = yes' /etc/samba/smb.conf
+  sudo gpasswd sambashare -a $(whoami)
+}
 
 ################################################################################
 ### Setup Things - Needed For Installing Software                            ###
@@ -76,12 +126,13 @@ function PACMAN_KEYS() {
 ################################################################################
 ### Main Program                                                             ###
 ################################################################################
-PACMAN_KEYS
 clear
 ### Questions                                                                ###
 ################################################################################
 AUR_HELPER
+SAMBA_SHARES
 
 ###                                                                          ###
 ################################################################################
+PACMAN_KEYS
 AUR_SELECTION
