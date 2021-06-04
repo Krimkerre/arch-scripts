@@ -136,3 +136,4 @@ SAMBA_SHARES
 ################################################################################
 PACMAN_KEYS
 AUR_SELECTION
+SAMBA_INSTALL

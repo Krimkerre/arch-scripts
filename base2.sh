@@ -144,6 +144,7 @@ function NEEDED_INSTALL() {
   echo "### Installing needed software                                             ###"
   echo "##############################################################################"
   sleep 3
+  sed -i 's/\#ParallelDownloads = 5/ParallelDownloads = 5'/g /etc/pacman.conf
   pacman -S --noconfirm --needed dialog
 }
 
