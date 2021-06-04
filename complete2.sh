@@ -83,7 +83,7 @@ function SAMBA_INSTALL() {
   clear
   dialog --infobox "Setting Up The Samba Shares." 10 50
   sleep 2
-  sudo pacman -S --noconfirm --needed  samba
+  sudo pacman -S --noconfirm --needed samba gvfs-smb avahi nss-mdns
   sudo wget "https://git.samba.org/samba.git/?p=samba.git;a=blob_plain;f=examples/smb.conf.default;hb=HEAD" -O /etc/samba/smb.conf
   sudo sed -i -r 's/MYGROUP/WORKGROUP/' /etc/samba/smb.conf
   sudo sed -i -r "s/Samba Server/$HOSTNAME/" /etc/samba/smb.conf
@@ -94,10 +94,8 @@ function SAMBA_INSTALL() {
   #Change your username here
   #sudo smbpasswd -a $(whoami)
   #Access samba share windows
-  sudo pacman -S --noconfirm --needed  gvfs-smb avahi
   sudo systemctl enable avahi-daemon.service
   sudo systemctl start avahi-daemon.service
-  sudo pacman -S --noconfirm --needed  nss-mdns
   sudo sed -i 's/dns/mdns dns wins/g' /etc/nsswitch.conf
   #Set-up user sharing (disable this section if you dont want user shares)
   sudo mkdir -p /var/lib/samba/usershares
@@ -124,7 +122,6 @@ function NEEDED_SOFTWARE() {
   echo "################################################################################"
   sleep 2
   $ZB -S --noconfirm --needed tuned duf fontpreview-ueberzug-git ytfzf cpufetch buttermanager
-  #$ZB -S --noconfirm --needed bpytop
 }
 
 ################################################################################
@@ -157,3 +154,4 @@ PACMAN_KEYS
 AUR_SELECTION
 SAMBA_INSTALL
 UNICODEFIX
+NEEDED_SOFTWARE
