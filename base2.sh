@@ -443,6 +443,7 @@ function MISC_SETTINGS() {
   echo "FONT="${DEFFNT} >> /mnt/etc/vconsole.conf
   arch-chroot /mnt ln -sf /usr/share/zoneinfo/${TIMEZNE} /etc/localtime
   sed -i 's/'#Color'/'Color'/g' /mnt/etc/pacman.conf
+  sed -i 's/\#ParallelDownloads = 5/ParallelDownloads = 5'/g /mnt/etc/pacman.conf
   #sed -i 's/\#Include/Include'/g /mnt/etc/pacman.conf
   sed -i '/^#\[multilib\]/{
     N
