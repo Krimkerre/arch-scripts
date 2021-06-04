@@ -586,9 +586,9 @@ $UPASSWD
 
 echo "$RPASSWD
 $RPASSWD" | arch-chroot /mnt passwd
-wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/complete.sh
-chmod +x complete.sh
-cp complete.sh /mnt/home/$USRNM/
+wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/complete2.sh
+chmod +x complete2.sh
+cp complete2.sh /mnt/home/$USRNM/
 clear
 #echo "##############################################################################"
 #echo "### Installation Is Complete, Please Reboot And Have Fun                   ###"
