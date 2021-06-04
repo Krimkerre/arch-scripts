@@ -117,7 +117,7 @@ function UNICODEFIX() {
 ################################################################################
 function NEEDED_SOFTWARE() {
   clear
-  dialog --infobox "Adding Some Needed Software." 5 28
+  dialog --infobox "Adding Some Needed Software." 5 30
   sleep 2
   $ZB -S --noconfirm --needed tuned duf fontpreview-ueberzug-git ytfzf cpufetch buttermanager
 }
