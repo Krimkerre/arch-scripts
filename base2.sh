@@ -307,7 +307,7 @@ function BASEPKG() {
   #echo "##############################################################################"
   dialog --infobox "Installing The Base Packages" 10 50
   sleep 3
-  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils terminus-font
+  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils terminus-font openntpd
   genfstab -U /mnt >> /mnt/etc/fstab
 }
 
