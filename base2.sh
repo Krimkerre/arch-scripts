@@ -145,7 +145,7 @@ function NEEDED_INSTALL() {
   echo "##############################################################################"
   sleep 3
   sed -i 's/\#ParallelDownloads = 5/ParallelDownloads = 5'/g /etc/pacman.conf
-  sed 's/Color/I Love Candy/'/g /etc/pacman.conf
+  sed -i 's/Color/I Love Candy/'/g /etc/pacman.conf
   pacman -S --noconfirm --needed dialog
 }
 
@@ -446,7 +446,7 @@ function MISC_SETTINGS() {
   arch-chroot /mnt ln -sf /usr/share/zoneinfo/${TIMEZNE} /etc/localtime
   sed -i 's/'#Color'/'Color'/g' /mnt/etc/pacman.conf
   sed -i 's/\#ParallelDownloads = 5/ParallelDownloads = 5'/g /mnt/etc/pacman.conf
-  sed 's/Color/I Love Candy/'/g /mnt/etc/pacman.conf
+  sed -i 's/Color/I Love Candy/'/g /mnt/etc/pacman.conf
   #sed -i 's/\#Include/Include'/g /mnt/etc/pacman.conf
   sed -i '/^#\[multilib\]/{
     N
