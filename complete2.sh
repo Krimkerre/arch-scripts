@@ -58,7 +58,7 @@ function SAMBA_SHARES() {
 ################################################################################
 function AUR_SELECTION() {
   if [ ${ZB} = "yay" ]; then
-    dialog --infobox "Installing The AUR Helper YAY." 10 50
+    dialog --infobox "Installing The AUR Helper YAY." 3 34
     sleep 2
     git clone https://aur.archlinux.org/yay.git
     cd yay
@@ -67,7 +67,7 @@ function AUR_SELECTION() {
     rm yay -R -f
   fi
   if [ ${ZB} = "paru" ]; then
-    dialog --infobox "Installing The AUR Helper Paru." 10 50
+    dialog --infobox "Installing The AUR Helper Paru." 3 35
     sleep 2
     git clone https://aur.archlinux.org/paru.git
     cd paru
@@ -81,7 +81,7 @@ function AUR_SELECTION() {
 ################################################################################
 function SAMBA_INSTALL() {
   clear
-  dialog --infobox "Setting Up The Samba Shares." 10 50
+  dialog --infobox "Setting Up The Samba Shares." 3 32
   sleep 2
   sudo pacman -S --noconfirm --needed samba gvfs-smb avahi nss-mdns
   sudo wget "https://git.samba.org/samba.git/?p=samba.git;a=blob_plain;f=examples/smb.conf.default;hb=HEAD" -O /etc/samba/smb.conf
@@ -109,7 +109,7 @@ function SAMBA_INSTALL() {
 ################################################################################
 function UNICODEFIX() {
   clear
-  dialog --infobox "Fixing The Unicode Processors." 10 50
+  dialog --infobox "Fixing The Unicode Processors." 3 34
   sleep 2
   sudo pacman -S --noconfirm --needed  intel-ucode amd-ucode
 }
@@ -117,7 +117,7 @@ function UNICODEFIX() {
 ################################################################################
 function NEEDED_SOFTWARE() {
   clear
-  dialog --infobox "Adding Some Needed Software." 5 30
+  dialog --infobox "Adding Some Needed Software." 3 32
   sleep 2
   $ZB -S --noconfirm --needed tuned duf fontpreview-ueberzug-git ytfzf cpufetch buttermanager
 }
@@ -129,7 +129,7 @@ function NEEDED_SOFTWARE() {
 ################################################################################
 function PACMAN_KEYS() {
   clear
-  dialog --infobox "Fixing The Pacman (Repos) Keys" 10 50
+  dialog --infobox "Fixing The Pacman (Repos) Keys." 3 35
   sleep 2
   sudo pacman-key --init
   sudo pacman-key --populate archlinux
