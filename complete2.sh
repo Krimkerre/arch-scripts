@@ -107,6 +107,14 @@ function SAMBA_INSTALL() {
   sudo sed -i -r '/\[global\]/a\username path = /var/lib/samba/usershares\nusershare max shares = 100\nusershare allow guests = yes\nusershare owner only = yes' /etc/samba/smb.conf
   sudo gpasswd sambashare -a $(whoami)
 }
+### Fix the Unicode Issue With Intel And AMD CPUs                            ###
+################################################################################
+function UNICODEFIX() {
+  clear
+  dialog --infobox "Fixing The Unicode Processors." 10 50
+  sleep 2
+  sudo pacman -S --noconfirm --needed  intel-ucode amd-ucode
+}
 
 ################################################################################
 ### Setup Things - Needed For Installing Software                            ###
@@ -137,3 +145,4 @@ SAMBA_SHARES
 PACMAN_KEYS
 AUR_SELECTION
 SAMBA_INSTALL
+UNICODEFIX
