@@ -117,9 +117,7 @@ function UNICODEFIX() {
 ################################################################################
 function NEEDED_SOFTWARE() {
   clear
-  echo "################################################################################"
-  echo "### Installing Needed Applications                                           ###"
-  echo "################################################################################"
+  dialog --infobox "Adding Some Needed Software." 5 28
   sleep 2
   $ZB -S --noconfirm --needed tuned duf fontpreview-ueberzug-git ytfzf cpufetch buttermanager
 }
