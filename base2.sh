@@ -145,7 +145,7 @@ function NEEDED_INSTALL() {
   echo "##############################################################################"
   sleep 3
   sed -i 's/\#ParallelDownloads = 5/ParallelDownloads = 5'/g /etc/pacman.conf
-  sed -i '/Color/aILoveCandy' /etc/pacman.conf
+  sed -i '/\#Color/aILoveCandy' /etc/pacman.conf
   pacman -S --noconfirm --needed dialog
 }
 
