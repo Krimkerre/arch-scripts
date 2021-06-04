@@ -115,6 +115,17 @@ function UNICODEFIX() {
   sleep 2
   sudo pacman -S --noconfirm --needed  intel-ucode amd-ucode
 }
+### Needed Software                                                          ###
+################################################################################
+function NEEDED_SOFTWARE() {
+  clear
+  echo "################################################################################"
+  echo "### Installing Needed Applications                                           ###"
+  echo "################################################################################"
+  sleep 2
+  $ZB -S --noconfirm --needed tuned duf fontpreview-ueberzug-git ytfzf cpufetch buttermanager
+  #$ZB -S --noconfirm --needed bpytop
+}
 
 ################################################################################
 ### Setup Things - Needed For Installing Software                            ###
