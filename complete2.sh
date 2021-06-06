@@ -150,6 +150,14 @@ function PRINTERSETUP() {
   $ZB -S --noconfirm --needed epson-inkjet-printer-escpr
   sudo systemctl enable cups.service
 }
+### Installing the Display Manager                                           ###
+################################################################################
+function DISPLAYMGR() {
+  clear
+  dialog --infobox "Installing XORG Display Manager." 3 36
+  sleep 2
+  sudo pacman -S --noconfirm --needed xorg xorg-drivers xorg-xinit xterm kvantum-qt5 terminator
+}
 
 ################################################################################
 ### Setup Things - Needed For Installing Software                            ###
@@ -185,3 +193,4 @@ NEEDED_SOFTWARE
 SOUNDSETUP
 BLUETOOTHSETUP
 PRINTERSETUP
+DISPLAYMGR
