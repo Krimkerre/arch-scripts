@@ -121,6 +121,35 @@ function NEEDED_SOFTWARE() {
   sleep 2
   $ZB -S --noconfirm --needed tuned duf fontpreview-ueberzug-git ytfzf cpufetch buttermanager
 }
+### Setting Up Sound                                                         ###
+################################################################################
+function SOUNDSETUP() {
+  clear
+  dialog --infobox "Installing Sound Files." 3 27
+  sleep 2
+  sudo pacman -S --noconfirm --needed pulseaudio pulseaudio-alsa pavucontrol alsa-utils alsa-plugins alsa-lib alsa-firmware lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins gstreamer gst-plugins-good gst-plugins-bad gst-plugins-base gst-plugins-ugly volumeicon playerctl
+}
+### Setting Up Bluetooth                                                     ###
+################################################################################
+function BLUETOOTHSETUP() {
+  clear
+  dialog --infobox "Installing Bluetooth Files." 3 31
+  sleep 2
+  sudo pacman -S --noconfirm --needed pulseaudio-bluetooth bluez bluez-libs bluez-utils bluez-plugins blueberry bluez-tools bluez-cups
+  sudo systemctl enable bluetooth.service
+  sudo systemctl start bluetooth.service
+  sudo sed -i 's/'#AutoEnable=false'/'AutoEnable=true'/g' /etc/bluetooth/main.conf
+}
+### Setup Printing                                                           ###
+################################################################################
+function PRINTERSETUP() {
+  clear
+  dialog --infobox "Installing Printer Support." 3 31
+  sleep 2
+  sudo pacman -S --noconfirm --needed cups cups-pdf ghostscript gsfonts gutenprint gtk3-print-backends libcups hplip system-config-printer foomatic-db foomatic-db-ppds foomatic-db-gutenprint-ppds foomatic-db-engine foomatic-db-nonfree foomatic-db-nonfree-ppds
+  $ZB -S --noconfirm --needed epson-inkjet-printer-escpr
+  sudo systemctl enable cups.service
+}
 
 ################################################################################
 ### Setup Things - Needed For Installing Software                            ###
@@ -153,3 +182,6 @@ AUR_SELECTION
 SAMBA_INSTALL
 UNICODEFIX
 NEEDED_SOFTWARE
+SOUNDSETUP
+BLUETOOTHSETUP
+PRINTERSETUP
