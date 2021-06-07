@@ -50,6 +50,34 @@ function SAMBA_SHARES() {
     ;;
   esac
 }
+### Which Login / Display Manager                                            ###
+################################################################################
+function DISPLAY_MANAGER() {
+  clear
+  echo "################################################################################"
+  echo "### Which Login / Display Manager Do You Want To Install?                    ###"
+  echo "### 1)  LightDM GTK3                                                         ###"
+  echo "### 2)  LightDM WebKit2                                                      ###"
+  echo "### 3)  SDDM                                                                 ###"
+  echo "### 4)  GDM                                                                  ###"
+  echo "################################################################################"
+  read case;
+
+  case $case in
+    1)
+    DM="lightdm-gtk3"
+    ;;
+    2)
+    DM="lightdm-webkit2"
+    ;;
+    3)
+    DM="sddm"
+    ;;
+    4)
+    DM="gdm"
+    ;;
+  esac
+}
 
 ################################################################################
 ### Installing Things                                                        ###
@@ -152,11 +180,52 @@ function PRINTERSETUP() {
 }
 ### Installing the Display Manager                                           ###
 ################################################################################
-function DISPLAYMGR() {
+function XORG_DISPLAY() {
   clear
   dialog --infobox "Installing XORG Display Manager." 3 36
   sleep 2
   sudo pacman -S --noconfirm --needed xorg xorg-drivers xorg-xinit xterm kvantum-qt5 terminator
+}
+### Install Display Manager                                                  ###
+################################################################################
+function INSTALL_DM() {
+  if [ ${DM} = "lightdm-gtk3" ]; then
+    clear
+    dialog --infobox "Installing The LightDM GTK3 Login / Display Manager." 3 56
+    sleep 2
+    sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+    sudo systemctl enable lightdm.service -f
+    sudo systemctl set-default graphical.target
+  fi
+  if [ ${DM} = "lightdm-webkit2" ]; then
+    clear
+    dialog --infobox "Installing The LightDM WebKit2 Login / Display Manager." 3 59
+    sleep 2
+    sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings lightdm-webkit-theme-litarvan lightdm-webkit2-greeter
+    $ZB -S --noconfirm --needed lightdm-webkit2-theme-material2
+    $ZB -S --noconfirm --needed lightdm-webkit-theme-aether
+    $ZB -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
+    $ZB -S --noconfirm --needed lightdm-webkit-theme-sequoia-git
+    $ZB -S --noconfirm --needed lightdm-webkit-theme-contemporary
+    $ZB -S --noconfirm --needed lightdm-webkit2-theme-sapphire
+    $ZB -S --noconfirm --needed lightdm-webkit2-theme-obsidian
+    sudo systemctl enable lightdm.service -f
+    sudo systemctl set-default graphical.target
+  fi
+  if [ ${DM} = "sddm" ]; then
+    clear
+    dialog --infobox "Installing The SDDM Login / Display Manager." 3 48
+    sleep 2
+    sudo pacman -S --noconfirm --needed sddm
+    sudo systemctl enable sddm
+  fi
+  if [ ${DM} = "gdm" ]; then
+    clear
+    dialog --infobox "Installing The GDM Login / Display Manager." 3 47
+    sleep 2
+    sudo pacman -S --noconfirm --needed gdm
+    sudo systemctl enable gdm
+  fi
 }
 
 ################################################################################
@@ -182,6 +251,7 @@ clear
 ################################################################################
 AUR_HELPER
 SAMBA_SHARES
+DISPLAY_MANAGER
 
 ###                                                                          ###
 ################################################################################
@@ -193,4 +263,5 @@ NEEDED_SOFTWARE
 SOUNDSETUP
 BLUETOOTHSETUP
 PRINTERSETUP
-DISPLAYMGR
+XORG_DISPLAY
+INSTALL_DM
