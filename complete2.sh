@@ -265,3 +265,7 @@ BLUETOOTHSETUP
 PRINTERSETUP
 XORG_DISPLAY
 INSTALL_DM
+
+### Temp for testing                                                         ###
+################################################################################
+sudo pacman -S --noconfirm --needed xfce4 xfce4-goodies
