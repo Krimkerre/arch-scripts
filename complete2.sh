@@ -60,6 +60,7 @@ function DISPLAY_MANAGER() {
   echo "### 2)  LightDM WebKit2                                                      ###"
   echo "### 3)  SDDM                                                                 ###"
   echo "### 4)  GDM                                                                  ###"
+  echo "### 5)  Entrance                                                             ###"
   echo "################################################################################"
   read case;
 
@@ -75,6 +76,9 @@ function DISPLAY_MANAGER() {
     ;;
     4)
     DM="gdm"
+    ;;
+    5)
+    DM="entrance"
     ;;
   esac
 }
@@ -201,7 +205,7 @@ function INSTALL_DM() {
     clear
     dialog --infobox "Installing The LightDM WebKit2 Login / Display Manager." 3 59
     sleep 2
-    sudo pacman -S --noconfirm --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings lightdm-webkit-theme-litarvan lightdm-webkit2-greeter
+    sudo pacman -S --noconfirm --needed lightdm lightdm-webkit-theme-litarvan lightdm-webkit2-greeter
     $ZB -S --noconfirm --needed lightdm-webkit2-theme-material2
     $ZB -S --noconfirm --needed lightdm-webkit-theme-aether
     $ZB -S --noconfirm --needed lightdm-webkit-theme-petrichor-git
@@ -225,6 +229,13 @@ function INSTALL_DM() {
     sleep 2
     sudo pacman -S --noconfirm --needed gdm
     sudo systemctl enable gdm
+  fi
+  if [ ${DM} = "entrance" ]; then
+    clear
+    dialog --infobox "Installing The Entrance Login / Display Manager." 3 52
+    sleep 2
+    $ZB -S --noconfirm --needed entrance-git
+    sudo systemctl enable entrance
   fi
 }
 
