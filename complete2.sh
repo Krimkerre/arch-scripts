@@ -161,7 +161,7 @@ function BLUETOOTH_SUPPORT() {
 function WHAT_DE() {
   clear
   echo "################################################################################"
-  echo "### Do Desktop Environment Or Window Manager Do You Want To Use?             ###"
+  echo "### What Desktop Environment Or Window Manager Do You Want To Use?           ###"
   echo "### 1)  Gnome                                                                ###"
   echo "### 2)  KDE Plasma                                                           ###"
   echo "### 3)  XFCE4                                                                ###"
