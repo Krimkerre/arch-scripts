@@ -86,6 +86,41 @@ function DISPLAY_MANAGER() {
     ;;
   esac
 }
+### Do You Want Printer Support                                              ###
+################################################################################
+function PRINTER_SUPPORT() {
+  clear
+  echo "################################################################################"
+  echo "### Do You Want Printer Support?                                             ###"
+  echo "### 1)  Yes                                                                  ###"
+  echo "### 2)  No                                                                   ###"
+  echo "################################################################################"
+  read case;
+
+  case $case in
+    1)
+    PSUPPORT="yes"
+    clear
+    echo "################################################################################"
+    echo "### Do You Want HP Printer Support?                                          ###"
+    echo "### 1)  Yes                                                                  ###"
+    echo "### 2)  No                                                                   ###"
+    echo "################################################################################"
+    read case;
+    case $case in
+      1)
+      HP_PRINT="yes"
+      ;;
+      2)
+      HP_PRINT="no"
+      ;;
+    esac
+    ;;
+    2)
+    PSUPPORT="no"
+    ;;
+  esac
+}
 
 ################################################################################
 ### Installing Things                                                        ###
@@ -182,8 +217,11 @@ function PRINTERSETUP() {
   clear
   dialog --infobox "Installing Printer Support." 3 31
   sleep 2
-  sudo pacman -S --noconfirm --needed cups cups-pdf ghostscript gsfonts gutenprint gtk3-print-backends libcups hplip system-config-printer foomatic-db foomatic-db-ppds foomatic-db-gutenprint-ppds foomatic-db-engine foomatic-db-nonfree foomatic-db-nonfree-ppds
-  $ZB -S --noconfirm --needed epson-inkjet-printer-escpr
+  sudo pacman -S --noconfirm --needed cups cups-pdf ghostscript gsfonts gutenprint gtk3-print-backends libcups system-config-printer foomatic-db foomatic-db-ppds foomatic-db-gutenprint-ppds foomatic-db-engine foomatic-db-nonfree foomatic-db-nonfree-ppds
+  if [ ${HP_PRINT} = "yes" ]; then
+    sudo pacman -S --noconfirm --needed hplip
+  fi
+  #$ZB -S --noconfirm --needed epson-inkjet-printer-escpr
   sudo systemctl enable cups.service
 }
 ### Installing the Display Manager                                           ###
@@ -274,6 +312,7 @@ clear
 AUR_HELPER
 SAMBA_SHARES
 DISPLAY_MANAGER
+PRINTER_SUPPORT
 
 ###                                                                          ###
 ################################################################################
@@ -284,7 +323,9 @@ UNICODEFIX
 NEEDED_SOFTWARE
 SOUNDSETUP
 BLUETOOTHSETUP
-PRINTERSETUP
+if [ ${PSUPPORT} = "yes" ]; then
+  PRINTERSETUP
+fi
 XORG_DISPLAY
 INSTALL_DM
 
