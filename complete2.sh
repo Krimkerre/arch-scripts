@@ -150,6 +150,7 @@ function BLUETOOTH_SUPPORT() {
   case $case in
     1)
     BT_SUPPORT="yes"
+    ;;
     2)
     BT_SUPPORT="no"
     ;;
