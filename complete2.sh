@@ -377,7 +377,7 @@ AUR_HELPER
 SAMBA_SHARES
 PRINTER_SUPPORT
 DISPLAY_MANAGER
-DESKTOP_ENVIRONMENT
+WHAT_DE
 
 ###                                                                          ###
 ################################################################################
