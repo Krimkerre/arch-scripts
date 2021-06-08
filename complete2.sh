@@ -165,6 +165,7 @@ function WHAT_DE() {
   echo "### 1)  Gnome                                                                ###"
   echo "### 2)  KDE Plasma                                                           ###"
   echo "### 3)  XFCE4                                                                ###"
+  echo "### 4)  Deepin                                                               ###"
   echo "################################################################################"
   read case;
 
@@ -177,6 +178,9 @@ function WHAT_DE() {
     ;;
     3)
     DE_TOINST="xfce4"
+    ;;
+    4)
+    DE_TOINST="deepin"
     ;;
   esac
 }
@@ -373,6 +377,12 @@ function INSTALL_DE() {
     wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
     sudo rm /etc/xdg/picom.conf
     sudo mv picom.conf /etc/xdg/picom.conf
+  fi
+  if [ ${DE_TOINST} = "deepin" ]; then
+    clear
+    dialog --infobox "Installing The Deepin Desktop Environment." 3 46
+    sleep 2
+    sudo pacman -S --noconfirm --needed deepin deepin-extra gnome-disk-utility ark file-roller unrar p7zip onboard deepin-kwin deepin-polkit-agent deepin-polkit-agent-ext-gnomekeyring packagekit-qt5
   fi
 }
 
