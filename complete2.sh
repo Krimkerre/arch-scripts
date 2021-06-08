@@ -168,6 +168,7 @@ function WHAT_DE() {
   case $case in
     1)
     DE_TOINST="gnome"
+    ;;
   esac
 }
 
