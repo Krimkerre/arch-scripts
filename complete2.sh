@@ -61,6 +61,7 @@ function DISPLAY_MANAGER() {
   echo "### 3)  SDDM                                                                 ###"
   echo "### 4)  GDM                                                                  ###"
   echo "### 5)  Entrance                                                             ###"
+  echo "### 6)  LY                                                                   ###"
   echo "################################################################################"
   read case;
 
@@ -79,6 +80,9 @@ function DISPLAY_MANAGER() {
     ;;
     5)
     DM="entrance"
+    ;;
+    6)
+    DM="ly"
     ;;
   esac
 }
@@ -237,6 +241,12 @@ function INSTALL_DM() {
     $ZB -S --noconfirm --needed entrance-git
     sudo systemctl enable entrance
   fi
+  if [ ${DM} = "ly" ]; then
+    clear
+    dialog --infobox "Installing The LY Login / Display Manager." 3 46
+    sleep 2
+    $ZB -S --noconfirm --needed ly
+    sudo systemctl enable ly
 }
 
 ################################################################################
