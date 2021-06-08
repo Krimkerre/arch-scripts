@@ -115,6 +115,21 @@ function PRINTER_SUPPORT() {
       HP_PRINT="no"
       ;;
     esac
+    clear
+    echo "################################################################################"
+    echo "### Do You Want Epson Printer Support?                                       ###"
+    echo "### 1)  Yes                                                                  ###"
+    echo "### 2)  No                                                                   ###"
+    echo "################################################################################"
+    read case;
+    case $case in
+      1)
+      EP_PRINT="yes"
+      ;;
+      2)
+      EP_PRINT="no"
+      ;;
+    esac
     ;;
     2)
     PSUPPORT="no"
@@ -221,7 +236,9 @@ function PRINTERSETUP() {
   if [ ${HP_PRINT} = "yes" ]; then
     sudo pacman -S --noconfirm --needed hplip
   fi
-  #$ZB -S --noconfirm --needed epson-inkjet-printer-escpr
+  if [ ${EP_PRINT} = "yes" ]; then
+    $ZB -S --noconfirm --needed epson-inkjet-printer-escpr
+  fi
   sudo systemctl enable cups.service
 }
 ### Installing the Display Manager                                           ###
@@ -318,7 +335,9 @@ PRINTER_SUPPORT
 ################################################################################
 PACMAN_KEYS
 AUR_SELECTION
-SAMBA_INSTALL
+if [ ${SAMBA_SH} = "yes" ]; then
+  SAMBA_INSTALL
+fi
 UNICODEFIX
 NEEDED_SOFTWARE
 SOUNDSETUP
