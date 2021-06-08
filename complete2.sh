@@ -163,12 +163,20 @@ function WHAT_DE() {
   echo "################################################################################"
   echo "### Do Desktop Environment Or Window Manager Do You Want To Use?             ###"
   echo "### 1)  Gnome                                                                ###"
+  echo "### 2)  KDE Plasma                                                           ###"
+  echo "### 3)  XFCE4                                                                ###"
   echo "################################################################################"
   read case;
 
   case $case in
     1)
     DE_TOINST="gnome"
+    ;;
+    2)
+    DE_TOINST="plasma"
+    ;;
+    3)
+    DE_TOINST="xfce4"
     ;;
   esac
 }
@@ -349,6 +357,22 @@ function INSTALL_DE() {
     sleep 2
     sudo pacman -S --noconfirm --needed gnome gnome-extra nautilus-share variety gnome-packagekit gnome-software-packagekit-plugin
     $ZB -S --noconfirm --needed chrome-gnome-shell
+  fi
+  if [ ${DE_TOINST} = "plasma" ]; then
+    clear
+    dialog --infobox "Installing The KDE Plasma Desktop Environment." 3 50
+    sleep 2
+    sudo pacman -S --noconfirm --needed plasma kde-applications gnome-disk-utility redshift packagekit-qt5
+  fi
+  if [ ${DE_TOINST} = "xfce4" ]; then
+    clear
+    dialog --infobox "Installing The XFCE4 Desktop Environment." 3 45
+    sleep 2
+    sudo pacman -S --noconfirm --needed xfce4 xfce4-goodies gnome-disk-utility ark file-roller unrar p7zip alacarte gnome-calculator picom variety libnma networkmanager networkmanager-openconnect networkmanager-openvpn networkmanager-pptp nm-connection-editor network-manager-applet onboard
+    $ZB -S --noconfirm --needed xfce4-screensaver xfce4-panel-profiles-git mugshot solarized-dark-themes gtk-theme-glossyblack mcos-mjv-xfce-edition xfce4-theme-switcher xts-windows10-theme xts-macos-theme xts-dark-theme xts-arcolinux-theme xts-windowsxp-theme xts-windows-server-2003-theme
+    wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+    sudo rm /etc/xdg/picom.conf
+    sudo mv picom.conf /etc/xdg/picom.conf
   fi
 }
 
