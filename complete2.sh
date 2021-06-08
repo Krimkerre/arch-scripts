@@ -136,6 +136,40 @@ function PRINTER_SUPPORT() {
     ;;
   esac
 }
+### Do You Want Bluetooth Support                                            ###
+################################################################################
+function BLUETOOTH_SUPPORT() {
+  clear
+  echo "################################################################################"
+  echo "### Do You Want Bluetooth Support?                                           ###"
+  echo "### 1)  Yes                                                                  ###"
+  echo "### 2)  No                                                                   ###"
+  echo "################################################################################"
+  read case;
+
+  case $case in
+    1)
+    BT_SUPPORT="yes"
+    2)
+    BT_SUPPORT="no"
+    ;;
+  esac
+}
+### What Desktop Environment or Window Manager                               ###
+################################################################################
+function WHAT_DE() {
+  clear
+  echo "################################################################################"
+  echo "### Do Desktop Environment Or Window Manager Do You Want To Use?             ###"
+  echo "### 1)  Gnome                                                                ###"
+  echo "################################################################################"
+  read case;
+
+  case $case in
+    1)
+    DE_TOINST="gnome"
+  esac
+}
 
 ################################################################################
 ### Installing Things                                                        ###
@@ -304,6 +338,17 @@ function INSTALL_DM() {
     sudo systemctl enable ly
   fi
 }
+### Install Desktop Environment Or Window Manager                            ###
+################################################################################
+function INSTALL_DE() {
+  if [ ${DE_TOINST} = "gnome" ]; then
+    clear
+    dialog --infobox "Installing The Gnome Desktop Environment." 3 45
+    sleep 2
+    sudo pacman -S --noconfirm --needed gnome gnome-extra nautilus-share variety gnome-packagekit gnome-software-packagekit-plugin
+    $ZB -S --noconfirm --needed chrome-gnome-shell
+  fi
+}
 
 ################################################################################
 ### Setup Things - Needed For Installing Software                            ###
@@ -328,8 +373,9 @@ clear
 ################################################################################
 AUR_HELPER
 SAMBA_SHARES
-DISPLAY_MANAGER
 PRINTER_SUPPORT
+DISPLAY_MANAGER
+DESKTOP_ENVIRONMENT
 
 ###                                                                          ###
 ################################################################################
@@ -341,13 +387,12 @@ fi
 UNICODEFIX
 NEEDED_SOFTWARE
 SOUNDSETUP
-BLUETOOTHSETUP
+if [ ${BT_SUPPORT} = "yes" ]; then
+  BLUETOOTHSETUP
+fi
 if [ ${PSUPPORT} = "yes" ]; then
   PRINTERSETUP
 fi
 XORG_DISPLAY
 INSTALL_DM
-
-### Temp for testing                                                         ###
-################################################################################
-sudo pacman -S --noconfirm --needed xfce4 xfce4-goodies
+INSTALL_DE
