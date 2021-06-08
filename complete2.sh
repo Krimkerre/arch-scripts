@@ -247,6 +247,7 @@ function INSTALL_DM() {
     sleep 2
     $ZB -S --noconfirm --needed ly
     sudo systemctl enable ly
+  fi
 }
 
 ################################################################################
