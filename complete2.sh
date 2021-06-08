@@ -166,6 +166,7 @@ function WHAT_DE() {
   echo "### 2)  KDE Plasma                                                           ###"
   echo "### 3)  XFCE4                                                                ###"
   echo "### 4)  Deepin                                                               ###"
+  echo "### 5)  Mate                                                                 ###"
   echo "################################################################################"
   read case;
 
@@ -181,6 +182,9 @@ function WHAT_DE() {
     ;;
     4)
     DE_TOINST="deepin"
+    ;;
+    5)
+    DE_TOINST="mate"
     ;;
   esac
 }
@@ -383,6 +387,13 @@ function INSTALL_DE() {
     dialog --infobox "Installing The Deepin Desktop Environment." 3 46
     sleep 2
     sudo pacman -S --noconfirm --needed deepin deepin-extra gnome-disk-utility ark file-roller unrar p7zip onboard deepin-kwin deepin-polkit-agent deepin-polkit-agent-ext-gnomekeyring packagekit-qt5
+  fi
+  if [ ${DE_TOINST} = "mate" ]; then
+    clear
+    dialog --infobox "Installing The Mate Desktop Environment." 3 44
+    sleep 2
+    sudo pacman -S --noconfirm --needed mate mate-extra gnome-disk-utility variety onboard ark file-roller unrar p7zip
+    $ZB -S --noconfirm --needed mate-tweak brisk-menu mate-screensaver-hacks mugshot
   fi
 }
 
