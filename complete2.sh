@@ -167,6 +167,7 @@ function WHAT_DE() {
   echo "### 3)  XFCE4                                                                ###"
   echo "### 4)  Deepin                                                               ###"
   echo "### 5)  Mate                                                                 ###"
+  echo "### 6)  Cinnamon                                                             ###"
   echo "################################################################################"
   read case;
 
@@ -185,6 +186,9 @@ function WHAT_DE() {
     ;;
     5)
     DE_TOINST="mate"
+    ;;
+    6)
+    DE_TOINST="cinnamon"
     ;;
   esac
 }
@@ -394,6 +398,19 @@ function INSTALL_DE() {
     sleep 2
     sudo pacman -S --noconfirm --needed mate mate-extra gnome-disk-utility variety onboard ark file-roller unrar p7zip
     $ZB -S --noconfirm --needed mate-tweak brisk-menu mate-screensaver-hacks mugshot
+  fi
+  if [ ${DE_TOINST} = "budgie" ]; then
+    clear
+    dialog --infobox "Installing The Budgie Desktop Environment." 3 46
+    sleep 2
+    sudo pacman -S --noconfirm --needed budgie-desktop budgie-extras gnome-system-monitor nautilus gnome-disk-utility gnome-control-center gnome-backgrounds gnome-calculator gedit variety onboard ark file-roller unrar p7zip gnome-tweaks
+  fi
+  if [ ${DE_TOINST} = "cinnamon" ]; then
+    clear
+    dialog --infobox "Installing The Cinnamon Desktop Environment." 3 48
+    sleep 2
+    sudo pacman -S --noconfirm --needed cinnamon gnome-disk-utility gnome-system-monitor gnome-calculator gpicview gedit variety onboard ark file-roller unrar p7zip
+    $ZB -S --noconfirm --needed mint-themes cinnamon-sound-effects
   fi
 }
 
