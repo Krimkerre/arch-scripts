@@ -167,7 +167,8 @@ function WHAT_DE() {
   echo "### 3)  XFCE4                                                                ###"
   echo "### 4)  Deepin                                                               ###"
   echo "### 5)  Mate                                                                 ###"
-  echo "### 6)  Cinnamon                                                             ###"
+  echo "### 6)  Budgie                                                               ###"
+  echo "### 7)  Cinnamon                                                             ###"
   echo "################################################################################"
   read case;
 
@@ -188,6 +189,9 @@ function WHAT_DE() {
     DE_TOINST="mate"
     ;;
     6)
+    DE_TOINST="budgie"
+    ;;
+    7)
     DE_TOINST="cinnamon"
     ;;
   esac
