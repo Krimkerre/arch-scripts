@@ -162,14 +162,16 @@ function WHAT_DE() {
   clear
   echo "################################################################################"
   echo "### What Desktop Environment Or Window Manager Do You Want To Use?           ###"
-  echo "### 1)  Gnome                                                                ###"
-  echo "### 2)  KDE Plasma                                                           ###"
-  echo "### 3)  XFCE4                                                                ###"
-  echo "### 4)  Deepin                                                               ###"
-  echo "### 5)  Mate                                                                 ###"
-  echo "### 6)  Budgie                                                               ###"
-  echo "### 7)  Cinnamon                                                             ###"
-  echo "### 8)  LXDE                                                                 ###"
+  echo "###  1)  Gnome                                                               ###"
+  echo "###  2)  KDE Plasma                                                          ###"
+  echo "###  3)  XFCE4                                                               ###"
+  echo "###  4)  Deepin                                                              ###"
+  echo "###  5)  Mate                                                                ###"
+  echo "###  6)  Budgie                                                              ###"
+  echo "###  7)  Cinnamon                                                            ###"
+  echo "###  8)  LXDE                                                                ###"
+  echo "###  9)  LXQT                                                                ###"
+  echo "### 10)  I3                                                                  ###"
   echo "################################################################################"
   read case;
 
@@ -197,6 +199,12 @@ function WHAT_DE() {
     ;;
     8)
     DE_TOINST="lxde"
+    ;;
+    9)
+    DE_TOINST="lxqt"
+    ;;
+    10)
+    DE_TOINST="i3"
     ;;
   esac
 }
@@ -429,6 +437,36 @@ function INSTALL_DE() {
     wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
     sudo rm /etc/xdg/picom.conf
     sudo mv picom.conf /etc/xdg/picom.conf
+  fi
+  if [ ${DE_TOINST} = "lxqt" ]; then
+    clear
+    dialog --infobox "Installing The LXQT Desktop Environment." 3 44
+    sleep 2
+    sudo pacman -S --noconfirm --needed lxqt gnome-disk-utility picom gnome-calculator gedit variety onboard ark file-roller unrar p7zip packagekit-qt5
+    wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+    sudo rm /etc/xdg/picom.conf
+    sudo mv picom.conf /etc/xdg/picom.conf
+  fi
+  if [ ${DE_TOINST} = "i3" ]; then
+    clear
+    dialog --infobox "Installing The i3 Window Manager." 3 37
+    sleep 2
+    sudo pacman -S --noconfirm --needed i3 gnome-disk-utility onboard ark file-roller unrar p7zip picom dmenu rofi nitrogen feh thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman xfce4-terminal xfce4-screenshooter papirus-icon-theme network-manager-applet arandr scrot lxappearance polkit-gnome galculator dunst
+    $ZB -S --noconfirm --needed mugshot i3exit pnmixer
+    #$ZB -S --noconfirm --needed betterlockscreen
+    mkdir -p ~/.config/i3
+    cd ~/.config/i3
+    wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-i3
+    wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/i3status-config
+    cp config-i3 config
+    cd ~/
+    wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+    sudo rm /etc/xdg/picom.conf
+    sudo mv picom.conf /etc/xdg/picom.conf
+    mkdir -p ~/.config/dunst
+    cp /etc/dunst/dunstrc ~/.config/dunst/
+    echo "alias conf='nano ~/.config/i3/config'" >> ~/.bashrc
+    echo "alias conf-bar='nano ~/.config/i3/i3status-config'" >> ~/.bashrc
   fi
 }
 
