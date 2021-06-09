@@ -169,6 +169,7 @@ function WHAT_DE() {
   echo "### 5)  Mate                                                                 ###"
   echo "### 6)  Budgie                                                               ###"
   echo "### 7)  Cinnamon                                                             ###"
+  echo "### 8)  LXDE                                                                 ###"
   echo "################################################################################"
   read case;
 
@@ -193,6 +194,9 @@ function WHAT_DE() {
     ;;
     7)
     DE_TOINST="cinnamon"
+    ;;
+    8)
+    DE_TOINST="lxde"
     ;;
   esac
 }
@@ -415,6 +419,16 @@ function INSTALL_DE() {
     sleep 2
     sudo pacman -S --noconfirm --needed cinnamon gnome-disk-utility gnome-system-monitor gnome-calculator gpicview gedit variety onboard ark file-roller unrar p7zip
     $ZB -S --noconfirm --needed mint-themes cinnamon-sound-effects
+  fi
+  if [ ${DE_TOINST} = "lxde" ]; then
+    clear
+    dialog --infobox "Installing The LXDE Desktop Environment." 3 44
+    sleep 2
+    sudo pacman -S --noconfirm --needed lxde gnome-disk-utility gnome-calculator gedit picom variety onboard ark file-roller unrar p7zip
+    $ZB -S --noconfirm --needed mugshot
+    wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+    sudo rm /etc/xdg/picom.conf
+    sudo mv picom.conf /etc/xdg/picom.conf
   fi
 }
 
