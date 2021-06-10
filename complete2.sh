@@ -173,6 +173,7 @@ function WHAT_DE() {
   echo "###  9)  LXQT                                                                ###"
   echo "### 10)  I3                                                                  ###"
   echo "### 11)  Sway                                                                ###"
+  echo "### 12)  BSPWM                                                               ###"
   echo "################################################################################"
   read case;
 
@@ -209,6 +210,9 @@ function WHAT_DE() {
     ;;
     11)
     DE_TOINST="sway"
+    ;;
+    12)
+    DE_TOINST="bspwm"
     ;;
   esac
 }
@@ -488,6 +492,37 @@ function INSTALL_DE() {
     mkdir -p ~/.config/waybar
     cp /etc/xdg/waybar/* ~/.config/waybar/
     mkdir -p ~/Pictures/shots
+  fi
+  if [ ${DE_TOINST} = "bspwm" ]; then
+    clear
+    dialog --infobox "Installing The BSPWM Window Manager." 3 40
+    sleep 2
+    sudo pacman -S --noconfirm --needed bspwm sxhkd dmenu rofi nitrogen picom xfce4-terminal thunar thunar-archive-plugin thunar-media-tags-plugin xfce4-screenshooter onboard ark file-roller unrar p7zip arandr network-manager-applet gnome-disk-utility feh eog lxappearance galculator dunst
+    $ZB -S --noconfirm --needed pnmixer mugshot polybar
+    mkdir -p ~/.config/bspwm
+    mkdir -p ~/.config/sxhkd
+    mkdir -p ~/.config/polybar
+    cd ~/.config/bspwm
+    wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/bspwmrc
+    chmod +x ~/.config/bspwm/bspwmrc
+    cd ~/.config/sxhkd
+    wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/sxhkdrc
+    chmod +x ~/.config/sxhkd/sxhkdrc
+    cd ~/.config/polybar
+    wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-polybar
+    cp config-polybar config
+    wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/launch.sh
+    chmod +x ~/.config/polybar/config
+    chmod +x ~/.config/polybar/launch.sh
+    cd ~/
+    wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/picom.conf
+    sudo rm /etc/xdg/picom.conf
+    sudo mv picom.conf /etc/xdg/picom.conf
+    mkdir -p ~/.config/dunst
+    cp /usr/share/dunst/dunstrc ~/.config/dunst/
+    echo "alias conf='nano ~/.config/bspwm/bspwmrc'" >> ~/.bashrc
+    echo "alias conf-key='nano ~/.config/sxhkd/sxhkdrc'" >> ~/.bashrc
+    echo "alias conf-bar='nano ~/.config/polybar/config'" >> ~/.bashrc
   fi
 }
 
