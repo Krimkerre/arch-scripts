@@ -216,6 +216,47 @@ function WHAT_DE() {
     ;;
   esac
 }
+### Do You Want Extra Sound Themes?                                          ###
+################################################################################
+function SOUNDTHEME_SUPPORT() {
+  clear
+  echo "################################################################################"
+  echo "### Do You Want To Install Extra Sound Themes?                               ###"
+  echo "### 1)  Yes                                                                  ###"
+  echo "### 2)  No                                                                   ###"
+  echo "################################################################################"
+  read case;
+
+  case $case in
+    1)
+    SND_THEME="yes"
+    ;;
+    2)
+    SND_THEME="no"
+    ;;
+  esac
+}
+### Do You Want Extra System Fonts?                                          ###
+################################################################################
+function EXTRA_FONTS() {
+  clear
+  echo "################################################################################"
+  echo "### Do You Want To Install Extra System Fonts Installed?                     ###"
+  echo "### 1)  Yes                                                                  ###"
+  echo "### 2)  No                                                                   ###"
+  echo "################################################################################"
+  read case;
+
+  case $case in
+    1)
+    E_FONTS="yes"
+    ;;
+    2)
+    E_FONTS="no"
+    ;;
+  esac
+}
+
 
 ################################################################################
 ### Installing Things                                                        ###
@@ -525,6 +566,48 @@ function INSTALL_DE() {
     echo "alias conf-bar='nano ~/.config/polybar/config'" >> ~/.bashrc
   fi
 }
+### Check What Video Card Installed                                          ###
+################################################################################
+function VC_INSTALL() {
+  if [[ $(lspci -k | grep VGA | grep -i nvidia) ]]; then
+    clear
+    dialog --infobox "Installing nVidia Video Drivers." 3 36
+    sleep 2
+    sudo pacman -S --noconfirm --needed nvidia nvidia-cg-toolkit nvidia-settings nvidia-utils lib32-nvidia-cg-toolkit lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia cuda ffnvcodec-headers lib32-libvdpau libxnvctrl pycuda-headers python-pycuda
+    sudo pacman -R --noconfirm xf86-video-nouveau
+  fi
+
+  if [[ $(lspci -k | grep VGA | grep -i amd) ]]; then
+    clear
+    dialog --infobox "Installing AMD Video Drivers." 3 33
+    sleep 2
+    #$ZB -S --noconfirm --needed amdgpu-pro-libgl
+    #$ZB -S --noconfirm --needed lib32-amdgpu-pro-libgl
+    #$ZB -S --noconfirm --needed amdvlk
+    #$ZB -S --noconfirm --needed lib32-amdvlk
+    $ZB -S --noconfirm --needed opencl-amd
+    dialog --infobox "Thanks for supporting a free and open vendor." 3 49
+    sleep 2
+  fi
+}
+### Install Sound Themes                                                     ###
+################################################################################
+function INSTALL_SOUNDTHEME() {
+  clear
+  dialog --infobox "Installing Some Sound Themes." 3 33
+  sleep 2
+  sudo pacman -S --noconfirm --needed deepin-sound-theme
+  $ZB -S --noconfirm --needed sound-theme-smooth sound-theme-elementary-git
+}
+### Install Extra Fonts                                                      ###
+################################################################################
+function INSTALL_EXTRAFONTS() {
+  clear
+  dialog --infobox "Installing Some Extra System Fonts." 3 39
+  sleep 2
+  sudo pacman -S --noconfirm --needed adobe-source-sans-pro-fonts cantarell-fonts noto-fonts terminus-font ttf-bitstream-vera ttf-dejavu ttf-droid ttf-inconsolata ttf-liberation ttf-roboto ttf-ubuntu-font-family tamsyn-font awesome-terminal-fonts ttf-font-awesome ttf-hack ttf-ibm-plex
+  $ZB -S --noconfirm --needed ttf-ms-fonts steam-fonts ttf-mac-fonts siji-git ttf-font-awesome
+}
 
 ################################################################################
 ### Setup Things - Needed For Installing Software                            ###
@@ -553,6 +636,7 @@ PRINTER_SUPPORT
 BLUETOOTH_SUPPORT
 DISPLAY_MANAGER
 WHAT_DE
+SOUNDTHEME_SUPPORT
 
 ###                                                                          ###
 ################################################################################
@@ -573,3 +657,10 @@ fi
 XORG_DISPLAY
 INSTALL_DM
 INSTALL_DE
+VC_INSTALL
+if [ ${SND_THEME} = "yes" ]; then
+  INSTALL_SOUNDTHEME
+fi
+if [ ${E_FONTS} = "yes" ]; then
+  INSTALL_EXTRAFONTS
+fi
