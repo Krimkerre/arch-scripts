@@ -172,6 +172,7 @@ function WHAT_DE() {
   echo "###  8)  LXDE                                                                ###"
   echo "###  9)  LXQT                                                                ###"
   echo "### 10)  I3                                                                  ###"
+  echo "### 11)  Sway                                                                ###"
   echo "################################################################################"
   read case;
 
@@ -205,6 +206,9 @@ function WHAT_DE() {
     ;;
     10)
     DE_TOINST="i3"
+    ;;
+    11)
+    DE_TOINST="sway"
     ;;
   esac
 }
@@ -467,6 +471,23 @@ function INSTALL_DE() {
     cp /etc/dunst/dunstrc ~/.config/dunst/
     echo "alias conf='nano ~/.config/i3/config'" >> ~/.bashrc
     echo "alias conf-bar='nano ~/.config/i3/i3status-config'" >> ~/.bashrc
+  fi
+  if [ ${DE_TOINST} = "sway" ]; then
+    clear
+    dialog --infobox "Installing The Sway Window Manager." 3 39
+    sleep 2
+    sudo pacman -S --noconfirm --needed sway swaybg swayidle swaylock waybar dmenu rofi nitrogen onboard ark file-roller unrar p7zip xfce4-terminal thunar thunar-archive-plugin thunar-media-tags-plugin network-manager-applet xfce4-screenshooter papirus-icon-theme arandr gnome-disk-utility polkit-gnome grim feh eog galculator
+    $ZB -S --noconfirm --needed mugshot
+    #$ZB -S --noconfirm --needed j4-dmenu-desktop
+    mkdir -p ~/.config/sway
+    cd ~/.config/sway
+    wget http://raw.githubusercontent.com/lotw69/arch-scripts/master/config-sway
+    cp config-sway config
+    cd ~
+    echo "alias conf='nano ~/.config/sway/config'" >> ~/.bashrc
+    mkdir -p ~/.config/waybar
+    cp /etc/xdg/waybar/* ~/.config/waybar/
+    mkdir -p ~/Pictures/shots
   fi
 }
 
