@@ -257,7 +257,7 @@ bindsym $mod+Delete mode "$mode_system"
     bindsym $mod+Insert exec killall picom
     bindsym $mod+shift+Insert exec --no-startup-id picom --experimental-backends
     bindsym $mod+b exec firefox
-    bindsym $mod+t exec nautilus
+    bindsym $mod+t exec thunar
     bindsym $mod+Home exec killall nm-applet
     bindsym $mod+shift+Home exec nm-applet
     bindsym $mod+End exec killall pnmixer
