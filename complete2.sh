@@ -519,7 +519,7 @@ function INSTALL_DE() {
     sudo rm /etc/xdg/picom.conf
     sudo mv picom.conf /etc/xdg/picom.conf
     mkdir -p ~/.config/dunst
-    cp /usr/share/dunst/dunstrc ~/.config/dunst/
+    cp /etc/dunst/dunstrc ~/.config/dunst/
     echo "alias conf='nano ~/.config/bspwm/bspwmrc'" >> ~/.bashrc
     echo "alias conf-key='nano ~/.config/sxhkd/sxhkdrc'" >> ~/.bashrc
     echo "alias conf-bar='nano ~/.config/polybar/config'" >> ~/.bashrc
