@@ -637,6 +637,7 @@ BLUETOOTH_SUPPORT
 DISPLAY_MANAGER
 WHAT_DE
 SOUNDTHEME_SUPPORT
+EXTRA_FONTS
 
 ###                                                                          ###
 ################################################################################
