@@ -23,6 +23,22 @@ function DRVSELECT() {
   clear
   DEVICELIST=$(lsblk -dplnx size -o name,size | grep -Ev "boot|rpmb|loop" | tac)
   HD=$(dialog --stdout --menu "Select root disk" 0 0 0 ${DEVICELIST}) || exit 1
+  clear
+  echo "################################################################################"
+  echo "### Is Your Drive A NVME?                                                    ###"
+  echo "###                                                                          ###"
+  echo "### 1) Yes                                                                   ###"
+  echo "### 2) No                                                                    ###"
+  echo "################################################################################"
+  read case;
+
+  case $case in
+    1)
+    ${HD} + "p"
+    ;;
+    2)
+    ;;
+  esac
 }
 ### Set Username And Password Here
 ################################################################################
