@@ -34,7 +34,7 @@ function DRVSELECT() {
 
   case $case in
     1)
-    ${HD} + "p"
+    HD="${HD}p"
     ;;
     2)
     ;;
