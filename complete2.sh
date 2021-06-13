@@ -249,7 +249,7 @@ function EXTRA_FONTS() {
 
   case $case in
     1)
-    E_FONTS="yes"
+    EXT_FONTS="yes"
     ;;
     2)
     E_FONTS="no"
@@ -661,6 +661,6 @@ VC_INSTALL
 if [ ${SND_THEME} = "yes" ]; then
   INSTALL_SOUNDTHEME
 fi
-if [ ${E_FONTS} = "yes" ]; then
+if [ ${EXT_FONTS} = "yes" ]; then
   INSTALL_EXTRAFONTS
 fi
