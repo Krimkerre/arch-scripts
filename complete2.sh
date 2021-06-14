@@ -256,7 +256,31 @@ function EXTRA_FONTS() {
     ;;
   esac
 }
+### Do You Want My Standard Software                                         ###
+################################################################################
+function STD_SOFTWARE() {
+  clear
+  echo "################################################################################"
+  echo "### Do You Want To Install My Standard Software?                             ###"
+  echo "### ------------------------------------------------------------------------ ###"
+  echo "### Firefox, Winetricks, Playonlinux, Steam, Handbrake, OBS-Studio, Gimp     ###"
+  echo "### Libreoffice-fresh, Clementine, KDEnlive, Aspell-en, YouTube-dl,          ###"
+  echo "### Paperwork.                                                               ###"
+  echo "### ------------------------------------------------------------------------ ###"
+  echo "### 1)  Yes                                                                  ###"
+  echo "### 2)  No                                                                   ###"
+  echo "################################################################################"
+  read case;
 
+  case $case in
+    1)
+    STD_SOFT="yes"
+    ;;
+    2)
+    STD_SOFT="no"
+    ;;
+  esac
+}
 
 ################################################################################
 ### Installing Things                                                        ###
@@ -608,6 +632,15 @@ function INSTALL_EXTRAFONTS() {
   sudo pacman -S --noconfirm --needed adobe-source-sans-pro-fonts cantarell-fonts noto-fonts terminus-font ttf-bitstream-vera ttf-dejavu ttf-droid ttf-inconsolata ttf-liberation ttf-roboto ttf-ubuntu-font-family tamsyn-font awesome-terminal-fonts ttf-font-awesome ttf-hack ttf-ibm-plex
   $ZB -S --noconfirm --needed ttf-ms-fonts steam-fonts ttf-mac-fonts siji-git ttf-font-awesome
 }
+### Software To Install (My Standard Applications)                           ###
+################################################################################
+function INSTALL_STDSOFTWARE() {
+  clear
+  dialog --infobox "Installing Standard Software." 3 33
+  sleep 2
+  sudo pacman -S --noconfirm --needed firefox winetricks playonlinux steam handbrake obs-studio gimp libreoffice-fresh clementine kdenlive aspell-en youtube-dl paperwork
+  #sudo systemctl enable tuned.service
+}
 
 ################################################################################
 ### Setup Things - Needed For Installing Software                            ###
@@ -638,6 +671,7 @@ DISPLAY_MANAGER
 WHAT_DE
 SOUNDTHEME_SUPPORT
 EXTRA_FONTS
+STD_SOFTWARE
 
 ###                                                                          ###
 ################################################################################
@@ -664,4 +698,7 @@ if [ ${SND_THEME} = "yes" ]; then
 fi
 if [ ${EXT_FONTS} = "yes" ]; then
   INSTALL_EXTRAFONTS
+fi
+if [ ${STD_SOFT} = "yes" ]; then
+  INSTALL_STDSOFTWARE
 fi
