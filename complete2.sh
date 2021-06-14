@@ -261,7 +261,7 @@ function EXTRA_FONTS() {
 function STD_SOFTWARE() {
   clear
   echo "################################################################################"
-  echo "### Do You Want To Install My Standard Software?                             ###"
+  echo "### Do You Want To Install My Standard Software Selection?                   ###"
   echo "### ------------------------------------------------------------------------ ###"
   echo "### Firefox, Winetricks, Playonlinux, Steam, Handbrake, OBS-Studio, Gimp     ###"
   echo "### Libreoffice-fresh, Clementine, KDEnlive, Aspell-en, YouTube-dl,          ###"
@@ -278,6 +278,26 @@ function STD_SOFTWARE() {
     ;;
     2)
     STD_SOFT="no"
+    ;;
+  esac
+}
+### Do You Want My Standard Software                                         ###
+################################################################################
+function EXT_SOFTWARE() {
+  clear
+  echo "################################################################################"
+  echo "### Do You Want To Install My Extra Software Selection?                      ###"
+  echo "### 1)  Yes                                                                  ###"
+  echo "### 2)  No                                                                   ###"
+  echo "################################################################################"
+  read case;
+
+  case $case in
+    1)
+    EXT_SOFT="yes"
+    ;;
+    2)
+    EXT_SOFT="no"
     ;;
   esac
 }
@@ -641,6 +661,43 @@ function INSTALL_STDSOFTWARE() {
   sudo pacman -S --noconfirm --needed firefox winetricks playonlinux steam handbrake obs-studio gimp libreoffice-fresh clementine kdenlive aspell-en youtube-dl paperwork
   #sudo systemctl enable tuned.service
 }
+################################################################################
+### Software To Install (My Standard Applications)                           ###
+################################################################################
+function INSTALL_EXTRASOFTWARE() {
+  clear
+  dialog --infobox "Installing Extra Software." 3 31
+  sleep 2
+  #3d Printer
+  sudo pacman -S --noconfirm --needed cura prusa-slicer
+  $ZB -S --noconfirm --needed mattercontrol
+  #Accessories
+  sudo pacman -S --noconfirm --needed cool-retro-term
+  $ZB -S --noconfirm --needed isomaster multibootusb-git ventoy-bin mintstick-git rpi-imager
+  #Chat
+  sudo pacman -S --noconfirm --needed hexchat teamspeak3 telegram-desktop discord
+  $ZB -S --noconfirm --needed skypeforlinux-preview-bin zoom
+  #Games
+  sudo pacman -S --noconfirm --needed extremetuxracer supertux supertuxkart
+  $ZB -S --noconfirm --needed gamemode lib32-gamemode minecraft-launcher
+  #Graphics
+  sudo pacman -S --noconfirm --needed librecad darktable inkscape krita blender openscad luminancehdr freecad
+  $ZB -S --noconfirm --needed drawio-desktop
+  #Internet
+  sudo pacman -S --noconfirm --needed transmission-gtk fragments remmina
+  #Office
+  sudo pacman -S --noconfirm --needed homebank
+  #Programming
+  sudo pacman -S --noconfirm --needed atom meld rust rust-docs rust-racer uncrustify
+  #Sound/Video
+  sudo pacman -S --noconfirm --needed audacity openshot shotcut quodlibet vlc
+  $ZB -S --noconfirm --needed makemkv olive lbry-app-bin
+  #System Utilities
+  sudo pacman -S --noconfirm --needed cockpit cockpit-machines cockpit-pcp cockpit-podman syncthing dconf-editor virt-manager dnsmasq virglrenderer qemu-arch-extra qemu-guest-agent pacmanlogviewer exfat-utils hardinfo deluge plank cairo-dock cairo-dock-plug-ins
+  #sudo pacman -S --noconfirm --needed ebtables iptables
+  #$ZB -S --noconfirm --needed plank-theme-arc plank-theme-numix plank-theme-namor unity-like-plank-theme
+  $ZB -S --noconfirm --needed ovmf virtio-win libguestfs cairo-dock-themes cairo-dock-plug-ins-extras dxvk-bin timeshift stacer protontricks
+}
 
 ################################################################################
 ### Setup Things - Needed For Installing Software                            ###
@@ -672,6 +729,7 @@ WHAT_DE
 SOUNDTHEME_SUPPORT
 EXTRA_FONTS
 STD_SOFTWARE
+EXT_SOFTWARE
 
 ###                                                                          ###
 ################################################################################
@@ -701,4 +759,7 @@ if [ ${EXT_FONTS} = "yes" ]; then
 fi
 if [ ${STD_SOFT} = "yes" ]; then
   INSTALL_STDSOFTWARE
+fi
+if [ ${EXT_SOFT} = "yes" ]; then
+  INSTALL_EXTRASOFTWARE
 fi
