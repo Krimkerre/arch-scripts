@@ -241,7 +241,7 @@ function SOUNDTHEME_SUPPORT() {
 function EXTRA_FONTS() {
   clear
   echo "################################################################################"
-  echo "### Do You Want To Install Extra System Fonts Installed?                     ###"
+  echo "### Do You Want To Install Extra System Font?                                ###"
   echo "### 1)  Yes                                                                  ###"
   echo "### 2)  No                                                                   ###"
   echo "################################################################################"
@@ -253,6 +253,23 @@ function EXTRA_FONTS() {
     ;;
     2)
     E_FONTS="no"
+    ;;
+  esac
+  clear
+  echo "################################################################################"
+  echo "### Do You Want To Install Nerd Complete Fonts?                              ###"
+  echo "### ------------ Warning Large Download So Can Take Some Time -------------- ###"
+  echo "### 1)  Yes                                                                  ###"
+  echo "### 2)  No                                                                   ###"
+  echo "################################################################################"
+  read case;
+
+  case $case in
+    1)
+    NERD_FONTS="yes"
+    ;;
+    2)
+    NERD_FONTS="no"
     ;;
   esac
 }
@@ -651,6 +668,9 @@ function INSTALL_EXTRAFONTS() {
   sleep 2
   sudo pacman -S --noconfirm --needed adobe-source-sans-pro-fonts cantarell-fonts noto-fonts terminus-font ttf-bitstream-vera ttf-dejavu ttf-droid ttf-inconsolata ttf-liberation ttf-roboto ttf-ubuntu-font-family tamsyn-font awesome-terminal-fonts ttf-font-awesome ttf-hack ttf-ibm-plex
   $ZB -S --noconfirm --needed ttf-ms-fonts steam-fonts ttf-mac-fonts siji-git ttf-font-awesome
+  if [ ${NERD_FONTS} = "yes" ]; then
+    sudo $ZB -S --noconfirm --needed nerd-fonts-complete
+  fi
 }
 ### Software To Install (My Standard Applications)                           ###
 ################################################################################
@@ -763,3 +783,7 @@ fi
 if [ ${EXT_SOFT} = "yes" ]; then
   INSTALL_EXTRASOFTWARE
 fi
+echo 'vm.swappiness=10' | sudo tee /etc/sysctl.d/99-sysctl.conf
+clear
+dialog --infobox "Installation Completed.  Please Reboot And Enjoy." 3 53
+sleep 2
