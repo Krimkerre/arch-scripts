@@ -34,9 +34,10 @@ function DRVSELECT() {
 
   case $case in
     1)
-    HD="${HD}p"
+    NVME_HD="yes"
     ;;
     2)
+    NVME_HD="no"
     ;;
   esac
 }
@@ -189,7 +190,12 @@ function PARTHD() {
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
     parted ${HD} mklabel gpt mkpart primary fat32 1MiB 301MiB set 1 esp on mkpart primary ext4 301MiB 100%
-    mkfs.fat -F32 ${HD}1
+    if [ ${NVME_HD} = "yes" ]; then
+      mkfs.fat -F32 ${HD}p1
+    fi
+    if [ ${NVME_HD} = "no" ]; then
+      mkfs.fat -F32 ${HD}1
+    fi
   else
     #BIOS Partition
     parted ${HD} mklabel msdos mkpart primary ext4 2MiB 100% set 1 boot on
@@ -204,8 +210,14 @@ function CHK_FMT() {
     sleep 3
     if [[ -d /sys/firmware/efi/efivars ]]; then
       #UEFI Partition
-      mkfs.fat -F32 ${HD}1
-      mkfs.ext4 ${HD}2
+      if [ ${NVME_HD} = "no" ]; then
+        mkfs.fat -F32 ${HD}1
+        mkfs.ext4 ${HD}2
+      fi
+      if [ ${NVME_HD} = "yes" ]; then
+        mkfs.fat -F32 ${HD}p1
+        mkfs.ext4 ${HD}p2
+      fi
     else
       #BIOS Partition
       mkfs.ext4 ${HD}1
@@ -217,8 +229,14 @@ function CHK_FMT() {
       sleep 3
       if [[ -d /sys/firmware/efi/efivars ]]; then
         #UEFI Partition
-        mkfs.fat -F32 ${HD}1
-        mkfs.btrfs -f ${HD}2
+        if [ ${NVME_HD} = "no" ]; then
+          mkfs.fat -F32 ${HD}1
+          mkfs.btrfs -f ${HD}2
+        fi
+        if [ ${NVME_HD} = "yes" ]; then
+          mkfs.fat -F32 ${HD}p1
+          mkfs.btrfs -f ${HD}p2
+        fi
       else
         #BIOS Partition
         mkfs.btrfs ${HD}1
