@@ -300,9 +300,16 @@ function CHK_FMT() {
 function MNTHD() {
   if [[ -d /sys/firmware/efi/efivars ]]; then
     #UEFI Partition
-    mount ${HD}2 /mnt
-    mkdir /mnt/boot
-    mount ${HD}1 /mnt/boot
+    if [ ${NVME_HD} = "no" ]; then
+      mount ${HD}2 /mnt
+      mkdir /mnt/boot
+      mount ${HD}1 /mnt/boot
+    fi
+    if [ ${NVME_HD} = "yes" ]; then
+      mount ${HD}p2 /mnt
+      mkdir /mnt/boot
+      mount ${HD}p1 /mnt/boot
+    fi
   else
     mount ${HD}1 /mnt
   fi
