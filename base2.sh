@@ -248,8 +248,14 @@ function CHK_FMT() {
       sleep 3
       if [[ -d /sys/firmware/efi/efivars ]]; then
         #UEFI Partition
-        mkfs.fat -F32 ${HD}1
-        mkfs.xfs -f ${HD}2
+        if [ ${NVME_HD} = "no" ]; then
+          mkfs.fat -F32 ${HD}1
+          mkfs.xfs -f ${HD}2
+        fi
+        if [ ${NVME_HD} = "yes" ]; then
+          mkfs.fat -F32 ${HD}p1
+          mkfs.xfs -f ${HD}p2
+        fi
       else
         #BIOS Partition
         mkfs.xfs -f ${HD}1
@@ -261,8 +267,14 @@ function CHK_FMT() {
       sleep 3
       if [[ -d /sys/firmware/efi/efivars ]]; then
         #UEFI Partition
-        mkfs.fat -F32 ${HD}1
-        mkfs.reiserfs -f ${HD}2
+        if [ ${NVME_HD} = "no" ]; then
+          mkfs.fat -F32 ${HD}1
+          mkfs.reiserfs -f ${HD}2
+        fi
+        if [ ${NVME_HD} = "yes" ]; then
+          mkfs.fat -F32 ${HD}p1
+          mkfs.reiserfs -f ${HD}p2
+        fi
       else
         #BIOS Partition
         mkfs.reiserfs -f ${HD}1
@@ -274,8 +286,14 @@ function CHK_FMT() {
       sleep 3
       if [[ -d /sys/firmware/efi/efivars ]]; then
         #UEFI Partition
-        mkfs.fat -F32 ${HD}1
-        mkfs.jfs -f ${HD}2
+        if [ ${NVME_HD} = "no" ]; then
+          mkfs.fat -F32 ${HD}1
+          mkfs.jfs -f ${HD}2
+        fi
+        if [ ${NVME_HD} = "yes" ]; then
+          mkfs.fat -F32 ${HD}p1
+          mkfs.jfs -f ${HD}p2
+        fi
       else
         #BIOS Partition
         mkfs.jfs -f ${HD}1
@@ -287,8 +305,14 @@ function CHK_FMT() {
       sleep 3
       if [[ -d /sys/firmware/efi/efivars ]]; then
         #UEFI Partition
-        mkfs.fat -F32 ${HD}1
-        mkfs.nilfs2 -f ${HD}2
+        if [ ${NVME_HD} = "no" ]; then
+          mkfs.fat -F32 ${HD}1
+          mkfs.nilfs2 -f ${HD}2
+        fi
+        if [ ${NVME_HD} = "yes" ]; then
+          mkfs.fat -F32 ${HD}p1
+          mkfs.nilfs2 -f ${HD}p2
+        fi
       else
         #BIOS Partition
         mkfs.nilfs2 -f ${HD}1
