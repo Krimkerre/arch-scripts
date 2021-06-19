@@ -561,7 +561,7 @@ function INSTALL_DE() {
     clear
     dialog --infobox "Installing The i3 Window Manager." 3 37
     sleep 2
-    sudo pacman -S --noconfirm --needed i3 gnome-disk-utility onboard ark file-roller unrar p7zip picom dmenu rofi nitrogen feh thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman xfce4-terminal xfce4-screenshooter papirus-icon-theme network-manager-applet arandr scrot lxappearance polkit-gnome galculator dunst
+    sudo pacman -S --noconfirm --needed i3 gnome-disk-utility onboard ark file-roller unrar p7zip picom dmenu rofi nitrogen feh thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman xfce4-terminal xfce4-screenshooter papirus-icon-theme network-manager-applet arandr scrot lxappearance polkit-gnome galculator dunst ristretto
     $ZB -S --noconfirm --needed mugshot i3exit pnmixer
     #$ZB -S --noconfirm --needed betterlockscreen
     mkdir -p ~/.config/i3
