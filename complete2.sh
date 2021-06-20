@@ -717,6 +717,12 @@ function INSTALL_EXTRASOFTWARE() {
   #sudo pacman -S --noconfirm --needed ebtables iptables
   #$ZB -S --noconfirm --needed plank-theme-arc plank-theme-numix plank-theme-namor unity-like-plank-theme
   $ZB -S --noconfirm --needed ovmf virtio-win libguestfs cairo-dock-themes cairo-dock-plug-ins-extras dxvk-bin timeshift stacer protontricks
+  sudo systemctl enable --now cockpit.socket
+  sudo systemctl enable libvirtd.service
+  sudo systemctl enable virtlogd.service
+  sudo sed -i '/\[global\]'/a'Environment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
+  #sed -e '/"Type=simple"'/a'Environment="LD_LIBRARY_PATH=/usr/lib"' /etc/systemd/system/multi-user.target.wants/libvirtd.service
+  echo "options kvm-intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
 }
 
 ################################################################################
