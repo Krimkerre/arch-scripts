@@ -250,26 +250,26 @@ function EXTRA_FONTS() {
   case $case in
     1)
     EXT_FONTS="yes"
+    clear
+    echo "################################################################################"
+    echo "### Do You Want To Install Nerd Complete Fonts?                              ###"
+    echo "### ------------ Warning Large Download So Can Take Some Time -------------- ###"
+    echo "### 1)  Yes                                                                  ###"
+    echo "### 2)  No                                                                   ###"
+    echo "################################################################################"
+    read case;
+
+    case $case in
+      1)
+      NERD_FONTS="yes"
+      ;;
+      2)
+      NERD_FONTS="no"
+      ;;
+    esac
     ;;
     2)
     E_FONTS="no"
-    ;;
-  esac
-  clear
-  echo "################################################################################"
-  echo "### Do You Want To Install Nerd Complete Fonts?                              ###"
-  echo "### ------------ Warning Large Download So Can Take Some Time -------------- ###"
-  echo "### 1)  Yes                                                                  ###"
-  echo "### 2)  No                                                                   ###"
-  echo "################################################################################"
-  read case;
-
-  case $case in
-    1)
-    NERD_FONTS="yes"
-    ;;
-    2)
-    NERD_FONTS="no"
     ;;
   esac
 }
@@ -714,9 +714,9 @@ function INSTALL_EXTRASOFTWARE() {
   $ZB -S --noconfirm --needed makemkv olive lbry-app-bin
   #System Utilities
   sudo pacman -S --noconfirm --needed cockpit cockpit-machines cockpit-pcp cockpit-podman syncthing dconf-editor virt-manager dnsmasq virglrenderer qemu-arch-extra qemu-guest-agent pacmanlogviewer exfat-utils hardinfo deluge plank cairo-dock cairo-dock-plug-ins
-  #sudo pacman -S --noconfirm --needed ebtables iptables
   #$ZB -S --noconfirm --needed plank-theme-arc plank-theme-numix plank-theme-namor unity-like-plank-theme
   $ZB -S --noconfirm --needed ovmf virtio-win libguestfs cairo-dock-themes cairo-dock-plug-ins-extras dxvk-bin timeshift stacer protontricks
+  $ZB -S --noconfirm --needed -a ebtables
   sudo systemctl enable --now cockpit.socket
   sudo systemctl enable libvirtd.service
   sudo systemctl enable virtlogd.service
