@@ -174,6 +174,8 @@ function WHAT_DE() {
   echo "### 10)  I3                                                                  ###"
   echo "### 11)  Sway                                                                ###"
   echo "### 12)  BSPWM                                                               ###"
+  echo "###                                                                          ###"
+  echo "### 99)  None (CLI Only)                                                     ###"
   echo "################################################################################"
   read case;
 
@@ -213,6 +215,9 @@ function WHAT_DE() {
     ;;
     12)
     DE_TOINST="bspwm"
+    ;;
+    99)
+    DE_TOINST="none"
     ;;
   esac
 }
@@ -625,6 +630,11 @@ function INSTALL_DE() {
     echo "alias conf='nano ~/.config/bspwm/bspwmrc'" >> ~/.bashrc
     echo "alias conf-key='nano ~/.config/sxhkd/sxhkdrc'" >> ~/.bashrc
     echo "alias conf-bar='nano ~/.config/polybar/config'" >> ~/.bashrc
+  fi
+  if [ ${DE_TOINST} = "none" ]; then
+    clear
+    dialog --infobox "Installing No Windows Manager Or Desktop Environment." 3 57
+    sleep 2
   fi
 }
 ### Check What Video Card Installed                                          ###
