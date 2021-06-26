@@ -148,6 +148,7 @@ function SWAP_TYPE() {
       2)
       SWAPFILE_SET
       ;;
+    esac
     ;;
     2)
     SWAP_ENABLED="no"
