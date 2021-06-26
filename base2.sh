@@ -145,6 +145,7 @@ function SWAP_TYPE() {
       SWAP_ENABLED="systemd"
       ;;
       2)
+      SWPSIZE=2048
       SWAP_ENABLED="file"
       ;;
     esac
@@ -427,7 +428,7 @@ function SWAPFILE_SET() {
   clear
   dialog --infobox "Setting Up Swap File." 3 25
   sleep 3
-  dd if=/dev/zero of=/mnt/swapfile bs=1M count=1024 status=progress
+  dd if=/dev/zero of=/mnt/swapfile bs=1M count=${SWPSIZE} status=progress
   chmod 600 /mnt/swapfile
   mkswap /mnt/swapfile
   swapon /mnt/swapfile
