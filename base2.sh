@@ -133,20 +133,19 @@ function SWAP_TYPE() {
   read case;
   case $case in
     1)
-    SWAP_ENABLED="yes"
     clear
     echo "##############################################################################"
-    echo "### Do you want system swap                                                ###"
-    echo "### 1)  Yes                                                                ###"
-    echo "### 2)  No                                                                 ###"
+    echo "### What Swap System Do You Want?                                          ###"
+    echo "### 1)  SystemD                                                            ###"
+    echo "### 2)  File                                                               ###"
     echo "##############################################################################"
     read case;
     case $case in
       1)
-      SYSDSWAP
+      SWAP_ENABLED="systemd"
       ;;
       2)
-      SWAPFILE_SET
+      SWAP_ENABLED="file"
       ;;
     esac
     ;;
@@ -637,6 +636,12 @@ NEEDEDPKGS
 MISC_SETTINGS
 BASHRC_CONF
 BOOT_CFG
+if [ ${SWAP_ENABLED} = "systemd" ]; then
+  SYSDSWAP
+fi
+if [ ${SWAP_ENABLED} = "file" ]; then
+  SWAPFILE_SET
+fi
 ### Setting Passwords and Creating the User                                  ###
 ################################################################################
 clear
