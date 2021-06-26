@@ -134,7 +134,20 @@ function SWAP_TYPE() {
   case $case in
     1)
     SWAP_ENABLED="yes"
-    SYSDSWAP
+    clear
+    echo "##############################################################################"
+    echo "### Do you want system swap                                                ###"
+    echo "### 1)  Yes                                                                ###"
+    echo "### 2)  No                                                                 ###"
+    echo "##############################################################################"
+    read case;
+    case $case in
+      1)
+      SYSDSWAP
+      ;;
+      2)
+      SWAPFILE_SET
+      ;;
     ;;
     2)
     SWAP_ENABLED="no"
@@ -407,7 +420,19 @@ function SYSDSWAP() {
   echo "swapd_prio=1024" >> /mnt/etc/systemd/swap.conf
   arch-chroot /mnt systemctl enable systemd-swap
 }
-
+################################################################################
+### Setting Up Swap File                                                     ###
+################################################################################
+function SWAPFILE_SET() {
+  clear
+  dialog --infobox "Setting Up Swap File." 3 25
+  sleep 3
+  dd if=/dev/zero of=/swapfile bs=1M count=1024 status=progress
+  chmod 600 /swapfile
+  mkswap /swapfile
+  swapon /swapfile
+  sudo echo "/swapfile none swap defaults 0 0" >> /etc/fstab
+}
 ################################################################################
 ### Set Number Of CPUs In MAKEFLAGS                                          ###
 ################################################################################
