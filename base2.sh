@@ -145,7 +145,37 @@ function SWAP_TYPE() {
       SWAP_ENABLED="systemd"
       ;;
       2)
-      SWPSIZE=2048
+      clear
+      echo "##############################################################################"
+      echo "### What Size Do You Want For Your Swap File?                              ###"
+      echo "### 1) 512m                                                                ###"
+      echo "### 2)   1g                                                                ###"
+      echo "### 3)   2g                                                                ###"
+      echo "### 4)   4g                                                                ###"
+      echo "### 5)   8g                                                                ###"
+      echo "### 6)  16g                                                                ###"
+      echo "##############################################################################"
+      read case;
+      case $case in
+        1)
+        SWPSIZE=512
+        ;;
+        2)
+        SWPSIZE=1024
+        ;;
+        3)
+        SWPSIZE=2048
+        ;;
+        4)
+        SWPSIZE=4096
+        ;;
+        5)
+        SWPSIZE=8192
+        ;;
+        6)
+        SWPSIZE=16384
+        ;;
+      esac
       SWAP_ENABLED="file"
       ;;
     esac
