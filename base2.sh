@@ -427,11 +427,11 @@ function SWAPFILE_SET() {
   clear
   dialog --infobox "Setting Up Swap File." 3 25
   sleep 3
-  dd if=/dev/zero of=/swapfile bs=1M count=1024 status=progress
-  chmod 600 /swapfile
-  mkswap /swapfile
-  swapon /swapfile
-  sudo echo "/swapfile none swap defaults 0 0" >> /etc/fstab
+  dd if=/dev/zero of=/mnt/swapfile bs=1M count=1024 status=progress
+  chmod 600 /mnt/swapfile
+  mkswap /mnt/swapfile
+  swapon /mnt/swapfile
+  sudo echo "/swapfile none swap defaults 0 0" >> /mnt/etc/fstab
 }
 ################################################################################
 ### Set Number Of CPUs In MAKEFLAGS                                          ###
