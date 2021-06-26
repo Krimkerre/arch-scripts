@@ -121,6 +121,26 @@ function WHATFMT() {
     ;;
   esac
 }
+### Ask About system swap                                                    ###
+################################################################################
+function SWAP_TYPE() {
+  clear
+  echo "##############################################################################"
+  echo "### Do you want system swap                                                ###"
+  echo "### 1)  Yes                                                                ###"
+  echo "### 2)  No                                                                 ###"
+  echo "##############################################################################"
+  read case;
+  case $case in
+    1)
+    SWAP_ENABLED="yes"
+    SYSDSWAP
+    ;;
+    2)
+    SWAP_ENABLED="no"
+    ;;
+  esac
+}
 
 ################################################################################
 ### Set Enviroment Variables                                                 ###
@@ -578,6 +598,7 @@ ROOTPASSWORD
 DRVSELECT
 WHATFMT
 BOOTTYPE
+SWAP_TYPE
 ### Getting Started
 ################################################################################
 PARTHD
@@ -585,7 +606,6 @@ CHK_FMT
 MNTHD
 PACMAN_KEYS
 BASEPKG
-SYSDSWAP
 MAKEFLAGS_CPU
 NEEDEDPKGS
 MISC_SETTINGS
