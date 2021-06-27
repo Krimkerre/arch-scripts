@@ -410,7 +410,7 @@ function BASEPKG() {
   clear
   dialog --infobox "Installing The Base Packages." 3 33
   sleep 3
-  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils terminus-font openntpd dialog
+  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils terminus-font ntp dialog
   genfstab -U /mnt >> /mnt/etc/fstab
 }
 
