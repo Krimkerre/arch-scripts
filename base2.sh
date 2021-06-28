@@ -576,7 +576,7 @@ function BASHRC_CONF() {
   echo "alias cat='bat'" >> /mnt/etc/skel/.bashrc
   echo "alias fd='ncdu'" >> /mnt/etc/skel/.bashrc
   echo "alias netsp='bwm-ng'" >> /mnt/etc/skel/.bashrc
-  echo "alias df='duf'" >> /mnt/etc/skel/.bashrc
+  echo "alias df='duf -hide special'" >> /mnt/etc/skel/.bashrc
   echo "alias font='fontpreview-ueberzug'" >> /mnt/etc/skel/.bashrc
   echo "alias sysmon='gtop'" >> /mnt/etc/skel/.bashrc
   echo "alias conf-theme='~/.config/gtk-3.0/settings.ini'" >> /mnt/etc/skel/.bashrc
