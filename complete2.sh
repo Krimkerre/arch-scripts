@@ -717,7 +717,7 @@ function INSTALL_EXTRASOFTWARE() {
   #Programming
   sudo pacman -S --noconfirm --needed atom meld rust rust-docs rust-racer uncrustify
   #Sound/Video
-  sudo pacman -S --noconfirm --needed audacity openshot shotcut quodlibet vlc
+  sudo pacman -S --noconfirm --needed openshot shotcut quodlibet vlc
   $ZB -S --noconfirm --needed makemkv olive lbry-app-bin
   #System Utilities
   sudo pacman -S --noconfirm --needed cockpit cockpit-machines cockpit-pcp cockpit-podman syncthing dconf-editor virt-manager dnsmasq virglrenderer qemu-arch-extra qemu-guest-agent pacmanlogviewer exfat-utils hardinfo deluge plank cairo-dock cairo-dock-plug-ins
