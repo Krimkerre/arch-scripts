@@ -662,8 +662,8 @@ function VC_INSTALL() {
     clear
     dialog --infobox "Installing AMD Video Drivers." 3 33
     sleep 2
-    sudo pacman -S --noconfirm --needed opencl-mesa amdvlk lib32-amdvlk lib32-opencl-mesa
-    #$ZB -S --noconfirm --needed amdgpu-pro-libgl lib32-amdgpu-pro-libgl
+    sudo pacman -S --noconfirm --needed opencl-mesa amdvlk lib32-amdvlk lib32-opencl-mesa vulkan-mesa-layers lib32-vulkan-mesa-layers mesa-vdpau lib32-mesa-vdpau
+    $ZB -S --noconfirm --needed amdgpu-pro-libgl lib32-amdgpu-pro-libgl
     dialog --infobox "Thanks for supporting a free and open vendor." 3 49
     sleep 2
   fi
