@@ -56,12 +56,14 @@ function DISPLAY_MANAGER() {
   clear
   echo "################################################################################"
   echo "### Which Login / Display Manager Do You Want To Install?                    ###"
-  echo "### 1)  LightDM GTK3                                                         ###"
-  echo "### 2)  LightDM WebKit2                                                      ###"
-  echo "### 3)  SDDM                                                                 ###"
-  echo "### 4)  GDM                                                                  ###"
-  echo "### 5)  Entrance                                                             ###"
-  echo "### 6)  LY                                                                   ###"
+  echo "###  1)  LightDM GTK3                                                        ###"
+  echo "###  2)  LightDM WebKit2                                                     ###"
+  echo "###  3)  SDDM                                                                ###"
+  echo "###  4)  GDM                                                                 ###"
+  echo "###  5)  Entrance                                                            ###"
+  echo "###  6)  LY                                                                  ###"
+  echo "###                                                                          ###"
+  echo "### 99)  None                                                                ###"
   echo "################################################################################"
   read case;
 
@@ -83,6 +85,9 @@ function DISPLAY_MANAGER() {
     ;;
     6)
     DM="ly"
+    ;;
+    99)
+    DM="none"
     ;;
   esac
 }
@@ -489,6 +494,11 @@ function INSTALL_DM() {
     sleep 2
     $ZB -S --noconfirm --needed ly
     sudo systemctl enable ly
+  fi
+  if [ ${DM} = "none" ]; then
+    clear
+    dialog --infobox "Installing No Login / Display Manager." 3 42
+    sleep 2
   fi
 }
 ### Install Desktop Environment Or Window Manager                            ###
