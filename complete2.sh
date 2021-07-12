@@ -403,7 +403,7 @@ function NEEDED_SOFTWARE() {
 ################################################################################
 function SOUNDSETUP() {
   clear
-  dialog --infobox "Installing Sound Files." 3 27
+  dialog --infobox "Installing Sound Subsystem." 3 31
   sleep 2
   sudo pacman -S --noconfirm --needed pulseaudio pulseaudio-alsa pavucontrol alsa-utils alsa-plugins alsa-lib alsa-firmware lib32-alsa-lib lib32-alsa-oss lib32-alsa-plugins gstreamer gst-plugins-good gst-plugins-bad gst-plugins-base gst-plugins-ugly volumeicon playerctl
 }
@@ -422,7 +422,7 @@ function BLUETOOTHSETUP() {
 ################################################################################
 function PRINTERSETUP() {
   clear
-  dialog --infobox "Installing Printer Support." 3 31
+  dialog --infobox "Installing Printer Subsystem." 3 33
   sleep 2
   sudo pacman -S --noconfirm --needed cups cups-pdf ghostscript gsfonts gutenprint gtk3-print-backends libcups system-config-printer foomatic-db foomatic-db-ppds foomatic-db-gutenprint-ppds foomatic-db-engine foomatic-db-nonfree foomatic-db-nonfree-ppds
   if [ ${HP_PRINT} = "yes" ]; then
@@ -439,7 +439,7 @@ function XORG_DISPLAY() {
   clear
   dialog --infobox "Installing XORG Display Manager." 3 36
   sleep 2
-  sudo pacman -S --noconfirm --needed xorg xorg-drivers xorg-xinit xterm kvantum-qt5 terminator
+  sudo pacman -S --noconfirm --needed xorg xorg-drivers xorg-xinit xterm kvantum-qt5 terminator mesa lib32-mesa glu lib32-glu mesa-demos lib32-mesa-demos libclc ocl-icd lib32-ocl-icd
 }
 ### Install Display Manager                                                  ###
 ################################################################################
@@ -662,7 +662,7 @@ function VC_INSTALL() {
     clear
     dialog --infobox "Installing AMD Video Drivers." 3 33
     sleep 2
-    sudo pacman -S --noconfirm --needed opencl-mesa lib32-opencl-mesa vulkan-mesa-layers lib32-vulkan-mesa-layers mesa-vdpau lib32-mesa-vdpau vulkan-radeon lib32-vulkan-radeon ocl-icd lib32-ocl-icd intel-compute-runtime intel-graphics-compiler intel-opencl-clang vulkan-icd-loader lib32-vulkan-icd-loader vkd3d lib32-vkd3d  vulkan-swrast  # Testing stuff amdvlk lib32-amdvlk
+    sudo pacman -S --noconfirm --needed opencl-mesa lib32-opencl-mesa vulkan-mesa-layers lib32-vulkan-mesa-layers mesa-vdpau lib32-mesa-vdpau vulkan-radeon lib32-vulkan-radeon intel-compute-runtime intel-graphics-compiler intel-opencl-clang vulkan-icd-loader lib32-vulkan-icd-loader vk3d lib32-vk3d vulkan-swrast libva-mesa-driver lib32-libva-mesa-driver  # Testing stuff amdvlk lib32-amdvlk
     $ZB -S --noconfirm --needed amdgpu-pro-libgl lib32-amdgpu-pro-libgl
     dialog --infobox "Thanks for supporting a free and open vendor." 3 49
     sleep 2
