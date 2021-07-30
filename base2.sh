@@ -524,7 +524,7 @@ function NEEDEDPKGS() {
   clear
   dialog --infobox "Installing Needed Packages." 3 31
   sleep 3
-  pacstrap /mnt neofetch git wget rsync htop openssh archlinux-wallpaper glances bashtop bpytop packagekit reflector bat mc lynx ncdu bwm-ng lsd gtop
+  pacstrap /mnt neofetch git wget rsync htop openssh archlinux-wallpaper glances python-defusedxml bashtop bpytop packagekit reflector bat mc lynx ncdu bwm-ng lsd gtop
 }
 
 ################################################################################
