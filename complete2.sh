@@ -515,7 +515,7 @@ function INSTALL_DE() {
     clear
     dialog --infobox "Installing The KDE Plasma Desktop Environment." 3 50
     sleep 2
-    sudo pacman -S --noconfirm --needed plasma kde-applications gnome-disk-utility redshift packagekit-qt5
+    sudo pacman -S --noconfirm --needed plasma kde-applications gnome-disk-utility redshift packagekit-qt5 telepathy-morse
   fi
   if [ ${DE_TOINST} = "xfce4" ]; then
     clear
