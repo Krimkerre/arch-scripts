@@ -624,7 +624,7 @@ function BOOT_CFG() {
     arch-chroot /mnt bootctl --path=/boot install
     # Loader Configuring
     rm /mnt/boot/loader/loader.conf
-    echo "default"$KNRL >> /mnt/boot/loader/loader.conf
+    echo "default "$KNRL >> /mnt/boot/loader/loader.conf
     echo "timeout 3" >> /mnt/boot/loader/loader.conf
     echo "console-mode max" >> /mnt/boot/loader/loader.conf
     echo "editor no" >> /mnt/boot/loader/loader.conf
