@@ -198,13 +198,16 @@ function WHATKRNL() {
   read case;
   case $case in
     1)
-    KNRL="linux linux-headers"
+    KNRL="linux"
+    KNRL_HEADERS="linux-headers"
     ;;
     2)
-    KNRL="linux-zen linux-zen-headers"
+    KNRL="linux-zen"
+    KNRL_HEADERS="linux-zen-headers"
     ;;
     3)
-    DRV_FMT="linux-lts linux-lts-headers"
+    KNRL="linux-lts"
+    KNRL_HEADERS="linux-lts-headers"
     ;;
   esac
 }
@@ -434,7 +437,7 @@ function BASEPKG() {
   clear
   dialog --infobox "Installing The Base Packages." 3 33
   sleep 3
-  pacstrap /mnt base base-devel linux-firmware $KNRL nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils terminus-font ntp dialog
+  pacstrap /mnt base base-devel linux-firmware $KNRL $KNRL_HEADERS nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils terminus-font ntp dialog
   genfstab -U /mnt >> /mnt/etc/fstab
 }
 
@@ -621,16 +624,16 @@ function BOOT_CFG() {
     arch-chroot /mnt bootctl --path=/boot install
     # Loader Configuring
     rm /mnt/boot/loader/loader.conf
-    echo "default arch" >> /mnt/boot/loader/loader.conf
+    echo "default"$KNRL >> /mnt/boot/loader/loader.conf
     echo "timeout 3" >> /mnt/boot/loader/loader.conf
     echo "console-mode max" >> /mnt/boot/loader/loader.conf
     echo "editor no" >> /mnt/boot/loader/loader.conf
     # Arch Linux - Standard Kernel
-    echo "title Arch Linux" >> /mnt/boot/loader/entries/arch.conf
-    echo "linux /vmlinuz-linux" >> /mnt/boot/loader/entries/arch.conf
+    echo "title Arch"$KNRL >> /mnt/boot/loader/entries/arch.conf
+    echo "linux /vmlinuz-"$KNRL >> /mnt/boot/loader/entries/arch.conf
     echo "#initrd  /intel-ucode.img" >> /mnt/boot/loader/entries/arch.conf
     echo "#initrd /amd-ucode.img" >> /mnt/boot/loader/entries/arch.conf
-    echo "initrd  /initramfs-linux.img" >> /mnt/boot/loader/entries/arch.conf
+    echo "initrd  /initramfs-"$KNRL".img" >> /mnt/boot/loader/entries/arch.conf
     echo "options root=PARTUUID="$(blkid -s PARTUUID -o value "$HD"2)" nowatchdog rw" >> /mnt/boot/loader/entries/arch.conf
     # Arch Linux - Fallback Kernel
     echo "title Arch Linux-Fallback" >> /mnt/boot/loader/entries/arch-fallback.conf
