@@ -629,7 +629,7 @@ function BOOT_CFG() {
     echo "console-mode max" >> /mnt/boot/loader/loader.conf
     echo "editor no" >> /mnt/boot/loader/loader.conf
     # Arch Linux - Standard Kernel
-    echo "title Arch"$KNRL >> /mnt/boot/loader/entries/arch.conf
+    echo "title Arch "$KNRL >> /mnt/boot/loader/entries/arch.conf
     echo "linux /vmlinuz-"$KNRL >> /mnt/boot/loader/entries/arch.conf
     echo "#initrd  /intel-ucode.img" >> /mnt/boot/loader/entries/arch.conf
     echo "#initrd /amd-ucode.img" >> /mnt/boot/loader/entries/arch.conf
