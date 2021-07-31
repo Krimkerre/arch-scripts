@@ -185,6 +185,30 @@ function SWAP_TYPE() {
     ;;
   esac
 }
+### Ask what format kernel to use
+################################################################################
+function WHATKRNL() {
+  clear
+  echo "##############################################################################"
+  echo "### What is your preferred Kernel                                          ###"
+  echo "### 1)  Standard Linux Kernel                                              ###"
+  echo "### 2)  Zen Performance Kernel                                             ###"
+  echo "### 3)  LTS (Long Time Support) Kernel                                     ###"
+  echo "##############################################################################"
+  read case;
+  case $case in
+    1)
+    KNRL="linux linux-headers"
+    ;;
+    2)
+    KNRL="linux-zen linux-zen-headers"
+    ;;
+    3)
+    DRV_FMT="linux-lts linux-lts-headers"
+    ;;
+  esac
+}
+
 
 ################################################################################
 ### Set Enviroment Variables                                                 ###
@@ -410,7 +434,7 @@ function BASEPKG() {
   clear
   dialog --infobox "Installing The Base Packages." 3 33
   sleep 3
-  pacstrap /mnt base base-devel linux linux-firmware linux-headers nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils terminus-font ntp dialog
+  pacstrap /mnt base base-devel linux-firmware $KNRL nano networkmanager man-db man-pages git btrfs-progs systemd-swap xfsprogs reiserfsprogs jfsutils nilfs-utils terminus-font ntp dialog
   genfstab -U /mnt >> /mnt/etc/fstab
 }
 
@@ -524,7 +548,7 @@ function NEEDEDPKGS() {
   clear
   dialog --infobox "Installing Needed Packages." 3 31
   sleep 3
-  pacstrap /mnt neofetch git wget rsync htop openssh archlinux-wallpaper glances python-defusedxml bashtop bpytop packagekit reflector bat mc lynx ncdu bwm-ng lsd gtop
+  pacstrap /mnt neofetch git wget rsync htop openssh archlinux-wallpaper glances bashtop bpytop packagekit reflector bat mc lynx ncdu bwm-ng lsd gtop
 }
 
 ################################################################################
@@ -655,6 +679,7 @@ DRVSELECT
 WHATFMT
 BOOTTYPE
 SWAP_TYPE
+WHATKRNL
 ### Getting Started
 ################################################################################
 PARTHD
