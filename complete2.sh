@@ -649,7 +649,7 @@ function INSTALL_DE() {
     clear
     dialog --infobox "Installing The Cutefish Desktop Environment." 3 48
     sleep 2
-    sudo pacman -S --noconfirm --needed cutefish
+    sudo pacman -S --noconfirm --needed cutefish variety onboard ark file-roller unrar p7zip gnome-disk-utility eog
   fi
   if [ ${DE_TOINST} = "none" ]; then
     clear
