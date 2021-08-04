@@ -179,6 +179,7 @@ function WHAT_DE() {
   echo "### 10)  I3                                                                  ###"
   echo "### 11)  Sway                                                                ###"
   echo "### 12)  BSPWM                                                               ###"
+  echo "### 13)  Cutefish                                                            ###"
   echo "###                                                                          ###"
   echo "### 99)  None (CLI Only)                                                     ###"
   echo "################################################################################"
@@ -220,6 +221,9 @@ function WHAT_DE() {
     ;;
     12)
     DE_TOINST="bspwm"
+    ;;
+    13)
+    DE_TOINST="cutefish"
     ;;
     99)
     DE_TOINST="none"
@@ -640,6 +644,12 @@ function INSTALL_DE() {
     echo "alias conf='nano ~/.config/bspwm/bspwmrc'" >> ~/.bashrc
     echo "alias conf-key='nano ~/.config/sxhkd/sxhkdrc'" >> ~/.bashrc
     echo "alias conf-bar='nano ~/.config/polybar/config'" >> ~/.bashrc
+  fi
+  if [ ${DE_TOINST} = "cutefish" ]; then
+    clear
+    dialog --infobox "Installing The Cutefish Desktop Environment." 3 48
+    sleep 2
+    sudo pacman -S --noconfirm --needed cutefish
   fi
   if [ ${DE_TOINST} = "none" ]; then
     clear
