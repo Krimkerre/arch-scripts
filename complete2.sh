@@ -720,7 +720,7 @@ function INSTALL_EXTRASOFTWARE() {
   $ZB -S --noconfirm --needed mattercontrol
   #Accessories
   sudo pacman -S --noconfirm --needed cool-retro-term
-  $ZB -S --noconfirm --needed isomaster multibootusb-git ventoy-bin mintstick-git rpi-imager
+  $ZB -S --noconfirm --needed isomaster ventoy-bin mintstick-git rpi-imager
   #Chat
   sudo pacman -S --noconfirm --needed hexchat teamspeak3 telegram-desktop discord
   $ZB -S --noconfirm --needed skypeforlinux-preview-bin zoom
