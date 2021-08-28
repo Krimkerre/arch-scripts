@@ -339,7 +339,7 @@ function DRV_SETUP() {
           btrfs su cr /mnt/@cache
           btrfs su cr /mnt/@log
           btrfs su cr /mnt/@.snapshots
-          umount /mnt
+          umount -R /mnt
           mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@ ${HD}2 /mnt
           mkdir /mnt/{boot,home,var/cache,var/log,.snapshots}
           mount -o subvol=@boot ${HD}2 /mnt/boot
