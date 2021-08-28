@@ -94,10 +94,10 @@ function WHATFMT() {
   echo "### What is your preferred drive format                                    ###"
   echo "### 1)  EXT4 - Standard Linux Format                                       ###"
   echo "### 2)  BTRFS                                  (Not Working Yet)           ###"
-  echo "### 3)  XFS                                    (Not Working Yet)           ###"
-  echo "### 4)  ReiserFS                               (Not Working Yet)           ###"
-  echo "### 5)  JFS                                    (Not Working Yet)           ###"
-  echo "### 6)  NILFS2                                 (Not Working Yet)           ###"
+  echo "### 3)  XFS                                                                ###"
+  echo "### 4)  ReiserFS                                                           ###"
+  echo "### 5)  JFS                                                                ###"
+  echo "### 6)  NILFS2                                                             ###"
   echo "##############################################################################"
   read case;
   case $case in
@@ -330,6 +330,23 @@ function DRV_SETUP() {
         if [ ${NVME_HD} = "no" ]; then
           mkfs.fat -F32 ${HD}1
           mkfs.btrfs -f ${HD}2
+          mount ${HD}2 /mnt
+          mkdir /mnt/boot
+          mount ${HD}1 /mnt/boot
+          btrfs su cr /mnt/@
+          btrfs su cr /mnt/@home
+          btrfs su cr /mnt/@boot
+          btrfs su cr /mnt/@cache
+          btrfs su cr /mnt/@log
+          btrfs su cr /mnt/@.snapshots
+          umount /mnt
+          mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@ ${HD}2 /mnt
+          mkdir /mnt/{boot,home,var/cache,var/log,.snapshots}
+          mount -o subvol=@boot ${HD}2 /mnt/boot
+          mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@home ${HD}2 /mnt/home
+          mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@cache ${HD}2 /mnt/var/cache
+          mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@log ${HD}2 /mnt/var/log
+          mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@.snapshots ${HD}2 /mnt/.snapshots
         fi
         if [ ${NVME_HD} = "yes" ]; then
           mkfs.fat -F32 ${HD}p1
@@ -349,14 +366,21 @@ function DRV_SETUP() {
         if [ ${NVME_HD} = "no" ]; then
           mkfs.fat -F32 ${HD}1
           mkfs.xfs -f ${HD}2
+          mount ${HD}2 /mnt
+          mkdir /mnt/boot
+          mount ${HD}1 /mnt/boot
         fi
         if [ ${NVME_HD} = "yes" ]; then
           mkfs.fat -F32 ${HD}p1
           mkfs.xfs -f ${HD}p2
+          mount ${HD}p2 /mnt
+          mkdir /mnt/boot
+          mount ${HD}p1 /mnt/boot
         fi
       else
         #BIOS Partition
         mkfs.xfs -f ${HD}1
+        mount ${HD}1 /mnt
       fi
     fi
     if [ "${DRV_FMT}" = "reiserfs" ]; then
@@ -368,14 +392,21 @@ function DRV_SETUP() {
         if [ ${NVME_HD} = "no" ]; then
           mkfs.fat -F32 ${HD}1
           mkfs.reiserfs -f ${HD}2
+          mount ${HD}2 /mnt
+          mkdir /mnt/boot
+          mount ${HD}1 /mnt/boot
         fi
         if [ ${NVME_HD} = "yes" ]; then
           mkfs.fat -F32 ${HD}p1
           mkfs.reiserfs -f ${HD}p2
+          mount ${HD}p2 /mnt
+          mkdir /mnt/boot
+          mount ${HD}p1 /mnt/boot
         fi
       else
         #BIOS Partition
         mkfs.reiserfs -f ${HD}1
+        mount ${HD}1 /mnt
       fi
     fi
     if [ "${DRV_FMT}" = "jfs" ]; then
@@ -387,14 +418,21 @@ function DRV_SETUP() {
         if [ ${NVME_HD} = "no" ]; then
           mkfs.fat -F32 ${HD}1
           mkfs.jfs -f ${HD}2
+          mount ${HD}2 /mnt
+          mkdir /mnt/boot
+          mount ${HD}1 /mnt/boot
         fi
         if [ ${NVME_HD} = "yes" ]; then
           mkfs.fat -F32 ${HD}p1
           mkfs.jfs -f ${HD}p2
+          mount ${HD}p2 /mnt
+          mkdir /mnt/boot
+          mount ${HD}p1 /mnt/boot
         fi
       else
         #BIOS Partition
         mkfs.jfs -f ${HD}1
+        mount ${HD}1 /mnt
       fi
     fi
     if [ "${DRV_FMT}" = "nilfs2" ]; then
@@ -406,14 +444,21 @@ function DRV_SETUP() {
         if [ ${NVME_HD} = "no" ]; then
           mkfs.fat -F32 ${HD}1
           mkfs.nilfs2 -f ${HD}2
+          mount ${HD}2 /mnt
+          mkdir /mnt/boot
+          mount ${HD}1 /mnt/boot
         fi
         if [ ${NVME_HD} = "yes" ]; then
           mkfs.fat -F32 ${HD}p1
           mkfs.nilfs2 -f ${HD}p2
+          mount ${HD}p2 /mnt
+          mkdir /mnt/boot
+          mount ${HD}p1 /mnt/boot
         fi
       else
         #BIOS Partition
         mkfs.nilfs2 -f ${HD}1
+        mount ${HD}1 /mnt
       fi
     fi
 }
