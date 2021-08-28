@@ -339,13 +339,12 @@ function DRV_SETUP() {
           btrfs su cr /mnt/@.snapshots
           umount -R /mnt
           mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@ ${HD}2 /mnt
-          mkdir -p /mnt/{home,var/cache,var/log,.snapshots}
-          mount -o subvol=@boot ${HD}2 /mnt/boot
+          mkdir -p /mnt/{boot,home,var/cache,var/log,.snapshots}
+          #mount -o subvol=@boot ${HD}2 /mnt/boot
           mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@home ${HD}2 /mnt/home
           mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@cache ${HD}2 /mnt/var/cache
           mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@log ${HD}2 /mnt/var/log
           mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@.snapshots ${HD}2 /mnt/.snapshots
-          mkdir /mnt/boot
           mount ${HD}1 /mnt/boot
         fi
         if [ ${NVME_HD} = "yes" ]; then
