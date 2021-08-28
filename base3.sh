@@ -333,7 +333,7 @@ function DRV_SETUP() {
           mount ${HD}2 /mnt
           btrfs su cr /mnt/@
           btrfs su cr /mnt/@home
-          btrfs su cr /mnt/@boot
+          #btrfs su cr /mnt/@boot
           btrfs su cr /mnt/@cache
           btrfs su cr /mnt/@log
           btrfs su cr /mnt/@.snapshots
