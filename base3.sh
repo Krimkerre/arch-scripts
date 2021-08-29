@@ -333,19 +333,18 @@ function DRV_SETUP() {
           mount ${HD}2 /mnt
           btrfs su cr /mnt/@
           btrfs su cr /mnt/@home
-          #btrfs su cr /mnt/@boot
+          btrfs su cr /mnt/@boot
           btrfs su cr /mnt/@cache
           btrfs su cr /mnt/@log
           btrfs su cr /mnt/@.snapshots
           umount -R /mnt
           mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@ ${HD}2 /mnt
           mkdir -p /mnt/{boot,home,var/cache,var/log,.snapshots}
-          #mount -o subvol=@boot ${HD}2 /mnt/boot
+          mount -o subvol=@boot ${HD}1 /mnt/boot
           mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@home ${HD}2 /mnt/home
           mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@cache ${HD}2 /mnt/var/cache
           mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@log ${HD}2 /mnt/var/log
           mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@.snapshots ${HD}2 /mnt/.snapshots
-          mount ${HD}1 /mnt/boot
         fi
         if [ ${NVME_HD} = "yes" ]; then
           mkfs.fat -F32 ${HD}p1
