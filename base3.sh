@@ -335,10 +335,10 @@ function DRV_SETUP() {
           btrfs subvolume create /mnt/@var
           btrfs subvolume create /mnt/@snapshots
           umount /mnt
-          mount -o noatime,compress=lzo,space_cache,subvol=@root /dev/sda3 /mnt
+          mount -o noatime,compress=lzo,space_cache,subvol=@root ${HD}2 /mnt
           mkdir /mnt/{boot,var,.snapshots}
-          mount -o noatime,compress=lzo,space_cache,subvol=@var /dev/sda3 /mnt/var
-          mount -o noatime,compress=lzo,space_cache,subvol=@snapshots /dev/sda3 /mnt/.snapshots
+          mount -o noatime,compress=lzo,space_cache,subvol=@var ${HD}2 /mnt/var
+          mount -o noatime,compress=lzo,space_cache,subvol=@snapshots ${HD}2 /mnt/.snapshots
           mount ${HD}1 /mnt/boot
         fi
         if [ ${NVME_HD} = "yes" ]; then
