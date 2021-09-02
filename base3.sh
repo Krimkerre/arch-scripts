@@ -331,15 +331,20 @@ function DRV_SETUP() {
           mkfs.fat -F32 ${HD}1
           mkfs.btrfs -f ${HD}2
           mount ${HD}2 /mnt
-          btrfs subvolume create /mnt/@root
-          btrfs subvolume create /mnt/@var
-          btrfs subvolume create /mnt/@snapshots
+          btrfs su cr /mnt/@
+          btrfs su cr /mnt/@home
+          btrfs su cr /mnt/@boot
+          btrfs su cr /mnt/@cache
+          btrfs su cr /mnt/@log
+          btrfs su cr /mnt/@.snapshots
           umount /mnt
-          mount -o noatime,compress=lzo,space_cache,subvol=@root ${HD}2 /mnt
-          mkdir /mnt/{boot,var,.snapshots}
-          mount -o noatime,compress=lzo,space_cache,subvol=@var ${HD}2 /mnt/var
-          mount -o noatime,compress=lzo,space_cache,subvol=@snapshots ${HD}2 /mnt/.snapshots
-          mount ${HD}1 /mnt/boot
+          mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@ ${HD}2 /mnt
+          mkdir /mnt/{boot,home,var/cache,var/log,.snapshots}
+          mount -o subvol=@boot ${HD}1 /mnt/boot
+          mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@home ${HD}2 /mnt/home
+          mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@cache ${HD}2 /mnt/var/cache
+          mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@log ${HD}2 /mnt/var/log
+          mount -o noatime,commit=120,compress=zstd,space_cache,subvol=@.snapshots ${HD}2 /mnt/.snapshots
         fi
         if [ ${NVME_HD} = "yes" ]; then
           mkfs.fat -F32 ${HD}p1
