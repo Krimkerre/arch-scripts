@@ -108,7 +108,7 @@ bindsym $mod+ctrl+o exec --no-startup-id $HOME/bin/block
 #bindsym --release Print exec scrot -e 'mv $f ~/Pictures/shots/ && feh ~/Pictures/shots/$f'
 bindsym --release $mod+Print exec scrot -u -e 'mv $f ~/Pictures/shots/ && feh ~/Pictures/shots/$f'
 bindsym --release $mod+Shift+Print exec scrot -s -e 'mv $f ~/Pictures/shots/ && eog ~/Pictures/shots/$f'
-bindsym Print exec /usr/bin/xfce4-screenshot
+bindsym Print exec /usr/bin/xfce4-screenshooter
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -262,6 +262,7 @@ bindsym $mod+Delete mode "$mode_system"
     bindsym $mod+shift+Home exec nm-applet
     bindsym $mod+End exec killall pnmixer
     bindsym $mod+shift+End exec pnmixer
+    bindsym $mod+shift+n exec nitrogen --random --set-zoom-fill
 
 # Window Colors
 
