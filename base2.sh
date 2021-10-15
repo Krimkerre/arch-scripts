@@ -610,6 +610,8 @@ function BASHRC_CONF() {
   echo "alias video='ytfzf -t --upload-time=today '" >> /mnt/etc/skel/.bashrc
   echo "alias videos='ytfzf -tS '" >> /mnt/etc/skel/.bashrc
   echo "alias cpu='cpufetch'" >> /mnt/etc/skel/.bashrc
+  echo "alias info='clear&&neofetch'" >> /mnt/etc/skel/.bashrc
+  echo "alias ref-update='sudo reflector --country US --latest 20 --sort rate --verbose --save /etc/pacman.d/mirrorlist'" >> /mnt/etc/skel/.bashrc
 }
 
 ################################################################################
