@@ -554,7 +554,7 @@ function INSTALL_DE() {
     clear
     dialog --infobox "Installing The Cinnamon Desktop Environment." 3 48
     sleep 2
-    sudo pacman -S --noconfirm --needed cinnamon gnome-disk-utility gnome-system-monitor gnome-calculator gpicview gedit variety onboard ark file-roller unrar p7zip
+    sudo pacman -S --noconfirm --needed cinnamon gnome-disk-utility gnome-system-monitor gnome-calculator gpicview gedit variety onboard ark file-roller unrar p7zip nemo-fileroller nemo-share
     $ZB -S --noconfirm --needed mint-themes cinnamon-sound-effects
   fi
   if [ ${DE_TOINST} = "lxde" ]; then
