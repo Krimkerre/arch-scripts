@@ -716,7 +716,7 @@ function INSTALL_EXTRASOFTWARE() {
   dialog --infobox "Installing Extra Software." 3 31
   sleep 2
   #3d Printer
-  sudo pacman -S --noconfirm --needed cura prusa-slicer
+  sudo pacman -S --noconfirm --needed cura cura-resources-materials prusa-slicer
   $ZB -S --noconfirm --needed mattercontrol
   #Accessories
   sudo pacman -S --noconfirm --needed cool-retro-term
