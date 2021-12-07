@@ -735,7 +735,7 @@ function INSTALL_EXTRASOFTWARE() {
   #Office
   sudo pacman -S --noconfirm --needed homebank
   #Programming
-  sudo pacman -S --noconfirm --needed atom meld rust rust-docs rust-racer uncrustify
+  sudo pacman -S --noconfirm --needed atom meld rust rust-racer uncrustify
   #Sound/Video
   sudo pacman -S --noconfirm --needed openshot shotcut quodlibet vlc
   $ZB -S --noconfirm --needed makemkv olive lbry-app-bin
