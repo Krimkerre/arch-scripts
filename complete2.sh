@@ -507,8 +507,20 @@ function INSTALL_DM() {
     sed -i 's/'twm'/'#twm'/g' .xinitrc
     sed -i 's/'xclock'/'#xclock'/g' .xinitrc
     sed -i 's/'xterm'/'#xterm'/g' .xinitrc
-    if [[ $DE_TOINST == "GNOME" ]]; then
+    if [[ $DE_TOINST == "gnome" ]]; then
       echo "exec gnome-session" >> .xinitrc
+    fi
+    if [[ $DE == "deepin" ]]; then
+      echo "exec startdde" >> .xinitrc
+    fi
+    if [[ $DE == "plasma" ]]; then
+      echo "exec startplasma-x11" >> .xinitrc
+    fi
+    if [[ $DE == "mate" ]]; then
+      echo "exec mate-session" >> .xinitrc
+    fi
+    if [[ $DE == "xfce4" ]]; then
+      echo "exec startxfce4" >> .xinitrc
     fi
   fi
 }
