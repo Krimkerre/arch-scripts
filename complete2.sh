@@ -503,6 +503,12 @@ function INSTALL_DM() {
     clear
     dialog --infobox "Installing No Login / Display Manager." 3 42
     sleep 2
+    sed -i 's/'twm'/'#twm'/g' .xinitrc
+    sed -i 's/'xclock'/'#xclock'/g' .xinitrc
+    sed -i 's/'xterm'/'#xterm'/g' .xinitrc
+    if [[ $DE_TOINST == "GNOME" ]]; then
+      echo "exec gnome-session" >> .xinitrc
+    fi
   fi
 }
 ### Install Desktop Environment Or Window Manager                            ###
