@@ -503,6 +503,7 @@ function INSTALL_DM() {
     clear
     dialog --infobox "Installing No Login / Display Manager." 3 42
     sleep 2
+    cp /etc/X11/xinitrc ~/.xinitrc
     sed -i 's/'twm'/'#twm'/g' .xinitrc
     sed -i 's/'xclock'/'#xclock'/g' .xinitrc
     sed -i 's/'xterm'/'#xterm'/g' .xinitrc
