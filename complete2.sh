@@ -522,6 +522,30 @@ function INSTALL_DM() {
     if [[ $DE == "xfce4" ]]; then
       echo "exec startxfce4" >> .xinitrc
     fi
+    if [[ $DE == "budgie" ]]; then
+      echo "exec budgie-desktop" >> .xinitrc
+    fi
+    if [[ $DE == "cinnamon" ]]; then
+      echo "exec cinnamon-session" >> .xinitrc
+    fi
+    if [[ $DE == "lxde" ]]; then
+      echo "exec startlxde" >> .xinitrc
+    fi
+    if [[ $DE == "lxqt" ]]; then
+      echo "exec startlxqt" >> .xinitrc
+    fi
+    if [[ $DE == "i3" ]]; then
+      echo "exec i3" >> .xinitrc
+    fi
+    if [[ $DE == "bspwm" ]]; then
+      echo "exec bspwm" >> .xinitrc
+    fi
+    if [[ $DE == "sway" ]]; then
+      echo "exec sway" >> .xinitrc
+    fi
+    if [[ $DE == "cutefish" ]]; then
+      echo "exec cutefish" >> .xinitrc
+    fi
   fi
 }
 ### Install Desktop Environment Or Window Manager                            ###
