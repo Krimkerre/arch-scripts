@@ -510,40 +510,40 @@ function INSTALL_DM() {
     if [[ $DE_TOINST == "gnome" ]]; then
       echo "exec gnome-session" >> .xinitrc
     fi
-    if [[ $DE == "deepin" ]]; then
+    if [[ $DE_TOINST == "deepin" ]]; then
       echo "exec startdde" >> .xinitrc
     fi
-    if [[ $DE == "plasma" ]]; then
+    if [[ $DE_TOINST == "plasma" ]]; then
       echo "exec startplasma-x11" >> .xinitrc
     fi
-    if [[ $DE == "mate" ]]; then
+    if [[ $DE_TOINST == "mate" ]]; then
       echo "exec mate-session" >> .xinitrc
     fi
-    if [[ $DE == "xfce4" ]]; then
+    if [[ $DE_TOINST == "xfce4" ]]; then
       echo "exec startxfce4" >> .xinitrc
     fi
-    if [[ $DE == "budgie" ]]; then
+    if [[ $DE_TOINST == "budgie" ]]; then
       echo "exec budgie-desktop" >> .xinitrc
     fi
-    if [[ $DE == "cinnamon" ]]; then
+    if [[ $DE_TOINST == "cinnamon" ]]; then
       echo "exec cinnamon-session" >> .xinitrc
     fi
-    if [[ $DE == "lxde" ]]; then
+    if [[ $DE_TOINST == "lxde" ]]; then
       echo "exec startlxde" >> .xinitrc
     fi
-    if [[ $DE == "lxqt" ]]; then
+    if [[ $DE_TOINST == "lxqt" ]]; then
       echo "exec startlxqt" >> .xinitrc
     fi
-    if [[ $DE == "i3" ]]; then
+    if [[ $DE_TOINST == "i3" ]]; then
       echo "exec i3" >> .xinitrc
     fi
-    if [[ $DE == "bspwm" ]]; then
+    if [[ $DE_TOINST == "bspwm" ]]; then
       echo "exec bspwm" >> .xinitrc
     fi
-    if [[ $DE == "sway" ]]; then
+    if [[ $DE_TOINST == "sway" ]]; then
       echo "exec sway" >> .xinitrc
     fi
-    if [[ $DE == "cutefish" ]]; then
+    if [[ $DE_TOINST == "cutefish" ]]; then
       echo "exec cutefish" >> .xinitrc
     fi
   fi
