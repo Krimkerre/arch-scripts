@@ -555,7 +555,7 @@ function INSTALL_DE() {
     clear
     dialog --infobox "Installing The Gnome Desktop Environment." 3 45
     sleep 2
-    sudo pacman -S --noconfirm --needed gnome gnome-extra nautilus-share variety gnome-packagekit gnome-software-packagekit-plugin
+    sudo pacman -S --noconfirm --needed gnome gnome-extra nautilus-share variety gnome-packagekit gnome-software-packagekit-plugin gtk-engine-murrine gtk-engines gnome-themes-extra
     $ZB -S --noconfirm --needed chrome-gnome-shell
   fi
   if [ ${DE_TOINST} = "plasma" ]; then
